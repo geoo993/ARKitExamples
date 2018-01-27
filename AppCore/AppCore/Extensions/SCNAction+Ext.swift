@@ -39,7 +39,7 @@ public extension SCNAction {
     return SCNAction.sequence([wait,runBlock])
   }
   
-  public class func rotateForeverBy(_ x:CGFloat, y:CGFloat, z:CGFloat, duration:TimeInterval) -> SCNAction {
+  public class func rotateForeverBy(x:CGFloat, y:CGFloat, z:CGFloat, duration:TimeInterval) -> SCNAction {
     let rotate = SCNAction.rotateBy(x: x, y: y, z: z, duration: duration)
     return SCNAction.repeatForever(rotate)
   }
