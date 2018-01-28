@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:DrivingCar/DrivingCar.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:IKEA/IKEA.xcodeproj">
    </FileRef>
    <FileRef

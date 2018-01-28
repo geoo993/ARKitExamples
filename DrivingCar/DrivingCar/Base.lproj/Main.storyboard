@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1cy-Wp-nZL">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Driving Car View Controller-->
+        <scene sceneID="XnI-U1-qO0">
+            <objects>
+                <viewController storyboardIdentifier="DrivingCarViewController" id="1cy-Wp-nZL" customClass="DrivingCarViewController" customModule="DrivingCar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="izg-ti-ST9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6a-Od-PDk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQ9-ss-1N8">
+                                <rect key="frame" x="20" y="590.5" width="56.5" height="56.5"/>
+                                <color key="backgroundColor" name="Tan"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eQ9-ss-1N8" secondAttribute="height" multiplier="1:1" id="Kpe-yG-c5H"/>
+                                </constraints>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addCar:" destination="1cy-Wp-nZL" eventType="touchUpInside" id="nnp-Da-RNk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eQ9-ss-1N8" firstAttribute="leading" secondItem="Pne-7d-gDp" secondAttribute="leading" constant="20" id="04K-Ug-PZ3"/>
+                            <constraint firstItem="eQ9-ss-1N8" firstAttribute="width" secondItem="izg-ti-ST9" secondAttribute="width" multiplier="0.15" id="GLE-GO-OPt"/>
+                            <constraint firstItem="Pne-7d-gDp" firstAttribute="bottom" secondItem="eQ9-ss-1N8" secondAttribute="bottom" constant="20" id="IMS-14-qvQ"/>
+                            <constraint firstItem="X6a-Od-PDk" firstAttribute="centerY" secondItem="izg-ti-ST9" secondAttribute="centerY" id="PyS-lK-kWc"/>
+                            <constraint firstItem="X6a-Od-PDk" firstAttribute="width" secondItem="izg-ti-ST9" secondAttribute="width" id="T7Z-Ax-eT9"/>
+                            <constraint firstItem="X6a-Od-PDk" firstAttribute="height" secondItem="izg-ti-ST9" secondAttribute="height" id="ch3-pz-7CG"/>
+                            <constraint firstItem="X6a-Od-PDk" firstAttribute="centerX" secondItem="izg-ti-ST9" secondAttribute="centerX" id="lrN-cm-j25"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eQ9-ss-1N8" secondAttribute="trailing" constant="20" symbolic="YES" id="ve4-Lm-c4v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Pne-7d-gDp"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="X6a-Od-PDk" id="0uF-6E-kyb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dht-SL-mal" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="134"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Tan">
+            <color red="0.82352941176470584" green="0.70588235294117652" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
