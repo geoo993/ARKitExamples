@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--IKEAViewController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="IKEAViewController" id="BYZ-38-t0r" userLabel="IKEAViewController" customClass="IKEAViewController" customModule="IKEA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqP-QR-lsL">
+                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="pRY-qZ-xXh"/>
+                                </connections>
+                            </arscnView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jWs-ay-SFs">
+                                <rect key="frame" x="0.0" y="600.5" width="375" height="66.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="30" id="Z9v-4n-QXR">
+                                    <size key="itemSize" width="120" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="itemsIdentifier" id="lYx-mi-oqX" customClass="IKEACollectionViewCell" customModule="IKEA" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="8.5" width="120" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SO-j7-lyJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="8SO-j7-lyJ" firstAttribute="height" secondItem="lYx-mi-oqX" secondAttribute="height" id="8qu-1c-RNH"/>
+                                            <constraint firstItem="8SO-j7-lyJ" firstAttribute="centerX" secondItem="lYx-mi-oqX" secondAttribute="centerX" id="Afb-gd-dfZ"/>
+                                            <constraint firstItem="8SO-j7-lyJ" firstAttribute="centerY" secondItem="lYx-mi-oqX" secondAttribute="centerY" id="HQS-2j-Zdd"/>
+                                            <constraint firstItem="8SO-j7-lyJ" firstAttribute="width" secondItem="lYx-mi-oqX" secondAttribute="width" id="ZZ8-7E-VSU"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                                <color key="value" name="Aqua"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="deSelectedColor">
+                                                <color key="value" name="Light Golden Rod Yellow"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shouldSelect" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="itemLabel" destination="8SO-j7-lyJ" id="4hr-wu-gTb"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="FLZ-qi-Eqv"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ndD-Y4-SbT"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jWs-ay-SFs" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1" id="6Eu-Sg-m6v"/>
+                            <constraint firstItem="kqP-QR-lsL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="MIq-bj-QWQ"/>
+                            <constraint firstItem="kqP-QR-lsL" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="MjG-Ev-Gw9"/>
+                            <constraint firstItem="jWs-ay-SFs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PZb-Pg-erm"/>
+                            <constraint firstItem="kqP-QR-lsL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XdO-2D-fnv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jWs-ay-SFs" secondAttribute="bottom" id="cg4-5K-snl"/>
+                            <constraint firstItem="jWs-ay-SFs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hsg-7C-VGq"/>
+                            <constraint firstItem="kqP-QR-lsL" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xIo-g2-7Z8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="itemsCollectionView" destination="jWs-ay-SFs" id="pFD-vP-Dsr"/>
+                        <outlet property="sceneView" destination="kqP-QR-lsL" id="q5g-zC-RGQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76" y="134.48275862068968"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Aqua">
+            <color red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Light Golden Rod Yellow">
+            <color red="0.98039215690000003" green="0.98039215690000003" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

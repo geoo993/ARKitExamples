@@ -33,6 +33,8 @@
 		C739E452201CAF900081259D /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E451201CAF900081259D /* SwiftRegex.swift */; };
 		C7B52659201C8A1D00134F00 /* AppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C7B52657201C8A1D00134F00 /* AppCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7B52660201C8B3400134F00 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B5265F201C8B3400134F00 /* Colors.xcassets */; };
+		C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */; };
+		C7C78560201E4BD20043604E /* SCNNode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		C7B52657201C8A1D00134F00 /* AppCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCore.h; sourceTree = "<group>"; };
 		C7B52658201C8A1D00134F00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7B5265F201C8B3400134F00 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellX.swift; sourceTree = "<group>"; };
+		C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 				C739E3E4201C91100081259D /* UIViewX.swift */,
 				C739E3E5201C91100081259D /* UIVisualEffectViewX.swift */,
 				C739E3E6201C91100081259D /* UISliderX.swift */,
+				C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */,
 			);
 			path = DesignableX;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 				C739E3FE201CA85A0081259D /* Double+Ext.swift */,
 				C739E416201CA85A0081259D /* Int+Ext.swift */,
 				C739E40C201CA85A0081259D /* SCNAction+Ext.swift */,
+				C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */,
 				C739E417201CA85A0081259D /* SCNVector3+Ext.swift */,
 				C739E404201CA85A0081259D /* Sequence+Ext.swift */,
 				C739E44F201CAB8C0081259D /* String+Ext.swift */,
@@ -237,6 +243,7 @@
 				C739E446201CA85A0081259D /* UIDevice+Ext.swift in Sources */,
 				C739E43B201CA85A0081259D /* UIColor+Ext.swift in Sources */,
 				C739E42B201CA85A0081259D /* Double+Ext.swift in Sources */,
+				C7C78560201E4BD20043604E /* SCNNode+Ext.swift in Sources */,
 				C739E43C201CA85A0081259D /* CGFloat+Ext.swift in Sources */,
 				C739E450201CAB8C0081259D /* String+Ext.swift in Sources */,
 				C739E431201CA85A0081259D /* Sequence+Ext.swift in Sources */,
@@ -248,6 +255,7 @@
 				C739E3E8201C91100081259D /* UITextFieldX.swift in Sources */,
 				C739E449201CA85A0081259D /* CGRect+Ext.swift in Sources */,
 				C739E3E7201C91100081259D /* UIViewXRadialGradient.swift in Sources */,
+				C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */,
 				C739E3EC201C91100081259D /* UIViewControllerX.swift in Sources */,
 				C739E3ED201C91100081259D /* UIImageViewX.swift in Sources */,
 				C739E3E9201C91100081259D /* UIButtonX.swift in Sources */,

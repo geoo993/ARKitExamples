@@ -18,9 +18,9 @@ public class WackAJellyFishViewController: UIViewController {
     let configuration = ARWorldTrackingConfiguration()
     var jellyFishs = [SCNNode]()
     
-    @IBOutlet  var sceneView: ARSCNView!
-    @IBOutlet  var timerLabel: UILabel!
-    @IBOutlet  var play: UIButton!
+    @IBOutlet  weak var sceneView: ARSCNView!
+    @IBOutlet  weak var timerLabel: UILabel!
+    @IBOutlet  weak var play: UIButton!
     
     @IBAction func playAction(_ sender: UIButton) {
         setTimer()

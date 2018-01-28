@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class UISliderX: UISlider {
+public class UISliderX: UISlider {
 
     @IBInspectable var thumbImage: UIImage? {
         didSet {

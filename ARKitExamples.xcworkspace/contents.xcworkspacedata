@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:IKEA/IKEA.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:FloorIsLava/FloorIsLava.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:WackAJellyFish/WackAJellyFish.xcodeproj">
    </FileRef>
    <FileRef

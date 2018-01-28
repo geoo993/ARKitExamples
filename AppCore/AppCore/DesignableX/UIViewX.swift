@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class UIViewX: UIView {
+public class UIViewX: UIView {
     
     // MARK: - Gradient
     
@@ -31,7 +31,7 @@ class UIViewX: UIView {
         }
     }
     
-    override class var layerClass: AnyClass {
+    override public class var layerClass: AnyClass {
         get {
             return CAGradientLayer.self
         }

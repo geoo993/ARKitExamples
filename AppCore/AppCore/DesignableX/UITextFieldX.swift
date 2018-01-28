@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class UITextFieldX: UITextField {
+public class UITextFieldX: UITextField {
     
     @IBInspectable var leftImage: UIImage? {
         didSet {

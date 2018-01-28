@@ -13,7 +13,7 @@ import AppCore
 
 public class ARDrawingViewController: UIViewController {
 
-    @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var drawButton : UIButton!
     
     override public func viewDidLoad() {
