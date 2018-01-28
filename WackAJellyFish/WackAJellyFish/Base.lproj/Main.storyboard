@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Thin</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--WackA Jelly Fish View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="WackAJellyFishViewController" id="BYZ-38-t0r" customClass="WackAJellyFishViewController" customModule="WackAJellyFish" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aMF-rZ-xum">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejR-In-Dgz" userLabel="Timer Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xC-Xq-D1Y">
+                                        <rect key="frame" x="0.0" y="53.5" width="375" height="613.5"/>
+                                    </arscnView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ejR-In-Dgz" firstAttribute="height" secondItem="aMF-rZ-xum" secondAttribute="height" multiplier="0.08" id="Rzt-Zb-dtG"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqa-bM-3aT">
+                                <rect key="frame" x="20" y="572" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Yqa-bM-3aT" secondAttribute="height" multiplier="1:1" id="Pod-Ro-1na"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Play"/>
+                                <connections>
+                                    <action selector="playAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TLK-Pk-lYc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axh-my-nMo">
+                                <rect key="frame" x="280" y="572" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="axh-my-nMo" secondAttribute="height" multiplier="1:1" id="8tb-0t-Rzh"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Reset"/>
+                                <connections>
+                                    <action selector="resetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gtg-cA-26J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aMF-rZ-xum" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8Ub-Nu-DJx"/>
+                            <constraint firstItem="Yqa-bM-3aT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="B0x-h4-grD"/>
+                            <constraint firstItem="axh-my-nMo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="HAp-oq-BAO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="axh-my-nMo" secondAttribute="bottom" constant="20" id="N2I-dc-84P"/>
+                            <constraint firstItem="aMF-rZ-xum" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T47-uc-d2O"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Yqa-bM-3aT" secondAttribute="bottom" constant="20" id="TsQ-A8-bQ5"/>
+                            <constraint firstItem="Yqa-bM-3aT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Uku-lZ-Uzg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="axh-my-nMo" secondAttribute="trailing" constant="20" id="V4o-9w-75w"/>
+                            <constraint firstItem="aMF-rZ-xum" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="WgH-cQ-0vH"/>
+                            <constraint firstItem="aMF-rZ-xum" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="WqG-vj-w3D"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yqa-bM-3aT" secondAttribute="trailing" constant="20" symbolic="YES" id="dwi-lB-IAg"/>
+                            <constraint firstItem="axh-my-nMo" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="hPg-pX-avP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="play" destination="Yqa-bM-3aT" id="rTL-ee-KLp"/>
+                        <outlet property="sceneView" destination="9xC-Xq-D1Y" id="t6l-m6-ePz"/>
+                        <outlet property="timerLabel" destination="ejR-In-Dgz" id="2dW-1T-xZ6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="111.99400299850076"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Play" width="102" height="102"/>
+        <image name="Reset" width="102" height="102"/>
+    </resources>
+</document>

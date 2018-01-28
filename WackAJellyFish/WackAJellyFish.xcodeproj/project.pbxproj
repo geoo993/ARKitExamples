@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C7A46E81201D427400BD26CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A46E80201D427400BD26CB /* AppDelegate.swift */; };
+		C7A46E83201D427400BD26CB /* WackAJellyFishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A46E82201D427400BD26CB /* WackAJellyFishViewController.swift */; };
+		C7A46E86201D427400BD26CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E84201D427400BD26CB /* Main.storyboard */; };
+		C7A46E88201D427400BD26CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E87201D427400BD26CB /* Assets.xcassets */; };
+		C7A46E8B201D427400BD26CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E89201D427400BD26CB /* LaunchScreen.storyboard */; };
+		C7C8C687201D47CC00959FA2 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C686201D47CC00959FA2 /* AppCore.framework */; };
+		C7C8C688201D47CC00959FA2 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C686201D47CC00959FA2 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7C8C694201D4B7A00959FA2 /* JellyFish.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C8C693201D4B7A00959FA2 /* JellyFish.scnassets */; };
+		C7C8C696201D556800959FA2 /* Each.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C695201D556800959FA2 /* Each.framework */; };
+		C7C8C697201D556800959FA2 /* Each.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C695201D556800959FA2 /* Each.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C7C8C689201D47CC00959FA2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C7C8C688201D47CC00959FA2 /* AppCore.framework in Embed Frameworks */,
+				C7C8C697201D556800959FA2 /* Each.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C7A46E7D201D427400BD26CB /* WackAJellyFish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WackAJellyFish.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7A46E80201D427400BD26CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C7A46E82201D427400BD26CB /* WackAJellyFishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WackAJellyFishViewController.swift; sourceTree = "<group>"; };
+		C7A46E85201D427400BD26CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7A46E87201D427400BD26CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7A46E8A201D427400BD26CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7A46E8C201D427400BD26CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7C8C686201D47CC00959FA2 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7C8C693201D4B7A00959FA2 /* JellyFish.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = JellyFish.scnassets; sourceTree = "<group>"; };
+		C7C8C695201D556800959FA2 /* Each.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Each.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7A46E7A201D427400BD26CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7C8C687201D47CC00959FA2 /* AppCore.framework in Frameworks */,
+				C7C8C696201D556800959FA2 /* Each.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C7A46E74201D427400BD26CB = {
+			isa = PBXGroup;
+			children = (
+				C7C8C695201D556800959FA2 /* Each.framework */,
+				C7C8C686201D47CC00959FA2 /* AppCore.framework */,
+				C7A46E7F201D427400BD26CB /* WackAJellyFish */,
+				C7A46E7E201D427400BD26CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C7A46E7E201D427400BD26CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7A46E7D201D427400BD26CB /* WackAJellyFish.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7A46E7F201D427400BD26CB /* WackAJellyFish */ = {
+			isa = PBXGroup;
+			children = (
+				C7A46E80201D427400BD26CB /* AppDelegate.swift */,
+				C7A46E82201D427400BD26CB /* WackAJellyFishViewController.swift */,
+				C7A46E84201D427400BD26CB /* Main.storyboard */,
+				C7A46E87201D427400BD26CB /* Assets.xcassets */,
+				C7A46E89201D427400BD26CB /* LaunchScreen.storyboard */,
+				C7A46E8C201D427400BD26CB /* Info.plist */,
+				C7C8C693201D4B7A00959FA2 /* JellyFish.scnassets */,
+			);
+			path = WackAJellyFish;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7A46E7C201D427400BD26CB /* WackAJellyFish */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7A46E8F201D427400BD26CB /* Build configuration list for PBXNativeTarget "WackAJellyFish" */;
+			buildPhases = (
+				C7A46E79201D427400BD26CB /* Sources */,
+				C7A46E7A201D427400BD26CB /* Frameworks */,
+				C7A46E7B201D427400BD26CB /* Resources */,
+				C7C8C689201D47CC00959FA2 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WackAJellyFish;
+			productName = WackAJellyFish;
+			productReference = C7A46E7D201D427400BD26CB /* WackAJellyFish.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7A46E75201D427400BD26CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Geo Games";
+				TargetAttributes = {
+					C7A46E7C201D427400BD26CB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C7A46E78201D427400BD26CB /* Build configuration list for PBXProject "WackAJellyFish" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C7A46E74201D427400BD26CB;
+			productRefGroup = C7A46E7E201D427400BD26CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7A46E7C201D427400BD26CB /* WackAJellyFish */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7A46E7B201D427400BD26CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7A46E8B201D427400BD26CB /* LaunchScreen.storyboard in Resources */,
+				C7A46E88201D427400BD26CB /* Assets.xcassets in Resources */,
+				C7C8C694201D4B7A00959FA2 /* JellyFish.scnassets in Resources */,
+				C7A46E86201D427400BD26CB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7A46E79201D427400BD26CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7A46E83201D427400BD26CB /* WackAJellyFishViewController.swift in Sources */,
+				C7A46E81201D427400BD26CB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C7A46E84201D427400BD26CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7A46E85201D427400BD26CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C7A46E89201D427400BD26CB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7A46E8A201D427400BD26CB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7A46E8D201D427400BD26CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C7A46E8E201D427400BD26CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7A46E90201D427400BD26CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BM7962EZPA;
+				INFOPLIST_FILE = WackAJellyFish/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.WackAJellyFish";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C7A46E91201D427400BD26CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BM7962EZPA;
+				INFOPLIST_FILE = WackAJellyFish/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.WackAJellyFish";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7A46E78201D427400BD26CB /* Build configuration list for PBXProject "WackAJellyFish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7A46E8D201D427400BD26CB /* Debug */,
+				C7A46E8E201D427400BD26CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7A46E8F201D427400BD26CB /* Build configuration list for PBXNativeTarget "WackAJellyFish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7A46E90201D427400BD26CB /* Debug */,
+				C7A46E91201D427400BD26CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7A46E75201D427400BD26CB /* Project object */;
+}

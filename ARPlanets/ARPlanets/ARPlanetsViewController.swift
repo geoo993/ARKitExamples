@@ -14,7 +14,7 @@ import AppCore
 
 public class ARPlanetsViewController: UIViewController {
 
-    @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var sceneView: ARSCNView!
     
     override public func viewDidLoad() {
         super.viewDidLoad()

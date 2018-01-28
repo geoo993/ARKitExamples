@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:WackAJellyFish/WackAJellyFish.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ARPlanets/ARPlanets.xcodeproj">
    </FileRef>
    <FileRef
@@ -10,6 +13,19 @@
    <Group
       location = "group:Cartfile"
       name = "Cartfile">
+      <Group
+         location = "container:"
+         name = "Dependencies">
+         <FileRef
+            location = "group:Cartfile/Carthage/Checkouts/SDWebImage/SDWebImage.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Cartfile/Carthage/Checkouts/Each/Each.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Cartfile/Carthage/Checkouts/Chameleon/Chameleon.xcodeproj">
+         </FileRef>
+      </Group>
       <FileRef
          location = "group:Cartfile">
       </FileRef>

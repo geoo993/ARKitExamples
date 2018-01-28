@@ -1,0 +1,9 @@
+[submodule "Carthage/Checkouts/SDWebImage"]
+	path = Cartfile/Carthage/Checkouts/SDWebImage
+	url = https://github.com/rs/SDWebImage.git
+[submodule "Carthage/Checkouts/Chameleon"]
+	path = Cartfile/Carthage/Checkouts/Chameleon
+	url = https://github.com/ViccAlexander/Chameleon.git
+[submodule "Carthage/Checkouts/Each"]
+	path = Cartfile/Carthage/Checkouts/Each
+	url = https://github.com/dalu93/Each.git
