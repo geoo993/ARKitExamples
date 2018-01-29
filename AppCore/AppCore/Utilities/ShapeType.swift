@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import AppCore
 
-enum ShapeType:Int {
+public enum ShapeType:Int {
     
     case box
     case sphere
@@ -21,7 +20,7 @@ enum ShapeType:Int {
     case tube
     case path
     
-    static var random : ShapeType {
+    public static var random : ShapeType {
         let maxValue = path.rawValue
         let rand = Int.random(min: 0, max: maxValue) 
         return ShapeType(rawValue: rand)!

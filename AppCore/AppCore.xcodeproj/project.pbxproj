@@ -31,6 +31,12 @@
 		C739E449201CA85A0081259D /* CGRect+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E41C201CA85A0081259D /* CGRect+Ext.swift */; };
 		C739E450201CAB8C0081259D /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E44F201CAB8C0081259D /* String+Ext.swift */; };
 		C739E452201CAF900081259D /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E451201CAF900081259D /* SwiftRegex.swift */; };
+		C775DEC3201F2E80003457AD /* ShapeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEBF201F2E80003457AD /* ShapeGenerator.swift */; };
+		C775DEC4201F2E80003457AD /* NodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEC0201F2E80003457AD /* NodeGenerator.swift */; };
+		C775DEC5201F2E80003457AD /* ShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEC1201F2E80003457AD /* ShapeType.swift */; };
+		C775DEC6201F2E80003457AD /* GameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEC2201F2E80003457AD /* GameHelper.swift */; };
+		C775DECA201F3049003457AD /* CollisionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEC9201F3049003457AD /* CollisionTypes.swift */; };
+		C7A52AB6201F520F003614C0 /* SCNView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52AB5201F520F003614C0 /* SCNView+Ext.swift */; };
 		C7B52659201C8A1D00134F00 /* AppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C7B52657201C8A1D00134F00 /* AppCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7B52660201C8B3400134F00 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B5265F201C8B3400134F00 /* Colors.xcassets */; };
 		C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */; };
@@ -62,6 +68,12 @@
 		C739E41C201CA85A0081259D /* CGRect+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Ext.swift"; sourceTree = "<group>"; };
 		C739E44F201CAB8C0081259D /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		C739E451201CAF900081259D /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
+		C775DEBF201F2E80003457AD /* ShapeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeGenerator.swift; sourceTree = "<group>"; };
+		C775DEC0201F2E80003457AD /* NodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeGenerator.swift; sourceTree = "<group>"; };
+		C775DEC1201F2E80003457AD /* ShapeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeType.swift; sourceTree = "<group>"; };
+		C775DEC2201F2E80003457AD /* GameHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHelper.swift; sourceTree = "<group>"; };
+		C775DEC9201F3049003457AD /* CollisionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionTypes.swift; sourceTree = "<group>"; };
+		C7A52AB5201F520F003614C0 /* SCNView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNView+Ext.swift"; sourceTree = "<group>"; };
 		C7B52654201C8A1D00134F00 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B52657201C8A1D00134F00 /* AppCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCore.h; sourceTree = "<group>"; };
 		C7B52658201C8A1D00134F00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +140,26 @@
 			path = DeviceType;
 			sourceTree = "<group>";
 		};
+		C775DEBE201F2E80003457AD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C775DEBF201F2E80003457AD /* ShapeGenerator.swift */,
+				C775DEC0201F2E80003457AD /* NodeGenerator.swift */,
+				C775DEC1201F2E80003457AD /* ShapeType.swift */,
+				C775DEC2201F2E80003457AD /* GameHelper.swift */,
+				C775DEC9201F3049003457AD /* CollisionTypes.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C7A52AB4201F51FB003614C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C7A52AB5201F520F003614C0 /* SCNView+Ext.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C7B5264A201C8A1D00134F00 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +179,8 @@
 		C7B52656201C8A1D00134F00 /* AppCore */ = {
 			isa = PBXGroup;
 			children = (
+				C7A52AB4201F51FB003614C0 /* Views */,
+				C775DEBE201F2E80003457AD /* Utilities */,
 				C739E44C201CAAFF0081259D /* DeviceType */,
 				C739E3F1201CA85A0081259D /* Extensions */,
 				C739E3DC201C91100081259D /* DesignableX */,
@@ -242,17 +276,23 @@
 				C739E444201CA85A0081259D /* SCNVector3+Ext.swift in Sources */,
 				C739E446201CA85A0081259D /* UIDevice+Ext.swift in Sources */,
 				C739E43B201CA85A0081259D /* UIColor+Ext.swift in Sources */,
+				C775DEC6201F2E80003457AD /* GameHelper.swift in Sources */,
 				C739E42B201CA85A0081259D /* Double+Ext.swift in Sources */,
+				C7A52AB6201F520F003614C0 /* SCNView+Ext.swift in Sources */,
 				C7C78560201E4BD20043604E /* SCNNode+Ext.swift in Sources */,
+				C775DEC4201F2E80003457AD /* NodeGenerator.swift in Sources */,
 				C739E43C201CA85A0081259D /* CGFloat+Ext.swift in Sources */,
 				C739E450201CAB8C0081259D /* String+Ext.swift in Sources */,
 				C739E431201CA85A0081259D /* Sequence+Ext.swift in Sources */,
+				C775DEC3201F2E80003457AD /* ShapeGenerator.swift in Sources */,
+				C775DEC5201F2E80003457AD /* ShapeType.swift in Sources */,
 				C739E3F0201C91100081259D /* UISliderX.swift in Sources */,
 				C739E3EE201C91100081259D /* UIViewX.swift in Sources */,
 				C739E452201CAF900081259D /* SwiftRegex.swift in Sources */,
 				C739E443201CA85A0081259D /* Int+Ext.swift in Sources */,
 				C739E3EF201C91100081259D /* UIVisualEffectViewX.swift in Sources */,
 				C739E3E8201C91100081259D /* UITextFieldX.swift in Sources */,
+				C775DECA201F3049003457AD /* CollisionTypes.swift in Sources */,
 				C739E449201CA85A0081259D /* CGRect+Ext.swift in Sources */,
 				C739E3E7201C91100081259D /* UIViewXRadialGradient.swift in Sources */,
 				C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */,

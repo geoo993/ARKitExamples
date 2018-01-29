@@ -1,8 +1,17 @@
 import Foundation
 
+public extension ClosedRange where Bound : FloatingPoint {
+    public func random() -> Bound {
+        let range = self.upperBound - self.lowerBound
+        let randomValue = (Bound(arc4random_uniform(UINT32_MAX)) / Bound(UINT32_MAX)) * range + self.lowerBound
+        return randomValue
+    }
+}
+
 public extension FloatingPoint {
     public var toRadians: Self { return self * .pi / 180 }
     public var toDegrees: Self { return self * 180 / .pi }
+    
 }
 
 public extension Float {

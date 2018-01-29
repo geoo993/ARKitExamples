@@ -25,6 +25,7 @@ import SceneKit
 
 public extension SCNVector3
 {
+    
     /**
      * Negates the vector described by SCNVector3 and returns
      * the result as a new SCNVector3.
@@ -69,6 +70,20 @@ public extension SCNVector3
      */
     public func distance(vector: SCNVector3) -> Float {
         return (self - vector).length()
+    }
+    
+    public func distance(to end: SCNVector3) -> Float {
+        let dx : Float = end.x - self.x
+        let dy : Float = end.y - self.y
+        let dz : Float = end.z - self.z
+        return sqrt( ( pow(dx, 2) + pow(dy, 2) + pow(dz, 2) ) )
+    }
+    
+    public func midPosition(to end: SCNVector3) -> SCNVector3 {
+        let x : Float = (self.x + end.x) / 2
+        let y : Float = (self.y + end.y) / 2
+        let z : Float = (self.z + end.z) / 2
+        return SCNVector3(x:x, y:y, z:z)
     }
     
     /**

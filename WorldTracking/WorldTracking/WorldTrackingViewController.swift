@@ -80,33 +80,7 @@ public class WorldTrackingViewController: UIViewController {
     }
     
     func addNode(at position: SCNVector3) {
-        let shape : SCNGeometry
-        switch shapeType {
-        case .box:
-            shape = SCNBox(width: 0.08, height: 0.08, length: 0.08, chamferRadius: 0.01)
-        case .sphere:
-            shape = SCNSphere(radius: 0.1)
-        case .pyramid:
-            shape = SCNPyramid(width: 0.1, height: 0.1, length: 0.3)
-        case .torus:
-            shape = SCNTorus(ringRadius: 0.1, pipeRadius: 0.02)
-        case .capsule:
-            shape = SCNCapsule(capRadius: 0.08, height: 0.25 )
-        case .cylinder:
-            shape = SCNCylinder(radius: 0.05, height: 0.25)
-        case .cone:
-            shape = SCNCone(topRadius: 0.001, bottomRadius: 0.15, height: 0.25)
-        case .tube:
-            shape = SCNTube(innerRadius: 0.025, outerRadius: 0.05, height: 0.25)
-        case .path:
-            let path = UIBezierPath()
-            path.move(to: .zero)
-            path.addLine(to: CGPoint(x: 0.0, y: 0.2) )
-            path.addLine(to: CGPoint(x: 0.2, y: 0.3) )
-            path.addLine(to: CGPoint(x: 0.4, y: 0.2) )
-            path.addLine(to: CGPoint(x: 0.4, y: 0.0) )
-            shape = SCNShape(path: path, extrusionDepth: 0.2)
-        }  
+        let shape = ShapeGenerator.randomGeometry()
         
         let node = SCNNode()
         node.geometry = shape
