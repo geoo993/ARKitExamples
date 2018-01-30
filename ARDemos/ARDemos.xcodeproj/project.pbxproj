@@ -1,0 +1,369 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C75EBB732020DBEB00E484CE /* ARDrawingDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */; };
+		C75EBB742020DBEB00E484CE /* ARDrawingDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C75EBB922020E38200E484CE /* ARPlanetsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */; };
+		C75EBB932020E38200E484CE /* ARPlanetsDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7DD3D482020D79B000B5543 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DD3D472020D79B000B5543 /* AppDelegate.swift */; };
+		C7DD3D4A2020D79B000B5543 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DD3D492020D79B000B5543 /* art.scnassets */; };
+		C7DD3D4C2020D79B000B5543 /* ARDemosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DD3D4B2020D79B000B5543 /* ARDemosViewController.swift */; };
+		C7DD3D4F2020D79B000B5543 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DD3D4D2020D79B000B5543 /* Main.storyboard */; };
+		C7DD3D512020D79B000B5543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DD3D502020D79B000B5543 /* Assets.xcassets */; };
+		C7DD3D542020D79B000B5543 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DD3D522020D79B000B5543 /* LaunchScreen.storyboard */; };
+		C7DD3D5C2020D825000B5543 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7DD3D5B2020D825000B5543 /* AppCore.framework */; };
+		C7DD3D5D2020D825000B5543 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7DD3D5B2020D825000B5543 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7DD3D602020D923000B5543 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7DD3D5F2020D923000B5543 /* Chameleon.framework */; };
+		C7DD3D612020D923000B5543 /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7DD3D5F2020D923000B5543 /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C7DD3D5E2020D825000B5543 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C75EBB742020DBEB00E484CE /* ARDrawingDemo.framework in Embed Frameworks */,
+				C7DD3D5D2020D825000B5543 /* AppCore.framework in Embed Frameworks */,
+				C75EBB932020E38200E484CE /* ARPlanetsDemo.framework in Embed Frameworks */,
+				C7DD3D612020D923000B5543 /* Chameleon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDrawingDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPlanetsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7DD3D442020D79B000B5543 /* ARDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7DD3D472020D79B000B5543 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C7DD3D492020D79B000B5543 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		C7DD3D4B2020D79B000B5543 /* ARDemosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDemosViewController.swift; sourceTree = "<group>"; };
+		C7DD3D4E2020D79B000B5543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7DD3D502020D79B000B5543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7DD3D532020D79B000B5543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7DD3D552020D79B000B5543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7DD3D5B2020D825000B5543 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7DD3D5F2020D923000B5543 /* Chameleon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Chameleon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7DD3D412020D79B000B5543 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C75EBB732020DBEB00E484CE /* ARDrawingDemo.framework in Frameworks */,
+				C7DD3D5C2020D825000B5543 /* AppCore.framework in Frameworks */,
+				C75EBB922020E38200E484CE /* ARPlanetsDemo.framework in Frameworks */,
+				C7DD3D602020D923000B5543 /* Chameleon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C7DD3D3B2020D79B000B5543 = {
+			isa = PBXGroup;
+			children = (
+				C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */,
+				C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */,
+				C7DD3D5F2020D923000B5543 /* Chameleon.framework */,
+				C7DD3D5B2020D825000B5543 /* AppCore.framework */,
+				C7DD3D462020D79B000B5543 /* ARDemos */,
+				C7DD3D452020D79B000B5543 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C7DD3D452020D79B000B5543 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7DD3D442020D79B000B5543 /* ARDemos.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7DD3D462020D79B000B5543 /* ARDemos */ = {
+			isa = PBXGroup;
+			children = (
+				C7DD3D472020D79B000B5543 /* AppDelegate.swift */,
+				C7DD3D492020D79B000B5543 /* art.scnassets */,
+				C7DD3D4B2020D79B000B5543 /* ARDemosViewController.swift */,
+				C7DD3D4D2020D79B000B5543 /* Main.storyboard */,
+				C7DD3D502020D79B000B5543 /* Assets.xcassets */,
+				C7DD3D522020D79B000B5543 /* LaunchScreen.storyboard */,
+				C7DD3D552020D79B000B5543 /* Info.plist */,
+			);
+			path = ARDemos;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7DD3D432020D79B000B5543 /* ARDemos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7DD3D582020D79B000B5543 /* Build configuration list for PBXNativeTarget "ARDemos" */;
+			buildPhases = (
+				C7DD3D402020D79B000B5543 /* Sources */,
+				C7DD3D412020D79B000B5543 /* Frameworks */,
+				C7DD3D422020D79B000B5543 /* Resources */,
+				C7DD3D5E2020D825000B5543 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARDemos;
+			productName = ARDemos;
+			productReference = C7DD3D442020D79B000B5543 /* ARDemos.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7DD3D3C2020D79B000B5543 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Geo Games";
+				TargetAttributes = {
+					C7DD3D432020D79B000B5543 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C7DD3D3F2020D79B000B5543 /* Build configuration list for PBXProject "ARDemos" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C7DD3D3B2020D79B000B5543;
+			productRefGroup = C7DD3D452020D79B000B5543 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7DD3D432020D79B000B5543 /* ARDemos */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7DD3D422020D79B000B5543 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7DD3D4A2020D79B000B5543 /* art.scnassets in Resources */,
+				C7DD3D542020D79B000B5543 /* LaunchScreen.storyboard in Resources */,
+				C7DD3D512020D79B000B5543 /* Assets.xcassets in Resources */,
+				C7DD3D4F2020D79B000B5543 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7DD3D402020D79B000B5543 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7DD3D4C2020D79B000B5543 /* ARDemosViewController.swift in Sources */,
+				C7DD3D482020D79B000B5543 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C7DD3D4D2020D79B000B5543 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7DD3D4E2020D79B000B5543 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C7DD3D522020D79B000B5543 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7DD3D532020D79B000B5543 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7DD3D562020D79B000B5543 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C7DD3D572020D79B000B5543 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7DD3D592020D79B000B5543 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FDAK5XPRG7;
+				INFOPLIST_FILE = ARDemos/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARDemos";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C7DD3D5A2020D79B000B5543 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FDAK5XPRG7;
+				INFOPLIST_FILE = ARDemos/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARDemos";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7DD3D3F2020D79B000B5543 /* Build configuration list for PBXProject "ARDemos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7DD3D562020D79B000B5543 /* Debug */,
+				C7DD3D572020D79B000B5543 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7DD3D582020D79B000B5543 /* Build configuration list for PBXNativeTarget "ARDemos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7DD3D592020D79B000B5543 /* Debug */,
+				C7DD3D5A2020D79B000B5543 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7DD3D3C2020D79B000B5543 /* Project object */;
+}

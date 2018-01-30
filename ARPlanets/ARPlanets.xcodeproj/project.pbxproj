@@ -8,14 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C731073B201CF25100523CB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731073A201CF25100523CB5 /* AppDelegate.swift */; };
-		C731073D201CF25100523CB5 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C731073C201CF25100523CB5 /* art.scnassets */; };
-		C731073F201CF25100523CB5 /* ARPlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731073E201CF25100523CB5 /* ARPlanetsViewController.swift */; };
-		C7310742201CF25100523CB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7310740201CF25100523CB5 /* Main.storyboard */; };
-		C7310744201CF25100523CB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7310743201CF25100523CB5 /* Assets.xcassets */; };
 		C7310747201CF25100523CB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7310745201CF25100523CB5 /* LaunchScreen.storyboard */; };
 		C731074F201CF34400523CB5 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C731074E201CF34400523CB5 /* AppCore.framework */; };
 		C7310750201CF34400523CB5 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C731074E201CF34400523CB5 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C75EBB842020E2AB00E484CE /* ARPlanetsDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C75EBB822020E2AB00E484CE /* ARPlanetsDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C75EBB872020E2AB00E484CE /* ARPlanetsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB802020E2AB00E484CE /* ARPlanetsDemo.framework */; };
+		C75EBB882020E2AB00E484CE /* ARPlanetsDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB802020E2AB00E484CE /* ARPlanetsDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C75EBB8C2020E2C300E484CE /* ARPlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731073E201CF25100523CB5 /* ARPlanetsViewController.swift */; };
+		C75EBB8F2020E2CE00E484CE /* ARPlanets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7310740201CF25100523CB5 /* ARPlanets.storyboard */; };
+		C75EBB902020E2D200E484CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7310743201CF25100523CB5 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C75EBB852020E2AB00E484CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C731072F201CF25100523CB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C75EBB7F2020E2AB00E484CE;
+			remoteInfo = ARPlanetsDemo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C7310751201CF34400523CB5 /* Embed Frameworks */ = {
@@ -24,6 +36,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C75EBB882020E2AB00E484CE /* ARPlanetsDemo.framework in Embed Frameworks */,
 				C7310750201CF34400523CB5 /* AppCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -34,13 +47,15 @@
 /* Begin PBXFileReference section */
 		C7310737201CF25100523CB5 /* ARPlanets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARPlanets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C731073A201CF25100523CB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C731073C201CF25100523CB5 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		C731073E201CF25100523CB5 /* ARPlanetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlanetsViewController.swift; sourceTree = "<group>"; };
-		C7310741201CF25100523CB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7310741201CF25100523CB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARPlanets.storyboard; sourceTree = "<group>"; };
 		C7310743201CF25100523CB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7310746201CF25100523CB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7310748201CF25100523CB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C731074E201CF34400523CB5 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C75EBB802020E2AB00E484CE /* ARPlanetsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARPlanetsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C75EBB822020E2AB00E484CE /* ARPlanetsDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARPlanetsDemo.h; sourceTree = "<group>"; };
+		C75EBB832020E2AB00E484CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +63,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C75EBB872020E2AB00E484CE /* ARPlanetsDemo.framework in Frameworks */,
 				C731074F201CF34400523CB5 /* AppCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C75EBB7C2020E2AB00E484CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +83,7 @@
 			children = (
 				C731074E201CF34400523CB5 /* AppCore.framework */,
 				C7310739201CF25100523CB5 /* ARPlanets */,
+				C75EBB812020E2AB00E484CE /* ARPlanetsDemo */,
 				C7310738201CF25100523CB5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				C7310737201CF25100523CB5 /* ARPlanets.app */,
+				C75EBB802020E2AB00E484CE /* ARPlanetsDemo.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,9 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				C731073A201CF25100523CB5 /* AppDelegate.swift */,
-				C731073C201CF25100523CB5 /* art.scnassets */,
 				C731073E201CF25100523CB5 /* ARPlanetsViewController.swift */,
-				C7310740201CF25100523CB5 /* Main.storyboard */,
+				C7310740201CF25100523CB5 /* ARPlanets.storyboard */,
 				C7310743201CF25100523CB5 /* Assets.xcassets */,
 				C7310745201CF25100523CB5 /* LaunchScreen.storyboard */,
 				C7310748201CF25100523CB5 /* Info.plist */,
@@ -86,7 +110,27 @@
 			path = ARPlanets;
 			sourceTree = "<group>";
 		};
+		C75EBB812020E2AB00E484CE /* ARPlanetsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C75EBB822020E2AB00E484CE /* ARPlanetsDemo.h */,
+				C75EBB832020E2AB00E484CE /* Info.plist */,
+			);
+			path = ARPlanetsDemo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C75EBB7D2020E2AB00E484CE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C75EBB842020E2AB00E484CE /* ARPlanetsDemo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		C7310736201CF25100523CB5 /* ARPlanets */ = {
@@ -101,11 +145,30 @@
 			buildRules = (
 			);
 			dependencies = (
+				C75EBB862020E2AB00E484CE /* PBXTargetDependency */,
 			);
 			name = ARPlanets;
 			productName = ARPlanets;
 			productReference = C7310737201CF25100523CB5 /* ARPlanets.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C75EBB7F2020E2AB00E484CE /* ARPlanetsDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C75EBB892020E2AB00E484CE /* Build configuration list for PBXNativeTarget "ARPlanetsDemo" */;
+			buildPhases = (
+				C75EBB7B2020E2AB00E484CE /* Sources */,
+				C75EBB7C2020E2AB00E484CE /* Frameworks */,
+				C75EBB7D2020E2AB00E484CE /* Headers */,
+				C75EBB7E2020E2AB00E484CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARPlanetsDemo;
+			productName = ARPlanetsDemo;
+			productReference = C75EBB802020E2AB00E484CE /* ARPlanetsDemo.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -118,6 +181,10 @@
 				ORGANIZATIONNAME = "Geo Games";
 				TargetAttributes = {
 					C7310736201CF25100523CB5 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					C75EBB7F2020E2AB00E484CE = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -137,6 +204,7 @@
 			projectRoot = "";
 			targets = (
 				C7310736201CF25100523CB5 /* ARPlanets */,
+				C75EBB7F2020E2AB00E484CE /* ARPlanetsDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -146,10 +214,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C731073D201CF25100523CB5 /* art.scnassets in Resources */,
 				C7310747201CF25100523CB5 /* LaunchScreen.storyboard in Resources */,
-				C7310744201CF25100523CB5 /* Assets.xcassets in Resources */,
-				C7310742201CF25100523CB5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C75EBB7E2020E2AB00E484CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C75EBB902020E2D200E484CE /* Assets.xcassets in Resources */,
+				C75EBB8F2020E2CE00E484CE /* ARPlanets.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,20 +234,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C731073F201CF25100523CB5 /* ARPlanetsViewController.swift in Sources */,
 				C731073B201CF25100523CB5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C75EBB7B2020E2AB00E484CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C75EBB8C2020E2C300E484CE /* ARPlanetsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C75EBB862020E2AB00E484CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C75EBB7F2020E2AB00E484CE /* ARPlanetsDemo */;
+			targetProxy = C75EBB852020E2AB00E484CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		C7310740201CF25100523CB5 /* Main.storyboard */ = {
+		C7310740201CF25100523CB5 /* ARPlanets.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C7310741201CF25100523CB5 /* Base */,
 			);
-			name = Main.storyboard;
+			name = ARPlanets.storyboard;
 			sourceTree = "<group>";
 		};
 		C7310745201CF25100523CB5 /* LaunchScreen.storyboard */ = {
@@ -297,6 +386,7 @@
 		C731074C201CF25100523CB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BM7962EZPA;
@@ -312,6 +402,7 @@
 		C731074D201CF25100523CB5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BM7962EZPA;
@@ -321,6 +412,54 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C75EBB8A2020E2AB00E484CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = BM7962EZPA;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ARPlanetsDemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARPlanetsDemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C75EBB8B2020E2AB00E484CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = BM7962EZPA;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ARPlanetsDemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARPlanetsDemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -341,6 +480,15 @@
 			buildConfigurations = (
 				C731074C201CF25100523CB5 /* Debug */,
 				C731074D201CF25100523CB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C75EBB892020E2AB00E484CE /* Build configuration list for PBXNativeTarget "ARPlanetsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C75EBB8A2020E2AB00E484CE /* Debug */,
+				C75EBB8B2020E2AB00E484CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

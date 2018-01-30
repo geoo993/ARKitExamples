@@ -14,7 +14,7 @@
         <!--Drawing View Controller-->
         <scene sceneID="VbL-iD-LGz">
             <objects>
-                <viewController id="xIk-tb-TfA" customClass="ARDrawingViewController" customModule="ARDrawing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARDrawingViewController" id="xIk-tb-TfA" customClass="ARDrawingViewController" customModule="ARDrawing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bAz-Rz-3jz"/>
                         <viewControllerLayoutGuide type="bottom" id="YAJ-qA-Amk"/>

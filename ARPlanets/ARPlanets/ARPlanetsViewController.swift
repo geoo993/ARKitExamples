@@ -207,6 +207,9 @@ public class ARPlanetsViewController: UIViewController {
         planet.runAction(action)
     }
     
+    deinit {
+        print("AR Planets deinit")
+    }
 }
 
 // MARK: - ARSCNViewDelegate

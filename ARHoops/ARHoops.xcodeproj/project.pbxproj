@@ -12,7 +12,7 @@
 		C7E7FFD92020696D00970264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E7FFD82020696D00970264 /* AppDelegate.swift */; };
 		C7E7FFDB2020696D00970264 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFDA2020696D00970264 /* art.scnassets */; };
 		C7E7FFDD2020696D00970264 /* ARHoopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E7FFDC2020696D00970264 /* ARHoopsViewController.swift */; };
-		C7E7FFE02020696D00970264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFDE2020696D00970264 /* Main.storyboard */; };
+		C7E7FFE02020696D00970264 /* ARHoops.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFDE2020696D00970264 /* ARHoops.storyboard */; };
 		C7E7FFE22020696D00970264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFE12020696D00970264 /* Assets.xcassets */; };
 		C7E7FFE52020696D00970264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFE32020696D00970264 /* LaunchScreen.storyboard */; };
 		C7E7FFED202069C400970264 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E7FFEC202069C400970264 /* AppCore.framework */; };
@@ -40,7 +40,7 @@
 		C7E7FFD82020696D00970264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7E7FFDA2020696D00970264 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		C7E7FFDC2020696D00970264 /* ARHoopsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARHoopsViewController.swift; sourceTree = "<group>"; };
-		C7E7FFDF2020696D00970264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7E7FFDF2020696D00970264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARHoops.storyboard; sourceTree = "<group>"; };
 		C7E7FFE12020696D00970264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7E7FFE42020696D00970264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7E7FFE62020696D00970264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 				C7E7FFD82020696D00970264 /* AppDelegate.swift */,
 				C7E7FFDA2020696D00970264 /* art.scnassets */,
 				C7E7FFDC2020696D00970264 /* ARHoopsViewController.swift */,
-				C7E7FFDE2020696D00970264 /* Main.storyboard */,
+				C7E7FFDE2020696D00970264 /* ARHoops.storyboard */,
 				C7E7FFE12020696D00970264 /* Assets.xcassets */,
 				C7E7FFE32020696D00970264 /* LaunchScreen.storyboard */,
 				C7E7FFE62020696D00970264 /* Info.plist */,
@@ -155,7 +155,7 @@
 				C7E7FFDB2020696D00970264 /* art.scnassets in Resources */,
 				C7E7FFE52020696D00970264 /* LaunchScreen.storyboard in Resources */,
 				C7E7FFE22020696D00970264 /* Assets.xcassets in Resources */,
-				C7E7FFE02020696D00970264 /* Main.storyboard in Resources */,
+				C7E7FFE02020696D00970264 /* ARHoops.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,12 +174,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C7E7FFDE2020696D00970264 /* Main.storyboard */ = {
+		C7E7FFDE2020696D00970264 /* ARHoops.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C7E7FFDF2020696D00970264 /* Base */,
 			);
-			name = Main.storyboard;
+			name = ARHoops.storyboard;
 			sourceTree = "<group>";
 		};
 		C7E7FFE32020696D00970264 /* LaunchScreen.storyboard */ = {

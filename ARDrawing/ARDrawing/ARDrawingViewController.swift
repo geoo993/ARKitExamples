@@ -19,19 +19,17 @@ public class ARDrawingViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "AR Drawing"
+        
+        self.sceneView.antialiasingMode = .multisampling4X
+      
         // Set the view's delegate
         sceneView.delegate = self
         
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
-        // Show statistics such as fps and timing information
-//        sceneView.showsStatistics = true
-        
-//        // Create a new scene
-//        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-//        // Set the scene to the view
-//        sceneView.scene = scene
+        self.sceneView.autoenablesDefaultLighting = true
+
     }
     
     override public func viewWillAppear(_ animated: Bool) {
@@ -59,6 +57,9 @@ public class ARDrawingViewController: UIViewController {
         sceneView.scene.rootNode.addChildNode(sphereNode)
     }
     
+    deinit {
+        print("AR Drawing deinit")
+    }
 }
 
 // MARK: - ARSCNViewDelegate

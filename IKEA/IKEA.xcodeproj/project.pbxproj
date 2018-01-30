@@ -10,7 +10,7 @@
 		C7625425201DEAEA0059951B /* IKEACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7625424201DEAEA0059951B /* IKEACollectionViewCell.swift */; };
 		C7A88CE2201DDB4200255242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A88CE1201DDB4200255242 /* AppDelegate.swift */; };
 		C7A88CE4201DDB4200255242 /* IKEAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A88CE3201DDB4200255242 /* IKEAViewController.swift */; };
-		C7A88CE7201DDB4200255242 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CE5201DDB4200255242 /* Main.storyboard */; };
+		C7A88CE7201DDB4200255242 /* IKEA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CE5201DDB4200255242 /* IKEA.storyboard */; };
 		C7A88CE9201DDB4200255242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CE8201DDB4200255242 /* Assets.xcassets */; };
 		C7A88CEC201DDB4200255242 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CEA201DDB4200255242 /* LaunchScreen.storyboard */; };
 		C7A88CF4201DDBA500255242 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A88CF3201DDBA500255242 /* AppCore.framework */; };
@@ -37,7 +37,7 @@
 		C7A88CDE201DDB4200255242 /* IKEA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IKEA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A88CE1201DDB4200255242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7A88CE3201DDB4200255242 /* IKEAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKEAViewController.swift; sourceTree = "<group>"; };
-		C7A88CE6201DDB4200255242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7A88CE6201DDB4200255242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IKEA.storyboard; sourceTree = "<group>"; };
 		C7A88CE8201DDB4200255242 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7A88CEB201DDB4200255242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7A88CED201DDB4200255242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 				C7A88CE1201DDB4200255242 /* AppDelegate.swift */,
 				C7A88CE3201DDB4200255242 /* IKEAViewController.swift */,
 				C7625424201DEAEA0059951B /* IKEACollectionViewCell.swift */,
-				C7A88CE5201DDB4200255242 /* Main.storyboard */,
+				C7A88CE5201DDB4200255242 /* IKEA.storyboard */,
 				C7A88CE8201DDB4200255242 /* Assets.xcassets */,
 				C7A88CEA201DDB4200255242 /* LaunchScreen.storyboard */,
 				C7A88CED201DDB4200255242 /* Info.plist */,
@@ -152,7 +152,7 @@
 				C7A88CEC201DDB4200255242 /* LaunchScreen.storyboard in Resources */,
 				C7C7855E201E01620043604E /* Models.scnassets in Resources */,
 				C7A88CE9201DDB4200255242 /* Assets.xcassets in Resources */,
-				C7A88CE7201DDB4200255242 /* Main.storyboard in Resources */,
+				C7A88CE7201DDB4200255242 /* IKEA.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,12 +172,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C7A88CE5201DDB4200255242 /* Main.storyboard */ = {
+		C7A88CE5201DDB4200255242 /* IKEA.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C7A88CE6201DDB4200255242 /* Base */,
 			);
-			name = Main.storyboard;
+			name = IKEA.storyboard;
 			sourceTree = "<group>";
 		};
 		C7A88CEA201DDB4200255242 /* LaunchScreen.storyboard */ = {

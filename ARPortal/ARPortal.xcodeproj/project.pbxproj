@@ -10,7 +10,7 @@
 		C7A52AC7201F5A07003614C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52AC6201F5A07003614C0 /* AppDelegate.swift */; };
 		C7A52AC9201F5A07003614C0 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A52AC8201F5A07003614C0 /* art.scnassets */; };
 		C7A52ACB201F5A07003614C0 /* ARPortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52ACA201F5A07003614C0 /* ARPortalViewController.swift */; };
-		C7A52ACE201F5A07003614C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A52ACC201F5A07003614C0 /* Main.storyboard */; };
+		C7A52ACE201F5A07003614C0 /* ARPortal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A52ACC201F5A07003614C0 /* ARPortal.storyboard */; };
 		C7A52AD0201F5A07003614C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A52ACF201F5A07003614C0 /* Assets.xcassets */; };
 		C7A52AD3201F5A07003614C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A52AD1201F5A07003614C0 /* LaunchScreen.storyboard */; };
 		C7A52ADB201F5B7A003614C0 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A52ADA201F5B7A003614C0 /* AppCore.framework */; };
@@ -36,7 +36,7 @@
 		C7A52AC6201F5A07003614C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7A52AC8201F5A07003614C0 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		C7A52ACA201F5A07003614C0 /* ARPortalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPortalViewController.swift; sourceTree = "<group>"; };
-		C7A52ACD201F5A07003614C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7A52ACD201F5A07003614C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARPortal.storyboard; sourceTree = "<group>"; };
 		C7A52ACF201F5A07003614C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7A52AD2201F5A07003614C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7A52AD4201F5A07003614C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 				C7A52AC6201F5A07003614C0 /* AppDelegate.swift */,
 				C7A52AC8201F5A07003614C0 /* art.scnassets */,
 				C7A52ACA201F5A07003614C0 /* ARPortalViewController.swift */,
-				C7A52ACC201F5A07003614C0 /* Main.storyboard */,
+				C7A52ACC201F5A07003614C0 /* ARPortal.storyboard */,
 				C7A52ACF201F5A07003614C0 /* Assets.xcassets */,
 				C7A52AD1201F5A07003614C0 /* LaunchScreen.storyboard */,
 				C7A52AD4201F5A07003614C0 /* Info.plist */,
@@ -149,7 +149,7 @@
 				C7A52AC9201F5A07003614C0 /* art.scnassets in Resources */,
 				C7A52AD3201F5A07003614C0 /* LaunchScreen.storyboard in Resources */,
 				C7A52AD0201F5A07003614C0 /* Assets.xcassets in Resources */,
-				C7A52ACE201F5A07003614C0 /* Main.storyboard in Resources */,
+				C7A52ACE201F5A07003614C0 /* ARPortal.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,12 +168,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C7A52ACC201F5A07003614C0 /* Main.storyboard */ = {
+		C7A52ACC201F5A07003614C0 /* ARPortal.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C7A52ACD201F5A07003614C0 /* Base */,
 			);
-			name = Main.storyboard;
+			name = ARPortal.storyboard;
 			sourceTree = "<group>";
 		};
 		C7A52AD1201F5A07003614C0 /* LaunchScreen.storyboard */ = {

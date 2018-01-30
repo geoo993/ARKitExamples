@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C7A46E81201D427400BD26CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A46E80201D427400BD26CB /* AppDelegate.swift */; };
 		C7A46E83201D427400BD26CB /* WackAJellyFishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A46E82201D427400BD26CB /* WackAJellyFishViewController.swift */; };
-		C7A46E86201D427400BD26CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E84201D427400BD26CB /* Main.storyboard */; };
+		C7A46E86201D427400BD26CB /* WackAJellyFish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E84201D427400BD26CB /* WackAJellyFish.storyboard */; };
 		C7A46E88201D427400BD26CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E87201D427400BD26CB /* Assets.xcassets */; };
 		C7A46E8B201D427400BD26CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E89201D427400BD26CB /* LaunchScreen.storyboard */; };
 		C7C8C687201D47CC00959FA2 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C686201D47CC00959FA2 /* AppCore.framework */; };
@@ -38,7 +38,7 @@
 		C7A46E7D201D427400BD26CB /* WackAJellyFish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WackAJellyFish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A46E80201D427400BD26CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7A46E82201D427400BD26CB /* WackAJellyFishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WackAJellyFishViewController.swift; sourceTree = "<group>"; };
-		C7A46E85201D427400BD26CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7A46E85201D427400BD26CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WackAJellyFish.storyboard; sourceTree = "<group>"; };
 		C7A46E87201D427400BD26CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7A46E8A201D427400BD26CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7A46E8C201D427400BD26CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 			children = (
 				C7A46E80201D427400BD26CB /* AppDelegate.swift */,
 				C7A46E82201D427400BD26CB /* WackAJellyFishViewController.swift */,
-				C7A46E84201D427400BD26CB /* Main.storyboard */,
+				C7A46E84201D427400BD26CB /* WackAJellyFish.storyboard */,
 				C7A46E87201D427400BD26CB /* Assets.xcassets */,
 				C7A46E89201D427400BD26CB /* LaunchScreen.storyboard */,
 				C7A46E8C201D427400BD26CB /* Info.plist */,
@@ -155,7 +155,7 @@
 				C7A46E8B201D427400BD26CB /* LaunchScreen.storyboard in Resources */,
 				C7A46E88201D427400BD26CB /* Assets.xcassets in Resources */,
 				C7C8C694201D4B7A00959FA2 /* JellyFish.scnassets in Resources */,
-				C7A46E86201D427400BD26CB /* Main.storyboard in Resources */,
+				C7A46E86201D427400BD26CB /* WackAJellyFish.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,12 +174,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C7A46E84201D427400BD26CB /* Main.storyboard */ = {
+		C7A46E84201D427400BD26CB /* WackAJellyFish.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C7A46E85201D427400BD26CB /* Base */,
 			);
-			name = Main.storyboard;
+			name = WackAJellyFish.storyboard;
 			sourceTree = "<group>";
 		};
 		C7A46E89201D427400BD26CB /* LaunchScreen.storyboard */ = {
