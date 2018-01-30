@@ -60,6 +60,8 @@ public class WackAJellyFishViewController: UIViewController {
         
         // Pause the view's session
         sceneView.session.pause()
+        
+        timer.stop()
     }
 
     func addJellyFish () {

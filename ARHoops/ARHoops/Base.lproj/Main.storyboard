@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VUG-sR-dyG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Hoops View Controller-->
+        <scene sceneID="Pct-Ek-TsM">
+            <objects>
+                <viewController storyboardIdentifier="ARHoopsViewController" id="VUG-sR-dyG" customClass="ARHoopsViewController" customModule="ARHoops" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2SR-GY-a0X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWh-Oa-9UO">
+                                <rect key="frame" x="175" y="321" width="24" height="24"/>
+                                <state key="normal" backgroundImage="add"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plane Detected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLN-9h-Qcz">
+                                <rect key="frame" x="122" y="60" width="130" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jLN-9h-Qcz" firstAttribute="top" secondItem="XL6-rr-4l4" secondAttribute="top" constant="40" id="79w-t1-uf8"/>
+                            <constraint firstItem="jLN-9h-Qcz" firstAttribute="centerX" secondItem="2SR-GY-a0X" secondAttribute="centerX" id="J8z-bS-jhI"/>
+                            <constraint firstItem="NWh-Oa-9UO" firstAttribute="centerX" secondItem="2SR-GY-a0X" secondAttribute="centerX" id="Pdf-sw-ovq"/>
+                            <constraint firstItem="NWh-Oa-9UO" firstAttribute="centerY" secondItem="2SR-GY-a0X" secondAttribute="centerY" id="e0x-jY-zDS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XL6-rr-4l4"/>
+                    </view>
+                    <connections>
+                        <outlet property="planeDetectedLabel" destination="jLN-9h-Qcz" id="HU2-Ja-CQi"/>
+                        <outlet property="sceneView" destination="BrB-h1-WRS" id="EXa-pY-UIR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rG4-Tt-irB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="106" y="138"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="add" width="24" height="24"/>
+    </resources>
+</document>
