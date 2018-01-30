@@ -8,9 +8,14 @@
 
 import Foundation
 
-struct CollisionTypes : OptionSet {
+public struct CollisionTypes : OptionSet {
+    public let rawValue: Int
+    public static let bottom  = CollisionTypes(rawValue: 1 << 0)
+    public static let shape = CollisionTypes(rawValue: 1 << 1)
+    public static let projectile = CollisionTypes(rawValue: 1 << 2)
+    public static let target = CollisionTypes(rawValue: 1 << 3)
     
-    let rawValue: Int
-    static let bottom  = CollisionTypes(rawValue: 1 << 0)
-    static let shape = CollisionTypes(rawValue: 1 << 1)
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
 }

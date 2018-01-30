@@ -16,7 +16,7 @@ extension SCNView {
 
 extension ARSCNView {
     
-    public func camerafront(by amount: Float ) -> matrix_float4x4? {
+    public func cameraFront(by amount: Float ) -> matrix_float4x4? {
         guard let currentFrame = self.session.currentFrame else { return nil }
         let camera = currentFrame.camera
         let transform = camera.transform

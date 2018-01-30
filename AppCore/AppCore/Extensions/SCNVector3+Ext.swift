@@ -133,6 +133,26 @@ public extension SCNVector3
         let cameraDirection = GLKMatrix3MultiplyVector3(cameraRotationMatrix, GLKVector3Make(0.0, 0.0, -1.0))
         return SCNVector3FromGLKVector3(cameraDirection)
     }
+    
+    public static func cameraDirection(cameraNode : SCNNode) -> SCNVector3 {
+        let transform = cameraNode.transform
+        return SCNVector3(-transform.m31, -transform.m32, -transform.m33)
+    }
+    
+    public static func cameraTranslation(cameraNode : SCNNode) -> SCNVector3 {
+        let transform = cameraNode.transform
+        return SCNVector3(transform.m41, transform.m42, transform.m43)
+    }
+    
+    public func line(to vector: SCNVector3, color: UIColor = .white) -> SCNNode {
+        let indices: [Int32] = [0, 1]
+        let source = SCNGeometrySource(vertices: [self, vector])
+        let element = SCNGeometryElement(indices: indices, primitiveType: .line)
+        let geometry = SCNGeometry(sources: [source], elements: [element])
+        geometry.firstMaterial?.diffuse.contents = color
+        let node = SCNNode(geometry: geometry)
+        return node
+    }
 }
 
 /**
