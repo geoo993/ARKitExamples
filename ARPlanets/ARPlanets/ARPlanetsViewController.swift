@@ -60,6 +60,7 @@ public class ARPlanetsViewController: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        
         let sun = addSun(toParent: sceneView.scene.rootNode, at: SCNVector3(0, 0, -1.5), rotation: 10)
         let earthParent = addAmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 14)
         let venusParent = addAmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 10)
@@ -78,6 +79,7 @@ public class ARPlanetsViewController: UIViewController {
         _ = addUranus(toParent: uranusParent, at: SCNVector3(5.3, 0, 0.0), rotation: 91)
         _ = addNeptune(toParent: neptuneParent, at: SCNVector3(5.9, 0, 0.0), rotation: 112)
         
+        showHelperAlertIfNeeded()
     }
     
     func addSun(toParent parent: SCNNode, at position : SCNVector3, rotation: TimeInterval) -> SCNNode {
@@ -213,6 +215,17 @@ public class ARPlanetsViewController: UIViewController {
     func rotate(planet: SCNNode, by rotation: TimeInterval ) {
         let action = SCNAction.rotateForeverBy(x:0, y: CGFloat(360).toRadians, z: 0, duration: rotation)
         planet.runAction(action)
+    }
+    
+    private func showHelperAlertIfNeeded() {
+        let key = "ARPlanetsViewController.helperAlert.didShow"
+        if !UserDefaults.standard.bool(forKey: key) {
+            let alert = UIAlertController(title: title, message: "Look around to view the solar system.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            UserDefaults.standard.set(true, forKey: key)
+        }
     }
     
     deinit {

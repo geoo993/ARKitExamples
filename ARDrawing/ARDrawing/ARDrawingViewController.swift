@@ -17,6 +17,9 @@ public class ARDrawingViewController: UIViewController {
         return Bundle(identifier: "com.geo-games.ARDrawingDemo")!
     }
     
+    var nextColor = false
+    var color = UIColor.random
+    
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var drawButton : UIButton!
     
@@ -44,6 +47,10 @@ public class ARDrawingViewController: UIViewController {
         sceneView.session.run(configuration)
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showHelperAlertIfNeeded()
+    }
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -51,12 +58,23 @@ public class ARDrawingViewController: UIViewController {
         sceneView.session.pause()
     }
     
-    func drawShape(with name: String, at position : SCNVector3, color: UIColor) {
+    func drawShape(with name: String, at position : SCNVector3) {
         let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
         sphereNode.position = position
         sphereNode.name = name
-        sphereNode.geometry?.firstMaterial?.diffuse.contents = color
+        sphereNode.geometry?.firstMaterial?.diffuse.contents = self.color
         sceneView.scene.rootNode.addChildNode(sphereNode)
+    }
+    
+    private func showHelperAlertIfNeeded() {
+        let key = "ARDrawingViewController.helperAlert.didShow"
+        if !UserDefaults.standard.bool(forKey: key) {
+            let alert = UIAlertController(title: title, message: "Tap and hold the draw button to draw in the scene.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            UserDefaults.standard.set(true, forKey: key)
+        }
     }
     
     deinit {
@@ -87,14 +105,19 @@ extension ARDrawingViewController: ARSCNViewDelegate {
         
         DispatchQueue.main.async { [unowned self] () in
             if self.drawButton.isHighlighted {
-                self.drawShape(with: "Sphere", at: currentPositionOfCamera, color: .random)
+                self.drawShape(with: "Sphere", at: currentPositionOfCamera)
+                self.nextColor = true
             } else {
+                if self.nextColor {
+                    self.color = UIColor.random
+                    self.nextColor = false
+                }
                 self.sceneView.scene.rootNode.enumerateChildNodes({ (node, _) in
                     if node.name == "Pointer" {
                         node.removeFromParentNode()
                     }
                 })
-                self.drawShape(with: "Pointer", at: currentPositionOfCamera, color: .red)
+                self.drawShape(with: "Pointer", at: currentPositionOfCamera)
             }
         }
     }

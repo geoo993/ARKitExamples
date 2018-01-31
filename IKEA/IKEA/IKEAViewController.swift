@@ -53,6 +53,11 @@ public class IKEAViewController: UIViewController {
         registerGestures()
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showHelperAlertIfNeeded()
+    }
+    
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -90,8 +95,18 @@ public class IKEAViewController: UIViewController {
         }
     }
     
+    private func showHelperAlertIfNeeded() {
+        let key = "IKEAViewController.helperAlert.didShow"
+        if !UserDefaults.standard.bool(forKey: key) {
+            let alert = UIAlertController(title: title, message: "Detect horizontal plane, select an item and Tap to add the selected item in the scene.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            UserDefaults.standard.set(true, forKey: key)
+        }
+    }
+    
     deinit {
-        print("IKEA deinit")
+        print("IKEA demo deinit")
     }
 }
 

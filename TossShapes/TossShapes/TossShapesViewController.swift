@@ -66,7 +66,7 @@ public class TossShapesViewController: UIViewController {
     private func showHelperAlertIfNeeded() {
         let key = "TossShapesViewController.helperAlert.didShow"
         if !UserDefaults.standard.bool(forKey: key) {
-            let alert = UIAlertController(title: "Toss Shapes", message: "Tap button to toss shapes around.", preferredStyle: .alert)
+            let alert = UIAlertController(title: title, message: "Tap button to toss shapes around.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             
@@ -120,6 +120,10 @@ public class TossShapesViewController: UIViewController {
         let position = SCNVector3(x: 0.05, y: 0.05, z: 0.05)
         
         node.physicsBody?.applyForce(force, at: position, asImpulse: true)
+    }
+    
+    deinit {
+        print("Toss Shapes deinit")
     }
 }
 

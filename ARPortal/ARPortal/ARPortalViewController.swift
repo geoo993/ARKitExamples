@@ -51,6 +51,11 @@ public class ARPortalViewController: UIViewController {
         sceneView.session.run(configuration)
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showHelperAlertIfNeeded()
+    }
+    
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -99,6 +104,16 @@ public class ARPortalViewController: UIViewController {
             // for something to be translucent, it depends heavily on rendering order
             // the mask has a default rendering order of 0, which is going to be render way before the childNode will
             mask.geometry?.firstMaterial?.transparency = 0.000001 // allmost completely transparent
+        }
+    }
+    
+    private func showHelperAlertIfNeeded() {
+        let key = "ARPortalViewController.helperAlert.didShow"
+        if !UserDefaults.standard.bool(forKey: key) {
+            let alert = UIAlertController(title: title, message: "Detect horizontal plane and tap to add portal.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            UserDefaults.standard.set(true, forKey: key)
         }
     }
     

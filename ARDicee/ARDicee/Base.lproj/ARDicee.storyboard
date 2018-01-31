@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dicee View Controller-->
+        <scene sceneID="6Ih-92-O6y">
+            <objects>
+                <viewController storyboardIdentifier="ARDiceeViewController" id="q9k-pn-pxh" customClass="ARDiceeViewController" customModule="ARDicee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dCp-KW-pkO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojW-FO-u7g">
+                                <rect key="frame" x="9.5" y="603.5" width="356" height="53.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvX-9c-1IJ" customClass="UIButtonX" customModule="AppCore">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="53.5"/>
+                                        <color key="backgroundColor" name="Yellow Green"/>
+                                        <state key="normal" title="Delete">
+                                            <color key="titleColor" name="Azure"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="removeDices:" destination="q9k-pn-pxh" eventType="touchUpInside" id="L71-nw-xar"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIk-af-5cy">
+                                        <rect key="frame" x="71" y="0.0" width="214" height="53.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydh-g4-20E" customClass="UIButtonX" customModule="AppCore">
+                                        <rect key="frame" x="285" y="0.0" width="71" height="53.5"/>
+                                        <color key="backgroundColor" name="Yellow Green"/>
+                                        <state key="normal" title="Roll">
+                                            <color key="titleColor" name="Azure"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="rollDices:" destination="q9k-pn-pxh" eventType="touchUpInside" id="CJu-o5-282"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bvX-9c-1IJ" firstAttribute="width" secondItem="ojW-FO-u7g" secondAttribute="width" multiplier="0.2" id="c0I-jD-Yty"/>
+                                    <constraint firstItem="Ydh-g4-20E" firstAttribute="width" secondItem="ojW-FO-u7g" secondAttribute="width" multiplier="0.2" id="gxj-Ia-PWZ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="centerY" secondItem="dCp-KW-pkO" secondAttribute="centerY" id="7kJ-7N-XTm"/>
+                            <constraint firstItem="ojW-FO-u7g" firstAttribute="bottom" secondItem="HSe-6w-9Ry" secondAttribute="bottom" constant="-10" id="BjI-4i-90s"/>
+                            <constraint firstItem="ojW-FO-u7g" firstAttribute="width" secondItem="dCp-KW-pkO" secondAttribute="width" multiplier="0.95" id="DeP-U6-fee"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="width" secondItem="dCp-KW-pkO" secondAttribute="width" id="Hx1-KE-L2h"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="centerX" secondItem="dCp-KW-pkO" secondAttribute="centerX" id="Mma-R7-vmg"/>
+                            <constraint firstItem="ojW-FO-u7g" firstAttribute="height" secondItem="dCp-KW-pkO" secondAttribute="height" multiplier="0.08" id="fbR-L2-w2H"/>
+                            <constraint firstItem="ojW-FO-u7g" firstAttribute="centerX" secondItem="dCp-KW-pkO" secondAttribute="centerX" id="rQF-Xa-bv2"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="height" secondItem="dCp-KW-pkO" secondAttribute="height" id="vVG-Jl-LJ3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HSe-6w-9Ry"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="BrB-h1-WRS" id="mmk-8b-jNN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2S3-oE-XF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="276" y="123"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Azure">
+            <color red="0.94117647058823528" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Yellow Green">
+            <color red="0.60392156862745094" green="0.80392156862745101" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

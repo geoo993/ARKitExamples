@@ -53,6 +53,11 @@ public class ARMeasuringViewController: UIViewController {
         sceneView.session.run(configuration)
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showHelperAlertIfNeeded()
+    }
+    
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -79,6 +84,16 @@ public class ARMeasuringViewController: UIViewController {
         xLabel.textColor = constrastColor
         yLabel.textColor = constrastColor
         zLabel.textColor = constrastColor
+    }
+    
+    private func showHelperAlertIfNeeded() {
+        let key = "ARMeasuringViewController.helperAlert.didShow"
+        if !UserDefaults.standard.bool(forKey: key) {
+            let alert = UIAlertController(title: title, message: "Tap to add two dots to get measument distance.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            UserDefaults.standard.set(true, forKey: key)
+        }
     }
     
     deinit {

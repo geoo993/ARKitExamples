@@ -20,6 +20,7 @@ import ARPortalDemo
 import ARHoopsDemo
 import ARShooterDemo
 import TossShapesDemo
+import ARDiceeDemo
 
 private let CellIdentifier = "tableCell"
 
@@ -98,7 +99,11 @@ public class ARDemosViewController: UITableViewController {
             Option(title: "AR Shooter", 
                    name: "ARShooterViewController", 
                    bundle: ARShooterViewController.bundle, 
-                   storyBoard: "ARShooter")
+                   storyBoard: "ARShooter"),
+            Option(title: "AR Dicee", 
+                   name: "ARDiceeViewController", 
+                   bundle: ARDiceeViewController.bundle, 
+                   storyBoard: "ARDicee")
         ]
         
         updateNavBar(with: selectedColor)

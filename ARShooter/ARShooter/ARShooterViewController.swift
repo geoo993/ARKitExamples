@@ -60,6 +60,12 @@ public class ARShooterViewController: UIViewController {
         registerGestures()
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        showHelperAlertIfNeeded()
+    }
+    
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -113,6 +119,17 @@ public class ARShooterViewController: UIViewController {
         let force = SCNVector3(x: nodeDirection.x, y: nodeDirection.y + lift, z: nodeDirection.z)
         
         node.physicsBody?.applyForce(force, asImpulse: true)
+    }
+    
+    private func showHelperAlertIfNeeded() {
+        let key = "ARShooterViewController.helperAlert.didShow"
+        if !UserDefaults.standard.bool(forKey: key) {
+            let alert = UIAlertController(title: title, message: "Tap on button to show targets and then tap on the screen to shoot the targets.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            UserDefaults.standard.set(true, forKey: key)
+        }
     }
     
     deinit {

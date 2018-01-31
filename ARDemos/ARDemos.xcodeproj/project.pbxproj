@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C7143D592021EF0D000923B9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7143D582021EF0D000923B9 /* art.scnassets */; };
+		C72F823520221E2200958877 /* ARDiceeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72F823420221E2200958877 /* ARDiceeDemo.framework */; };
+		C72F823620221E2200958877 /* ARDiceeDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72F823420221E2200958877 /* ARDiceeDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C753D956202137D50027B094 /* WackAJellyFishDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C753D955202137D50027B094 /* WackAJellyFishDemo.framework */; };
 		C753D957202137D50027B094 /* WackAJellyFishDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C753D955202137D50027B094 /* WackAJellyFishDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C753D9592021393B0027B094 /* Each.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C753D9582021393B0027B094 /* Each.framework */; };
@@ -57,6 +59,7 @@
 				C7857B5A20215BCD00CE199E /* ARPortalDemo.framework in Embed Frameworks */,
 				C7DD3D5D2020D825000B5543 /* AppCore.framework in Embed Frameworks */,
 				C75EBB932020E38200E484CE /* ARPlanetsDemo.framework in Embed Frameworks */,
+				C72F823620221E2200958877 /* ARDiceeDemo.framework in Embed Frameworks */,
 				C7CFCA8720220BBC005CD6F5 /* FloorIsLavaDemo.framework in Embed Frameworks */,
 				C753D95A2021393B0027B094 /* Each.framework in Embed Frameworks */,
 				C7DD3D612020D923000B5543 /* Chameleon.framework in Embed Frameworks */,
@@ -69,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		C7143D582021EF0D000923B9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		C72F823420221E2200958877 /* ARDiceeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDiceeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C753D955202137D50027B094 /* WackAJellyFishDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WackAJellyFishDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C753D9582021393B0027B094 /* Each.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Each.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDrawingDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,7 @@
 				C7857B5920215BCD00CE199E /* ARPortalDemo.framework in Frameworks */,
 				C7DD3D5C2020D825000B5543 /* AppCore.framework in Frameworks */,
 				C75EBB922020E38200E484CE /* ARPlanetsDemo.framework in Frameworks */,
+				C72F823520221E2200958877 /* ARDiceeDemo.framework in Frameworks */,
 				C7CFCA8620220BBC005CD6F5 /* FloorIsLavaDemo.framework in Frameworks */,
 				C753D9592021393B0027B094 /* Each.framework in Frameworks */,
 				C7DD3D602020D923000B5543 /* Chameleon.framework in Frameworks */,
@@ -118,6 +123,7 @@
 		C7DD3D3B2020D79B000B5543 = {
 			isa = PBXGroup;
 			children = (
+				C72F823420221E2200958877 /* ARDiceeDemo.framework */,
 				C7CFCAC420221175005CD6F5 /* TossShapesDemo.framework */,
 				C7CFCA8520220BBC005CD6F5 /* FloorIsLavaDemo.framework */,
 				C7857B8A2021650F00CE199E /* ARShooterDemo.framework */,

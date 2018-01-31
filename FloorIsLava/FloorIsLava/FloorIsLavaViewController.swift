@@ -84,9 +84,9 @@ public class FloorIsLavaViewController: UIViewController {
     // MARK: - Private Methods
     
     private func showHelperAlertIfNeeded() {
-        let key = "PlaneMapperViewController.helperAlert.didShow"
+        let key = "FloorIsLavaViewController.helperAlert.didShow"
         if !UserDefaults.standard.bool(forKey: key) {
-            let alert = UIAlertController(title: title, message: "Look around to identify horizontal planes. Tap to drop a cube into the world.", preferredStyle: .alert)
+            let alert = UIAlertController(title: title, message: "Detect a horizontal plane. Tap to drop a objects on the plane.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             

@@ -60,6 +60,11 @@ public class WackAJellyFishViewController: UIViewController {
         sceneView.session.run(configuration)
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showHelperAlertIfNeeded()
+    }
+    
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -77,13 +82,18 @@ public class WackAJellyFishViewController: UIViewController {
         if  let scene = SCNScene.loadScene(from: WackAJellyFishViewController.bundle, scnassets: "JellyFish", name: "Jellyfish"), 
             let node = scene.rootNode.childNode(withName: "Jellyfish", recursively: false) {
         
-            //let node = SCNNode(geometry: SCNBox(width: 0.4, height: 0.4, length: 0.4, chamferRadius: 0))
-            //node.geometry?.firstMaterial?.diffuse.contents = UIColor.random
+            guard let pointOfView = sceneView.pointOfView else { return }
+            let transform = pointOfView.transform
+            let orientation = SCNVector3(-transform.m31, -transform.m32, -transform.m33) // in the third column in the matrix
+            let location = SCNVector3(transform.m41, transform.m42, transform.m43) // the translation in fourth column in the matrix 
+            let currentPositionOfCamera = orientation + location
             
-            let x = CGFloat.random(min: -1, max: 1)
-            let y = CGFloat.random(min: -0.5, max: 0.5)
-            let z = CGFloat.random(min: -1, max: 1)
-            node.position = SCNVector3(x,y,z)
+            let x = Float.random(min: -1, max: 1)
+            let y = Float.random(min: -0.5, max: 0.5)
+            let z = Float.random(min: -1, max: 1)
+            node.position = SCNVector3(currentPositionOfCamera.x + x, 
+                                       currentPositionOfCamera.y + y,
+                                       currentPositionOfCamera.z + z)
             node.name = "Jellyfish"
             sceneView.scene.rootNode.addChildNode(node)
             
@@ -149,6 +159,17 @@ public class WackAJellyFishViewController: UIViewController {
         }
         jellyFishs.forEach({ $0.removeFromParentNode() })
         jellyFishs.removeAll()
+    }
+    
+    private func showHelperAlertIfNeeded() {
+        let key = "WackAJellyFishViewController.helperAlert.didShow"
+        if !UserDefaults.standard.bool(forKey: key) {
+            let alert = UIAlertController(title: title, message: "Find and Tap on JellyFish before time runs out.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            UserDefaults.standard.set(true, forKey: key)
+        }
     }
     
     deinit {

@@ -66,6 +66,11 @@ public class ARHoopsViewController: UIViewController {
         registerGestures()
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showHelperAlertIfNeeded()
+    }
+    
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -148,12 +153,22 @@ public class ARHoopsViewController: UIViewController {
         }
     }
     
+    private func showHelperAlertIfNeeded() {
+        let key = "ARHoopsViewController.helperAlert.didShow"
+        if !UserDefaults.standard.bool(forKey: key) {
+            let alert = UIAlertController(title: title, message: "Detect horizontal plane and add basketboard coart. Tap hold on screen to throw basketballs.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            UserDefaults.standard.set(true, forKey: key)
+        }
+    }
+    
     deinit {
         print("AR Hoops deinit")
     }
 }
 
-    // MARK: - ARSCNViewDelegate
+// MARK: - ARSCNViewDelegate
 extension ARHoopsViewController: ARSCNViewDelegate {     
 /*
     // Override to create and configure nodes for anchors added to the view's session.
