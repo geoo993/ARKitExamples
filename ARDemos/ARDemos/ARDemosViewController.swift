@@ -13,11 +13,13 @@ import AppCore
 import ARDrawingDemo
 import ARPlanetsDemo
 import WackAJellyFishDemo
+import FloorIsLavaDemo
 import IKEADemo
 import ARMeasuringDemo
 import ARPortalDemo
 import ARHoopsDemo
 import ARShooterDemo
+import TossShapesDemo
 
 private let CellIdentifier = "tableCell"
 
@@ -57,6 +59,10 @@ public class ARDemosViewController: UITableViewController {
         self.tableView.separatorStyle = .none
         
         self.options = [
+            Option(title:"Plane Detection", 
+                   name: "FloorIsLavaViewController", 
+                   bundle: FloorIsLavaViewController.bundle, 
+                   storyBoard: "FloorIsLava"),
             Option(title:"AR Drawing", 
                    name: "ARDrawingViewController", 
                    bundle: ARDrawingViewController.bundle, 
@@ -85,6 +91,10 @@ public class ARDemosViewController: UITableViewController {
                    name: "ARHoopsViewController", 
                    bundle: ARHoopsViewController.bundle, 
                    storyBoard: "ARHoops"),
+            Option(title: "AR Throw", 
+                   name: "TossShapesViewController", 
+                   bundle: TossShapesViewController.bundle, 
+                   storyBoard: "TossShapes"),
             Option(title: "AR Shooter", 
                    name: "ARShooterViewController", 
                    bundle: ARShooterViewController.bundle, 

@@ -23,7 +23,8 @@ public struct NodeGenerator {
         shapeNode.position = position
         
         if physics {
-            let physicsBody = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: shape, options: nil))
+            let physicsShape = SCNPhysicsShape(node: shapeNode, options: [SCNPhysicsShape.Option.keepAsCompound : true])
+            let physicsBody = SCNPhysicsBody(type: .dynamic, shape: physicsShape)
             physicsBody.mass = 1.25
             physicsBody.restitution = 0.25
             physicsBody.friction = 0.75
@@ -34,9 +35,10 @@ public struct NodeGenerator {
         return shapeNode
     }
     
-    public static func generateRandomShapeInFrontOf(node: SCNNode, color: UIColor, 
-                                             at position:SCNVector3, 
-                                             with physics: Bool = false) -> SCNNode {
+    public static func generateRandomShapeInFrontOf(node: SCNNode, 
+                                                    color: UIColor, 
+                                                    at position:SCNVector3, 
+                                                    with physics: Bool = false) -> SCNNode {
        
         let shapeNode = generateRandomShape(with: color, at: position, with: physics)
         
@@ -78,7 +80,8 @@ public struct NodeGenerator {
         boxNode.rotation = node.rotation
         
         if physics {
-            let physicsBody = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: box, options: nil))
+            let physicsShape = SCNPhysicsShape(node: boxNode, options: [SCNPhysicsShape.Option.keepAsCompound : true])
+            let physicsBody = SCNPhysicsBody(type: .dynamic, shape: physicsShape)
             physicsBody.mass = 1.25
             physicsBody.restitution = 0.25
             physicsBody.friction = 0.75
@@ -96,7 +99,9 @@ public struct NodeGenerator {
         planeNode.position = self.position(from: planeAnchor)
         
         if physics {
-            let body = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: plane, options: nil))
+            
+            let shape = SCNPhysicsShape(node: planeNode, options: [SCNPhysicsShape.Option.keepAsCompound : true])
+            let body = SCNPhysicsBody(type: .kinematic, shape: shape)
             body.restitution = 0.0
             body.friction = 1.0
             planeNode.physicsBody = body
@@ -123,6 +128,7 @@ public struct NodeGenerator {
         
         let color = SCNMaterial()
         color.diffuse.contents = hidden ? UIColor(white: 1, alpha: 0) : UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
+        color.isDoubleSided = true
         plane.materials = [color]
         
         return plane

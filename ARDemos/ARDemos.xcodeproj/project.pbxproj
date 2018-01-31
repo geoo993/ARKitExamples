@@ -26,6 +26,10 @@
 		C7857B7320215E4500CE199E /* ARHoopsDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B7120215E4500CE199E /* ARHoopsDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7857B8B2021650F00CE199E /* ARShooterDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B8A2021650F00CE199E /* ARShooterDemo.framework */; };
 		C7857B8C2021650F00CE199E /* ARShooterDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B8A2021650F00CE199E /* ARShooterDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7CFCA8620220BBC005CD6F5 /* FloorIsLavaDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCA8520220BBC005CD6F5 /* FloorIsLavaDemo.framework */; };
+		C7CFCA8720220BBC005CD6F5 /* FloorIsLavaDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCA8520220BBC005CD6F5 /* FloorIsLavaDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7CFCAC520221175005CD6F5 /* TossShapesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCAC420221175005CD6F5 /* TossShapesDemo.framework */; };
+		C7CFCAC620221175005CD6F5 /* TossShapesDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCAC420221175005CD6F5 /* TossShapesDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7DD3D482020D79B000B5543 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DD3D472020D79B000B5543 /* AppDelegate.swift */; };
 		C7DD3D4C2020D79B000B5543 /* ARDemosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DD3D4B2020D79B000B5543 /* ARDemosViewController.swift */; };
 		C7DD3D4F2020D79B000B5543 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DD3D4D2020D79B000B5543 /* Main.storyboard */; };
@@ -45,6 +49,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C7857B412021594400CE199E /* ARMeasuringDemo.framework in Embed Frameworks */,
+				C7CFCAC620221175005CD6F5 /* TossShapesDemo.framework in Embed Frameworks */,
 				C7857B2A2021562500CE199E /* IKEADemo.framework in Embed Frameworks */,
 				C7857B7320215E4500CE199E /* ARHoopsDemo.framework in Embed Frameworks */,
 				C75EBB742020DBEB00E484CE /* ARDrawingDemo.framework in Embed Frameworks */,
@@ -52,6 +57,7 @@
 				C7857B5A20215BCD00CE199E /* ARPortalDemo.framework in Embed Frameworks */,
 				C7DD3D5D2020D825000B5543 /* AppCore.framework in Embed Frameworks */,
 				C75EBB932020E38200E484CE /* ARPlanetsDemo.framework in Embed Frameworks */,
+				C7CFCA8720220BBC005CD6F5 /* FloorIsLavaDemo.framework in Embed Frameworks */,
 				C753D95A2021393B0027B094 /* Each.framework in Embed Frameworks */,
 				C7DD3D612020D923000B5543 /* Chameleon.framework in Embed Frameworks */,
 				C753D957202137D50027B094 /* WackAJellyFishDemo.framework in Embed Frameworks */,
@@ -72,6 +78,8 @@
 		C7857B5820215BCD00CE199E /* ARPortalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPortalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B7120215E4500CE199E /* ARHoopsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARHoopsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B8A2021650F00CE199E /* ARShooterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARShooterDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7CFCA8520220BBC005CD6F5 /* FloorIsLavaDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FloorIsLavaDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7CFCAC420221175005CD6F5 /* TossShapesDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TossShapesDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DD3D442020D79B000B5543 /* ARDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DD3D472020D79B000B5543 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DD3D4B2020D79B000B5543 /* ARDemosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDemosViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7857B402021594400CE199E /* ARMeasuringDemo.framework in Frameworks */,
+				C7CFCAC520221175005CD6F5 /* TossShapesDemo.framework in Frameworks */,
 				C7857B292021562500CE199E /* IKEADemo.framework in Frameworks */,
 				C7857B7220215E4500CE199E /* ARHoopsDemo.framework in Frameworks */,
 				C75EBB732020DBEB00E484CE /* ARDrawingDemo.framework in Frameworks */,
@@ -96,6 +105,7 @@
 				C7857B5920215BCD00CE199E /* ARPortalDemo.framework in Frameworks */,
 				C7DD3D5C2020D825000B5543 /* AppCore.framework in Frameworks */,
 				C75EBB922020E38200E484CE /* ARPlanetsDemo.framework in Frameworks */,
+				C7CFCA8620220BBC005CD6F5 /* FloorIsLavaDemo.framework in Frameworks */,
 				C753D9592021393B0027B094 /* Each.framework in Frameworks */,
 				C7DD3D602020D923000B5543 /* Chameleon.framework in Frameworks */,
 				C753D956202137D50027B094 /* WackAJellyFishDemo.framework in Frameworks */,
@@ -108,6 +118,8 @@
 		C7DD3D3B2020D79B000B5543 = {
 			isa = PBXGroup;
 			children = (
+				C7CFCAC420221175005CD6F5 /* TossShapesDemo.framework */,
+				C7CFCA8520220BBC005CD6F5 /* FloorIsLavaDemo.framework */,
 				C7857B8A2021650F00CE199E /* ARShooterDemo.framework */,
 				C7857B7120215E4500CE199E /* ARHoopsDemo.framework */,
 				C7857B5820215BCD00CE199E /* ARPortalDemo.framework */,

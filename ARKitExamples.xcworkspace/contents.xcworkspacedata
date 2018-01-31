@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TossShapes/TossShapes.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ARDemos/ARDemos.xcodeproj">
    </FileRef>
    <FileRef

@@ -13,38 +13,55 @@ import AppCore
 
 public class FloorIsLavaViewController: UIViewController {
 
-    @IBOutlet var sceneView: ARSCNView!
+    public static var bundle : Bundle {
+        return Bundle(identifier: "com.geo-games.FloorIsLavaDemo")!
+    }
+    
     let grid = UIImage(named:"art.scnassets/grid.png")
     let lava = UIImage(named:"lava")
+    fileprivate var planes: [String : SCNNode] = [:]
+    
+    var bottomNode : SCNNode!
+    
+    @IBOutlet var sceneView: ARSCNView!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        sceneView.antialiasingMode = .multisampling4X
+        
         // Set the view's delegate
         sceneView.delegate = self
+        
+        sceneView.scene.physicsWorld.contactDelegate = self
         
         // Show statistics such as fps and timing information
         //sceneView.showsStatistics = true
         
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
-        // Create a new scene
-//        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-//        
-//        // Set the scene to the view
-//        sceneView.scene = scene
+        sceneView.autoenablesDefaultLighting = true
+        
+        configureWorldBottom()
+    }
+    
+    override public func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showHelperAlertIfNeeded()
     }
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-        
-        configuration.planeDetection = .horizontal
-        
-        // Run the view's session
-        sceneView.session.run(configuration)
+        if ARWorldTrackingConfiguration.isSupported {
+            // Create a session configuration
+            let configuration = ARWorldTrackingConfiguration()
+            
+            configuration.planeDetection = .horizontal
+            
+            // Run the view's session
+            sceneView.session.run(configuration)
+        }
     }
     
     override public func viewWillDisappear(_ animated: Bool) {
@@ -54,19 +71,41 @@ public class FloorIsLavaViewController: UIViewController {
         sceneView.session.pause()
     }
     
-    func createPlane(withPlaneAnchor planeAnchor : ARPlaneAnchor) -> SCNNode {
-        let anchorSize = CGSize(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
-        let anchorPosition = SCNVector3(x: planeAnchor.center.x, y: 0, z: planeAnchor.center.z)
-        
-        let planeNode = SCNNode(geometry: SCNPlane(width: anchorSize.width, height: anchorSize.height))
-        planeNode.geometry?.firstMaterial?.diffuse.contents = lava
-        planeNode.geometry?.firstMaterial?.isDoubleSided = true
-        planeNode.position = anchorPosition
-        planeNode.transform = SCNMatrix4Rotate(planeNode.transform, -Float(90).toRadians , 1, 0, 0)
-        
-        return planeNode
+    @IBAction func tapScreen() {
+        if let camera = self.sceneView.pointOfView {
+            let cube = NodeGenerator.generateRandomShapeInFrontOf(node: camera, 
+                                                                  color: .random, 
+                                                                  at: SCNVector3(x: 0, y: 0, z: -1), 
+                                                                  with: true)
+                //NodeGenerator.generateCubeInFrontOf(node: camera, physics: true, color: .random)
+            sceneView.scene.rootNode.addChildNode(cube)
+        }
     }
-
+    // MARK: - Private Methods
+    
+    private func showHelperAlertIfNeeded() {
+        let key = "PlaneMapperViewController.helperAlert.didShow"
+        if !UserDefaults.standard.bool(forKey: key) {
+            let alert = UIAlertController(title: title, message: "Look around to identify horizontal planes. Tap to drop a cube into the world.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            UserDefaults.standard.set(true, forKey: key)
+        }
+    }
+    
+    private func configureWorldBottom() {
+        bottomNode = SCNNode()
+        let physicsBody = SCNPhysicsBody.static()
+        physicsBody.categoryBitMask = CollisionTypes.bottom.rawValue
+        physicsBody.contactTestBitMask = CollisionTypes.shape.rawValue
+        bottomNode.physicsBody = physicsBody
+        sceneView.scene.rootNode.addChildNode(bottomNode)
+    }
+    
+    deinit {
+        print("Floor is Lava deinit")
+    }
 }
 
 // MARK: - ARSCNViewDelegate
@@ -81,33 +120,45 @@ extension FloorIsLavaViewController: ARSCNViewDelegate {
     }
 */
     public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        // a plane Anchor encodes the orientation, position and size of a horizontal surface
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-            
-        let planeNode = createPlane(withPlaneAnchor: planeAnchor)
+        
+        let key = planeAnchor.identifier.uuidString
+        let planeNode = NodeGenerator.generatePlaneFrom(planeAnchor: planeAnchor, physics: true, hidden: false)
         node.addChildNode(planeNode)
+        planes[key] = planeNode
+        
+        if (bottomNode != nil) {
+            bottomNode.removeFromParentNode()
+        }
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        // a plane Anchor encodes the orientation, position and size of a horizontal surface
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        node.enumerateChildNodes { (childNode, _) in
-            childNode.removeFromParentNode()
-        }
         
-        let planeNode = createPlane(withPlaneAnchor: planeAnchor)
-        node.addChildNode(planeNode)
+        let key = planeAnchor.identifier.uuidString
+        if let existingPlane = self.planes[key] {
+            NodeGenerator.update(planeNode: existingPlane, from: planeAnchor, hidden: false)
+            if (bottomNode != nil) {
+                bottomNode.removeFromParentNode()
+            }
+        }
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        
         // this function removes any new plane anchor found, as we already have a planeAnchor in the scene
         // or when more than one anchor is added, it is removed and this function is called
         // we need t deal with the plane anchors that have been removed
-        guard anchor is ARPlaneAnchor else { return }
-        node.enumerateChildNodes { (childNode, _) in
-            childNode.removeFromParentNode()
+
+        let key = planeAnchor.identifier.uuidString
+        if let existingPlane = planes[key] {
+            existingPlane.removeFromParentNode()
+            planes.removeValue(forKey: key)
         }
     }
+    
+   
     
     public func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
@@ -123,3 +174,19 @@ extension FloorIsLavaViewController: ARSCNViewDelegate {
         
     }
 }
+
+extension FloorIsLavaViewController : SCNPhysicsContactDelegate {
+    
+    public func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        let mask = contact.nodeA.physicsBody!.categoryBitMask | contact.nodeB.physicsBody!.categoryBitMask
+
+        if CollisionTypes(rawValue: mask) == [CollisionTypes.bottom, CollisionTypes.shape] {
+            if contact.nodeA.physicsBody!.categoryBitMask == CollisionTypes.bottom.rawValue {
+                contact.nodeB.removeFromParentNode()
+            } else {
+                contact.nodeA.removeFromParentNode()
+            }
+        }
+    }
+}
+
