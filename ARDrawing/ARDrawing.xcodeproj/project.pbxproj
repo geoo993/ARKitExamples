@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7143D362021D7E1000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79DA2AB201CE3E600227EB5 /* AppCore.framework */; };
 		C75EBB672020DB8A00E484CE /* ARDrawingDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C75EBB652020DB8A00E484CE /* ARDrawingDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C75EBB6A2020DB8A00E484CE /* ARDrawingDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB632020DB8A00E484CE /* ARDrawingDemo.framework */; };
 		C75EBB6B2020DB8A00E484CE /* ARDrawingDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB632020DB8A00E484CE /* ARDrawingDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -17,7 +18,6 @@
 		C79DA298201CE2B300227EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DA297201CE2B300227EB5 /* AppDelegate.swift */; };
 		C79DA2A1201CE2B300227EB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79DA2A0201CE2B300227EB5 /* Assets.xcassets */; };
 		C79DA2A4201CE2B300227EB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79DA2A2201CE2B300227EB5 /* LaunchScreen.storyboard */; };
-		C79DA2AC201CE3E600227EB5 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79DA2AB201CE3E600227EB5 /* AppCore.framework */; };
 		C79DA2AD201CE3E600227EB5 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C79DA2AB201CE3E600227EB5 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -65,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7143D362021D7E1000923B9 /* AppCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C79DA2AC201CE3E600227EB5 /* AppCore.framework in Frameworks */,
 				C75EBB6A2020DB8A00E484CE /* ARDrawingDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +80,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7143D352021D7E1000923B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C75EBB642020DB8A00E484CE /* ARDrawingDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +103,7 @@
 				C79DA296201CE2B300227EB5 /* ARDrawing */,
 				C75EBB642020DB8A00E484CE /* ARDrawingDemo */,
 				C79DA295201CE2B300227EB5 /* Products */,
+				C7143D352021D7E1000923B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

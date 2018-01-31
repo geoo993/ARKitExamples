@@ -14,6 +14,10 @@ import Each
 
 public class ARHoopsViewController: UIViewController {
 
+    public static var bundle : Bundle {
+        return Bundle(identifier: "com.geo-games.ARHoopsDemo")!
+    }
+    
     var power : Float = 0
     var lift : Float = 0
     var restitution : CGFloat = 0.3
@@ -73,8 +77,8 @@ public class ARHoopsViewController: UIViewController {
     
     func addBasketballCoart(with hitTestResult: ARHitTestResult) {
         
-        let scene = SCNScene(named: "art.scnassets/basketball.scn")!
-        if let node = scene.rootNode.childNode(withName: "basket", recursively: false){
+        if let scene = SCNScene.loadScene(from: ARHoopsViewController.bundle, scnassets: "art", name: "basketball"),
+            let node = scene.rootNode.childNode(withName: "basket", recursively: false){
             
             let transform = hitTestResult.worldTransform 
             let thirdColumn = transform.columns.3
@@ -100,9 +104,10 @@ public class ARHoopsViewController: UIViewController {
             let translation = SCNVector3(transform.m41, transform.m42, transform.m43)
             let currentPositionOfCamera = orientation + translation
             
+            let image = UIImage(named: "basketball-texture", in: ARHoopsViewController.bundle, compatibleWith: nil)
             let ball = SCNNode(geometry: SCNSphere(radius: 0.2))
             ball.name = "Basketball"
-            ball.geometry?.firstMaterial?.diffuse.contents = UIImage(named:"basketball-texture")
+            ball.geometry?.firstMaterial?.diffuse.contents = image
             ball.geometry?.firstMaterial?.isDoubleSided = true
             ball.position = currentPositionOfCamera
             ball.orientation = camera.orientation
@@ -141,6 +146,10 @@ public class ARHoopsViewController: UIViewController {
                 node.removeFromParentNode()
             }
         }
+    }
+    
+    deinit {
+        print("AR Hoops deinit")
     }
 }
 
@@ -218,9 +227,8 @@ extension ARHoopsViewController {
     @objc func handleLongPress(_ sender: UILongPressGestureRecognizer) {
         if basketAdded {
             switch sender.state {
-                
             case .began:
-                timer.perform(closure: { () -> NextStep in
+                timer.perform(closure: { [unowned self] () -> NextStep in
                     self.power += 1
                     self.lift += 0.15
                     return .continue

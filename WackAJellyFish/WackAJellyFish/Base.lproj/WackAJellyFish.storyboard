@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,28 +21,20 @@
         <!--WackA Jelly Fish View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="WackAJellyFishViewController" id="BYZ-38-t0r" customClass="WackAJellyFishViewController" customModule="WackAJellyFish" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WackAJellyFishViewController" id="BYZ-38-t0r" customClass="WackAJellyFishViewController" customModule="WackAJellyFishDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aMF-rZ-xum">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xC-Xq-D1Y">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejR-In-Dgz" userLabel="Timer Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xC-Xq-D1Y">
-                                        <rect key="frame" x="0.0" y="53.5" width="375" height="613.5"/>
-                                    </arscnView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="ejR-In-Dgz" firstAttribute="height" secondItem="aMF-rZ-xum" secondAttribute="height" multiplier="0.08" id="Rzt-Zb-dtG"/>
-                                </constraints>
-                            </stackView>
+                            </arscnView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejR-In-Dgz" userLabel="Timer Label">
+                                <rect key="frame" x="138" y="318" width="98.5" height="29.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" name="Azure"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqa-bM-3aT">
                                 <rect key="frame" x="20" y="572" width="75" height="75"/>
                                 <constraints>
@@ -65,21 +58,24 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aMF-rZ-xum" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8Ub-Nu-DJx"/>
+                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="AMQ-2P-dMy"/>
                             <constraint firstItem="Yqa-bM-3aT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="B0x-h4-grD"/>
+                            <constraint firstItem="ejR-In-Dgz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BA6-c6-8Bt"/>
                             <constraint firstItem="axh-my-nMo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="HAp-oq-BAO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="axh-my-nMo" secondAttribute="bottom" constant="20" id="N2I-dc-84P"/>
-                            <constraint firstItem="aMF-rZ-xum" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T47-uc-d2O"/>
+                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ogm-F9-VAZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Yqa-bM-3aT" secondAttribute="bottom" constant="20" id="TsQ-A8-bQ5"/>
                             <constraint firstItem="Yqa-bM-3aT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Uku-lZ-Uzg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="axh-my-nMo" secondAttribute="trailing" constant="20" id="V4o-9w-75w"/>
-                            <constraint firstItem="aMF-rZ-xum" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="WgH-cQ-0vH"/>
-                            <constraint firstItem="aMF-rZ-xum" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="WqG-vj-w3D"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yqa-bM-3aT" secondAttribute="trailing" constant="20" symbolic="YES" id="dwi-lB-IAg"/>
                             <constraint firstItem="axh-my-nMo" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="hPg-pX-avP"/>
+                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hQi-FH-wUx"/>
+                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lPg-TN-Lps"/>
+                            <constraint firstItem="ejR-In-Dgz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zko-Cg-lXI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="play" destination="Yqa-bM-3aT" id="rTL-ee-KLp"/>
                         <outlet property="sceneView" destination="9xC-Xq-D1Y" id="t6l-m6-ePz"/>
@@ -94,5 +90,8 @@
     <resources>
         <image name="Play" width="102" height="102"/>
         <image name="Reset" width="102" height="102"/>
+        <namedColor name="Azure">
+            <color red="0.94117647058823528" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

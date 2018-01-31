@@ -13,6 +13,10 @@ import AppCore
 
 public class ARPortalViewController: UIViewController {
 
+    public static var bundle : Bundle {
+        return Bundle(identifier: "com.geo-games.ARPortalDemo")!
+    }
+    
     let skyBoxName = ["petrolstation", "porchfold"]
     var skyboxIndex = 1
     
@@ -21,6 +25,8 @@ public class ARPortalViewController: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
+        sceneView.antialiasingMode = .multisampling4X
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -60,8 +66,8 @@ public class ARPortalViewController: UIViewController {
     
     func addPortal(with hitTestResult: ARHitTestResult) {
         
-        let scene = SCNScene(named: "art.scnassets/portal.scn")!
-        if let node = scene.rootNode.childNode(withName: "portal", recursively: false){
+        if let scene = SCNScene.loadScene(from: ARPortalViewController.bundle, scnassets: "art", name: "portal"),
+            let node = scene.rootNode.childNode(withName: "portal", recursively: false){
             
             let transform = hitTestResult.worldTransform 
             let thirdColumn = transform.columns.3
@@ -70,7 +76,6 @@ public class ARPortalViewController: UIViewController {
             sceneView.scene.rootNode.addChildNode(node)
             
             skyboxIndex = Int.random(min: 0, max: skyBoxName.count - 1)
-            print(skyboxIndex)
             let skyBox = skyBoxName[skyboxIndex]
             
             // cut front image by (imagsize * 0.375) (which is half of 0.625 of the side doors) 
@@ -86,7 +91,8 @@ public class ARPortalViewController: UIViewController {
     
     func addPlane(nodeName: String, portal: SCNNode, imageName: String) {
         let childNode = portal.childNode(withName: nodeName, recursively: true)
-        childNode?.geometry?.firstMaterial?.diffuse.contents = UIImage(named:"art.scnassets/\(imageName)")
+        let image = UIImage(named: "art.scnassets/\(imageName)", in: ARPortalViewController.bundle, compatibleWith: nil)
+        childNode?.geometry?.firstMaterial?.diffuse.contents = image
         
         childNode?.renderingOrder = 200
         if let mask = childNode?.childNode(withName: "mask", recursively: false) {
@@ -94,6 +100,10 @@ public class ARPortalViewController: UIViewController {
             // the mask has a default rendering order of 0, which is going to be render way before the childNode will
             mask.geometry?.firstMaterial?.transparency = 0.000001 // allmost completely transparent
         }
+    }
+    
+    deinit {
+        print("AR Portal deinit")
     }
  
 }

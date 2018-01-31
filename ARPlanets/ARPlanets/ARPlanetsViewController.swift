@@ -14,6 +14,10 @@ import AppCore
 
 public class ARPlanetsViewController: UIViewController {
 
+    public static var bundle : Bundle {
+        return Bundle(identifier: "com.geo-games.ARPlanetsDemo")!
+    }
+    
     @IBOutlet weak var sceneView: ARSCNView!
     
     override public func viewDidLoad() {
@@ -77,14 +81,18 @@ public class ARPlanetsViewController: UIViewController {
     }
     
     func addSun(toParent parent: SCNNode, at position : SCNVector3, rotation: TimeInterval) -> SCNNode {
-        let node = planet(radius: 0.8, position: position, diffuse: UIImage(named: "sun"))
+        let node = planet(radius: 0.8, 
+                          position: position, 
+                          diffuse: UIImage(named: "sun", in: ARPlanetsViewController.bundle, compatibleWith: nil))
         rotate(planet: node, by: rotation)
         parent.addChildNode(node)
         return node
     }
     
     func addMoon(toParent parent: SCNNode, at position : SCNVector3, rotation: TimeInterval) -> SCNNode {
-        let node = planet(radius: 0.05, position: position, diffuse: UIImage(named: "moon"))
+        let node = planet(radius: 0.05, 
+                          position: position, 
+                          diffuse: UIImage(named: "moon", in: ARPlanetsViewController.bundle, compatibleWith: nil))
         rotate(planet: node, by: rotation)
         parent.addChildNode(node)
         return node
@@ -93,10 +101,10 @@ public class ARPlanetsViewController: UIViewController {
     func addEarth(toParent parent: SCNNode, at position: SCNVector3, rotation: TimeInterval) -> SCNNode {
         let node = planet(radius: 0.2, 
                           position: position, 
-                          diffuse: UIImage(named: "earth_day_map"),
-                          specular: UIImage(named: "earth_specular_map"),
-                          normal: UIImage(named: "earth_normal_map"),
-                          emission: UIImage(named: "earth_clouds"))
+                          diffuse: UIImage(named: "earth_day_map", in: ARPlanetsViewController.bundle, compatibleWith: nil),
+                          specular: UIImage(named: "earth_specular_map", in: ARPlanetsViewController.bundle, compatibleWith: nil),
+                          normal: UIImage(named: "earth_normal_map", in: ARPlanetsViewController.bundle, compatibleWith: nil),
+                          emission: UIImage(named: "earth_clouds", in: ARPlanetsViewController.bundle, compatibleWith: nil))
         parent.addChildNode(node)
         rotate(planet: node, by: rotation)
         return node
@@ -105,10 +113,10 @@ public class ARPlanetsViewController: UIViewController {
     func addVenus(toParent parent: SCNNode, at position: SCNVector3, rotation: TimeInterval) -> SCNNode {
         let node = planet(radius: 0.12, 
                           position: position, 
-                          diffuse: UIImage(named: "venus_surface"),
+                          diffuse: UIImage(named: "venus_surface", in: ARPlanetsViewController.bundle, compatibleWith: nil),
                           specular: nil,
                           normal: nil,
-                          emission: UIImage(named: "venus_atmosphere"))
+                          emission: UIImage(named: "venus_atmosphere", in: ARPlanetsViewController.bundle, compatibleWith: nil))
         parent.addChildNode(node)
         rotate(planet: node, by: rotation)
         return node
@@ -117,7 +125,7 @@ public class ARPlanetsViewController: UIViewController {
     func addMars(toParent parent: SCNNode, at position: SCNVector3, rotation: TimeInterval) -> SCNNode {
         let node = planet(radius: 0.07, 
                           position: position, 
-                          diffuse: UIImage(named: "mars"),
+                          diffuse: UIImage(named: "mars", in: ARPlanetsViewController.bundle, compatibleWith: nil),
                           specular: nil,
                           normal: nil,
                           emission: nil)
@@ -130,7 +138,7 @@ public class ARPlanetsViewController: UIViewController {
     func addJupiter(toParent parent: SCNNode, at position: SCNVector3, rotation: TimeInterval) -> SCNNode {
         let node = planet(radius: 0.49, 
                           position: position, 
-                          diffuse: UIImage(named: "jupiter"),
+                          diffuse: UIImage(named: "jupiter", in: ARPlanetsViewController.bundle, compatibleWith: nil),
                           specular: nil,
                           normal: nil,
                           emission: nil)
@@ -143,7 +151,7 @@ public class ARPlanetsViewController: UIViewController {
     func addSaturn(toParent parent: SCNNode, at position: SCNVector3, rotation: TimeInterval) -> SCNNode {
         let node = planet(radius: 0.41, 
                           position: position, 
-                          diffuse: UIImage(named: "saturn"),
+                          diffuse: UIImage(named: "saturn", in: ARPlanetsViewController.bundle, compatibleWith: nil),
                           specular: nil,
                           normal: nil,
                           emission: nil)
@@ -156,7 +164,7 @@ public class ARPlanetsViewController: UIViewController {
     func addUranus(toParent parent: SCNNode, at position: SCNVector3, rotation: TimeInterval) -> SCNNode {
         let node = planet(radius: 0.3, 
                           position: position, 
-                          diffuse: UIImage(named: "uranus"),
+                          diffuse: UIImage(named: "uranus", in: ARPlanetsViewController.bundle, compatibleWith: nil),
                           specular: nil,
                           normal: nil,
                           emission: nil)
@@ -169,7 +177,7 @@ public class ARPlanetsViewController: UIViewController {
     func addNeptune(toParent parent: SCNNode, at position: SCNVector3, rotation: TimeInterval) -> SCNNode {
         let node = planet(radius: 0.32, 
                           position: position, 
-                          diffuse: UIImage(named: "neptune"),
+                          diffuse: UIImage(named: "neptune", in: ARPlanetsViewController.bundle, compatibleWith: nil),
                           specular: nil,
                           normal: nil,
                           emission: nil)

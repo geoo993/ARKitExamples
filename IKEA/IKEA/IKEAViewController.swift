@@ -12,6 +12,10 @@ import AppCore
 
 public class IKEAViewController: UIViewController {
 
+    public static var bundle : Bundle {
+        return Bundle(identifier: "com.geo-games.IKEADemo")!
+    }
+    
     let cellIdentifier = "itemsIdentifier"
     let itemsArray = ["cup", "boxing", "table", "vase", "sofa", 
                       "metal chairs", "wineglass", "chest drawer", 
@@ -24,6 +28,8 @@ public class IKEAViewController: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
+        sceneView.antialiasingMode = .multisampling4X
         
         // Show statistics such as fps and timing information
         //sceneView.showsStatistics = true
@@ -58,8 +64,9 @@ public class IKEAViewController: UIViewController {
         let anchorSize = CGSize(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
         let anchorPosition = SCNVector3(x: planeAnchor.center.x, y: 0, z: planeAnchor.center.z)
         
+        let image = UIImage(named: "Models.scnassets/grid.png", in: IKEAViewController.bundle, compatibleWith: nil)
         let planeNode = SCNNode(geometry: SCNPlane(width: anchorSize.width, height: anchorSize.height))
-        planeNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named:"Models.scnassets/grid.png")
+        planeNode.geometry?.firstMaterial?.diffuse.contents = image
         planeNode.geometry?.firstMaterial?.isDoubleSided = true
         planeNode.position = anchorPosition
         planeNode.transform = SCNMatrix4Rotate(planeNode.transform, -Float(90).toRadians , 1, 0, 0)
@@ -71,8 +78,8 @@ public class IKEAViewController: UIViewController {
         
         guard let item = selectedItem else { return }
         
-        let scene = SCNScene(named: "Models.scnassets/\(item).scn")!
-        if let node = scene.rootNode.childNode(withName: item, recursively: false){
+        if let scene = SCNScene.loadScene(from: IKEAViewController.bundle, scnassets: "Models", name: item),
+            let node = scene.rootNode.childNode(withName: item, recursively: false) {
            
             let transform = hitTestResult.worldTransform 
             let thirdColumn = transform.columns.3
@@ -83,6 +90,9 @@ public class IKEAViewController: UIViewController {
         }
     }
     
+    deinit {
+        print("IKEA deinit")
+    }
 }
 
 // MARK: - ARSCNViewDelegate

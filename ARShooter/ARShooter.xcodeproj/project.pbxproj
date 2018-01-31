@@ -7,15 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7143D412021D8AF000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7193D7020209D4C00B28CC3 /* AppCore.framework */; };
+		C7143D512021E043000923B9 /* ARShooterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7193D6020209AEE00B28CC3 /* ARShooterViewController.swift */; };
+		C7143D522021E046000923B9 /* ARShooter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7193D6220209AEE00B28CC3 /* ARShooter.storyboard */; };
+		C7143D532021E049000923B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7193D6520209AEE00B28CC3 /* Assets.xcassets */; };
+		C7143D542021E04C000923B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7193D6720209AEE00B28CC3 /* LaunchScreen.storyboard */; };
 		C7193D5D20209AEE00B28CC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7193D5C20209AEE00B28CC3 /* AppDelegate.swift */; };
 		C7193D5F20209AEE00B28CC3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7193D5E20209AEE00B28CC3 /* art.scnassets */; };
-		C7193D6120209AEE00B28CC3 /* ARShooterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7193D6020209AEE00B28CC3 /* ARShooterViewController.swift */; };
-		C7193D6420209AEE00B28CC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7193D6220209AEE00B28CC3 /* Main.storyboard */; };
-		C7193D6620209AEE00B28CC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7193D6520209AEE00B28CC3 /* Assets.xcassets */; };
-		C7193D6920209AEE00B28CC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7193D6720209AEE00B28CC3 /* LaunchScreen.storyboard */; };
-		C7193D7120209D4C00B28CC3 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7193D7020209D4C00B28CC3 /* AppCore.framework */; };
 		C7193D7220209D4C00B28CC3 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7193D7020209D4C00B28CC3 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7857B7D2021628800CE199E /* ARShooterDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7857B7B2021628800CE199E /* ARShooterDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7857B812021628800CE199E /* ARShooterDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B792021628800CE199E /* ARShooterDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7857B89202162BC00CE199E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7193D5E20209AEE00B28CC3 /* art.scnassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7857B7E2021628800CE199E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7193D5120209AEE00B28CC3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7857B782021628800CE199E;
+			remoteInfo = ARShooterDemo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C7193D7320209D4C00B28CC3 /* Embed Frameworks */ = {
@@ -25,6 +38,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C7193D7220209D4C00B28CC3 /* AppCore.framework in Embed Frameworks */,
+				C7857B812021628800CE199E /* ARShooterDemo.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,11 +50,14 @@
 		C7193D5C20209AEE00B28CC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7193D5E20209AEE00B28CC3 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		C7193D6020209AEE00B28CC3 /* ARShooterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARShooterViewController.swift; sourceTree = "<group>"; };
-		C7193D6320209AEE00B28CC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7193D6320209AEE00B28CC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARShooter.storyboard; sourceTree = "<group>"; };
 		C7193D6520209AEE00B28CC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7193D6820209AEE00B28CC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7193D6A20209AEE00B28CC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7193D7020209D4C00B28CC3 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7857B792021628800CE199E /* ARShooterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARShooterDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7857B7B2021628800CE199E /* ARShooterDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARShooterDemo.h; sourceTree = "<group>"; };
+		C7857B7C2021628800CE199E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,19 +65,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7193D7120209D4C00B28CC3 /* AppCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7857B752021628800CE199E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7143D412021D8AF000923B9 /* AppCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7143D402021D8AF000923B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C7193D5020209AEE00B28CC3 = {
 			isa = PBXGroup;
 			children = (
 				C7193D7020209D4C00B28CC3 /* AppCore.framework */,
 				C7193D5B20209AEE00B28CC3 /* ARShooter */,
+				C7857B7A2021628800CE199E /* ARShooterDemo */,
 				C7193D5A20209AEE00B28CC3 /* Products */,
+				C7143D402021D8AF000923B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				C7193D5920209AEE00B28CC3 /* ARShooter.app */,
+				C7857B792021628800CE199E /* ARShooterDemo.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,7 +112,7 @@
 				C7193D5C20209AEE00B28CC3 /* AppDelegate.swift */,
 				C7193D5E20209AEE00B28CC3 /* art.scnassets */,
 				C7193D6020209AEE00B28CC3 /* ARShooterViewController.swift */,
-				C7193D6220209AEE00B28CC3 /* Main.storyboard */,
+				C7193D6220209AEE00B28CC3 /* ARShooter.storyboard */,
 				C7193D6520209AEE00B28CC3 /* Assets.xcassets */,
 				C7193D6720209AEE00B28CC3 /* LaunchScreen.storyboard */,
 				C7193D6A20209AEE00B28CC3 /* Info.plist */,
@@ -86,7 +120,27 @@
 			path = ARShooter;
 			sourceTree = "<group>";
 		};
+		C7857B7A2021628800CE199E /* ARShooterDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C7857B7B2021628800CE199E /* ARShooterDemo.h */,
+				C7857B7C2021628800CE199E /* Info.plist */,
+			);
+			path = ARShooterDemo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C7857B762021628800CE199E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7857B7D2021628800CE199E /* ARShooterDemo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		C7193D5820209AEE00B28CC3 /* ARShooter */ = {
@@ -101,11 +155,30 @@
 			buildRules = (
 			);
 			dependencies = (
+				C7857B7F2021628800CE199E /* PBXTargetDependency */,
 			);
 			name = ARShooter;
 			productName = ARShooter;
 			productReference = C7193D5920209AEE00B28CC3 /* ARShooter.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C7857B782021628800CE199E /* ARShooterDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7857B842021628800CE199E /* Build configuration list for PBXNativeTarget "ARShooterDemo" */;
+			buildPhases = (
+				C7857B742021628800CE199E /* Sources */,
+				C7857B752021628800CE199E /* Frameworks */,
+				C7857B762021628800CE199E /* Headers */,
+				C7857B772021628800CE199E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARShooterDemo;
+			productName = ARShooterDemo;
+			productReference = C7857B792021628800CE199E /* ARShooterDemo.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -118,6 +191,10 @@
 				ORGANIZATIONNAME = "Geo Games";
 				TargetAttributes = {
 					C7193D5820209AEE00B28CC3 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					C7857B782021628800CE199E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -137,6 +214,7 @@
 			projectRoot = "";
 			targets = (
 				C7193D5820209AEE00B28CC3 /* ARShooter */,
+				C7857B782021628800CE199E /* ARShooterDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -147,9 +225,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7193D5F20209AEE00B28CC3 /* art.scnassets in Resources */,
-				C7193D6920209AEE00B28CC3 /* LaunchScreen.storyboard in Resources */,
-				C7193D6620209AEE00B28CC3 /* Assets.xcassets in Resources */,
-				C7193D6420209AEE00B28CC3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7857B772021628800CE199E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7857B89202162BC00CE199E /* art.scnassets in Resources */,
+				C7143D522021E046000923B9 /* ARShooter.storyboard in Resources */,
+				C7143D542021E04C000923B9 /* LaunchScreen.storyboard in Resources */,
+				C7143D532021E049000923B9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,20 +246,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7193D6120209AEE00B28CC3 /* ARShooterViewController.swift in Sources */,
 				C7193D5D20209AEE00B28CC3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7857B742021628800CE199E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7143D512021E043000923B9 /* ARShooterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C7857B7F2021628800CE199E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7857B782021628800CE199E /* ARShooterDemo */;
+			targetProxy = C7857B7E2021628800CE199E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		C7193D6220209AEE00B28CC3 /* Main.storyboard */ = {
+		C7193D6220209AEE00B28CC3 /* ARShooter.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C7193D6320209AEE00B28CC3 /* Base */,
 			);
-			name = Main.storyboard;
+			name = ARShooter.storyboard;
 			sourceTree = "<group>";
 		};
 		C7193D6720209AEE00B28CC3 /* LaunchScreen.storyboard */ = {
@@ -297,6 +398,7 @@
 		C7193D6E20209AEE00B28CC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
@@ -312,6 +414,7 @@
 		C7193D6F20209AEE00B28CC3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
@@ -321,6 +424,54 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C7857B822021628800CE199E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FDAK5XPRG7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ARShooterDemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARShooterDemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C7857B832021628800CE199E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FDAK5XPRG7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ARShooterDemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARShooterDemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -341,6 +492,15 @@
 			buildConfigurations = (
 				C7193D6E20209AEE00B28CC3 /* Debug */,
 				C7193D6F20209AEE00B28CC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7857B842021628800CE199E /* Build configuration list for PBXNativeTarget "ARShooterDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7857B822021628800CE199E /* Debug */,
+				C7857B832021628800CE199E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,16 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C7625425201DEAEA0059951B /* IKEACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7625424201DEAEA0059951B /* IKEACollectionViewCell.swift */; };
+		C70721402021546D0071F6FE /* IKEADemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C707213E2021546D0071F6FE /* IKEADemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C70721432021546D0071F6FE /* IKEADemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C707213C2021546D0071F6FE /* IKEADemo.framework */; };
+		C70721442021546D0071F6FE /* IKEADemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C707213C2021546D0071F6FE /* IKEADemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7072148202154990071F6FE /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C7855D201E01620043604E /* Models.scnassets */; };
+		C7072149202154990071F6FE /* IKEA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CE5201DDB4200255242 /* IKEA.storyboard */; };
+		C707214A202154990071F6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CE8201DDB4200255242 /* Assets.xcassets */; };
+		C707214B202154990071F6FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CEA201DDB4200255242 /* LaunchScreen.storyboard */; };
+		C707214C202154B70071F6FE /* IKEAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A88CE3201DDB4200255242 /* IKEAViewController.swift */; };
+		C707214D202154BA0071F6FE /* IKEACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7625424201DEAEA0059951B /* IKEACollectionViewCell.swift */; };
+		C7143D3A2021D82F000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A88CF3201DDBA500255242 /* AppCore.framework */; };
 		C7A88CE2201DDB4200255242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A88CE1201DDB4200255242 /* AppDelegate.swift */; };
-		C7A88CE4201DDB4200255242 /* IKEAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A88CE3201DDB4200255242 /* IKEAViewController.swift */; };
-		C7A88CE7201DDB4200255242 /* IKEA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CE5201DDB4200255242 /* IKEA.storyboard */; };
-		C7A88CE9201DDB4200255242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CE8201DDB4200255242 /* Assets.xcassets */; };
-		C7A88CEC201DDB4200255242 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CEA201DDB4200255242 /* LaunchScreen.storyboard */; };
-		C7A88CF4201DDBA500255242 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A88CF3201DDBA500255242 /* AppCore.framework */; };
 		C7A88CF5201DDBA500255242 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A88CF3201DDBA500255242 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7C7855E201E01620043604E /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C7855D201E01620043604E /* Models.scnassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C70721412021546D0071F6FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7A88CD6201DDB4200255242 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C707213B2021546D0071F6FE;
+			remoteInfo = IKEADemo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C7A88CF6201DDBA600255242 /* Embed Frameworks */ = {
@@ -26,6 +40,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C7A88CF5201DDBA500255242 /* AppCore.framework in Embed Frameworks */,
+				C70721442021546D0071F6FE /* IKEADemo.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -33,6 +48,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C707213C2021546D0071F6FE /* IKEADemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IKEADemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C707213E2021546D0071F6FE /* IKEADemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKEADemo.h; sourceTree = "<group>"; };
+		C707213F2021546D0071F6FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7625424201DEAEA0059951B /* IKEACollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKEACollectionViewCell.swift; sourceTree = "<group>"; };
 		C7A88CDE201DDB4200255242 /* IKEA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IKEA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A88CE1201DDB4200255242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,23 +64,49 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C70721382021546D0071F6FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7143D3A2021D82F000923B9 /* AppCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7A88CDB201DDB4200255242 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7A88CF4201DDBA500255242 /* AppCore.framework in Frameworks */,
+				C70721432021546D0071F6FE /* IKEADemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C707213D2021546D0071F6FE /* IKEADemo */ = {
+			isa = PBXGroup;
+			children = (
+				C707213E2021546D0071F6FE /* IKEADemo.h */,
+				C707213F2021546D0071F6FE /* Info.plist */,
+			);
+			path = IKEADemo;
+			sourceTree = "<group>";
+		};
+		C7143D392021D82F000923B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C7A88CD5201DDB4200255242 = {
 			isa = PBXGroup;
 			children = (
 				C7A88CF3201DDBA500255242 /* AppCore.framework */,
 				C7A88CE0201DDB4200255242 /* IKEA */,
+				C707213D2021546D0071F6FE /* IKEADemo */,
 				C7A88CDF201DDB4200255242 /* Products */,
+				C7143D392021D82F000923B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A88CDE201DDB4200255242 /* IKEA.app */,
+				C707213C2021546D0071F6FE /* IKEADemo.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,7 +136,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		C70721392021546D0071F6FE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C70721402021546D0071F6FE /* IKEADemo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		C707213B2021546D0071F6FE /* IKEADemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C70721472021546D0071F6FE /* Build configuration list for PBXNativeTarget "IKEADemo" */;
+			buildPhases = (
+				C70721372021546D0071F6FE /* Sources */,
+				C70721382021546D0071F6FE /* Frameworks */,
+				C70721392021546D0071F6FE /* Headers */,
+				C707213A2021546D0071F6FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IKEADemo;
+			productName = IKEADemo;
+			productReference = C707213C2021546D0071F6FE /* IKEADemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		C7A88CDD201DDB4200255242 /* IKEA */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7A88CF0201DDB4200255242 /* Build configuration list for PBXNativeTarget "IKEA" */;
@@ -104,6 +178,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C70721422021546D0071F6FE /* PBXTargetDependency */,
 			);
 			name = IKEA;
 			productName = IKEA;
@@ -120,6 +195,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Geo Games";
 				TargetAttributes = {
+					C707213B2021546D0071F6FE = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					C7A88CDD201DDB4200255242 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -140,36 +219,60 @@
 			projectRoot = "";
 			targets = (
 				C7A88CDD201DDB4200255242 /* IKEA */,
+				C707213B2021546D0071F6FE /* IKEADemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C707213A2021546D0071F6FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7072148202154990071F6FE /* Models.scnassets in Resources */,
+				C7072149202154990071F6FE /* IKEA.storyboard in Resources */,
+				C707214A202154990071F6FE /* Assets.xcassets in Resources */,
+				C707214B202154990071F6FE /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7A88CDC201DDB4200255242 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7A88CEC201DDB4200255242 /* LaunchScreen.storyboard in Resources */,
 				C7C7855E201E01620043604E /* Models.scnassets in Resources */,
-				C7A88CE9201DDB4200255242 /* Assets.xcassets in Resources */,
-				C7A88CE7201DDB4200255242 /* IKEA.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C70721372021546D0071F6FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C707214D202154BA0071F6FE /* IKEACollectionViewCell.swift in Sources */,
+				C707214C202154B70071F6FE /* IKEAViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7A88CDA201DDB4200255242 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7625425201DEAEA0059951B /* IKEACollectionViewCell.swift in Sources */,
-				C7A88CE4201DDB4200255242 /* IKEAViewController.swift in Sources */,
 				C7A88CE2201DDB4200255242 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C70721422021546D0071F6FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C707213B2021546D0071F6FE /* IKEADemo */;
+			targetProxy = C70721412021546D0071F6FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C7A88CE5201DDB4200255242 /* IKEA.storyboard */ = {
@@ -191,6 +294,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C70721452021546D0071F6FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FDAK5XPRG7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = IKEADemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.IKEADemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C70721462021546D0071F6FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FDAK5XPRG7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = IKEADemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.IKEADemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		C7A88CEE201DDB4200255242 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -301,6 +452,7 @@
 		C7A88CF1201DDB4200255242 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
@@ -316,6 +468,7 @@
 		C7A88CF2201DDB4200255242 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
@@ -331,6 +484,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C70721472021546D0071F6FE /* Build configuration list for PBXNativeTarget "IKEADemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C70721452021546D0071F6FE /* Debug */,
+				C70721462021546D0071F6FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C7A88CD9201DDB4200255242 /* Build configuration list for PBXProject "IKEA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

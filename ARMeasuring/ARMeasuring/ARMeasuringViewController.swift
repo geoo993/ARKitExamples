@@ -14,6 +14,10 @@ import Chameleon
 
 public class ARMeasuringViewController: UIViewController {
 
+    public static var bundle : Bundle {
+        return Bundle(identifier: "com.geo-games.ARMeasuringDemo")!
+    }
+    
     var startingPosition : SCNNode?
     var endPosition : SCNNode?
     let distanceFromCamera : Float = -1
@@ -76,6 +80,10 @@ public class ARMeasuringViewController: UIViewController {
         yLabel.textColor = constrastColor
         zLabel.textColor = constrastColor
     }
+    
+    deinit {
+        print("AR Measuring deinit")
+    }
 }
 
 // MARK: - Gestures Recognizer
@@ -95,7 +103,7 @@ extension ARMeasuringViewController {
             return 
         }
         
-        if let camerafront = sceneView.camerafront(by: distanceFromCamera) {
+        if let camerafront = sceneView.cameraFront(by: distanceFromCamera) {
 
             let color = UIColor.random
             let startnode = SCNNode.createSphere(with: "", radius: 0.01, at: camerafront, color: color)
@@ -135,7 +143,7 @@ extension ARMeasuringViewController: ARSCNViewDelegate {
                 this.zLabel.text = String(format:"%.2f", positionTraveled.z ) + "m"
                 this.distanceLabel.text = String(format:"%.2f", this.distanceTraveled ) + "m"
                 
-                if let camerafront = this.sceneView.camerafront(by: this.distanceFromCamera) {
+                if let camerafront = this.sceneView.cameraFront(by: this.distanceFromCamera) {
                     this.endPosition?.simdTransform = camerafront
                 }
             }

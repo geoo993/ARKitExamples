@@ -13,13 +13,15 @@ import AppCore
 
 public class ARDrawingViewController: UIViewController {
 
+    public static var bundle : Bundle {
+        return Bundle(identifier: "com.geo-games.ARDrawingDemo")!
+    }
+    
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var drawButton : UIButton!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "AR Drawing"
         
         self.sceneView.antialiasingMode = .multisampling4X
       

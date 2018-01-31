@@ -7,16 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7143D182021D34E000923B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C775DEB1201F2A4B003457AD /* LaunchScreen.storyboard */; };
+		C7143D192021D367000923B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C775DEAF201F2A4B003457AD /* Assets.xcassets */; };
+		C7143D1A2021D36B000923B9 /* ARMeasuring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C775DEAC201F2A4B003457AD /* ARMeasuring.storyboard */; };
+		C7143D1B2021D36D000923B9 /* ARMeasuringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEAA201F2A4B003457AD /* ARMeasuringViewController.swift */; };
+		C7143D332021D7AB000923B9 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A52AB7201F5711003614C0 /* Chameleon.framework */; };
+		C7143D342021D7AE000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C775DEBA201F2BD3003457AD /* AppCore.framework */; };
 		C775DEA7201F2A4B003457AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEA6201F2A4B003457AD /* AppDelegate.swift */; };
-		C775DEAB201F2A4B003457AD /* ARMeasuringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEAA201F2A4B003457AD /* ARMeasuringViewController.swift */; };
-		C775DEAE201F2A4B003457AD /* ARMeasuring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C775DEAC201F2A4B003457AD /* ARMeasuring.storyboard */; };
-		C775DEB0201F2A4B003457AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C775DEAF201F2A4B003457AD /* Assets.xcassets */; };
-		C775DEB3201F2A4B003457AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C775DEB1201F2A4B003457AD /* LaunchScreen.storyboard */; };
-		C775DEBB201F2BD3003457AD /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C775DEBA201F2BD3003457AD /* AppCore.framework */; };
 		C775DEBC201F2BD3003457AD /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C775DEBA201F2BD3003457AD /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7A52AB8201F5711003614C0 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A52AB7201F5711003614C0 /* Chameleon.framework */; };
+		C7857B34202158DB00CE199E /* ARMeasuringDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7857B32202158DB00CE199E /* ARMeasuringDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7857B37202158DB00CE199E /* ARMeasuringDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */; };
+		C7857B38202158DB00CE199E /* ARMeasuringDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7A52AB9201F5711003614C0 /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A52AB7201F5711003614C0 /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7857B35202158DB00CE199E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C775DE9B201F2A4B003457AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7857B2F202158DB00CE199E;
+			remoteInfo = ARMeasuringDemo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C775DEBD201F2BD4003457AD /* Embed Frameworks */ = {
@@ -25,6 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C7857B38202158DB00CE199E /* ARMeasuringDemo.framework in Embed Frameworks */,
 				C775DEBC201F2BD3003457AD /* AppCore.framework in Embed Frameworks */,
 				C7A52AB9201F5711003614C0 /* Chameleon.framework in Embed Frameworks */,
 			);
@@ -42,6 +56,9 @@
 		C775DEB2201F2A4B003457AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C775DEB4201F2A4B003457AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C775DEBA201F2BD3003457AD /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARMeasuringDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7857B32202158DB00CE199E /* ARMeasuringDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARMeasuringDemo.h; sourceTree = "<group>"; };
+		C7857B33202158DB00CE199E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7A52AB7201F5711003614C0 /* Chameleon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Chameleon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -50,21 +67,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C775DEBB201F2BD3003457AD /* AppCore.framework in Frameworks */,
-				C7A52AB8201F5711003614C0 /* Chameleon.framework in Frameworks */,
+				C7857B37202158DB00CE199E /* ARMeasuringDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7857B2C202158DB00CE199E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7143D332021D7AB000923B9 /* Chameleon.framework in Frameworks */,
+				C7143D342021D7AE000923B9 /* AppCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7143D322021D7AB000923B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C775DE9A201F2A4B003457AD = {
 			isa = PBXGroup;
 			children = (
 				C7A52AB7201F5711003614C0 /* Chameleon.framework */,
 				C775DEBA201F2BD3003457AD /* AppCore.framework */,
 				C775DEA5201F2A4B003457AD /* ARMeasuring */,
+				C7857B31202158DB00CE199E /* ARMeasuringDemo */,
 				C775DEA4201F2A4B003457AD /* Products */,
+				C7143D322021D7AB000923B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				C775DEA3201F2A4B003457AD /* ARMeasuring.app */,
+				C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,7 +124,27 @@
 			path = ARMeasuring;
 			sourceTree = "<group>";
 		};
+		C7857B31202158DB00CE199E /* ARMeasuringDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C7857B32202158DB00CE199E /* ARMeasuringDemo.h */,
+				C7857B33202158DB00CE199E /* Info.plist */,
+			);
+			path = ARMeasuringDemo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C7857B2D202158DB00CE199E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7857B34202158DB00CE199E /* ARMeasuringDemo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		C775DEA2201F2A4B003457AD /* ARMeasuring */ = {
@@ -104,11 +159,30 @@
 			buildRules = (
 			);
 			dependencies = (
+				C7857B36202158DB00CE199E /* PBXTargetDependency */,
 			);
 			name = ARMeasuring;
 			productName = ARMeasuring;
 			productReference = C775DEA3201F2A4B003457AD /* ARMeasuring.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C7857B2F202158DB00CE199E /* ARMeasuringDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7857B3B202158DB00CE199E /* Build configuration list for PBXNativeTarget "ARMeasuringDemo" */;
+			buildPhases = (
+				C7857B2B202158DB00CE199E /* Sources */,
+				C7857B2C202158DB00CE199E /* Frameworks */,
+				C7857B2D202158DB00CE199E /* Headers */,
+				C7857B2E202158DB00CE199E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARMeasuringDemo;
+			productName = ARMeasuringDemo;
+			productReference = C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -121,6 +195,10 @@
 				ORGANIZATIONNAME = "Geo Games";
 				TargetAttributes = {
 					C775DEA2201F2A4B003457AD = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					C7857B2F202158DB00CE199E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -140,6 +218,7 @@
 			projectRoot = "";
 			targets = (
 				C775DEA2201F2A4B003457AD /* ARMeasuring */,
+				C7857B2F202158DB00CE199E /* ARMeasuringDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -149,9 +228,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C775DEB3201F2A4B003457AD /* LaunchScreen.storyboard in Resources */,
-				C775DEB0201F2A4B003457AD /* Assets.xcassets in Resources */,
-				C775DEAE201F2A4B003457AD /* ARMeasuring.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7857B2E202158DB00CE199E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7143D192021D367000923B9 /* Assets.xcassets in Resources */,
+				C7143D182021D34E000923B9 /* LaunchScreen.storyboard in Resources */,
+				C7143D1A2021D36B000923B9 /* ARMeasuring.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,12 +248,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C775DEAB201F2A4B003457AD /* ARMeasuringViewController.swift in Sources */,
 				C775DEA7201F2A4B003457AD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7857B2B202158DB00CE199E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7143D1B2021D36D000923B9 /* ARMeasuringViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7857B36202158DB00CE199E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7857B2F202158DB00CE199E /* ARMeasuringDemo */;
+			targetProxy = C7857B35202158DB00CE199E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C775DEAC201F2A4B003457AD /* ARMeasuring.storyboard */ = {
@@ -299,6 +400,7 @@
 		C775DEB8201F2A4B003457AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
@@ -314,6 +416,7 @@
 		C775DEB9201F2A4B003457AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
@@ -323,6 +426,54 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C7857B39202158DB00CE199E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FDAK5XPRG7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ARMeasuringDemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARMeasuringDemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C7857B3A202158DB00CE199E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FDAK5XPRG7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ARMeasuringDemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARMeasuringDemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -343,6 +494,15 @@
 			buildConfigurations = (
 				C775DEB8201F2A4B003457AD /* Debug */,
 				C775DEB9201F2A4B003457AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7857B3B202158DB00CE199E /* Build configuration list for PBXNativeTarget "ARMeasuringDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7857B39202158DB00CE199E /* Debug */,
+				C7857B3A202158DB00CE199E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,17 +8,23 @@
 
 import UIKit
 import ARKit
+import Chameleon
 import AppCore
 import ARDrawingDemo
 import ARPlanetsDemo
-import Chameleon
+import WackAJellyFishDemo
+import IKEADemo
+import ARMeasuringDemo
+import ARPortalDemo
+import ARHoopsDemo
+import ARShooterDemo
 
 private let CellIdentifier = "tableCell"
 
 private struct Option {
     let title: String
     let name: String
-    let bundle: String
+    let bundle: Bundle
     let storyBoard : String
 }
 
@@ -53,12 +59,36 @@ public class ARDemosViewController: UITableViewController {
         self.options = [
             Option(title:"AR Drawing", 
                    name: "ARDrawingViewController", 
-                   bundle:"com.geo-games.ARDrawingDemo", 
+                   bundle: ARDrawingViewController.bundle, 
                    storyBoard: "ARDrawing"),
             Option(title: "AR Planets", 
                    name: "ARPlanetsViewController", 
-                   bundle: "com.geo-games.ARPlanetsDemo", 
-                   storyBoard: "ARPlanets")
+                   bundle: ARPlanetsViewController.bundle, 
+                   storyBoard: "ARPlanets"),
+            Option(title: "Wack A Jelly Fish", 
+                   name: "WackAJellyFishViewController", 
+                   bundle: WackAJellyFishViewController.bundle, 
+                   storyBoard: "WackAJellyFish"),
+            Option(title: "IKEA", 
+                   name: "IKEAViewController", 
+                   bundle: IKEAViewController.bundle, 
+                   storyBoard: "IKEA"),
+            Option(title: "AR Measuring", 
+                   name: "ARMeasuringViewController", 
+                   bundle: ARMeasuringViewController.bundle, 
+                   storyBoard: "ARMeasuring"),
+            Option(title: "AR Portal", 
+                   name: "ARPortalViewController", 
+                   bundle: ARPortalViewController.bundle, 
+                   storyBoard: "ARPortal"),
+            Option(title: "AR Hoops", 
+                   name: "ARHoopsViewController", 
+                   bundle: ARHoopsViewController.bundle, 
+                   storyBoard: "ARHoops"),
+            Option(title: "AR Shooter", 
+                   name: "ARShooterViewController", 
+                   bundle: ARShooterViewController.bundle, 
+                   storyBoard: "ARShooter")
         ]
         
         updateNavBar(with: selectedColor)
@@ -76,10 +106,6 @@ public class ARDemosViewController: UITableViewController {
         }
     }
     
-    override public func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    }
  
 }
 
@@ -118,8 +144,7 @@ extension ARDemosViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let option = options[indexPath.row]
-        let bundleIdentifier = option.bundle
-        let bundle = Bundle(identifier: bundleIdentifier)
+        let bundle = option.bundle
         let storyBoard = option.storyBoard
         let storyboard = UIStoryboard(name: storyBoard, bundle: bundle)       
         let vc = storyboard.instantiateViewController(withIdentifier: option.name)

@@ -481,6 +481,11 @@ public extension String {
         let path = bundle.path(forResource: itemName, ofType: type, inDirectory: inDirectory)
         return path
     }
+    
+    public static func fileExist(with path: String) -> Bool{
+        let fileManager = FileManager.default
+        return fileManager.fileExists(atPath: path)
+    }
 
 }
 

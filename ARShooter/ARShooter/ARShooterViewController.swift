@@ -13,6 +13,10 @@ import AppCore
 
 public class ARShooterViewController: UIViewController {
 
+    public static var bundle : Bundle {
+        return Bundle(identifier: "com.geo-games.ARShooterDemo")!
+    }
+    
     var target : SCNNode?
     var projectile : SCNNode?
     
@@ -70,8 +74,8 @@ public class ARShooterViewController: UIViewController {
         let zPosition = direction.normalize() * zOffset
         let xPosition = (camera.worldRight * xOffset)
         
-        let scene = SCNScene(named: "art.scnassets/egg.scn")!
-        if let node = scene.rootNode.childNode(withName: "egg", recursively: false){
+        if let scene = SCNScene.loadScene(from: ARShooterViewController.bundle, scnassets: "art", name: "egg"),
+            let node = scene.rootNode.childNode(withName: "egg", recursively: false){
             node.geometry?.firstMaterial?.diffuse.contents = color
             node.orientation = camera.orientation
             node.position = xPosition + zPosition
@@ -109,6 +113,10 @@ public class ARShooterViewController: UIViewController {
         let force = SCNVector3(x: nodeDirection.x, y: nodeDirection.y + lift, z: nodeDirection.z)
         
         node.physicsBody?.applyForce(force, asImpulse: true)
+    }
+    
+    deinit {
+        print("AR Shooter deinit")
     }
     
 }
@@ -170,10 +178,10 @@ extension ARShooterViewController: SCNPhysicsContactDelegate {
                 projectile = contact.nodeA
             }
         }
-
-        if let target = target,
-            let projectile = projectile,
-            let confetti = SCNParticleSystem(named: "art.scnassets/confetti.scnp", inDirectory: nil) {
+        
+        if let confetti =  SCNParticleSystem(named: "art.scnassets/confetti.scnp", inDirectory: nil),
+            let target = target,
+            let projectile = projectile {        
             
             confetti.loops = false
             confetti.particleLifeSpan = 4.0

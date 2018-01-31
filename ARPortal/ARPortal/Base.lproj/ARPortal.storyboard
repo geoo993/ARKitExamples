@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </arscnView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plane Detected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8f-78-ZUY">
-                                <rect key="frame" x="123" y="40" width="130" height="24"/>
+                                <rect key="frame" x="123" y="321.5" width="130" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -31,10 +30,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="I8f-78-ZUY" firstAttribute="centerX" secondItem="FEF-R6-7YB" secondAttribute="centerX" id="Tla-nY-Lmx"/>
-                            <constraint firstItem="I8f-78-ZUY" firstAttribute="top" secondItem="zem-HM-t6L" secondAttribute="top" constant="20" id="iVx-oV-hlf"/>
+                            <constraint firstItem="I8f-78-ZUY" firstAttribute="centerY" secondItem="FEF-R6-7YB" secondAttribute="centerY" id="Iyb-kp-UmT"/>
+                            <constraint firstItem="I8f-78-ZUY" firstAttribute="centerX" secondItem="FEF-R6-7YB" secondAttribute="centerX" id="fcm-ea-kTY"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="zem-HM-t6L"/>
                     </view>
                     <connections>
                         <outlet property="planeDetectedLabel" destination="I8f-78-ZUY" id="L82-1q-YRz"/>

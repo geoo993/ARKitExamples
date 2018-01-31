@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7143D592021EF0D000923B9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7143D582021EF0D000923B9 /* art.scnassets */; };
+		C753D956202137D50027B094 /* WackAJellyFishDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C753D955202137D50027B094 /* WackAJellyFishDemo.framework */; };
+		C753D957202137D50027B094 /* WackAJellyFishDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C753D955202137D50027B094 /* WackAJellyFishDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C753D9592021393B0027B094 /* Each.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C753D9582021393B0027B094 /* Each.framework */; };
+		C753D95A2021393B0027B094 /* Each.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C753D9582021393B0027B094 /* Each.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C75EBB732020DBEB00E484CE /* ARDrawingDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */; };
 		C75EBB742020DBEB00E484CE /* ARDrawingDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C75EBB922020E38200E484CE /* ARPlanetsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */; };
 		C75EBB932020E38200E484CE /* ARPlanetsDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7857B292021562500CE199E /* IKEADemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B282021562500CE199E /* IKEADemo.framework */; };
+		C7857B2A2021562500CE199E /* IKEADemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B282021562500CE199E /* IKEADemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7857B402021594400CE199E /* ARMeasuringDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B3F2021594400CE199E /* ARMeasuringDemo.framework */; };
+		C7857B412021594400CE199E /* ARMeasuringDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B3F2021594400CE199E /* ARMeasuringDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7857B5920215BCD00CE199E /* ARPortalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B5820215BCD00CE199E /* ARPortalDemo.framework */; };
+		C7857B5A20215BCD00CE199E /* ARPortalDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B5820215BCD00CE199E /* ARPortalDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7857B7220215E4500CE199E /* ARHoopsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B7120215E4500CE199E /* ARHoopsDemo.framework */; };
+		C7857B7320215E4500CE199E /* ARHoopsDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B7120215E4500CE199E /* ARHoopsDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7857B8B2021650F00CE199E /* ARShooterDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B8A2021650F00CE199E /* ARShooterDemo.framework */; };
+		C7857B8C2021650F00CE199E /* ARShooterDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B8A2021650F00CE199E /* ARShooterDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7DD3D482020D79B000B5543 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DD3D472020D79B000B5543 /* AppDelegate.swift */; };
-		C7DD3D4A2020D79B000B5543 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DD3D492020D79B000B5543 /* art.scnassets */; };
 		C7DD3D4C2020D79B000B5543 /* ARDemosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DD3D4B2020D79B000B5543 /* ARDemosViewController.swift */; };
 		C7DD3D4F2020D79B000B5543 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DD3D4D2020D79B000B5543 /* Main.storyboard */; };
 		C7DD3D512020D79B000B5543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DD3D502020D79B000B5543 /* Assets.xcassets */; };
@@ -30,10 +44,17 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C7857B412021594400CE199E /* ARMeasuringDemo.framework in Embed Frameworks */,
+				C7857B2A2021562500CE199E /* IKEADemo.framework in Embed Frameworks */,
+				C7857B7320215E4500CE199E /* ARHoopsDemo.framework in Embed Frameworks */,
 				C75EBB742020DBEB00E484CE /* ARDrawingDemo.framework in Embed Frameworks */,
+				C7857B8C2021650F00CE199E /* ARShooterDemo.framework in Embed Frameworks */,
+				C7857B5A20215BCD00CE199E /* ARPortalDemo.framework in Embed Frameworks */,
 				C7DD3D5D2020D825000B5543 /* AppCore.framework in Embed Frameworks */,
 				C75EBB932020E38200E484CE /* ARPlanetsDemo.framework in Embed Frameworks */,
+				C753D95A2021393B0027B094 /* Each.framework in Embed Frameworks */,
 				C7DD3D612020D923000B5543 /* Chameleon.framework in Embed Frameworks */,
+				C753D957202137D50027B094 /* WackAJellyFishDemo.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,11 +62,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C7143D582021EF0D000923B9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		C753D955202137D50027B094 /* WackAJellyFishDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WackAJellyFishDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C753D9582021393B0027B094 /* Each.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Each.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDrawingDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPlanetsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7857B282021562500CE199E /* IKEADemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IKEADemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7857B3F2021594400CE199E /* ARMeasuringDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARMeasuringDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7857B5820215BCD00CE199E /* ARPortalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPortalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7857B7120215E4500CE199E /* ARHoopsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARHoopsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7857B8A2021650F00CE199E /* ARShooterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARShooterDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DD3D442020D79B000B5543 /* ARDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DD3D472020D79B000B5543 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7DD3D492020D79B000B5543 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		C7DD3D4B2020D79B000B5543 /* ARDemosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDemosViewController.swift; sourceTree = "<group>"; };
 		C7DD3D4E2020D79B000B5543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7DD3D502020D79B000B5543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,10 +88,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7857B402021594400CE199E /* ARMeasuringDemo.framework in Frameworks */,
+				C7857B292021562500CE199E /* IKEADemo.framework in Frameworks */,
+				C7857B7220215E4500CE199E /* ARHoopsDemo.framework in Frameworks */,
 				C75EBB732020DBEB00E484CE /* ARDrawingDemo.framework in Frameworks */,
+				C7857B8B2021650F00CE199E /* ARShooterDemo.framework in Frameworks */,
+				C7857B5920215BCD00CE199E /* ARPortalDemo.framework in Frameworks */,
 				C7DD3D5C2020D825000B5543 /* AppCore.framework in Frameworks */,
 				C75EBB922020E38200E484CE /* ARPlanetsDemo.framework in Frameworks */,
+				C753D9592021393B0027B094 /* Each.framework in Frameworks */,
 				C7DD3D602020D923000B5543 /* Chameleon.framework in Frameworks */,
+				C753D956202137D50027B094 /* WackAJellyFishDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +108,13 @@
 		C7DD3D3B2020D79B000B5543 = {
 			isa = PBXGroup;
 			children = (
+				C7857B8A2021650F00CE199E /* ARShooterDemo.framework */,
+				C7857B7120215E4500CE199E /* ARHoopsDemo.framework */,
+				C7857B5820215BCD00CE199E /* ARPortalDemo.framework */,
+				C7857B3F2021594400CE199E /* ARMeasuringDemo.framework */,
+				C7857B282021562500CE199E /* IKEADemo.framework */,
+				C753D9582021393B0027B094 /* Each.framework */,
+				C753D955202137D50027B094 /* WackAJellyFishDemo.framework */,
 				C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */,
 				C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */,
 				C7DD3D5F2020D923000B5543 /* Chameleon.framework */,
@@ -93,8 +135,8 @@
 		C7DD3D462020D79B000B5543 /* ARDemos */ = {
 			isa = PBXGroup;
 			children = (
+				C7143D582021EF0D000923B9 /* art.scnassets */,
 				C7DD3D472020D79B000B5543 /* AppDelegate.swift */,
-				C7DD3D492020D79B000B5543 /* art.scnassets */,
 				C7DD3D4B2020D79B000B5543 /* ARDemosViewController.swift */,
 				C7DD3D4D2020D79B000B5543 /* Main.storyboard */,
 				C7DD3D502020D79B000B5543 /* Assets.xcassets */,
@@ -164,8 +206,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7DD3D4A2020D79B000B5543 /* art.scnassets in Resources */,
 				C7DD3D542020D79B000B5543 /* LaunchScreen.storyboard in Resources */,
+				C7143D592021EF0D000923B9 /* art.scnassets in Resources */,
 				C7DD3D512020D79B000B5543 /* Assets.xcassets in Resources */,
 				C7DD3D4F2020D79B000B5543 /* Main.storyboard in Resources */,
 			);

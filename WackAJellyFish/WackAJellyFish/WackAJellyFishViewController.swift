@@ -13,9 +13,12 @@ import Each
 
 public class WackAJellyFishViewController: UIViewController {
 
+    public static var bundle : Bundle {
+        return Bundle(identifier: "com.geo-games.WackAJellyFishDemo")!
+    }
+    
     var timer = Each(1).seconds // is going to keep counting up by 1 seconds
     var countDown = 10
-    let configuration = ARWorldTrackingConfiguration()
     var jellyFishs = [SCNNode]()
     
     @IBOutlet  weak var sceneView: ARSCNView!
@@ -51,6 +54,8 @@ public class WackAJellyFishViewController: UIViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        let configuration = ARWorldTrackingConfiguration()
+        
         // Run the view's session
         sceneView.session.run(configuration)
     }
@@ -62,13 +67,15 @@ public class WackAJellyFishViewController: UIViewController {
         sceneView.session.pause()
         
         timer.stop()
+        
     }
 
+ 
     func addJellyFish () {
-        
+
         // Create a new scene
-        let scene = SCNScene(named: "JellyFish.scnassets/Jellyfish.scn")!
-        if let node = scene.rootNode.childNode(withName: "Jellyfish", recursively: false) {
+        if  let scene = SCNScene.loadScene(from: WackAJellyFishViewController.bundle, scnassets: "JellyFish", name: "Jellyfish"), 
+            let node = scene.rootNode.childNode(withName: "Jellyfish", recursively: false) {
         
             //let node = SCNNode(geometry: SCNBox(width: 0.4, height: 0.4, length: 0.4, chamferRadius: 0))
             //node.geometry?.firstMaterial?.diffuse.contents = UIColor.random
@@ -144,6 +151,9 @@ public class WackAJellyFishViewController: UIViewController {
         jellyFishs.removeAll()
     }
     
+    deinit {
+        print("WackAJellyFish deinit")
+    }
 }
 
 // MARK: - CAAnimationDelegate

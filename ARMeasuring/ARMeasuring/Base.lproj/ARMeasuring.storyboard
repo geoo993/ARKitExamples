@@ -7,14 +7,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Measuring View Controller-->
         <scene sceneID="WJO-UD-lmP">
             <objects>
-                <viewController storyboardIdentifier="ARMeasuringViewController" id="jR0-y7-GWh" customClass="ARMeasuringViewController" customModule="ARMeasuring" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARMeasuringViewController" id="jR0-y7-GWh" customClass="ARMeasuringViewController" customModule="ARMeasuringDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GNS-Ov-R33">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="L9z-pP-pnA">
-                                <rect key="frame" x="19.5" y="50" width="337.5" height="20.5"/>
+                                <rect key="frame" x="19.5" y="30" width="337.5" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VF-9J-SCm">
                                         <rect key="frame" x="0.0" y="0.0" width="67" height="20.5"/>
@@ -56,23 +55,22 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0X-h7-Uwh">
-                                <rect key="frame" x="175.5" y="331.5" width="24" height="24"/>
+                                <rect key="frame" x="175.5" y="321.5" width="24" height="24"/>
                                 <state key="normal" backgroundImage="add"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="VNj-pp-GaW" secondAttribute="trailing" id="JZC-l3-24g"/>
-                            <constraint firstItem="L9z-pP-pnA" firstAttribute="top" secondItem="VNj-pp-GaW" secondAttribute="top" constant="30" id="Lhq-oC-WlD"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="VNj-pp-GaW" secondAttribute="leading" id="Nhy-yX-e1M"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="GNS-Ov-R33" secondAttribute="trailing" id="JZC-l3-24g"/>
+                            <constraint firstItem="L9z-pP-pnA" firstAttribute="top" secondItem="GNS-Ov-R33" secondAttribute="top" constant="30" id="Lhq-oC-WlD"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="GNS-Ov-R33" secondAttribute="leading" id="Nhy-yX-e1M"/>
                             <constraint firstItem="L9z-pP-pnA" firstAttribute="centerX" secondItem="GNS-Ov-R33" secondAttribute="centerX" id="UgU-Xo-XLo"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="VNj-pp-GaW" secondAttribute="bottom" id="UvC-yN-RXj"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="GNS-Ov-R33" secondAttribute="bottom" id="UvC-yN-RXj"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="GNS-Ov-R33" secondAttribute="top" id="ZRP-Q4-Ooa"/>
-                            <constraint firstItem="a0X-h7-Uwh" firstAttribute="centerY" secondItem="VNj-pp-GaW" secondAttribute="centerY" id="j7C-Pu-biB"/>
-                            <constraint firstItem="a0X-h7-Uwh" firstAttribute="centerX" secondItem="VNj-pp-GaW" secondAttribute="centerX" id="qUO-4l-HNf"/>
+                            <constraint firstItem="a0X-h7-Uwh" firstAttribute="centerY" secondItem="GNS-Ov-R33" secondAttribute="centerY" id="j7C-Pu-biB"/>
+                            <constraint firstItem="a0X-h7-Uwh" firstAttribute="centerX" secondItem="GNS-Ov-R33" secondAttribute="centerX" id="qUO-4l-HNf"/>
                             <constraint firstItem="L9z-pP-pnA" firstAttribute="width" secondItem="GNS-Ov-R33" secondAttribute="width" multiplier="0.9" id="xZl-4q-EwS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="VNj-pp-GaW"/>
                     </view>
                     <connections>
                         <outlet property="distanceLabel" destination="2VF-9J-SCm" id="rV6-jx-0p2"/>

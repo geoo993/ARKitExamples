@@ -7,15 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7143D3C2021D867000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A52ADA201F5B7A003614C0 /* AppCore.framework */; };
+		C7857B4B20215AAA00CE199E /* ARPortalDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7857B4920215AAA00CE199E /* ARPortalDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7857B4E20215AAA00CE199E /* ARPortalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B4720215AA900CE199E /* ARPortalDemo.framework */; };
+		C7857B4F20215AAA00CE199E /* ARPortalDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B4720215AA900CE199E /* ARPortalDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7857B5320215AE200CE199E /* ARPortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52ACA201F5A07003614C0 /* ARPortalViewController.swift */; };
+		C7857B5420215AE600CE199E /* ARPortal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A52ACC201F5A07003614C0 /* ARPortal.storyboard */; };
+		C7857B5520215AE900CE199E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A52ACF201F5A07003614C0 /* Assets.xcassets */; };
+		C7857B5620215AED00CE199E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A52AD1201F5A07003614C0 /* LaunchScreen.storyboard */; };
+		C7857B5720215AFE00CE199E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A52AC8201F5A07003614C0 /* art.scnassets */; };
 		C7A52AC7201F5A07003614C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52AC6201F5A07003614C0 /* AppDelegate.swift */; };
 		C7A52AC9201F5A07003614C0 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A52AC8201F5A07003614C0 /* art.scnassets */; };
-		C7A52ACB201F5A07003614C0 /* ARPortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52ACA201F5A07003614C0 /* ARPortalViewController.swift */; };
-		C7A52ACE201F5A07003614C0 /* ARPortal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A52ACC201F5A07003614C0 /* ARPortal.storyboard */; };
-		C7A52AD0201F5A07003614C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A52ACF201F5A07003614C0 /* Assets.xcassets */; };
-		C7A52AD3201F5A07003614C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A52AD1201F5A07003614C0 /* LaunchScreen.storyboard */; };
-		C7A52ADB201F5B7A003614C0 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A52ADA201F5B7A003614C0 /* AppCore.framework */; };
 		C7A52ADC201F5B7A003614C0 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A52ADA201F5B7A003614C0 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7857B4C20215AAA00CE199E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7A52ABB201F5A07003614C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7857B4620215AA900CE199E;
+			remoteInfo = ARPortalDemo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C7A52ADD201F5B7A003614C0 /* Embed Frameworks */ = {
@@ -24,6 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C7857B4F20215AAA00CE199E /* ARPortalDemo.framework in Embed Frameworks */,
 				C7A52ADC201F5B7A003614C0 /* AppCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -32,6 +47,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C7857B4720215AA900CE199E /* ARPortalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARPortalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7857B4920215AAA00CE199E /* ARPortalDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARPortalDemo.h; sourceTree = "<group>"; };
+		C7857B4A20215AAA00CE199E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7A52AC3201F5A07003614C0 /* ARPortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARPortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A52AC6201F5A07003614C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7A52AC8201F5A07003614C0 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -44,23 +62,49 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C7857B4320215AA900CE199E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7143D3C2021D867000923B9 /* AppCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7A52AC0201F5A07003614C0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7A52ADB201F5B7A003614C0 /* AppCore.framework in Frameworks */,
+				C7857B4E20215AAA00CE199E /* ARPortalDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7143D3B2021D867000923B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7857B4820215AA900CE199E /* ARPortalDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C7857B4920215AAA00CE199E /* ARPortalDemo.h */,
+				C7857B4A20215AAA00CE199E /* Info.plist */,
+			);
+			path = ARPortalDemo;
+			sourceTree = "<group>";
+		};
 		C7A52ABA201F5A07003614C0 = {
 			isa = PBXGroup;
 			children = (
 				C7A52ADA201F5B7A003614C0 /* AppCore.framework */,
 				C7A52AC5201F5A07003614C0 /* ARPortal */,
+				C7857B4820215AA900CE199E /* ARPortalDemo */,
 				C7A52AC4201F5A07003614C0 /* Products */,
+				C7143D3B2021D867000923B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A52AC3201F5A07003614C0 /* ARPortal.app */,
+				C7857B4720215AA900CE199E /* ARPortalDemo.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,7 +133,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		C7857B4420215AA900CE199E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7857B4B20215AAA00CE199E /* ARPortalDemo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		C7857B4620215AA900CE199E /* ARPortalDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7857B5220215AAA00CE199E /* Build configuration list for PBXNativeTarget "ARPortalDemo" */;
+			buildPhases = (
+				C7857B4220215AA900CE199E /* Sources */,
+				C7857B4320215AA900CE199E /* Frameworks */,
+				C7857B4420215AA900CE199E /* Headers */,
+				C7857B4520215AA900CE199E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARPortalDemo;
+			productName = ARPortalDemo;
+			productReference = C7857B4720215AA900CE199E /* ARPortalDemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		C7A52AC2201F5A07003614C0 /* ARPortal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7A52AD7201F5A07003614C0 /* Build configuration list for PBXNativeTarget "ARPortal" */;
@@ -101,6 +175,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C7857B4D20215AAA00CE199E /* PBXTargetDependency */,
 			);
 			name = ARPortal;
 			productName = ARPortal;
@@ -117,6 +192,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Geo Games";
 				TargetAttributes = {
+					C7857B4620215AA900CE199E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					C7A52AC2201F5A07003614C0 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -137,35 +216,59 @@
 			projectRoot = "";
 			targets = (
 				C7A52AC2201F5A07003614C0 /* ARPortal */,
+				C7857B4620215AA900CE199E /* ARPortalDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C7857B4520215AA900CE199E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7857B5720215AFE00CE199E /* art.scnassets in Resources */,
+				C7857B5620215AED00CE199E /* LaunchScreen.storyboard in Resources */,
+				C7857B5520215AE900CE199E /* Assets.xcassets in Resources */,
+				C7857B5420215AE600CE199E /* ARPortal.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7A52AC1201F5A07003614C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C7A52AC9201F5A07003614C0 /* art.scnassets in Resources */,
-				C7A52AD3201F5A07003614C0 /* LaunchScreen.storyboard in Resources */,
-				C7A52AD0201F5A07003614C0 /* Assets.xcassets in Resources */,
-				C7A52ACE201F5A07003614C0 /* ARPortal.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C7857B4220215AA900CE199E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7857B5320215AE200CE199E /* ARPortalViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7A52ABF201F5A07003614C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7A52ACB201F5A07003614C0 /* ARPortalViewController.swift in Sources */,
 				C7A52AC7201F5A07003614C0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7857B4D20215AAA00CE199E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7857B4620215AA900CE199E /* ARPortalDemo */;
+			targetProxy = C7857B4C20215AAA00CE199E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C7A52ACC201F5A07003614C0 /* ARPortal.storyboard */ = {
@@ -187,6 +290,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C7857B5020215AAA00CE199E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FDAK5XPRG7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ARPortalDemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARPortalDemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C7857B5120215AAA00CE199E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FDAK5XPRG7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ARPortalDemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARPortalDemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		C7A52AD5201F5A07003614C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -297,6 +448,7 @@
 		C7A52AD8201F5A07003614C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
@@ -312,6 +464,7 @@
 		C7A52AD9201F5A07003614C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
@@ -327,6 +480,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C7857B5220215AAA00CE199E /* Build configuration list for PBXNativeTarget "ARPortalDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7857B5020215AAA00CE199E /* Debug */,
+				C7857B5120215AAA00CE199E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C7A52ABE201F5A07003614C0 /* Build configuration list for PBXProject "ARPortal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
