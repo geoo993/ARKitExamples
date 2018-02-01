@@ -26,6 +26,10 @@ import SceneKit
 public extension SCNVector3
 {
     
+    public static var zero : SCNVector3 {
+        return SCNVector3(0,0,0)
+    }
+    
     /**
      * Negates the vector described by SCNVector3 and returns
      * the result as a new SCNVector3.

@@ -15,13 +15,14 @@ public class IKEAViewController: UIViewController {
     public static var bundle : Bundle {
         return Bundle(identifier: "com.geo-games.IKEADemo")!
     }
-    
+    let planeColor = UIColor.random.withAlphaComponent(0.8)
     let cellIdentifier = "itemsIdentifier"
     let itemsArray = ["cup", "boxing", "table", "vase", "sofa", 
                       "metal chairs", "wineglass", "chest drawer", 
                       "floor lamp", "table lamp", "smart TV", 
                       "roulette", "bed", "coffee table" ]
     var selectedItem : String?
+    var planes: [String : SCNNode] = [:]
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var itemsCollectionView: UICollectionView!
@@ -64,21 +65,29 @@ public class IKEAViewController: UIViewController {
         // Pause the view's session
         sceneView.session.pause()
     }
-    
-    func createPlane(withPlaneAnchor planeAnchor : ARPlaneAnchor) -> SCNNode {
-        let anchorSize = CGSize(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
-        let anchorPosition = SCNVector3(x: planeAnchor.center.x, y: 0, z: planeAnchor.center.z)
+    func createPlane(with planeAnchor : ARPlaneAnchor) -> SCNNode {
         
-        let image = UIImage(named: "Models.scnassets/grid.png", in: IKEAViewController.bundle, compatibleWith: nil)
-        let planeNode = SCNNode(geometry: SCNPlane(width: anchorSize.width, height: anchorSize.height))
-        planeNode.geometry?.firstMaterial?.diffuse.contents = image
+        let plane = SCNBox(width: CGFloat(planeAnchor.extent.x), height: 0.005, length: CGFloat(planeAnchor.extent.z), chamferRadius: 0)
+        let planeNode = SCNNode(geometry: plane)
         planeNode.geometry?.firstMaterial?.isDoubleSided = true
-        planeNode.position = anchorPosition
-        planeNode.transform = SCNMatrix4Rotate(planeNode.transform, -Float(90).toRadians , 1, 0, 0)
+        planeNode.position = SCNVector3(x: planeAnchor.center.x, y: -0.005, z: planeAnchor.center.z)
+        addDiffuseMaterial(to: planeNode)
         
         return planeNode
     }
-  
+    
+    func update(planeNode: SCNNode, with planeAnchor : ARPlaneAnchor) {
+        let plane = SCNBox(width: CGFloat(planeAnchor.extent.x), height: 0.005, length: CGFloat(planeAnchor.extent.z), chamferRadius: 0)
+        planeNode.geometry = plane
+        planeNode.position = SCNVector3(x: planeAnchor.center.x, y: -0.005, z: planeAnchor.center.z)
+        addDiffuseMaterial(to: planeNode)
+    }
+    
+    func addDiffuseMaterial(to plane: SCNNode) {
+        let image = UIImage(named: "Models.scnassets/grid.png", in: IKEAViewController.bundle, compatibleWith: nil)
+        plane.geometry?.firstMaterial?.diffuse.contents = image ?? planeColor
+    }
+    
     func addItem(with hitTestResult: ARHitTestResult) {
         
         guard let item = selectedItem else { return }
@@ -125,28 +134,32 @@ extension IKEAViewController: ARSCNViewDelegate {
         // a plane Anchor encodes the orientation, position and size of a horizontal surface
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         
-        let planeNode = createPlane(withPlaneAnchor: planeAnchor)
+        let key = planeAnchor.identifier.uuidString
+        let planeNode = createPlane(with: planeAnchor)
         node.addChildNode(planeNode)
+        planes[key] = planeNode
+        
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         // a plane Anchor encodes the orientation, position and size of a horizontal surface
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        node.enumerateChildNodes { (childNode, _) in
-            childNode.removeFromParentNode()
+        let key = planeAnchor.identifier.uuidString
+        if let existingPlane = self.planes[key] {
+            update(planeNode: existingPlane, with: planeAnchor)
         }
-        
-        let planeNode = createPlane(withPlaneAnchor: planeAnchor)
-        node.addChildNode(planeNode)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         // this function removes any new plane anchor found, as we already have a planeAnchor in the scene
         // or when more than one anchor is added, it is removed and this function is called
         // we need t deal with the plane anchors that have been removed
-        guard anchor is ARPlaneAnchor else { return }
-        node.enumerateChildNodes { (childNode, _) in
-            childNode.removeFromParentNode()
+      
+        let key = planeAnchor.identifier.uuidString
+        if let existingPlane = planes[key] {
+            existingPlane.removeFromParentNode()
+            planes.removeValue(forKey: key)
         }
     }
     

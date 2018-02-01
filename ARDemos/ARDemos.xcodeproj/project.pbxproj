@@ -41,6 +41,8 @@
 		C7DD3D5D2020D825000B5543 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7DD3D5B2020D825000B5543 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7DD3D602020D923000B5543 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7DD3D5F2020D923000B5543 /* Chameleon.framework */; };
 		C7DD3D612020D923000B5543 /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7DD3D5F2020D923000B5543 /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7E0222E20226E260091D145 /* ARTelevisionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0222D20226E260091D145 /* ARTelevisionDemo.framework */; };
+		C7E0222F20226E260091D145 /* ARTelevisionDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0222D20226E260091D145 /* ARTelevisionDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +60,7 @@
 				C7857B8C2021650F00CE199E /* ARShooterDemo.framework in Embed Frameworks */,
 				C7857B5A20215BCD00CE199E /* ARPortalDemo.framework in Embed Frameworks */,
 				C7DD3D5D2020D825000B5543 /* AppCore.framework in Embed Frameworks */,
+				C7E0222F20226E260091D145 /* ARTelevisionDemo.framework in Embed Frameworks */,
 				C75EBB932020E38200E484CE /* ARPlanetsDemo.framework in Embed Frameworks */,
 				C72F823620221E2200958877 /* ARDiceeDemo.framework in Embed Frameworks */,
 				C7CFCA8720220BBC005CD6F5 /* FloorIsLavaDemo.framework in Embed Frameworks */,
@@ -93,6 +96,7 @@
 		C7DD3D552020D79B000B5543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7DD3D5B2020D825000B5543 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DD3D5F2020D923000B5543 /* Chameleon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Chameleon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7E0222D20226E260091D145 /* ARTelevisionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARTelevisionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 				C7857B8B2021650F00CE199E /* ARShooterDemo.framework in Frameworks */,
 				C7857B5920215BCD00CE199E /* ARPortalDemo.framework in Frameworks */,
 				C7DD3D5C2020D825000B5543 /* AppCore.framework in Frameworks */,
+				C7E0222E20226E260091D145 /* ARTelevisionDemo.framework in Frameworks */,
 				C75EBB922020E38200E484CE /* ARPlanetsDemo.framework in Frameworks */,
 				C72F823520221E2200958877 /* ARDiceeDemo.framework in Frameworks */,
 				C7CFCA8620220BBC005CD6F5 /* FloorIsLavaDemo.framework in Frameworks */,
@@ -123,6 +128,7 @@
 		C7DD3D3B2020D79B000B5543 = {
 			isa = PBXGroup;
 			children = (
+				C7E0222D20226E260091D145 /* ARTelevisionDemo.framework */,
 				C72F823420221E2200958877 /* ARDiceeDemo.framework */,
 				C7CFCAC420221175005CD6F5 /* TossShapesDemo.framework */,
 				C7CFCA8520220BBC005CD6F5 /* FloorIsLavaDemo.framework */,

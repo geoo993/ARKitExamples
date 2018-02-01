@@ -18,6 +18,8 @@ public class ARPlanetsViewController: UIViewController {
         return Bundle(identifier: "com.geo-games.ARPlanetsDemo")!
     }
     
+    var isSolarSystemAdded = false 
+    
     @IBOutlet weak var sceneView: ARSCNView!
     
     override public func viewDidLoad() {
@@ -30,14 +32,6 @@ public class ARPlanetsViewController: UIViewController {
         
         sceneView.autoenablesDefaultLighting = true
         
-        // Show statistics such as fps and timing information
-        //sceneView.showsStatistics = true
-        
-        // Create a new scene
-        //let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        //sceneView.scene = scene
     }
     
     override public func viewWillAppear(_ animated: Bool) {
@@ -60,26 +54,81 @@ public class ARPlanetsViewController: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
-        let sun = addSun(toParent: sceneView.scene.rootNode, at: SCNVector3(0, 0, -1.5), rotation: 10)
-        let earthParent = addAmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 14)
-        let venusParent = addAmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 10)
-        let marsParent = addAmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 25)
-        let jupiterParent = addAmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 30)
-        let saturnParent = addAmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 45)
-        let uranusParent = addAmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 35)
-        let neptuneParent = addAmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 75)
-        
-        let earth = addEarth(toParent: earthParent, at: SCNVector3(2.0, 0, 0.0), rotation: 25)
-        _ = addMoon(toParent: earth, at: SCNVector3(0.0, 0, -0.4), rotation: 100)
-        _ = addVenus(toParent: venusParent, at: SCNVector3(1.4, 0, 0.0), rotation: 80)
-        _ = addMars(toParent: marsParent, at: SCNVector3(2.8, 0, 0.0), rotation: 60)
-        _ = addJupiter(toParent: jupiterParent, at: SCNVector3(3.8, 0, 0.0), rotation: 20)
-        _ = addSaturn(toParent: saturnParent, at: SCNVector3(4.7, 0, 0.0), rotation: 40)
-        _ = addUranus(toParent: uranusParent, at: SCNVector3(5.3, 0, 0.0), rotation: 91)
-        _ = addNeptune(toParent: neptuneParent, at: SCNVector3(5.9, 0, 0.0), rotation: 112)
-        
         showHelperAlertIfNeeded()
+    }
+    
+    func getPositionAway(from origin: SCNVector3, with distance: Float) -> SCNVector3 {
+        let angle = Float.random(min: 0, max: 360)
+        let radian = angle.toRadians
+        
+        let x = origin.x + (distance * cosf(radian))
+        let y = origin.y
+        let z = origin.z + (distance * sinf(radian))
+        let position = SCNVector3(x, y, z) 
+        return position
+    }
+    
+    func addPlanets() {
+        guard let camera = sceneView.pointOfView else { return }
+        let cameraPosition = SCNScene.currentPositionOf(camera: camera)
+        
+        let offset : Float = 5
+        var direction = SCNVector3.cameraDirection(cameraNode: camera)
+        let zPosition = direction.normalize() * offset
+        
+        let origin = cameraPosition + zPosition
+        
+        let mercuryDistanceFromSun : CGFloat = 1.2
+        let venusDistanceFromSun : CGFloat = 1.4
+        let earthDistanceFromSun : CGFloat = 2.0
+        let marsDistanceFromSun : CGFloat = 2.8
+        let jupiterDistanceFromSun : CGFloat = 3.8 
+        let saturnDistanceFromSun : CGFloat = 4.7
+        let uranusDistanceFromSun : CGFloat = 5.4
+        let neptuneDistanceFromSun : CGFloat = 6.1
+        let plutoDistanceFromSun : CGFloat = 6.4
+        
+        
+        addPlanetaryRing(at: origin, with: mercuryDistanceFromSun)
+        addPlanetaryRing(at: origin, with: venusDistanceFromSun)
+        addPlanetaryRing(at: origin, with: earthDistanceFromSun)
+        addPlanetaryRing(at: origin, with: marsDistanceFromSun)
+        addPlanetaryRing(at: origin, with: jupiterDistanceFromSun)
+        addPlanetaryRing(at: origin, with: saturnDistanceFromSun)
+        addPlanetaryRing(at: origin, with: uranusDistanceFromSun)
+        addPlanetaryRing(at: origin, with: neptuneDistanceFromSun)
+        addPlanetaryRing(at: origin, with: plutoDistanceFromSun)
+        
+        let sun = addSun(toParent: sceneView.scene.rootNode, at: origin, rotation: 10)
+        let mercuryParent = addEmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 40)
+        let venusParent = addEmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 10)
+        let earthParent = addEmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 24)
+        let marsParent = addEmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 25)
+        let jupiterParent = addEmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 30)
+        let saturnParent = addEmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 45)
+        let uranusParent = addEmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 35)
+        let neptuneParent = addEmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 75)
+        let plutoParent = addEmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 70)
+        
+        _ = addMercury(toParent: mercuryParent,at: getPositionAway(from: .zero, with: mercuryDistanceFromSun.float),rotation: 40)
+        _ = addVenus(toParent: venusParent, at: getPositionAway(from: .zero, with: venusDistanceFromSun.float), rotation: 80)
+        let earth = addEarth(toParent:earthParent,at:getPositionAway(from: .zero, with: earthDistanceFromSun.float),rotation: 25)
+        _ = addMoon(toParent: earth, at: SCNVector3(0.0, 0, -0.4), rotation: 100)
+        _ = addMars(toParent: marsParent, at: getPositionAway(from: .zero, with: marsDistanceFromSun.float), rotation: 60)
+        _ = addJupiter(toParent: jupiterParent,at: getPositionAway(from: .zero, with:jupiterDistanceFromSun.float),rotation: 20)
+        _ = addSaturn(toParent: saturnParent, at: getPositionAway(from: .zero, with: saturnDistanceFromSun.float), rotation: 40)
+        _ = addUranus(toParent: uranusParent,at: getPositionAway(from: .zero, with: uranusDistanceFromSun.float), rotation: 91)
+        _ = addNeptune(toParent: neptuneParent,at:getPositionAway(from: .zero,with:neptuneDistanceFromSun.float), rotation: 112)
+        _ = addPluto(toParent: plutoParent, at: getPositionAway(from: .zero, with:plutoDistanceFromSun.float), rotation: 40)
+//        
+        isSolarSystemAdded = true
+    }
+    
+    func addPlanetaryRing(at origin: SCNVector3, with radius : CGFloat ) {
+        let ring = SCNNode(geometry: SCNTorus(ringRadius: radius, pipeRadius: 0.005))
+        ring.geometry?.firstMaterial?.diffuse.contents = UIColor.lightGray
+        ring.position = origin
+        sceneView.scene.rootNode.addChildNode(ring)
     }
     
     func addSun(toParent parent: SCNNode, at position : SCNVector3, rotation: TimeInterval) -> SCNNode {
@@ -88,6 +137,18 @@ public class ARPlanetsViewController: UIViewController {
                           diffuse: UIImage(named: "sun", in: ARPlanetsViewController.bundle, compatibleWith: nil))
         rotate(planet: node, by: rotation)
         parent.addChildNode(node)
+        return node
+    }
+    
+    func addMercury(toParent parent: SCNNode, at position: SCNVector3, rotation: TimeInterval) -> SCNNode {
+        let node = planet(radius: 0.11, 
+                          position: position, 
+                          diffuse: UIImage(named: "mercury", in: ARPlanetsViewController.bundle, compatibleWith: nil),
+                          specular: nil,
+                          normal: nil,
+                          emission: nil)
+        parent.addChildNode(node)
+        rotate(planet: node, by: rotation)
         return node
     }
     
@@ -189,7 +250,19 @@ public class ARPlanetsViewController: UIViewController {
         return node
     }
     
-    func addAmptyNode(toParent parent: SCNNode, position : SCNVector3, rotation: TimeInterval) -> SCNNode {
+    func addPluto(toParent parent: SCNNode, at position: SCNVector3, rotation: TimeInterval) -> SCNNode {
+        let node = planet(radius: 0.06, 
+                          position: position, 
+                          diffuse: UIImage(named: "pluto", in: ARPlanetsViewController.bundle, compatibleWith: nil),
+                          specular: nil,
+                          normal: nil,
+                          emission: nil)
+        parent.addChildNode(node)
+        rotate(planet: node, by: rotation)
+        return node
+    }
+    
+    func addEmptyNode(toParent parent: SCNNode, position : SCNVector3, rotation: TimeInterval) -> SCNNode {
         let node = SCNNode()
         node.position = position
         parent.addChildNode(node)
@@ -220,10 +293,9 @@ public class ARPlanetsViewController: UIViewController {
     private func showHelperAlertIfNeeded() {
         let key = "ARPlanetsViewController.helperAlert.didShow"
         if !UserDefaults.standard.bool(forKey: key) {
-            let alert = UIAlertController(title: title, message: "Look around to view the solar system.", preferredStyle: .alert)
+            let alert = UIAlertController(title: title, message: "Tap the screen to show solar system.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
             UserDefaults.standard.set(true, forKey: key)
         }
     }
@@ -261,5 +333,16 @@ extension ARPlanetsViewController : ARSCNViewDelegate {
     public func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+}
+
+// MARK: - Gesture recognizers
+extension ARPlanetsViewController {
+  
+    // called when touches are detected on the screen
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isSolarSystemAdded == false {
+            addPlanets()
+        }
     }
 }

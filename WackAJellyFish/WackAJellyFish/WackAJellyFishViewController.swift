@@ -83,10 +83,7 @@ public class WackAJellyFishViewController: UIViewController {
             let node = scene.rootNode.childNode(withName: "Jellyfish", recursively: false) {
         
             guard let pointOfView = sceneView.pointOfView else { return }
-            let transform = pointOfView.transform
-            let orientation = SCNVector3(-transform.m31, -transform.m32, -transform.m33) // in the third column in the matrix
-            let location = SCNVector3(transform.m41, transform.m42, transform.m43) // the translation in fourth column in the matrix 
-            let currentPositionOfCamera = orientation + location
+            let currentPositionOfCamera = SCNScene.currentPositionOf(camera: pointOfView)
             
             let x = Float.random(min: -1, max: 1)
             let y = Float.random(min: -0.5, max: 0.5)

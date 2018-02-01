@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ARTelevision/ARTelevision.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ARDicee/ARDicee.xcodeproj">
    </FileRef>
    <FileRef

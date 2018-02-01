@@ -38,4 +38,11 @@ extension SCNScene {
     public static func scnDirectory(from bundle: Bundle, scnassets: String) -> String? {
         return bundle.path(forResource: scnassets, ofType: "scnassets")! 
     }
+    
+    public static func currentPositionOf(camera: SCNNode) -> SCNVector3 {
+        let transform = camera.transform
+        let orientation = SCNVector3(-transform.m31, -transform.m32, -transform.m33) // in the third column in the matrix
+        let location = SCNVector3(transform.m41, transform.m42, transform.m43) // the translation in fourth column in the matrix 
+        return orientation + location
+    }
 }

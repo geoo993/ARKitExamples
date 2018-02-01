@@ -56,6 +56,7 @@ public class ARDiceeViewController: UIViewController {
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
 
+        // setting plane detection to horizontal so that we are able to detect horizontal planes.
         configuration.planeDetection = .horizontal
         
         // Run the view's session
@@ -75,6 +76,8 @@ public class ARDiceeViewController: UIViewController {
     }
     
     // MARK - Dice methods
+    
+    // create plane using planeAnchor detected.
     func createPlane(with planeAnchor : ARPlaneAnchor) -> SCNNode {
         
         let plane = SCNBox(width: CGFloat(planeAnchor.extent.x), height: 0.005, length: CGFloat(planeAnchor.extent.z), chamferRadius: 0)
@@ -86,6 +89,7 @@ public class ARDiceeViewController: UIViewController {
         return planeNode
     }
     
+    // create plane using planeAnchor new size.
     func update(planeNode: SCNNode, with planeAnchor : ARPlaneAnchor) {
         let plane = SCNBox(width: CGFloat(planeAnchor.extent.x), height: 0.005, length: CGFloat(planeAnchor.extent.z), chamferRadius: 0)
         planeNode.geometry = plane
@@ -178,9 +182,13 @@ extension ARDiceeViewController: ARSCNViewDelegate {
         return node
     }
 */
+    
+    // this is a delegate method which comes from ARSCNViewDelegate, and this method is called when a horizontal plane is detected.
     public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        // anchors can be of many types, as we are just dealing with horizontal plane detection we need to downcast anchor to ARPlaneAnchor
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
     
+        // creating a plane with the help of dimentions we got using plane anchor.
         let key = planeAnchor.identifier.uuidString
         let planeNode = createPlane(with: planeAnchor)
         node.addChildNode(planeNode)
@@ -190,6 +198,7 @@ extension ARDiceeViewController: ARSCNViewDelegate {
     public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         
+        // updating te plane with the new dimentions taken from plane anchor.
         let key = planeAnchor.identifier.uuidString
         if let existingPlane = self.planes[key] {
             update(planeNode: existingPlane, with: planeAnchor)
@@ -210,8 +219,6 @@ extension ARDiceeViewController: ARSCNViewDelegate {
         }
     }
     
-    
-    
     public func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
         
@@ -229,13 +236,20 @@ extension ARDiceeViewController: ARSCNViewDelegate {
 }
 
 // MARK: - Touches in view
-extension ARDiceeViewController {  
+extension ARDiceeViewController { 
     
+    // called when touches are detected on the screen
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
+            
+            // gives us the location of where we touched on the 2D screen.
             let touchLocation = touch.location(in: sceneView)
+            
+            // hitTest is performed to get the 3D coordinates corresponding to the 2D coordinates that we got from touching the screen.
+            // That 3d coordinate will only be considered when it is on the existing plane that we detected.
             let results = sceneView.hitTest(touchLocation, types: .existingPlaneUsingExtent)
             
+            // if we have got some results using the hitTest then do the next statement
             if let hitResult = results.first {
                 addDice(at: hitResult.worldTransform.columns.3)
             }

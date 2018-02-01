@@ -34,8 +34,12 @@ public extension CGFloat {
     public var toRadians : CGFloat { return self * CGFloat.pi / 180.0 }
     public var toDegrees : CGFloat { return self * 180.0 / CGFloat.pi }
     
-    public var float: Double {
+    public var double: Double {
         return Double(self)
+    }
+    
+    public var float: Float {
+        return Float(self)
     }
     
     public static func width( ofDevice device: DeviceType) -> (width:CGFloat, exponent: CGFloat) {
