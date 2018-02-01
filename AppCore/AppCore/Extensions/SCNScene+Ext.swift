@@ -11,7 +11,7 @@ import SceneKit
 
 extension SCNScene {
     
-    public static func loadScene(from bundle: Bundle, scnassets: String, name: String) -> SCNScene? {
+    public static func loadScene(from bundle: Bundle, scnassets: String, name: String, exten: String = "scn") -> SCNScene? {
         
         guard let directoryPath = bundle.path(forResource: scnassets, ofType: "scnassets") 
             else { 
@@ -19,7 +19,7 @@ extension SCNScene {
         }
         //let directoryUrl = URL(fileURLWithPath:directoryPath)
         
-        let path = directoryPath+"/"+name+".scn"
+        let path = directoryPath+"/"+name+"."+exten
         let sceneURL = URL(fileURLWithPath: path)
         
         // Create a new scene

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C7143D592021EF0D000923B9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7143D582021EF0D000923B9 /* art.scnassets */; };
+		C72998EE20232010009B0F4C /* ARDancingDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72998ED20232010009B0F4C /* ARDancingDemo.framework */; };
+		C72998EF20232010009B0F4C /* ARDancingDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72998ED20232010009B0F4C /* ARDancingDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72F823520221E2200958877 /* ARDiceeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72F823420221E2200958877 /* ARDiceeDemo.framework */; };
 		C72F823620221E2200958877 /* ARDiceeDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72F823420221E2200958877 /* ARDiceeDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C753D956202137D50027B094 /* WackAJellyFishDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C753D955202137D50027B094 /* WackAJellyFishDemo.framework */; };
@@ -67,6 +69,7 @@
 				C753D95A2021393B0027B094 /* Each.framework in Embed Frameworks */,
 				C7DD3D612020D923000B5543 /* Chameleon.framework in Embed Frameworks */,
 				C753D957202137D50027B094 /* WackAJellyFishDemo.framework in Embed Frameworks */,
+				C72998EF20232010009B0F4C /* ARDancingDemo.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		C7143D582021EF0D000923B9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		C72998ED20232010009B0F4C /* ARDancingDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDancingDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72F823420221E2200958877 /* ARDiceeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDiceeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C753D955202137D50027B094 /* WackAJellyFishDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WackAJellyFishDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C753D9582021393B0027B094 /* Each.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Each.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +123,7 @@
 				C753D9592021393B0027B094 /* Each.framework in Frameworks */,
 				C7DD3D602020D923000B5543 /* Chameleon.framework in Frameworks */,
 				C753D956202137D50027B094 /* WackAJellyFishDemo.framework in Frameworks */,
+				C72998EE20232010009B0F4C /* ARDancingDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +133,7 @@
 		C7DD3D3B2020D79B000B5543 = {
 			isa = PBXGroup;
 			children = (
+				C72998ED20232010009B0F4C /* ARDancingDemo.framework */,
 				C7E0222D20226E260091D145 /* ARTelevisionDemo.framework */,
 				C72F823420221E2200958877 /* ARDiceeDemo.framework */,
 				C7CFCAC420221175005CD6F5 /* TossShapesDemo.framework */,

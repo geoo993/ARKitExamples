@@ -168,7 +168,7 @@ extension ARPortalViewController: ARSCNViewDelegate {
     }
 }
 
-// MARK: - gesture recognizer
+// MARK: - Gesture recognizer
 extension ARPortalViewController {
 
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -182,5 +182,4 @@ extension ARPortalViewController {
             }
         }
     }
-
 }

@@ -30,6 +30,10 @@ public extension SCNVector3
         return SCNVector3(0,0,0)
     }
     
+    public static func uniform(to amount: CGFloat) -> SCNVector3 {
+        return SCNVector3(amount,amount,amount)
+    }
+    
     /**
      * Negates the vector described by SCNVector3 and returns
      * the result as a new SCNVector3.

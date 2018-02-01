@@ -45,12 +45,12 @@ public class WorldTrackingViewController: UIViewController {
         
         sceneView.autoenablesDefaultLighting = true
         
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         sceneView.session.run(configuration)
         
         view.backgroundColor = UIColor.purple
