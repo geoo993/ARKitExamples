@@ -12,17 +12,6 @@
 		C77768B120253AE700CE16BB /* ARHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B350A4202382270018A1AA /* ARHome.storyboard */; };
 		C77768B220253AEA00CE16BB /* ARHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B350A2202382270018A1AA /* ARHomeViewController.swift */; };
 		C77768B320253AF800CE16BB /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B350A0202382270018A1AA /* art.scnassets */; };
-		C77768D220254E4600CE16BB /* Brick_Antique.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C77768BC20254D8F00CE16BB /* Brick_Antique.jpg */; };
-		C77768D320254E4600CE16BB /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C77768BD20254D8F00CE16BB /* images.jpeg */; };
-		C77768D420254E4600CE16BB /* Cladding_Siding_Tan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C77768BE20254D8F00CE16BB /* Cladding_Siding_Tan.jpg */; };
-		C77768D520254E4600CE16BB /* Roofing_Tile_Spanish_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C77768BF20254D8F00CE16BB /* Roofing_Tile_Spanish_1.jpg */; };
-		C77768D620254E4600CE16BB /* Roofing_Tile_Spanish.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C77768C020254D8F00CE16BB /* Roofing_Tile_Spanish.jpg */; };
-		C77768D720254E4600CE16BB /* Stone_Masonry_Multi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C77768C120254D8F00CE16BB /* Stone_Masonry_Multi.jpg */; };
-		C77768D820254E4600CE16BB /* Brick_Rough_Dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C77768C220254D8F00CE16BB /* Brick_Rough_Dark.jpg */; };
-		C77768D920254E4600CE16BB /* Cladding_Siding_White.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C77768C320254D8F00CE16BB /* Cladding_Siding_White.jpg */; };
-		C77768DA20254E4600CE16BB /* Roofing_Shingles_Variable.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C77768C420254D8F00CE16BB /* Roofing_Shingles_Variable.jpg */; };
-		C77768DB20254E4600CE16BB /* Cladding_Siding_Tan_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C77768C520254D8F00CE16BB /* Cladding_Siding_Tan_0.jpg */; };
-		C77768DC20254E4600CE16BB /* Roofing_Shingles_Wood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C77768C620254D8F00CE16BB /* Roofing_Shingles_Wood.jpg */; };
 		C7B3509F202382270018A1AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3509E202382270018A1AA /* AppDelegate.swift */; };
 		C7B350A1202382270018A1AA /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B350A0202382270018A1AA /* art.scnassets */; };
 		C7B350BB202382570018A1AA /* ARHomeDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7B350B9202382570018A1AA /* ARHomeDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -58,17 +47,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C77768BC20254D8F00CE16BB /* Brick_Antique.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Brick_Antique.jpg; sourceTree = "<group>"; };
-		C77768BD20254D8F00CE16BB /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
-		C77768BE20254D8F00CE16BB /* Cladding_Siding_Tan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cladding_Siding_Tan.jpg; sourceTree = "<group>"; };
-		C77768BF20254D8F00CE16BB /* Roofing_Tile_Spanish_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Roofing_Tile_Spanish_1.jpg; sourceTree = "<group>"; };
-		C77768C020254D8F00CE16BB /* Roofing_Tile_Spanish.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Roofing_Tile_Spanish.jpg; sourceTree = "<group>"; };
-		C77768C120254D8F00CE16BB /* Stone_Masonry_Multi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Stone_Masonry_Multi.jpg; sourceTree = "<group>"; };
-		C77768C220254D8F00CE16BB /* Brick_Rough_Dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Brick_Rough_Dark.jpg; sourceTree = "<group>"; };
-		C77768C320254D8F00CE16BB /* Cladding_Siding_White.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cladding_Siding_White.jpg; sourceTree = "<group>"; };
-		C77768C420254D8F00CE16BB /* Roofing_Shingles_Variable.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Roofing_Shingles_Variable.jpg; sourceTree = "<group>"; };
-		C77768C520254D8F00CE16BB /* Cladding_Siding_Tan_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cladding_Siding_Tan_0.jpg; sourceTree = "<group>"; };
-		C77768C620254D8F00CE16BB /* Roofing_Shingles_Wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Roofing_Shingles_Wood.jpg; sourceTree = "<group>"; };
 		C7B3509B202382270018A1AA /* ARHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B3509E202382270018A1AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7B350A0202382270018A1AA /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -103,24 +81,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C77768BB20254D8F00CE16BB /* ModelsImages */ = {
-			isa = PBXGroup;
-			children = (
-				C77768BC20254D8F00CE16BB /* Brick_Antique.jpg */,
-				C77768BD20254D8F00CE16BB /* images.jpeg */,
-				C77768BE20254D8F00CE16BB /* Cladding_Siding_Tan.jpg */,
-				C77768BF20254D8F00CE16BB /* Roofing_Tile_Spanish_1.jpg */,
-				C77768C020254D8F00CE16BB /* Roofing_Tile_Spanish.jpg */,
-				C77768C120254D8F00CE16BB /* Stone_Masonry_Multi.jpg */,
-				C77768C220254D8F00CE16BB /* Brick_Rough_Dark.jpg */,
-				C77768C320254D8F00CE16BB /* Cladding_Siding_White.jpg */,
-				C77768C420254D8F00CE16BB /* Roofing_Shingles_Variable.jpg */,
-				C77768C520254D8F00CE16BB /* Cladding_Siding_Tan_0.jpg */,
-				C77768C620254D8F00CE16BB /* Roofing_Shingles_Wood.jpg */,
-			);
-			path = ModelsImages;
-			sourceTree = "<group>";
-		};
 		C7B35092202382270018A1AA = {
 			isa = PBXGroup;
 			children = (
@@ -144,7 +104,6 @@
 		C7B3509D202382270018A1AA /* ARHome */ = {
 			isa = PBXGroup;
 			children = (
-				C77768BB20254D8F00CE16BB /* ModelsImages */,
 				C7B3509E202382270018A1AA /* AppDelegate.swift */,
 				C7B350A0202382270018A1AA /* art.scnassets */,
 				C7B350A2202382270018A1AA /* ARHomeViewController.swift */,
@@ -275,17 +234,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C77768D220254E4600CE16BB /* Brick_Antique.jpg in Resources */,
-				C77768D320254E4600CE16BB /* images.jpeg in Resources */,
-				C77768D420254E4600CE16BB /* Cladding_Siding_Tan.jpg in Resources */,
-				C77768D520254E4600CE16BB /* Roofing_Tile_Spanish_1.jpg in Resources */,
-				C77768D620254E4600CE16BB /* Roofing_Tile_Spanish.jpg in Resources */,
-				C77768D720254E4600CE16BB /* Stone_Masonry_Multi.jpg in Resources */,
-				C77768D820254E4600CE16BB /* Brick_Rough_Dark.jpg in Resources */,
-				C77768D920254E4600CE16BB /* Cladding_Siding_White.jpg in Resources */,
-				C77768DA20254E4600CE16BB /* Roofing_Shingles_Variable.jpg in Resources */,
-				C77768DB20254E4600CE16BB /* Cladding_Siding_Tan_0.jpg in Resources */,
-				C77768DC20254E4600CE16BB /* Roofing_Shingles_Wood.jpg in Resources */,
 				C77768B320253AF800CE16BB /* art.scnassets in Resources */,
 				C77768B020253AE300CE16BB /* Assets.xcassets in Resources */,
 				C77768AF20253AE000CE16BB /* LaunchScreen.storyboard in Resources */,

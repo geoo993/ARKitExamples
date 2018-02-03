@@ -127,8 +127,8 @@ public class ARHomeViewController: UIViewController {
     
     func addHouse(with hitTestResult: ARHitTestResult) {
         
-        if let scene = SCNScene.loadScene(from: ARHomeViewController.bundle, scnassets: "art", name: "model"),
-            let node = scene.rootNode.childNode(withName: "house", recursively: false) {
+        if let scene = SCNScene.loadScene(from: ARHomeViewController.bundle, scnassets: "art", name: "home"),
+            let node = scene.rootNode.childNode(withName: "home", recursively: false) {
             
             let transform = hitTestResult.worldTransform 
             let thirdColumn = transform.columns.3
