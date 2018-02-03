@@ -1,6 +1,17 @@
 import Foundation
+import ARKit
 
 public extension CGPoint {
+    
+    public init(_ size: CGSize) {
+        self.x = size.width
+        self.y = size.height
+    }
+    
+    public init(_ vector: SCNVector3) {
+        self.x = CGFloat(vector.x)
+        self.y = CGFloat(vector.y)
+    }
     
     public func distance(from rect: CGRect) -> CGFloat {
         let dx = max(rect.minX - x, x - rect.maxX, 0)
@@ -146,11 +157,16 @@ public extension CGPoint {
     public func minus(this point: CGPoint) -> CGPoint {
         return self - point
     }
+    
     public func plus(this point: CGPoint) -> CGPoint
     {
         return self + point
     }
-   
+    
+    public func midpoint(_ point: CGPoint) -> CGPoint {
+        return (self + point) / 2
+    }
+  
 }
 
 #if !(arch(x86_64) || arch(arm64))

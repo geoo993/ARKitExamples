@@ -9,7 +9,19 @@
 import Foundation
 import SceneKit
 
-extension SCNScene {
+// MARK: - Scene extensions
+public extension SCNScene {
+    
+    public func enableEnvironmentMapWithIntensity(_ intensity: CGFloat, queue: DispatchQueue) {
+        queue.async {
+            if self.lightingEnvironment.contents == nil {
+                if let environmentMap = UIImage(named: "Models.scnassets/sharedImages/environment_blur.exr") {
+                    self.lightingEnvironment.contents = environmentMap
+                }
+            }
+            self.lightingEnvironment.intensity = intensity
+        }
+    }
     
     public static func loadScene(from bundle: Bundle, scnassets: String, name: String, exten: String = "scn") -> SCNScene? {
         

@@ -1,11 +1,35 @@
 
 import Foundation
+import ARKit
 
-public extension Array where Element: Comparable {
-    public func containsSameElements(as other: [Element]) -> Bool {
-        return self.count == other.count && self.sorted() == other.sorted()
+// MARK: - Collection extensions
+public extension Array where Iterator.Element == Float {
+    public var average: Float? {
+        guard !self.isEmpty else {
+            return nil
+        }
+        
+        let sum = self.reduce(Float(0)) { current, next in
+            return current + next
+        }
+        return sum / Float(self.count)
     }
 }
+
+
+public extension Array where Iterator.Element == float3 {
+    public var average: float3? {
+        guard !self.isEmpty else {
+            return nil
+        }
+        
+        let sum = self.reduce(float3(0)) { current, next in
+            return current + next
+        }
+        return sum / Float(self.count)
+    }
+}
+
 
 public extension Array {
     
@@ -52,6 +76,12 @@ public extension Array {
     
 }
 
+
+public extension Array where Element: Comparable {
+    public func containsSameElements(as other: [Element]) -> Bool {
+        return self.count == other.count && self.sorted() == other.sorted()
+    }
+}
 
 public extension Array where Array.Iterator.Element: Hashable {
     public typealias Element = Array.Iterator.Element

@@ -17,7 +17,11 @@ public class ARPortalViewController: UIViewController {
         return Bundle(identifier: "com.geo-games.ARPortalDemo")!
     }
     
-    let skyBoxName = ["petrolstation", "porchfold"]
+    let skyBoxName = ["petrolstation", 
+                      "porchfold",
+                      "colorbasement",
+                      "yokohamanight",
+                      "commonroom"]
     var skyboxIndex = 1
     
     @IBOutlet var sceneView: ARSCNView!
@@ -84,19 +88,19 @@ public class ARPortalViewController: UIViewController {
             let skyBox = skyBoxName[skyboxIndex]
             
             // cut front image by (imagsize * 0.375) (which is half of 0.625 of the side doors) 
-            addPlane(nodeName: "backWall", portal: node, imageName: skyBox+"_bk.jpg")
-            addPlane(nodeName: "sideWallA", portal: node, imageName: skyBox+"_lf.jpg")
-            addPlane(nodeName: "sideWallB", portal: node, imageName: skyBox+"_rt.jpg")
-            addPlane(nodeName: "sideDoorA", portal: node, imageName: skyBox+"_ftA.jpg")
-            addPlane(nodeName: "sideDoorB", portal: node, imageName: skyBox+"_ftB.jpg")
-            addPlane(nodeName: "roof", portal: node, imageName: skyBox+"_up.jpg")
-            addPlane(nodeName: "floor", portal: node, imageName: skyBox+"_dn.jpg")
+            addPlane(nodeName: "backWall", portal: node, folder: skyBox, imageName: skyBox+"_bk.jpg")
+            addPlane(nodeName: "sideWallA", portal: node, folder: skyBox, imageName: skyBox+"_lf.jpg")
+            addPlane(nodeName: "sideWallB", portal: node, folder: skyBox, imageName: skyBox+"_rt.jpg")
+            addPlane(nodeName: "sideDoorA", portal: node, folder: skyBox, imageName: skyBox+"_ftA.jpg")
+            addPlane(nodeName: "sideDoorB", portal: node, folder: skyBox, imageName: skyBox+"_ftB.jpg")
+            addPlane(nodeName: "roof", portal: node, folder: skyBox, imageName: skyBox+"_up.jpg")
+            addPlane(nodeName: "floor", portal: node, folder: skyBox, imageName: skyBox+"_dn.jpg")
         }
     }
     
-    func addPlane(nodeName: String, portal: SCNNode, imageName: String) {
+    func addPlane(nodeName: String, portal: SCNNode, folder: String, imageName: String) {
         let childNode = portal.childNode(withName: nodeName, recursively: true)
-        let image = UIImage(named: "art.scnassets/\(imageName)", in: ARPortalViewController.bundle, compatibleWith: nil)
+        let image = UIImage(named: "art.scnassets/\(folder)/\(imageName)", in: ARPortalViewController.bundle, compatibleWith: nil)
         childNode?.geometry?.firstMaterial?.diffuse.contents = image
         
         childNode?.renderingOrder = 200

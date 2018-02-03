@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WXT-ba-5wm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="pZV-Is-8bR">
+            <objects>
+                <viewController storyboardIdentifier="ARHomeViewController" id="WXT-ba-5wm" customClass="ARHomeViewController" customModule="ARHomeDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gyX-XB-T4N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6l-cE-6Tw" customClass="ARSCNView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </sceneKitView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="3az-KD-622" userLabel="Message Panel">
+                                <rect key="frame" x="47" y="315.5" width="281" height="36"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6fG-WZ-sk9">
+                                    <rect key="frame" x="0.0" y="0.0" width="281" height="36"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUm-Hh-T5i">
+                                            <rect key="frame" x="0.0" y="0.0" width="281" height="36"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9SB-Tb-Tam">
+                                                <rect key="frame" x="0.0" y="0.0" width="281" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H4u-48-TIv">
+                                                        <rect key="frame" x="0.0" y="10" width="281" height="16"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Tracking status" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAo-UX-E1a" userLabel="Messages label">
+                                                                <rect key="frame" x="0.0" y="0.0" width="281" height="16"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                <nil key="textColor"/>
+                                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <size key="shadowOffset" width="1" height="1"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="H4u-48-TIv" firstAttribute="top" secondItem="9SB-Tb-Tam" secondAttribute="top" constant="10" id="18W-eW-GSr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="H4u-48-TIv" secondAttribute="trailing" constant="10" id="bVD-6R-Cfy"/>
+                                                    <constraint firstItem="H4u-48-TIv" firstAttribute="leading" secondItem="9SB-Tb-Tam" secondAttribute="leading" constant="10" id="elf-Uc-S9R"/>
+                                                    <constraint firstAttribute="bottom" secondItem="H4u-48-TIv" secondAttribute="bottom" constant="10" id="y5j-KJ-D6e"/>
+                                                </constraints>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="extraLight"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="TUm-Hh-T5i" firstAttribute="height" secondItem="3az-KD-622" secondAttribute="height" id="Jdo-yI-dKz"/>
+                                    <constraint firstItem="TUm-Hh-T5i" firstAttribute="width" secondItem="3az-KD-622" secondAttribute="width" id="V1J-4k-Vps"/>
+                                    <constraint firstItem="TUm-Hh-T5i" firstAttribute="centerX" secondItem="3az-KD-622" secondAttribute="centerX" id="YpV-Nu-Qtm"/>
+                                    <constraint firstItem="TUm-Hh-T5i" firstAttribute="centerY" secondItem="3az-KD-622" secondAttribute="centerY" id="eoO-oE-eg0"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="R6l-cE-6Tw" secondAttribute="bottom" id="2lh-Hn-Ihd"/>
+                            <constraint firstItem="3az-KD-622" firstAttribute="centerX" secondItem="gyX-XB-T4N" secondAttribute="centerX" id="4OS-HJ-YRo"/>
+                            <constraint firstItem="R6l-cE-6Tw" firstAttribute="leading" secondItem="gyX-XB-T4N" secondAttribute="leading" id="8It-N8-5id"/>
+                            <constraint firstItem="R6l-cE-6Tw" firstAttribute="top" secondItem="gyX-XB-T4N" secondAttribute="top" id="NMC-tD-Jc4"/>
+                            <constraint firstItem="R6l-cE-6Tw" firstAttribute="trailing" secondItem="gyX-XB-T4N" secondAttribute="trailing" id="Syu-uV-Ee6"/>
+                            <constraint firstItem="R6l-cE-6Tw" firstAttribute="bottom" secondItem="gyX-XB-T4N" secondAttribute="bottom" id="VOO-S0-Bjz"/>
+                            <constraint firstItem="R6l-cE-6Tw" firstAttribute="leading" secondItem="gyX-XB-T4N" secondAttribute="leading" id="Xub-qE-rHA"/>
+                            <constraint firstItem="3az-KD-622" firstAttribute="centerY" secondItem="gyX-XB-T4N" secondAttribute="centerY" id="Zma-SU-Z1e"/>
+                            <constraint firstItem="3az-KD-622" firstAttribute="width" secondItem="gyX-XB-T4N" secondAttribute="width" multiplier="0.75" id="dVL-pB-MW3"/>
+                            <constraint firstItem="3az-KD-622" firstAttribute="centerX" secondItem="gyX-XB-T4N" secondAttribute="centerX" id="jEg-jc-AHZ"/>
+                            <constraint firstAttribute="trailing" secondItem="R6l-cE-6Tw" secondAttribute="trailing" id="mAF-JD-bP5"/>
+                            <constraint firstItem="R6l-cE-6Tw" firstAttribute="top" secondItem="gyX-XB-T4N" secondAttribute="top" id="pXc-Xi-jB4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="NAo-UX-E1a" id="CEl-at-kkr"/>
+                        <outlet property="messagePanel" destination="3az-KD-622" id="U6O-bd-M71"/>
+                        <outlet property="sceneView" destination="R6l-cE-6Tw" id="4Cd-91-Ofd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fba-MP-uRx" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="562" y="-38"/>
+        </scene>
+    </scenes>
+</document>

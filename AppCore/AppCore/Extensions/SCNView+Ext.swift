@@ -13,16 +13,3 @@ import ARKit
 extension SCNView {
     
 }
-
-extension ARSCNView {
-    
-    public func cameraFront(by amount: Float ) -> matrix_float4x4? {
-        guard let currentFrame = self.session.currentFrame else { return nil }
-        let camera = currentFrame.camera
-        let transform = camera.transform
-        var translationMatrix = matrix_identity_float4x4
-        translationMatrix.columns.3.z = amount
-        return simd_mul(transform, translationMatrix)
-    }
-    
-}

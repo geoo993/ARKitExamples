@@ -20,6 +20,8 @@
 		C75EBB742020DBEB00E484CE /* ARDrawingDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C75EBB922020E38200E484CE /* ARPlanetsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */; };
 		C75EBB932020E38200E484CE /* ARPlanetsDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C77768AD20253A8300CE16BB /* ARHomeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C77768AC20253A8300CE16BB /* ARHomeDemo.framework */; };
+		C77768AE20253A8300CE16BB /* ARHomeDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C77768AC20253A8300CE16BB /* ARHomeDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7857B292021562500CE199E /* IKEADemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B282021562500CE199E /* IKEADemo.framework */; };
 		C7857B2A2021562500CE199E /* IKEADemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B282021562500CE199E /* IKEADemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7857B402021594400CE199E /* ARMeasuringDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B3F2021594400CE199E /* ARMeasuringDemo.framework */; };
@@ -63,6 +65,7 @@
 				C7857B5A20215BCD00CE199E /* ARPortalDemo.framework in Embed Frameworks */,
 				C7DD3D5D2020D825000B5543 /* AppCore.framework in Embed Frameworks */,
 				C7E0222F20226E260091D145 /* ARTelevisionDemo.framework in Embed Frameworks */,
+				C77768AE20253A8300CE16BB /* ARHomeDemo.framework in Embed Frameworks */,
 				C75EBB932020E38200E484CE /* ARPlanetsDemo.framework in Embed Frameworks */,
 				C72F823620221E2200958877 /* ARDiceeDemo.framework in Embed Frameworks */,
 				C7CFCA8720220BBC005CD6F5 /* FloorIsLavaDemo.framework in Embed Frameworks */,
@@ -84,6 +87,7 @@
 		C753D9582021393B0027B094 /* Each.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Each.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDrawingDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPlanetsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C77768AC20253A8300CE16BB /* ARHomeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARHomeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B282021562500CE199E /* IKEADemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IKEADemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B3F2021594400CE199E /* ARMeasuringDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARMeasuringDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B5820215BCD00CE199E /* ARPortalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPortalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +121,7 @@
 				C7857B5920215BCD00CE199E /* ARPortalDemo.framework in Frameworks */,
 				C7DD3D5C2020D825000B5543 /* AppCore.framework in Frameworks */,
 				C7E0222E20226E260091D145 /* ARTelevisionDemo.framework in Frameworks */,
+				C77768AD20253A8300CE16BB /* ARHomeDemo.framework in Frameworks */,
 				C75EBB922020E38200E484CE /* ARPlanetsDemo.framework in Frameworks */,
 				C72F823520221E2200958877 /* ARDiceeDemo.framework in Frameworks */,
 				C7CFCA8620220BBC005CD6F5 /* FloorIsLavaDemo.framework in Frameworks */,
@@ -133,6 +138,7 @@
 		C7DD3D3B2020D79B000B5543 = {
 			isa = PBXGroup;
 			children = (
+				C77768AC20253A8300CE16BB /* ARHomeDemo.framework */,
 				C72998ED20232010009B0F4C /* ARDancingDemo.framework */,
 				C7E0222D20226E260091D145 /* ARTelevisionDemo.framework */,
 				C72F823420221E2200958877 /* ARDiceeDemo.framework */,
