@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,12 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZy-TY-i3U">
-                                <rect key="frame" x="175" y="321" width="24" height="24"/>
+                                <rect key="frame" x="175" y="331.5" width="24" height="24"/>
                                 <state key="normal" image="add"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pms-fe-hJE" customClass="UIButtonX" customModule="AppCore">
@@ -49,12 +49,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="DzW-bv-tHB" secondAttribute="trailing" id="0Km-8v-GWu"/>
+                            <constraint firstItem="aZy-TY-i3U" firstAttribute="centerX" secondItem="BrB-h1-WRS" secondAttribute="centerX" id="9ko-4Z-WUo"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="DzW-bv-tHB" secondAttribute="leading" id="ER2-bL-2bQ"/>
                             <constraint firstAttribute="bottom" secondItem="pms-fe-hJE" secondAttribute="bottom" constant="20" id="KGC-gi-gFv"/>
-                            <constraint firstItem="aZy-TY-i3U" firstAttribute="centerX" secondItem="p6K-GR-omj" secondAttribute="centerX" id="MnC-hH-YkQ"/>
-                            <constraint firstItem="aZy-TY-i3U" firstAttribute="centerY" secondItem="p6K-GR-omj" secondAttribute="centerY" id="gYk-4p-YEb"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="DzW-bv-tHB" secondAttribute="top" id="cY4-dZ-YBW"/>
                             <constraint firstItem="pms-fe-hJE" firstAttribute="centerX" secondItem="p6K-GR-omj" secondAttribute="centerX" id="kUi-fU-wNm"/>
+                            <constraint firstItem="aZy-TY-i3U" firstAttribute="centerY" secondItem="BrB-h1-WRS" secondAttribute="centerY" id="oEr-pU-wSW"/>
                             <constraint firstItem="pms-fe-hJE" firstAttribute="width" secondItem="p6K-GR-omj" secondAttribute="width" multiplier="0.3" id="oFZ-y1-C8a"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="DzW-bv-tHB" secondAttribute="bottom" id="q25-n8-IeX"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="DzW-bv-tHB"/>
                     </view>
                     <connections>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="SPo-AP-gPi"/>
@@ -62,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEs-Cb-VKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="196" y="190"/>
+            <point key="canvasLocation" x="196" y="189.3553223388306"/>
         </scene>
     </scenes>
     <resources>

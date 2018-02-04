@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xC-Xq-D1Y">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </arscnView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejR-In-Dgz" userLabel="Timer Label">
                                 <rect key="frame" x="138" y="318" width="98.5" height="29.5"/>
@@ -58,19 +58,19 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="AMQ-2P-dMy"/>
+                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0bs-uN-GJ7"/>
                             <constraint firstItem="Yqa-bM-3aT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="B0x-h4-grD"/>
                             <constraint firstItem="ejR-In-Dgz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BA6-c6-8Bt"/>
+                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G8q-jP-fW0"/>
                             <constraint firstItem="axh-my-nMo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="HAp-oq-BAO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="axh-my-nMo" secondAttribute="bottom" constant="20" id="N2I-dc-84P"/>
-                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ogm-F9-VAZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Yqa-bM-3aT" secondAttribute="bottom" constant="20" id="TsQ-A8-bQ5"/>
                             <constraint firstItem="Yqa-bM-3aT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Uku-lZ-Uzg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="axh-my-nMo" secondAttribute="trailing" constant="20" id="V4o-9w-75w"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yqa-bM-3aT" secondAttribute="trailing" constant="20" symbolic="YES" id="dwi-lB-IAg"/>
                             <constraint firstItem="axh-my-nMo" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="hPg-pX-avP"/>
-                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hQi-FH-wUx"/>
-                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lPg-TN-Lps"/>
+                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="mER-f9-qMC"/>
+                            <constraint firstItem="9xC-Xq-D1Y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sk0-d8-CKI"/>
                             <constraint firstItem="ejR-In-Dgz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zko-Cg-lXI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

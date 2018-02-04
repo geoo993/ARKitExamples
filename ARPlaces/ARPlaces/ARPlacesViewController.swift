@@ -28,7 +28,6 @@ public class ARPlacesViewController: UIViewController {
     fileprivate var arViewController: ARViewController!
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var placeImageView: UIImageView!
     @IBAction func showAR(_ sender: UIButton) {
         arViewController = ARViewController()
         //1
@@ -61,7 +60,7 @@ public class ARPlacesViewController: UIViewController {
     private func showHelperAlertIfNeeded() {
         let key = "ARShooterViewController.helperAlert.didShow"
         if !UserDefaults.standard.bool(forKey: key) {
-            let alert = UIAlertController(title: title, message: "Tap on camera button and locate places around you.", preferredStyle: .alert)
+            let alert = UIAlertController(title: title, message: "Tap on camera button to see places of interest, then select a place of interest to get more info.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             

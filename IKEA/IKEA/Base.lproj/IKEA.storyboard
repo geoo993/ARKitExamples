@@ -15,13 +15,13 @@
         <!--IKEAViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="IKEAViewController" id="BYZ-38-t0r" userLabel="IKEAViewController" customClass="IKEAViewController" customModule="IKEA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IKEAViewController" id="BYZ-38-t0r" userLabel="IKEAViewController" customClass="IKEAViewController" customModule="IKEADemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqP-QR-lsL">
-                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="pRY-qZ-xXh"/>
                                 </connections>
@@ -36,7 +36,7 @@
                                     <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="itemsIdentifier" id="lYx-mi-oqX" customClass="IKEACollectionViewCell" customModule="IKEA" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="itemsIdentifier" id="lYx-mi-oqX" customClass="IKEACollectionViewCell" customModule="IKEADemo" customModuleProvider="target">
                                         <rect key="frame" x="20" y="8.5" width="120" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -82,14 +82,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="kqP-QR-lsL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1aa-HA-zLL"/>
+                            <constraint firstItem="kqP-QR-lsL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3RF-wB-EMS"/>
                             <constraint firstItem="jWs-ay-SFs" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1" id="6Eu-Sg-m6v"/>
-                            <constraint firstItem="kqP-QR-lsL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="MIq-bj-QWQ"/>
-                            <constraint firstItem="kqP-QR-lsL" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="MjG-Ev-Gw9"/>
                             <constraint firstItem="jWs-ay-SFs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PZb-Pg-erm"/>
-                            <constraint firstItem="kqP-QR-lsL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XdO-2D-fnv"/>
+                            <constraint firstItem="kqP-QR-lsL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bhr-vP-JRY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jWs-ay-SFs" secondAttribute="bottom" id="cg4-5K-snl"/>
+                            <constraint firstItem="kqP-QR-lsL" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eU2-s8-AMr"/>
                             <constraint firstItem="jWs-ay-SFs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hsg-7C-VGq"/>
-                            <constraint firstItem="kqP-QR-lsL" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xIo-g2-7Z8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

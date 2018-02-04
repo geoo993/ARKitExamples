@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,21 +28,12 @@
                                     <action selector="showAR:" destination="LpR-kP-TH1" eventType="touchUpInside" id="b7z-Qe-gGn"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vJ2-ES-wwW">
-                                <rect key="frame" x="265" y="10" width="100" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="vJ2-ES-wwW" secondAttribute="height" multiplier="1:1.2" id="Ot5-Rz-Czs"/>
-                                    <constraint firstAttribute="width" constant="100" id="p0b-We-4BD"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sZW-5w-92q" firstAttribute="bottom" secondItem="7LY-Jf-4l0" secondAttribute="bottom" id="5Ug-Bo-V66"/>
                             <constraint firstItem="7LY-Jf-4l0" firstAttribute="top" secondItem="sZW-5w-92q" secondAttribute="top" id="I7K-hW-Mu0"/>
                             <constraint firstItem="sZW-5w-92q" firstAttribute="trailing" secondItem="7LY-Jf-4l0" secondAttribute="trailing" id="J9A-3A-p6P"/>
-                            <constraint firstItem="sZW-5w-92q" firstAttribute="trailing" secondItem="vJ2-ES-wwW" secondAttribute="trailing" constant="10" id="RIQ-pf-ePp"/>
-                            <constraint firstItem="vJ2-ES-wwW" firstAttribute="top" secondItem="sZW-5w-92q" secondAttribute="top" constant="10" id="WaG-EN-YdC"/>
                             <constraint firstItem="5Hs-EV-Doh" firstAttribute="centerX" secondItem="sZW-5w-92q" secondAttribute="centerX" id="k1M-C5-zpq"/>
                             <constraint firstItem="7LY-Jf-4l0" firstAttribute="leading" secondItem="sZW-5w-92q" secondAttribute="leading" id="r6b-S7-Cey"/>
                             <constraint firstItem="sZW-5w-92q" firstAttribute="bottom" secondItem="5Hs-EV-Doh" secondAttribute="bottom" constant="10" id="wsf-BF-i7A"/>
@@ -53,7 +43,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="mapView" destination="7LY-Jf-4l0" id="4i4-sf-eHb"/>
-                        <outlet property="placeImageView" destination="vJ2-ES-wwW" id="25a-Gt-Vax"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anx-xD-TbK" sceneMemberID="firstResponder"/>

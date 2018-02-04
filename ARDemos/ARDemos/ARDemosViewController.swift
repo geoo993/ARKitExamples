@@ -25,6 +25,7 @@ import ARTelevisionDemo
 import ARDancingDemo
 import ARHomeDemo
 import ARPlacesDemo
+import ARWorldNavigationDemo
 
 private let CellIdentifier = "tableCell"
 
@@ -50,7 +51,9 @@ public class ARDemosViewController: UITableViewController {
             navController.navigationBar.barTintColor = color
             
             // text color
-            navController.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: constrastColor]
+            navController.navigationBar.largeTitleTextAttributes = [
+                NSAttributedStringKey.foregroundColor: constrastColor, 
+                NSAttributedStringKey.font: UIFont(name: FamilyName.alNileBold, size: 25)!]
         }
     }
     
@@ -123,7 +126,11 @@ public class ARDemosViewController: UITableViewController {
             Option(title: "AR Places", 
                    name: "ARPlacesViewController", 
                    bundle: ARPlacesViewController.bundle, 
-                   storyBoard: "ARPlaces")
+                   storyBoard: "ARPlaces"),
+            Option(title: "AR World Navigation", 
+                   name: "ARWorldNavigationViewController", 
+                   bundle: ARWorldNavigationViewController.bundle, 
+                   storyBoard: "ARWorldNavigation")
         ]
         
         updateNavBar(with: selectedColor)
@@ -140,8 +147,8 @@ public class ARDemosViewController: UITableViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+
     
- 
 }
 
 
@@ -181,10 +188,13 @@ extension ARDemosViewController {
         let option = options[indexPath.row]
         let bundle = option.bundle
         let storyBoard = option.storyBoard
-        let storyboard = UIStoryboard(name: storyBoard, bundle: bundle)       
+        let storyboard = UIStoryboard(name: storyBoard, bundle: bundle)   
+        
         let vc = storyboard.instantiateViewController(withIdentifier: option.name)
         vc.title = option.title
-        navigationController?.pushViewController(vc, animated: true)
-       
+        navigationController?.pushViewController(vc, animated: true, completion: { () in
+            print("\n\(option.title) init")
+        })
+        
     }
 }
