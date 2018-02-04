@@ -24,6 +24,7 @@ import ARDiceeDemo
 import ARTelevisionDemo
 import ARDancingDemo
 import ARHomeDemo
+import ARPlacesDemo
 
 private let CellIdentifier = "tableCell"
 
@@ -118,7 +119,11 @@ public class ARDemosViewController: UITableViewController {
             Option(title: "AR Home", 
                    name: "ARHomeViewController", 
                    bundle: ARHomeViewController.bundle, 
-                   storyBoard: "ARHome")
+                   storyBoard: "ARHome"),
+            Option(title: "AR Places", 
+                   name: "ARPlacesViewController", 
+                   bundle: ARPlacesViewController.bundle, 
+                   storyBoard: "ARPlaces")
         ]
         
         updateNavBar(with: selectedColor)

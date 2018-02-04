@@ -10,7 +10,6 @@
 		C7072134202149670071F6FE /* JellyFish.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C8C693201D4B7A00959FA2 /* JellyFish.scnassets */; };
 		C7143D212021D591000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C686201D47CC00959FA2 /* AppCore.framework */; };
 		C7143D222021D595000923B9 /* Each.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C695201D556800959FA2 /* Each.framework */; };
-		C7143D2E2021D754000923B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E89201D427400BD26CB /* LaunchScreen.storyboard */; };
 		C7143D2F2021D757000923B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E87201D427400BD26CB /* Assets.xcassets */; };
 		C7143D302021D75B000923B9 /* WackAJellyFish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E84201D427400BD26CB /* WackAJellyFish.storyboard */; };
 		C7143D312021D75D000923B9 /* WackAJellyFishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A46E82201D427400BD26CB /* WackAJellyFishViewController.swift */; };
@@ -21,6 +20,7 @@
 		C7C8C688201D47CC00959FA2 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C686201D47CC00959FA2 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7C8C694201D4B7A00959FA2 /* JellyFish.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C8C693201D4B7A00959FA2 /* JellyFish.scnassets */; };
 		C7C8C697201D556800959FA2 /* Each.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C695201D556800959FA2 /* Each.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7F3C523202757420028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E89201D427400BD26CB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,7 +236,6 @@
 				C7072134202149670071F6FE /* JellyFish.scnassets in Resources */,
 				C7143D302021D75B000923B9 /* WackAJellyFish.storyboard in Resources */,
 				C7143D2F2021D757000923B9 /* Assets.xcassets in Resources */,
-				C7143D2E2021D754000923B9 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7C8C694201D4B7A00959FA2 /* JellyFish.scnassets in Resources */,
+				C7F3C523202757420028C2AE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

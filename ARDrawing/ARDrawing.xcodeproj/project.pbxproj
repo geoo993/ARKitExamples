@@ -13,12 +13,10 @@
 		C75EBB6B2020DB8A00E484CE /* ARDrawingDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB632020DB8A00E484CE /* ARDrawingDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C75EBB712020DBB100E484CE /* ARDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DA29B201CE2B300227EB5 /* ARDrawingViewController.swift */; };
 		C75EBB782020DF8D00E484CE /* ARDrawing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79DA29D201CE2B300227EB5 /* ARDrawing.storyboard */; };
-		C75EBB792020DF8E00E484CE /* ARDrawing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79DA29D201CE2B300227EB5 /* ARDrawing.storyboard */; };
-		C75EBB7A2020DFAC00E484CE /* ARDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DA29B201CE2B300227EB5 /* ARDrawingViewController.swift */; };
 		C79DA298201CE2B300227EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DA297201CE2B300227EB5 /* AppDelegate.swift */; };
-		C79DA2A1201CE2B300227EB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79DA2A0201CE2B300227EB5 /* Assets.xcassets */; };
 		C79DA2A4201CE2B300227EB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79DA2A2201CE2B300227EB5 /* LaunchScreen.storyboard */; };
 		C79DA2AD201CE3E600227EB5 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C79DA2AB201CE3E600227EB5 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7F3C524202757740028C2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79DA2A0201CE2B300227EB5 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7F3C524202757740028C2AE /* Assets.xcassets in Resources */,
 				C75EBB782020DF8D00E484CE /* ARDrawing.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,9 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C75EBB792020DF8E00E484CE /* ARDrawing.storyboard in Resources */,
 				C79DA2A4201CE2B300227EB5 /* LaunchScreen.storyboard in Resources */,
-				C79DA2A1201CE2B300227EB5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +250,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C75EBB7A2020DFAC00E484CE /* ARDrawingViewController.swift in Sources */,
 				C79DA298201CE2B300227EB5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

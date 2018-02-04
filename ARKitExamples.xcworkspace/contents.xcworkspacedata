@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ARPlaces/ARPlaces.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ARHome/ARHome.xcodeproj">
    </FileRef>
    <FileRef
@@ -55,6 +58,18 @@
       <Group
          location = "container:"
          name = "Dependencies">
+         <FileRef
+            location = "group:Cartfile/Carthage/Checkouts/Alamofire/Alamofire.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Cartfile/Carthage/Checkouts/SVProgressHUD/SVProgressHUD.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Cartfile/Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Cartfile/Carthage/Checkouts/HDAugmentedReality/HDAugmentedRealityDemo.xcodeproj">
+         </FileRef>
          <FileRef
             location = "group:Cartfile/Carthage/Checkouts/SDWebImage/SDWebImage.xcodeproj">
          </FileRef>

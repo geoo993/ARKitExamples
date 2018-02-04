@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C7143D182021D34E000923B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C775DEB1201F2A4B003457AD /* LaunchScreen.storyboard */; };
 		C7143D192021D367000923B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C775DEAF201F2A4B003457AD /* Assets.xcassets */; };
 		C7143D1A2021D36B000923B9 /* ARMeasuring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C775DEAC201F2A4B003457AD /* ARMeasuring.storyboard */; };
 		C7143D1B2021D36D000923B9 /* ARMeasuringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEAA201F2A4B003457AD /* ARMeasuringViewController.swift */; };
@@ -19,6 +18,7 @@
 		C7857B37202158DB00CE199E /* ARMeasuringDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */; };
 		C7857B38202158DB00CE199E /* ARMeasuringDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7A52AB9201F5711003614C0 /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A52AB7201F5711003614C0 /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7F3C520202756F80028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C775DEB1201F2A4B003457AD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -228,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7F3C520202756F80028C2AE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +237,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7143D192021D367000923B9 /* Assets.xcassets in Resources */,
-				C7143D182021D34E000923B9 /* LaunchScreen.storyboard in Resources */,
 				C7143D1A2021D36B000923B9 /* ARMeasuring.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

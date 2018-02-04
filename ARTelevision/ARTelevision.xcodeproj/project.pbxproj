@@ -30,7 +30,7 @@
 		C7E0222720226DD50091D145 /* ARTelevisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E021FF202256110091D145 /* ARTelevisionViewController.swift */; };
 		C7E0222820226DDC0091D145 /* ARTelevision.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E02201202256110091D145 /* ARTelevision.storyboard */; };
 		C7E0222920226DDE0091D145 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E02204202256110091D145 /* Assets.xcassets */; };
-		C7E0222C20226DE50091D145 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E02206202256110091D145 /* LaunchScreen.storyboard */; };
+		C7F3C51A202756940028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E02206202256110091D145 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7E021FE202256110091D145 /* art.scnassets in Resources */,
+				C7F3C51A202756940028C2AE /* LaunchScreen.storyboard in Resources */,
 				C73DF81D20228FA000802681 /* Sia - You're Never Fully Dressed Without a Smile.mp4 in Resources */,
 				C73DF82220228FA000802681 /* Sia - Chandelier.mp4 in Resources */,
 				C73DF81E20228FA000802681 /* Sia - Never Give Up.mp4 in Resources */,
@@ -279,7 +280,6 @@
 				C73DF8272022927E00802681 /* Sia - You're Never Fully Dressed Without a Smile.mp4 in Resources */,
 				C73DF8282022927E00802681 /* Sia - Rainbow.mp4 in Resources */,
 				C7E02226202258390091D145 /* art.scnassets in Resources */,
-				C7E0222C20226DE50091D145 /* LaunchScreen.storyboard in Resources */,
 				C7E0222920226DDE0091D145 /* Assets.xcassets in Resources */,
 				C7E0222820226DDC0091D145 /* ARTelevision.storyboard in Resources */,
 			);

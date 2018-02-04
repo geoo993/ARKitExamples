@@ -14,10 +14,10 @@
 		C7CFCA7A20220AE6005CD6F5 /* FloorIsLavaDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCA7320220AE6005CD6F5 /* FloorIsLavaDemo.framework */; };
 		C7CFCA7B20220AE6005CD6F5 /* FloorIsLavaDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCA7320220AE6005CD6F5 /* FloorIsLavaDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7CFCA8020220AF6005CD6F5 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C724249B201DD28D0031C7F7 /* AppCore.framework */; };
-		C7CFCA8120220B01005CD6F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7242492201DD1870031C7F7 /* LaunchScreen.storyboard */; };
 		C7CFCA8220220B05005CD6F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7242490201DD1870031C7F7 /* Assets.xcassets */; };
 		C7CFCA8320220B08005CD6F5 /* FloorIsLava.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C724248D201DD1870031C7F7 /* FloorIsLava.storyboard */; };
 		C7CFCA8420220B0C005CD6F5 /* FloorIsLavaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724248B201DD1870031C7F7 /* FloorIsLavaViewController.swift */; };
+		C7F3C522202757330028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7242492201DD1870031C7F7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C724248A201DD1870031C7F7 /* art.scnassets in Resources */,
+				C7F3C522202757330028C2AE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +236,6 @@
 			files = (
 				C7CFCA8320220B08005CD6F5 /* FloorIsLava.storyboard in Resources */,
 				C7CFCA8220220B05005CD6F5 /* Assets.xcassets in Resources */,
-				C7CFCA8120220B01005CD6F5 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

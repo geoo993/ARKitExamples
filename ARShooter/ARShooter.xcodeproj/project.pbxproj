@@ -11,13 +11,13 @@
 		C7143D512021E043000923B9 /* ARShooterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7193D6020209AEE00B28CC3 /* ARShooterViewController.swift */; };
 		C7143D522021E046000923B9 /* ARShooter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7193D6220209AEE00B28CC3 /* ARShooter.storyboard */; };
 		C7143D532021E049000923B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7193D6520209AEE00B28CC3 /* Assets.xcassets */; };
-		C7143D542021E04C000923B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7193D6720209AEE00B28CC3 /* LaunchScreen.storyboard */; };
 		C7193D5D20209AEE00B28CC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7193D5C20209AEE00B28CC3 /* AppDelegate.swift */; };
 		C7193D5F20209AEE00B28CC3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7193D5E20209AEE00B28CC3 /* art.scnassets */; };
 		C7193D7220209D4C00B28CC3 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7193D7020209D4C00B28CC3 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7857B7D2021628800CE199E /* ARShooterDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7857B7B2021628800CE199E /* ARShooterDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7857B812021628800CE199E /* ARShooterDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B792021628800CE199E /* ARShooterDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7857B89202162BC00CE199E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7193D5E20209AEE00B28CC3 /* art.scnassets */; };
+		C7F3C51D202756CA0028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7193D6720209AEE00B28CC3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7193D5F20209AEE00B28CC3 /* art.scnassets in Resources */,
+				C7F3C51D202756CA0028C2AE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,7 +235,6 @@
 			files = (
 				C7857B89202162BC00CE199E /* art.scnassets in Resources */,
 				C7143D522021E046000923B9 /* ARShooter.storyboard in Resources */,
-				C7143D542021E04C000923B9 /* LaunchScreen.storyboard in Resources */,
 				C7143D532021E049000923B9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

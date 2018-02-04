@@ -13,13 +13,13 @@
 		C7072148202154990071F6FE /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C7855D201E01620043604E /* Models.scnassets */; };
 		C7072149202154990071F6FE /* IKEA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CE5201DDB4200255242 /* IKEA.storyboard */; };
 		C707214A202154990071F6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CE8201DDB4200255242 /* Assets.xcassets */; };
-		C707214B202154990071F6FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CEA201DDB4200255242 /* LaunchScreen.storyboard */; };
 		C707214C202154B70071F6FE /* IKEAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A88CE3201DDB4200255242 /* IKEAViewController.swift */; };
 		C707214D202154BA0071F6FE /* IKEACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7625424201DEAEA0059951B /* IKEACollectionViewCell.swift */; };
 		C7143D3A2021D82F000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A88CF3201DDBA500255242 /* AppCore.framework */; };
 		C7A88CE2201DDB4200255242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A88CE1201DDB4200255242 /* AppDelegate.swift */; };
 		C7A88CF5201DDBA500255242 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A88CF3201DDBA500255242 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7C7855E201E01620043604E /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C7855D201E01620043604E /* Models.scnassets */; };
+		C7F3C521202757180028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CEA201DDB4200255242 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,7 +232,6 @@
 				C7072148202154990071F6FE /* Models.scnassets in Resources */,
 				C7072149202154990071F6FE /* IKEA.storyboard in Resources */,
 				C707214A202154990071F6FE /* Assets.xcassets in Resources */,
-				C707214B202154990071F6FE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7C7855E201E01620043604E /* Models.scnassets in Resources */,
+				C7F3C521202757180028C2AE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

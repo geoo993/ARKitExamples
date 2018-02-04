@@ -13,7 +13,6 @@
 		C7857B6420215D4500CE199E /* ARHoopsDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7857B6220215D4500CE199E /* ARHoopsDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7857B6720215D4500CE199E /* ARHoopsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B6020215D4500CE199E /* ARHoopsDemo.framework */; };
 		C7857B6820215D4500CE199E /* ARHoopsDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B6020215D4500CE199E /* ARHoopsDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7857B6C20215D4E00CE199E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFE32020696D00970264 /* LaunchScreen.storyboard */; };
 		C7857B6D20215D5100CE199E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFE12020696D00970264 /* Assets.xcassets */; };
 		C7857B6E20215D5700CE199E /* ARHoops.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFDE2020696D00970264 /* ARHoops.storyboard */; };
 		C7857B6F20215D9100CE199E /* ARHoopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E7FFDC2020696D00970264 /* ARHoopsViewController.swift */; };
@@ -21,6 +20,7 @@
 		C7E7FFD92020696D00970264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E7FFD82020696D00970264 /* AppDelegate.swift */; };
 		C7E7FFDB2020696D00970264 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFDA2020696D00970264 /* art.scnassets */; };
 		C7E7FFEE202069C400970264 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7E7FFEC202069C400970264 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7F3C51E202756DB0028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFE32020696D00970264 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,7 +235,6 @@
 				C7857B7020215D9E00CE199E /* art.scnassets in Resources */,
 				C7857B6E20215D5700CE199E /* ARHoops.storyboard in Resources */,
 				C7857B6D20215D5100CE199E /* Assets.xcassets in Resources */,
-				C7857B6C20215D4E00CE199E /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7E7FFDB2020696D00970264 /* art.scnassets in Resources */,
+				C7F3C51E202756DB0028C2AE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

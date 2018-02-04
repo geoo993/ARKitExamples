@@ -17,8 +17,8 @@
 		C72F822E20221BE900958877 /* ARDiceeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F82072022169500958877 /* ARDiceeViewController.swift */; };
 		C72F822F20221BF200958877 /* ARDicee.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72F82092022169500958877 /* ARDicee.storyboard */; };
 		C72F823020221BF500958877 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C72F820C2022169500958877 /* Assets.xcassets */; };
-		C72F823120221BF800958877 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72F820E2022169500958877 /* LaunchScreen.storyboard */; };
 		C72F823320221DE700958877 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C72F82052022169500958877 /* art.scnassets */; };
+		C7F3C51B202756A30028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72F820E2022169500958877 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C72F82062022169500958877 /* art.scnassets in Resources */,
+				C7F3C51B202756A30028C2AE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +236,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C72F823320221DE700958877 /* art.scnassets in Resources */,
-				C72F823120221BF800958877 /* LaunchScreen.storyboard in Resources */,
 				C72F823020221BF500958877 /* Assets.xcassets in Resources */,
 				C72F822F20221BF200958877 /* ARDicee.storyboard in Resources */,
 			);

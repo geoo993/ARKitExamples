@@ -7,3 +7,15 @@
 [submodule "Carthage/Checkouts/Each"]
 	path = Cartfile/Carthage/Checkouts/Each
 	url = https://github.com/dalu93/Each.git
+[submodule "Carthage/Checkouts/HDAugmentedReality"]
+	path = Cartfile/Carthage/Checkouts/HDAugmentedReality
+	url = https://github.com/DanijelHuis/HDAugmentedReality.git
+[submodule "Carthage/Checkouts/Alamofire"]
+	path = Cartfile/Carthage/Checkouts/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
+[submodule "Carthage/Checkouts/SVProgressHUD"]
+	path = Cartfile/Carthage/Checkouts/SVProgressHUD
+	url = https://github.com/SVProgressHUD/SVProgressHUD.git
+[submodule "Carthage/Checkouts/SwiftyJSON"]
+	path = Cartfile/Carthage/Checkouts/SwiftyJSON
+	url = https://github.com/SwiftyJSON/SwiftyJSON.git

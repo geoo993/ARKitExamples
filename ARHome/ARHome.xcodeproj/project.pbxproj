@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C77768AF20253AE000CE16BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B350A9202382270018A1AA /* LaunchScreen.storyboard */; };
 		C77768B020253AE300CE16BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B350A7202382270018A1AA /* Assets.xcassets */; };
 		C77768B120253AE700CE16BB /* ARHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B350A4202382270018A1AA /* ARHome.storyboard */; };
 		C77768B220253AEA00CE16BB /* ARHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B350A2202382270018A1AA /* ARHomeViewController.swift */; };
@@ -19,6 +18,7 @@
 		C7B350BF202382570018A1AA /* ARHomeDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7B350B7202382570018A1AA /* ARHomeDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7B350C6202382B60018A1AA /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7B350C4202382B60018A1AA /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7B350C8202382BD0018A1AA /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B350C4202382B60018A1AA /* AppCore.framework */; };
+		C7F3C5182027567E0028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B350A9202382270018A1AA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7B350A1202382270018A1AA /* art.scnassets in Resources */,
+				C7F3C5182027567E0028C2AE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +237,6 @@
 			files = (
 				C77768B320253AF800CE16BB /* art.scnassets in Resources */,
 				C77768B020253AE300CE16BB /* Assets.xcassets in Resources */,
-				C77768AF20253AE000CE16BB /* LaunchScreen.storyboard in Resources */,
 				C77768B120253AE700CE16BB /* ARHome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

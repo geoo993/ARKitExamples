@@ -12,7 +12,6 @@
 		C72998E420231F48009B0F4C /* ARDancingDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C72998E220231F48009B0F4C /* ARDancingDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C72998E720231F48009B0F4C /* ARDancingDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72998E020231F48009B0F4C /* ARDancingDemo.framework */; };
 		C72998E820231F48009B0F4C /* ARDancingDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72998E020231F48009B0F4C /* ARDancingDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C72998F02023202D009B0F4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72998D220231EC9009B0F4C /* LaunchScreen.storyboard */; };
 		C72998F120232031009B0F4C /* ARDancing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72998CD20231EC9009B0F4C /* ARDancing.storyboard */; };
 		C72998F220232034009B0F4C /* ARDancingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72998CB20231EC9009B0F4C /* ARDancingViewController.swift */; };
 		C72998F320232038009B0F4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C72998D020231EC9009B0F4C /* Assets.xcassets */; };
@@ -21,6 +20,7 @@
 		C72998F9202322E9009B0F4C /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72998F5202322E2009B0F4C /* AppCore.framework */; };
 		C764BF442023334E007F4A97 /* samba.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C764BF432023334E007F4A97 /* samba.m4a */; };
 		C764BF4520233453007F4A97 /* samba.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C764BF432023334E007F4A97 /* samba.m4a */; };
+		C7F3C519202756890028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72998D220231EC9009B0F4C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -238,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7F3C519202756890028C2AE /* LaunchScreen.storyboard in Resources */,
 				C72998CA20231EC9009B0F4C /* art.scnassets in Resources */,
 				C764BF442023334E007F4A97 /* samba.m4a in Resources */,
 			);
@@ -251,7 +252,6 @@
 				C72998F420232046009B0F4C /* art.scnassets in Resources */,
 				C72998F120232031009B0F4C /* ARDancing.storyboard in Resources */,
 				C72998F320232038009B0F4C /* Assets.xcassets in Resources */,
-				C72998F02023202D009B0F4C /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
