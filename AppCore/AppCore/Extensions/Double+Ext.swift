@@ -2,6 +2,9 @@ import Foundation
 
 public extension Double {
     
+    public var metersToLatitude : Double { return self / (6360500.0) }
+    public var metersToLongitude : Double { return self / (5602900.0) }
+    
     public func format(f: String) -> String {
         return NSString(format: "%\(f)f" as NSString, self) as String
     }

@@ -7,6 +7,7 @@
 //
 
 // https://medium.com/journey-of-one-thousand-apps/arkit-and-corelocation-part-one-fc7cb2fa0150
+// https://medium.com/journey-of-one-thousand-apps/arkit-and-corelocation-part-three-98b1d51e2eac
 
 import UIKit
 import CoreLocation

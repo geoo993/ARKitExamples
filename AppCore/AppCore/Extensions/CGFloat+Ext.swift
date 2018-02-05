@@ -12,16 +12,6 @@ public extension ClosedRange where Bound : FloatingPoint {
 public extension FloatingPoint {
     public var toRadians: Self { return self * .pi / 180 }
     public var toDegrees: Self { return self * 180 / .pi }
-    
-}
-
-public extension float4x4 {
-    /// Treats matrix as a (right-hand column-major convention) transform matrix
-    /// and factors out the translation component of the transform.
-    public var translation: float3 {
-        let translation = self.columns.3
-        return float3(translation.x, translation.y, translation.z)
-    }
 }
 
 public extension float3 { 
@@ -67,6 +57,8 @@ public extension float3 {
 public extension Float {
     public var toRadians : Float { return self * Float.pi / 180.0 }
     public var toDegrees : Float { return self * 180.0 / Float.pi }
+    public var metersToLatitude : Float { return self / (6360500.0) }
+    public var metersToLongitude : Float { return self / (5602900.0) }
     
     public static func rand() -> Float {
         return Float(arc4random()) / Float(UInt32.max)
@@ -83,14 +75,10 @@ public extension CGFloat {
     
     public var toRadians : CGFloat { return self * CGFloat.pi / 180.0 }
     public var toDegrees : CGFloat { return self * 180.0 / CGFloat.pi }
-    
-    public var double: Double {
-        return Double(self)
-    }
-    
-    public var float: Float {
-        return Float(self)
-    }
+    public var metersToLatitude : CGFloat { return self / (6360500.0) }
+    public var metersToLongitude : CGFloat { return self / (5602900.0) }
+    public var double: Double { return Double(self) }
+    public var float: Float { return Float(self) }
     
     public static func width( ofDevice device: DeviceType) -> (width:CGFloat, exponent: CGFloat) {
         switch device {

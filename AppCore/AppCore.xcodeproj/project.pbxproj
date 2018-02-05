@@ -14,6 +14,7 @@
 		C700B199202385C6000FC421 /* CGSize+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B195202385C6000FC421 /* CGSize+Ext.swift */; };
 		C700B19B20238881000FC421 /* RangeReplaceableCollection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B19A20238881000FC421 /* RangeReplaceableCollection+Ext.swift */; };
 		C7072136202151750071F6FE /* SCNScene+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7072135202151750071F6FE /* SCNScene+Ext.swift */; };
+		C724C2F82028A694005799C0 /* Matrix+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724C2F72028A694005799C0 /* Matrix+Ext.swift */; };
 		C739E3E7201C91100081259D /* UIViewXRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E3DD201C91100081259D /* UIViewXRadialGradient.swift */; };
 		C739E3E8201C91100081259D /* UITextFieldX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E3DE201C91100081259D /* UITextFieldX.swift */; };
 		C739E3E9201C91100081259D /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E3DF201C91100081259D /* UIButtonX.swift */; };
@@ -38,6 +39,8 @@
 		C739E449201CA85A0081259D /* CGRect+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E41C201CA85A0081259D /* CGRect+Ext.swift */; };
 		C739E450201CAB8C0081259D /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E44F201CAB8C0081259D /* String+Ext.swift */; };
 		C739E452201CAF900081259D /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E451201CAF900081259D /* SwiftRegex.swift */; };
+		C74712E42028926B00795032 /* CLLocationCoordinate2D+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74712E32028926B00795032 /* CLLocationCoordinate2D+Ext.swift */; };
+		C74712E62028983F00795032 /* MatrixHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74712E52028983F00795032 /* MatrixHelper.swift */; };
 		C775DEC3201F2E80003457AD /* ShapeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEBF201F2E80003457AD /* ShapeGenerator.swift */; };
 		C775DEC4201F2E80003457AD /* NodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEC0201F2E80003457AD /* NodeGenerator.swift */; };
 		C775DEC5201F2E80003457AD /* ShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEC1201F2E80003457AD /* ShapeType.swift */; };
@@ -69,6 +72,8 @@
 		C700B195202385C6000FC421 /* CGSize+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Ext.swift"; sourceTree = "<group>"; };
 		C700B19A20238881000FC421 /* RangeReplaceableCollection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Ext.swift"; sourceTree = "<group>"; };
 		C7072135202151750071F6FE /* SCNScene+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNScene+Ext.swift"; sourceTree = "<group>"; };
+		C724C2F72028A694005799C0 /* Matrix+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Matrix+Ext.swift"; sourceTree = "<group>"; };
+		C724C2F92028AA03005799C0 /* SCNMathExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNMathExtensions.swift; sourceTree = "<group>"; };
 		C739E3DD201C91100081259D /* UIViewXRadialGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewXRadialGradient.swift; sourceTree = "<group>"; };
 		C739E3DE201C91100081259D /* UITextFieldX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldX.swift; sourceTree = "<group>"; };
 		C739E3DF201C91100081259D /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
@@ -93,6 +98,8 @@
 		C739E41C201CA85A0081259D /* CGRect+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Ext.swift"; sourceTree = "<group>"; };
 		C739E44F201CAB8C0081259D /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		C739E451201CAF900081259D /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
+		C74712E32028926B00795032 /* CLLocationCoordinate2D+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Ext.swift"; sourceTree = "<group>"; };
+		C74712E52028983F00795032 /* MatrixHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixHelper.swift; sourceTree = "<group>"; };
 		C775DEBF201F2E80003457AD /* ShapeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeGenerator.swift; sourceTree = "<group>"; };
 		C775DEC0201F2E80003457AD /* NodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeGenerator.swift; sourceTree = "<group>"; };
 		C775DEC1201F2E80003457AD /* ShapeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeType.swift; sourceTree = "<group>"; };
@@ -174,9 +181,11 @@
 				C739E40F201CA85A0081259D /* CGFloat+Ext.swift */,
 				C739E406201CA85A0081259D /* CGPoint+Ext.swift */,
 				C739E41C201CA85A0081259D /* CGRect+Ext.swift */,
+				C74712E32028926B00795032 /* CLLocationCoordinate2D+Ext.swift */,
 				C739E3FE201CA85A0081259D /* Double+Ext.swift */,
 				C7A4E533202745D000C1783A /* FormatDisplay.swift */,
 				C739E416201CA85A0081259D /* Int+Ext.swift */,
+				C724C2F72028A694005799C0 /* Matrix+Ext.swift */,
 				C7830B1A2027AA0800FD2FE6 /* NSAttributedString+Ext.swift */,
 				C7830B182027AA0800FD2FE6 /* NSRange+Ext.swift */,
 				C700B19A20238881000FC421 /* RangeReplaceableCollection+Ext.swift */,
@@ -210,6 +219,7 @@
 		C775DEBE201F2E80003457AD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				C724C2F92028AA03005799C0 /* SCNMathExtensions.swift */,
 				C7A4E530202745C300C1783A /* LocationManager.swift */,
 				C77768AA20252F4A00CE16BB /* ARTextManager.swift */,
 				C775DEBF201F2E80003457AD /* ShapeGenerator.swift */,
@@ -218,6 +228,7 @@
 				C775DEC2201F2E80003457AD /* GameHelper.swift */,
 				C775DEC9201F3049003457AD /* CollisionTypes.swift */,
 				C7830B252027CD0700FD2FE6 /* LocationService.swift */,
+				C74712E52028983F00795032 /* MatrixHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -344,12 +355,14 @@
 				C7830B212027B9D800FD2FE6 /* UINavigationController+Ext.swift in Sources */,
 				C739E42B201CA85A0081259D /* Double+Ext.swift in Sources */,
 				C7A52AB6201F520F003614C0 /* SCNView+Ext.swift in Sources */,
+				C74712E42028926B00795032 /* CLLocationCoordinate2D+Ext.swift in Sources */,
 				C7C78560201E4BD20043604E /* SCNNode+Ext.swift in Sources */,
 				C775DEC4201F2E80003457AD /* NodeGenerator.swift in Sources */,
 				C739E43C201CA85A0081259D /* CGFloat+Ext.swift in Sources */,
 				C739E450201CAB8C0081259D /* String+Ext.swift in Sources */,
 				C739E431201CA85A0081259D /* Sequence+Ext.swift in Sources */,
 				C775DEC3201F2E80003457AD /* ShapeGenerator.swift in Sources */,
+				C74712E62028983F00795032 /* MatrixHelper.swift in Sources */,
 				C77768AB20252F4A00CE16BB /* ARTextManager.swift in Sources */,
 				C775DEC5201F2E80003457AD /* ShapeType.swift in Sources */,
 				C700B196202385C6000FC421 /* ARSCNView+Ext.swift in Sources */,
@@ -363,6 +376,7 @@
 				C739E443201CA85A0081259D /* Int+Ext.swift in Sources */,
 				C739E3EF201C91100081259D /* UIVisualEffectViewX.swift in Sources */,
 				C7830B1C2027AA0900FD2FE6 /* NSRange+Ext.swift in Sources */,
+				C724C2F82028A694005799C0 /* Matrix+Ext.swift in Sources */,
 				C739E3E8201C91100081259D /* UITextFieldX.swift in Sources */,
 				C775DECA201F3049003457AD /* CollisionTypes.swift in Sources */,
 				C739E449201CA85A0081259D /* CGRect+Ext.swift in Sources */,

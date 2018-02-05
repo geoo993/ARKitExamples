@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </arscnView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="L9z-pP-pnA">
-                                <rect key="frame" x="19.5" y="30" width="337.5" height="20.5"/>
+                                <rect key="frame" x="19" y="50" width="337.5" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VF-9J-SCm">
                                         <rect key="frame" x="0.0" y="0.0" width="67" height="20.5"/>
@@ -55,23 +56,25 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0X-h7-Uwh">
-                                <rect key="frame" x="175.5" y="321.5" width="24" height="24"/>
+                                <rect key="frame" x="175.5" y="331.5" width="24" height="24"/>
                                 <state key="normal" backgroundImage="add"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="GNS-Ov-R33" secondAttribute="trailing" id="JZC-l3-24g"/>
-                            <constraint firstItem="L9z-pP-pnA" firstAttribute="top" secondItem="GNS-Ov-R33" secondAttribute="top" constant="30" id="Lhq-oC-WlD"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="GNS-Ov-R33" secondAttribute="leading" id="Nhy-yX-e1M"/>
-                            <constraint firstItem="L9z-pP-pnA" firstAttribute="centerX" secondItem="GNS-Ov-R33" secondAttribute="centerX" id="UgU-Xo-XLo"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="GNS-Ov-R33" secondAttribute="bottom" id="UvC-yN-RXj"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="GNS-Ov-R33" secondAttribute="top" id="ZRP-Q4-Ooa"/>
-                            <constraint firstItem="a0X-h7-Uwh" firstAttribute="centerY" secondItem="GNS-Ov-R33" secondAttribute="centerY" id="j7C-Pu-biB"/>
-                            <constraint firstItem="a0X-h7-Uwh" firstAttribute="centerX" secondItem="GNS-Ov-R33" secondAttribute="centerX" id="qUO-4l-HNf"/>
-                            <constraint firstItem="L9z-pP-pnA" firstAttribute="width" secondItem="GNS-Ov-R33" secondAttribute="width" multiplier="0.9" id="xZl-4q-EwS"/>
+                            <constraint firstItem="L9z-pP-pnA" firstAttribute="width" secondItem="BrB-h1-WRS" secondAttribute="width" multiplier="0.9" id="4aS-ot-a86"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="KK1-nq-yam" secondAttribute="top" id="8Di-mr-hzy"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="KK1-nq-yam" secondAttribute="bottom" id="8cV-8N-tbM"/>
+                            <constraint firstItem="L9z-pP-pnA" firstAttribute="centerX" secondItem="BrB-h1-WRS" secondAttribute="centerX" id="LId-00-zvL"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="KK1-nq-yam" secondAttribute="leading" id="Pb2-34-0Ak"/>
+                            <constraint firstItem="a0X-h7-Uwh" firstAttribute="centerY" secondItem="BrB-h1-WRS" secondAttribute="centerY" id="v53-7i-ffO"/>
+                            <constraint firstItem="L9z-pP-pnA" firstAttribute="top" secondItem="BrB-h1-WRS" secondAttribute="top" constant="30" id="xBe-OW-h5v"/>
+                            <constraint firstItem="a0X-h7-Uwh" firstAttribute="centerX" secondItem="BrB-h1-WRS" secondAttribute="centerX" id="yWt-8e-xM4"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="KK1-nq-yam" secondAttribute="trailing" id="ydk-2x-QfS"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="KK1-nq-yam"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="distanceLabel" destination="2VF-9J-SCm" id="rV6-jx-0p2"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="Kkh-6c-lfd"/>
@@ -82,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYp-ol-AGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="322" y="112"/>
+            <point key="canvasLocation" x="320.80000000000001" y="111.99400299850076"/>
         </scene>
     </scenes>
     <resources>
