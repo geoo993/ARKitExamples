@@ -19,3 +19,5 @@ Demos of various ways you can use apple ARKit framework.
 * AR World Navigation
 * AR Unity
     * AR Home
+    * AR Dragon
+    * AR Chair (Scale and Rotate)
