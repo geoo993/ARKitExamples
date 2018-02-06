@@ -1,0 +1,125 @@
+fileFormatVersion: 2
+guid: 9c2d9f18fcf2f854e91b1d12e1d3303a
+timeCreated: 1463323142
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: abandoned_house
+    100004: pechka
+    100006: roof
+    100008: abandoned_house 1
+    100010: abandoned_house_collision
+    100012: house
+    100014: stove
+    100016: abandoned_house_LOD0
+    100018: Object002
+    100020: Object004
+    400000: //RootNode
+    400002: abandoned_house
+    400004: pechka
+    400006: roof
+    400008: abandoned_house 1
+    400010: abandoned_house_collision
+    400012: house
+    400014: stove
+    400016: abandoned_house_LOD0
+    400018: Object002
+    400020: Object004
+    2300000: abandoned_house
+    2300002: pechka
+    2300004: roof
+    2300006: abandoned_house 1
+    2300008: abandoned_house_collision
+    2300010: house
+    2300012: stove
+    2300014: Object004
+    3300000: abandoned_house
+    3300002: pechka
+    3300004: roof
+    3300006: abandoned_house 1
+    3300008: abandoned_house_collision
+    3300010: house
+    3300012: stove
+    3300014: Object004
+    4300000: abandoned_house
+    4300002: roof
+    4300004: pechka
+    4300006: abandoned_house_collision
+    4300008: stove
+    4300010: house
+    4300012: Object004
+    6400000: abandoned_house
+    6400002: pechka
+    6400004: roof
+    6400006: abandoned_house 1
+    6400008: abandoned_house_collision
+    6400010: house
+    6400012: stove
+    6400014: Object004
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

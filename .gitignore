@@ -32,3 +32,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+AR_Unity/UnityARHome
+AR_Unity/Library
+AR_Unity/UnityPackageManager
+AR_Unity/ProjectSettings
