@@ -178,7 +178,7 @@ extension ARShooterViewController: ARSCNViewDelegate {
     }
 }
 
-// MARK: - gesture recognizer
+// MARK: - SCNPhysicsContactDelegate
 extension ARShooterViewController: SCNPhysicsContactDelegate {
     
     public func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {

@@ -7,12 +7,12 @@
 		<key>ARDicee.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>54</integer>
+			<integer>53</integer>
 		</dict>
 		<key>ARDiceeDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>12</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

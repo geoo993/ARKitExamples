@@ -17,7 +17,9 @@ public class ARHoopsViewController: UIViewController {
     public static var bundle : Bundle {
         return Bundle(identifier: "com.geo-games.ARHoopsDemo")!
     }
-    
+
+    var basketBallNumber = 1
+    var scoreCount = 0
     var power : Float = 0
     var lift : Float = 0
     var restitution : CGFloat = 0.3
@@ -29,6 +31,7 @@ public class ARHoopsViewController: UIViewController {
     
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet var planeDetectedLabel: UILabel!
+    @IBOutlet var scoreLabel: UILabel!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -41,15 +44,12 @@ public class ARHoopsViewController: UIViewController {
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showFeaturePoints]
         
         sceneView.autoenablesDefaultLighting = true
-        
+
+        sceneView.scene.physicsWorld.contactDelegate = self
+
         // Show statistics such as fps and timing information
         //sceneView.showsStatistics = true
         
-//        // Create a new scene
-//        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-//        
-//        // Set the scene to the view
-//        sceneView.scene = scene
     }
     
     override public func viewWillAppear(_ animated: Bool) {
@@ -80,22 +80,29 @@ public class ARHoopsViewController: UIViewController {
         timer.stop()
     }
     
+    
     func addBasketballCoart(with hitTestResult: ARHitTestResult) {
         
         if let scene = SCNScene.loadScene(from: ARHoopsViewController.bundle, scnassets: "art", name: "basketball"),
-            let node = scene.rootNode.childNode(withName: "basket", recursively: false){
-            
+            let court = scene.rootNode.childNode(withName: "basket", recursively: false),
+            let score = scene.rootNode.childNode(withName: "score", recursively: true) {
+
             let transform = hitTestResult.worldTransform 
             let thirdColumn = transform.columns.3
             let anchorPosition = SCNVector3(x: thirdColumn.x, y: thirdColumn.y, z: thirdColumn.z)
-            node.position = anchorPosition
+            court.position = anchorPosition
             
             let options : [SCNPhysicsShape.Option : Any] = [SCNPhysicsShape.Option.keepAsCompound : true,
                            SCNPhysicsShape.Option.type :  SCNPhysicsShape.ShapeType.concavePolyhedron ]
-            let shape = SCNPhysicsShape(node: node, options: options)
-            node.physicsBody = SCNPhysicsBody(type: .static, shape: shape)
-            sceneView.scene.rootNode.addChildNode(node)
-            
+            let coartShape = SCNPhysicsShape(node: court, options: options)
+            court.physicsBody = SCNPhysicsBody(type: .static, shape: coartShape)
+            sceneView.scene.rootNode.addChildNode(court)
+
+            score.physicsBody = SCNPhysicsBody.static()
+            score.physicsBody?.categoryBitMask = CollisionTypes.target.rawValue
+            score.physicsBody?.contactTestBitMask = CollisionTypes.projectile.rawValue
+            score.physicsBody?.collisionBitMask = 0
+            court.addChildNode(score)
         }
     }
     
@@ -110,7 +117,7 @@ public class ARHoopsViewController: UIViewController {
             let currentPositionOfCamera = orientation + translation
             
             let image = UIImage(named: "basketball-texture", in: ARHoopsViewController.bundle, compatibleWith: nil)
-            let ball = SCNNode(geometry: SCNSphere(radius: 0.2))
+            let ball = BasketBall(name: "Basketball", radius: 0.2, tag: basketBallNumber)
             ball.name = "Basketball"
             ball.geometry?.firstMaterial?.diffuse.contents = image
             ball.geometry?.firstMaterial?.isDoubleSided = true
@@ -120,6 +127,9 @@ public class ARHoopsViewController: UIViewController {
             let body = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(node: ball, options: nil))
             body.restitution = restitution
             ball.physicsBody = body
+            ball.physicsBody?.categoryBitMask = CollisionTypes.projectile.rawValue
+            ball.physicsBody?.contactTestBitMask = CollisionTypes.target.rawValue
+
             //let dir = SCNVector3(orientation.x, orientation.y, orientation.z)
             let dir = SCNVector3.calculateCameraDirection(cameraNode: camera)
             
@@ -152,6 +162,26 @@ public class ARHoopsViewController: UIViewController {
             }
         }
     }
+
+    public func didBeginColliding(with basketBall: SCNNode) {
+        print("did beging collide now update the basketBallNumber")
+
+        basketBallNumber += 1
+        updateScore()
+    }
+
+    public func didEndColliding(with basketBall: SCNNode) {
+        print("did end collide now update the score")
+
+    }
+
+    public func updateScore() {
+        DispatchQueue.main.async { [unowned self] () in
+            self.scoreCount += 1
+            self.scoreLabel.text = "\(self.scoreCount)"
+        }
+    }
+
     
     private func showHelperAlertIfNeeded() {
         let key = "ARHoopsViewController.helperAlert.didShow"
@@ -260,4 +290,50 @@ extension ARHoopsViewController {
         }
     }
     
+}
+
+// MARK: - SCNPhysicsContactDelegate
+extension ARHoopsViewController: SCNPhysicsContactDelegate {
+
+    public func collisionDetected(with contact: SCNPhysicsContact) -> (baskeball: SCNNode, didCollide: Bool)? {
+        let mask = contact.nodeA.physicsBody!.categoryBitMask | contact.nodeB.physicsBody!.categoryBitMask
+        if CollisionTypes(rawValue: mask) == [CollisionTypes.projectile, CollisionTypes.target] {
+
+            let firstBody: SCNNode
+            let secondBody: SCNNode
+
+            if contact.nodeA.physicsBody!.categoryBitMask < contact.nodeB.physicsBody!.categoryBitMask
+            {
+                firstBody = contact.nodeA // first body here is the projectile/basketball
+                secondBody = contact.nodeB // second body here is the target/score
+            } else {
+                firstBody = contact.nodeB  // first body here is the projectile/basketball
+                secondBody = contact.nodeA // second body here is the target/score
+            }
+
+            // we check to see if the two bodies that collide are the projectile and monster, and if so calls the method you wrote earlier.
+            if (firstBody.physicsBody!.categoryBitMask & CollisionTypes.projectile.rawValue) == CollisionTypes.projectile.rawValue
+                && (secondBody.physicsBody!.categoryBitMask & CollisionTypes.target.rawValue) == CollisionTypes.target.rawValue {
+                return (firstBody, true)
+            } else {
+                return nil
+            }
+        }
+        return nil
+    }
+
+    public func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        if let collision = collisionDetected(with: contact), let basketBall = collision.baskeball as? BasketBall {
+
+            if basketBall.tag == basketBallNumber {
+                didBeginColliding(with: basketBall)
+            }
+        }
+    }
+
+    public func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
+        //if let collision = collisionDetected(with: contact), let basketBall = collision.baskeball as? BasketBall  {
+            //didEndColliding(with: basketBall)
+        //}
+    }
 }

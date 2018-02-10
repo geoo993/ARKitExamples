@@ -1,57 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VUG-sR-dyG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VUG-sR-dyG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Hoops View Controller-->
         <scene sceneID="Pct-Ek-TsM">
             <objects>
-                <viewController storyboardIdentifier="ARHoopsViewController" id="VUG-sR-dyG" customClass="ARHoopsViewController" customModule="ARHoops" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LCE-nF-wqu"/>
-                        <viewControllerLayoutGuide type="bottom" id="Wck-d7-CgS"/>
-                    </layoutGuides>
+                <viewController storyboardIdentifier="ARHoopsViewController" id="VUG-sR-dyG" customClass="ARHoopsViewController" customModule="ARHoopsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2SR-GY-a0X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWh-Oa-9UO">
-                                <rect key="frame" x="175" y="321" width="24" height="24"/>
+                                <rect key="frame" x="175" y="331.5" width="24" height="24"/>
                                 <state key="normal" backgroundImage="add"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plane Detected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLN-9h-Qcz">
-                                <rect key="frame" x="122" y="80" width="130" height="24"/>
+                                <rect key="frame" x="122" y="60" width="130" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a2-18-rAL" userLabel="Score Label">
+                                <rect key="frame" x="348.5" y="636" width="10.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jLN-9h-Qcz" firstAttribute="top" secondItem="LCE-nF-wqu" secondAttribute="bottom" constant="60" id="79w-t1-uf8"/>
-                            <constraint firstItem="jLN-9h-Qcz" firstAttribute="centerX" secondItem="2SR-GY-a0X" secondAttribute="centerX" id="J8z-bS-jhI"/>
-                            <constraint firstItem="NWh-Oa-9UO" firstAttribute="centerX" secondItem="2SR-GY-a0X" secondAttribute="centerX" id="Pdf-sw-ovq"/>
-                            <constraint firstItem="NWh-Oa-9UO" firstAttribute="centerY" secondItem="2SR-GY-a0X" secondAttribute="centerY" id="e0x-jY-zDS"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="qJu-1E-edU" secondAttribute="bottom" id="0UM-Gr-Kgr"/>
+                            <constraint firstItem="NWh-Oa-9UO" firstAttribute="centerY" secondItem="BrB-h1-WRS" secondAttribute="centerY" id="7Gr-NL-bng"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="qJu-1E-edU" secondAttribute="top" id="8mu-Kg-RDj"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="qJu-1E-edU" secondAttribute="trailing" id="Jea-gs-Lgf"/>
+                            <constraint firstItem="qJu-1E-edU" firstAttribute="bottom" secondItem="2a2-18-rAL" secondAttribute="bottom" constant="10" id="UZD-nI-RFO"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="qJu-1E-edU" secondAttribute="leading" id="ZXk-Nw-gpN"/>
+                            <constraint firstItem="2a2-18-rAL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2SR-GY-a0X" secondAttribute="leadingMargin" id="dqU-Az-nJM"/>
+                            <constraint firstItem="jLN-9h-Qcz" firstAttribute="centerX" secondItem="BrB-h1-WRS" secondAttribute="centerX" id="jnt-gD-FtA"/>
+                            <constraint firstItem="2a2-18-rAL" firstAttribute="trailing" secondItem="2SR-GY-a0X" secondAttribute="trailingMargin" id="kv8-Ww-4JK"/>
+                            <constraint firstItem="NWh-Oa-9UO" firstAttribute="centerX" secondItem="BrB-h1-WRS" secondAttribute="centerX" id="o07-7N-Mhc"/>
+                            <constraint firstItem="jLN-9h-Qcz" firstAttribute="top" secondItem="BrB-h1-WRS" secondAttribute="top" constant="40" id="whP-tF-2dW"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="qJu-1E-edU"/>
                     </view>
                     <connections>
                         <outlet property="planeDetectedLabel" destination="jLN-9h-Qcz" id="HU2-Ja-CQi"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="EXa-pY-UIR"/>
+                        <outlet property="scoreLabel" destination="2a2-18-rAL" id="7tw-AL-tga"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rG4-Tt-irB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106" y="138"/>
+            <point key="canvasLocation" x="104.8" y="137.18140929535232"/>
         </scene>
     </scenes>
     <resources>

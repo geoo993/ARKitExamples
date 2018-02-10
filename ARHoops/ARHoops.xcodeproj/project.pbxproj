@@ -17,6 +17,7 @@
 		C7857B6E20215D5700CE199E /* ARHoops.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFDE2020696D00970264 /* ARHoops.storyboard */; };
 		C7857B6F20215D9100CE199E /* ARHoopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E7FFDC2020696D00970264 /* ARHoopsViewController.swift */; };
 		C7857B7020215D9E00CE199E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFDA2020696D00970264 /* art.scnassets */; };
+		C7A76B58202F153F00C6F299 /* BasketBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A76B56202F14E100C6F299 /* BasketBall.swift */; };
 		C7E7FFD92020696D00970264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E7FFD82020696D00970264 /* AppDelegate.swift */; };
 		C7E7FFDB2020696D00970264 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFDA2020696D00970264 /* art.scnassets */; };
 		C7E7FFEE202069C400970264 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7E7FFEC202069C400970264 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -54,6 +55,7 @@
 		C7857B6020215D4500CE199E /* ARHoopsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARHoopsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B6220215D4500CE199E /* ARHoopsDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARHoopsDemo.h; sourceTree = "<group>"; };
 		C7857B6320215D4500CE199E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7A76B56202F14E100C6F299 /* BasketBall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketBall.swift; sourceTree = "<group>"; };
 		C7E7FFD52020696D00970264 /* ARHoops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARHoops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E7FFD82020696D00970264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7E7FFDA2020696D00970264 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				C7E7FFD82020696D00970264 /* AppDelegate.swift */,
 				C7E7FFDA2020696D00970264 /* art.scnassets */,
+				C7A76B56202F14E100C6F299 /* BasketBall.swift */,
 				C7E7FFDC2020696D00970264 /* ARHoopsViewController.swift */,
 				C7E7FFDE2020696D00970264 /* ARHoops.storyboard */,
 				C7E7FFE12020696D00970264 /* Assets.xcassets */,
@@ -254,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7A76B58202F153F00C6F299 /* BasketBall.swift in Sources */,
 				C7857B6F20215D9100CE199E /* ARHoopsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

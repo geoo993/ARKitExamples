@@ -6,6 +6,8 @@
 //  Copyright © 2018 Geo Games. All rights reserved.
 //
 
+// https://www.mixamo.com/#/
+
 import UIKit
 import SceneKit
 import ARKit
