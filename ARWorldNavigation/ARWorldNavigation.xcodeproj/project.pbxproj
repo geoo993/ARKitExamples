@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C724C2F62028A530005799C0 /* LocationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74712E72028A0DE00795032 /* LocationNode.swift */; };
-		C724C2FF2028B2E9005799C0 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724C2FD2028B2C4005799C0 /* LocationData.swift */; };
-		C724C3002028B2EC005799C0 /* LocationTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724C2FB2028B293005799C0 /* LocationTranslation.swift */; };
-		C724C3032028B367005799C0 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724C3012028B352005799C0 /* LocationAnnotation.swift */; };
 		C7830ACC2027A4A500FD2FE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830ACB2027A4A500FD2FE6 /* AppDelegate.swift */; };
 		C7830AD62027A4A500FD2FE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7830AD42027A4A500FD2FE6 /* LaunchScreen.storyboard */; };
 		C7830AE62027A4D400FD2FE6 /* ARWorldNavigationDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7830AE42027A4D400FD2FE6 /* ARWorldNavigationDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,8 +17,8 @@
 		C7830AF42027A52900FD2FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7830AD22027A4A500FD2FE6 /* Assets.xcassets */; };
 		C7830AF52027A53200FD2FE6 /* ARWorldNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7830ACF2027A4A500FD2FE6 /* ARWorldNavigation.storyboard */; };
 		C7830AF62027A53500FD2FE6 /* ARWorldNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830ACD2027A4A500FD2FE6 /* ARWorldNavigationViewController.swift */; };
-		C7830B242027CAE600FD2FE6 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830B222027CAD500FD2FE6 /* NavigationService.swift */; };
 		C7830B282027D23100FD2FE6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7830B272027D23100FD2FE6 /* art.scnassets */; };
+		C7BD1566202F662100FF8D00 /* LocationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1565202F662100FF8D00 /* LocationTarget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +47,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C724C2FB2028B293005799C0 /* LocationTranslation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTranslation.swift; sourceTree = "<group>"; };
-		C724C2FD2028B2C4005799C0 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
-		C724C3012028B352005799C0 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
-		C74712E72028A0DE00795032 /* LocationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNode.swift; sourceTree = "<group>"; };
 		C7830AC82027A4A500FD2FE6 /* ARWorldNavigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARWorldNavigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7830ACB2027A4A500FD2FE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7830ACD2027A4A500FD2FE6 /* ARWorldNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARWorldNavigationViewController.swift; sourceTree = "<group>"; };
@@ -66,8 +58,8 @@
 		C7830AE42027A4D400FD2FE6 /* ARWorldNavigationDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARWorldNavigationDemo.h; sourceTree = "<group>"; };
 		C7830AE52027A4D400FD2FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7830B222027CAD500FD2FE6 /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		C7830B272027D23100FD2FE6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		C7BD1565202F662100FF8D00 /* LocationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTarget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,11 +107,7 @@
 			children = (
 				C7830ACB2027A4A500FD2FE6 /* AppDelegate.swift */,
 				C7830ACD2027A4A500FD2FE6 /* ARWorldNavigationViewController.swift */,
-				C7830B222027CAD500FD2FE6 /* NavigationService.swift */,
-				C74712E72028A0DE00795032 /* LocationNode.swift */,
-				C724C2FD2028B2C4005799C0 /* LocationData.swift */,
-				C724C3012028B352005799C0 /* LocationAnnotation.swift */,
-				C724C2FB2028B293005799C0 /* LocationTranslation.swift */,
+				C7BD1565202F662100FF8D00 /* LocationTarget.swift */,
 				C7830ACF2027A4A500FD2FE6 /* ARWorldNavigation.storyboard */,
 				C7830B272027D23100FD2FE6 /* art.scnassets */,
 				C7830AD22027A4A500FD2FE6 /* Assets.xcassets */,
@@ -262,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7830ACC2027A4A500FD2FE6 /* AppDelegate.swift in Sources */,
+				C7BD1566202F662100FF8D00 /* LocationTarget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,12 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C724C2FF2028B2E9005799C0 /* LocationData.swift in Sources */,
-				C724C2F62028A530005799C0 /* LocationNode.swift in Sources */,
-				C724C3002028B2EC005799C0 /* LocationTranslation.swift in Sources */,
 				C7830AF62027A53500FD2FE6 /* ARWorldNavigationViewController.swift in Sources */,
-				C7830B242027CAE600FD2FE6 /* NavigationService.swift in Sources */,
-				C724C3032028B367005799C0 /* LocationAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

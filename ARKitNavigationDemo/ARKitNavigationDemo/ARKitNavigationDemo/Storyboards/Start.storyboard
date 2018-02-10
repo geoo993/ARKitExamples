@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Start View Controller-->
+        <scene sceneID="qbU-sA-aLw">
+            <objects>
+                <viewController storyboardIdentifier="StartViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cls-4U-gzR" customClass="StartViewController" customModule="ARKitNavigationDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="010-K8-ou6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Emw-Cr-LBC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="677"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Emw-Cr-LBC" firstAttribute="height" secondItem="010-K8-ou6" secondAttribute="height" constant="10" id="AUz-ow-rgC"/>
+                            <constraint firstItem="Emw-Cr-LBC" firstAttribute="centerX" secondItem="g6A-h6-PJs" secondAttribute="centerX" id="PiR-pC-9ua"/>
+                            <constraint firstItem="Emw-Cr-LBC" firstAttribute="width" secondItem="010-K8-ou6" secondAttribute="width" id="YPx-CE-Q37"/>
+                            <constraint firstItem="Emw-Cr-LBC" firstAttribute="centerY" secondItem="g6A-h6-PJs" secondAttribute="centerY" id="kmP-pU-cxu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g6A-h6-PJs"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Emw-Cr-LBC" id="ctV-0T-YoG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u5o-MF-3h8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="157.59999999999999" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>

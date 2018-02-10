@@ -60,6 +60,12 @@
 		C7A52AB6201F520F003614C0 /* SCNView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52AB5201F520F003614C0 /* SCNView+Ext.swift */; };
 		C7B52659201C8A1D00134F00 /* AppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C7B52657201C8A1D00134F00 /* AppCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7B52660201C8B3400134F00 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B5265F201C8B3400134F00 /* Colors.xcassets */; };
+		C7BD1559202F596000FF8D00 /* MKRouteStep+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1558202F596000FF8D00 /* MKRouteStep+Ext.swift */; };
+		C7BD155B202F5C4E00FF8D00 /* CLLocation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD155A202F5C4E00FF8D00 /* CLLocation+Ext.swift */; };
+		C7BD1560202F5DBC00FF8D00 /* LocationTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD155D202F5DBB00FF8D00 /* LocationTranslation.swift */; };
+		C7BD1561202F5DBC00FF8D00 /* POIAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD155E202F5DBC00FF8D00 /* POIAnnotation.swift */; };
+		C7BD1562202F5DBC00FF8D00 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD155F202F5DBC00FF8D00 /* LocationData.swift */; };
+		C7BD1564202F5F7B00FF8D00 /* AddressParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1563202F5F7B00FF8D00 /* AddressParser.swift */; };
 		C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */; };
 		C7C78560201E4BD20043604E /* SCNNode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */; };
 /* End PBXBuildFile section */
@@ -121,6 +127,12 @@
 		C7B52657201C8A1D00134F00 /* AppCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCore.h; sourceTree = "<group>"; };
 		C7B52658201C8A1D00134F00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7B5265F201C8B3400134F00 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		C7BD1558202F596000FF8D00 /* MKRouteStep+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKRouteStep+Ext.swift"; sourceTree = "<group>"; };
+		C7BD155A202F5C4E00FF8D00 /* CLLocation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Ext.swift"; sourceTree = "<group>"; };
+		C7BD155D202F5DBB00FF8D00 /* LocationTranslation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTranslation.swift; sourceTree = "<group>"; };
+		C7BD155E202F5DBC00FF8D00 /* POIAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIAnnotation.swift; sourceTree = "<group>"; };
+		C7BD155F202F5DBC00FF8D00 /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		C7BD1563202F5F7B00FF8D00 /* AddressParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressParser.swift; sourceTree = "<group>"; };
 		C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellX.swift; sourceTree = "<group>"; };
 		C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,11 +193,13 @@
 				C739E40F201CA85A0081259D /* CGFloat+Ext.swift */,
 				C739E406201CA85A0081259D /* CGPoint+Ext.swift */,
 				C739E41C201CA85A0081259D /* CGRect+Ext.swift */,
+				C7BD155A202F5C4E00FF8D00 /* CLLocation+Ext.swift */,
 				C74712E32028926B00795032 /* CLLocationCoordinate2D+Ext.swift */,
 				C739E3FE201CA85A0081259D /* Double+Ext.swift */,
 				C7A4E533202745D000C1783A /* FormatDisplay.swift */,
 				C739E416201CA85A0081259D /* Int+Ext.swift */,
 				C724C2F72028A694005799C0 /* Matrix+Ext.swift */,
+				C7BD1558202F596000FF8D00 /* MKRouteStep+Ext.swift */,
 				C7830B1A2027AA0800FD2FE6 /* NSAttributedString+Ext.swift */,
 				C7830B182027AA0800FD2FE6 /* NSRange+Ext.swift */,
 				C700B19A20238881000FC421 /* RangeReplaceableCollection+Ext.swift */,
@@ -219,16 +233,17 @@
 		C775DEBE201F2E80003457AD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				C724C2F92028AA03005799C0 /* SCNMathExtensions.swift */,
-				C7A4E530202745C300C1783A /* LocationManager.swift */,
+				C7BD1563202F5F7B00FF8D00 /* AddressParser.swift */,
 				C77768AA20252F4A00CE16BB /* ARTextManager.swift */,
-				C775DEBF201F2E80003457AD /* ShapeGenerator.swift */,
-				C775DEC0201F2E80003457AD /* NodeGenerator.swift */,
-				C775DEC1201F2E80003457AD /* ShapeType.swift */,
-				C775DEC2201F2E80003457AD /* GameHelper.swift */,
 				C775DEC9201F3049003457AD /* CollisionTypes.swift */,
-				C7830B252027CD0700FD2FE6 /* LocationService.swift */,
+				C775DEC2201F2E80003457AD /* GameHelper.swift */,
 				C74712E52028983F00795032 /* MatrixHelper.swift */,
+				C775DEC0201F2E80003457AD /* NodeGenerator.swift */,
+				C7A4E530202745C300C1783A /* LocationManager.swift */,
+				C7830B252027CD0700FD2FE6 /* LocationService.swift */,
+				C724C2F92028AA03005799C0 /* SCNMathExtensions.swift */,
+				C775DEBF201F2E80003457AD /* ShapeGenerator.swift */,
+				C775DEC1201F2E80003457AD /* ShapeType.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -252,6 +267,7 @@
 		C7B52656201C8A1D00134F00 /* AppCore */ = {
 			isa = PBXGroup;
 			children = (
+				C7BD155C202F5CC700FF8D00 /* CoreLocation */,
 				C700B18320238499000FC421 /* UI Elements */,
 				C775DEBE201F2E80003457AD /* Utilities */,
 				C739E44C201CAAFF0081259D /* DeviceType */,
@@ -262,6 +278,16 @@
 				C7B52658201C8A1D00134F00 /* Info.plist */,
 			);
 			path = AppCore;
+			sourceTree = "<group>";
+		};
+		C7BD155C202F5CC700FF8D00 /* CoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				C7BD155F202F5DBC00FF8D00 /* LocationData.swift */,
+				C7BD155D202F5DBB00FF8D00 /* LocationTranslation.swift */,
+				C7BD155E202F5DBC00FF8D00 /* POIAnnotation.swift */,
+			);
+			path = CoreLocation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +375,7 @@
 				C739E444201CA85A0081259D /* SCNVector3+Ext.swift in Sources */,
 				C7830B1F2027AA0900FD2FE6 /* UINavigationBar+Ext.swift in Sources */,
 				C739E446201CA85A0081259D /* UIDevice+Ext.swift in Sources */,
+				C7BD1561202F5DBC00FF8D00 /* POIAnnotation.swift in Sources */,
 				C7830B1E2027AA0900FD2FE6 /* NSAttributedString+Ext.swift in Sources */,
 				C739E43B201CA85A0081259D /* UIColor+Ext.swift in Sources */,
 				C775DEC6201F2E80003457AD /* GameHelper.swift in Sources */,
@@ -363,11 +390,14 @@
 				C739E431201CA85A0081259D /* Sequence+Ext.swift in Sources */,
 				C775DEC3201F2E80003457AD /* ShapeGenerator.swift in Sources */,
 				C74712E62028983F00795032 /* MatrixHelper.swift in Sources */,
+				C7BD1562202F5DBC00FF8D00 /* LocationData.swift in Sources */,
 				C77768AB20252F4A00CE16BB /* ARTextManager.swift in Sources */,
 				C775DEC5201F2E80003457AD /* ShapeType.swift in Sources */,
 				C700B196202385C6000FC421 /* ARSCNView+Ext.swift in Sources */,
 				C700B19120238499000FC421 /* Plane.swift in Sources */,
 				C739E3F0201C91100081259D /* UISliderX.swift in Sources */,
+				C7BD1564202F5F7B00FF8D00 /* AddressParser.swift in Sources */,
+				C7BD155B202F5C4E00FF8D00 /* CLLocation+Ext.swift in Sources */,
 				C739E3EE201C91100081259D /* UIViewX.swift in Sources */,
 				C7830B1D2027AA0900FD2FE6 /* UIFont+Ext.swift in Sources */,
 				C700B19B20238881000FC421 /* RangeReplaceableCollection+Ext.swift in Sources */,
@@ -379,8 +409,10 @@
 				C724C2F82028A694005799C0 /* Matrix+Ext.swift in Sources */,
 				C739E3E8201C91100081259D /* UITextFieldX.swift in Sources */,
 				C775DECA201F3049003457AD /* CollisionTypes.swift in Sources */,
+				C7BD1560202F5DBC00FF8D00 /* LocationTranslation.swift in Sources */,
 				C739E449201CA85A0081259D /* CGRect+Ext.swift in Sources */,
 				C739E3E7201C91100081259D /* UIViewXRadialGradient.swift in Sources */,
+				C7BD1559202F596000FF8D00 /* MKRouteStep+Ext.swift in Sources */,
 				C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */,
 				C77768A920252AAA00CE16BB /* UserDefaults+Ext.swift in Sources */,
 				C739E3EC201C91100081259D /* UIViewControllerX.swift in Sources */,

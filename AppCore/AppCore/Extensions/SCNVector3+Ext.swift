@@ -86,7 +86,7 @@ public extension SCNVector3
         let dz : Float = end.z - self.z
         return sqrt( ( pow(dx, 2) + pow(dy, 2) + pow(dz, 2) ) )
     }
-    
+
     public func midPosition(to end: SCNVector3) -> SCNVector3 {
         let x : Float = (self.x + end.x) / 2
         let y : Float = (self.y + end.y) / 2
@@ -161,6 +161,11 @@ public extension SCNVector3
         let node = SCNNode(geometry: geometry)
         return node
     }
+
+    public static func position(from transform: matrix_float4x4) -> SCNVector3 {
+        return SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+    }
+
 }
 
 /**
