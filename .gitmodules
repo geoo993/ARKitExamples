@@ -19,3 +19,9 @@
 [submodule "Carthage/Checkouts/SwiftyJSON"]
 	path = Cartfile/Carthage/Checkouts/SwiftyJSON
 	url = https://github.com/SwiftyJSON/SwiftyJSON.git
+[submodule "Carthage/Checkouts/realm-cocoa"]
+	path = Cartfile/Carthage/Checkouts/realm-cocoa
+	url = https://github.com/realm/realm-cocoa.git
+[submodule "Carthage/Checkouts/Firebase"]
+	path = Cartfile/Carthage/Checkouts/Firebase
+	url = https://github.com/soheilbm/Firebase.git

@@ -66,6 +66,7 @@
 		C7BD1561202F5DBC00FF8D00 /* POIAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD155E202F5DBC00FF8D00 /* POIAnnotation.swift */; };
 		C7BD1562202F5DBC00FF8D00 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD155F202F5DBC00FF8D00 /* LocationData.swift */; };
 		C7BD1564202F5F7B00FF8D00 /* AddressParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1563202F5F7B00FF8D00 /* AddressParser.swift */; };
+		C7BD1574202F92F400FF8D00 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1573202F92F400FF8D00 /* CoreDataStack.swift */; };
 		C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */; };
 		C7C78560201E4BD20043604E /* SCNNode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */; };
 /* End PBXBuildFile section */
@@ -133,6 +134,7 @@
 		C7BD155E202F5DBC00FF8D00 /* POIAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIAnnotation.swift; sourceTree = "<group>"; };
 		C7BD155F202F5DBC00FF8D00 /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		C7BD1563202F5F7B00FF8D00 /* AddressParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressParser.swift; sourceTree = "<group>"; };
+		C7BD1573202F92F400FF8D00 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellX.swift; sourceTree = "<group>"; };
 		C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +269,7 @@
 		C7B52656201C8A1D00134F00 /* AppCore */ = {
 			isa = PBXGroup;
 			children = (
+				C7BD1572202F92BD00FF8D00 /* CoreData */,
 				C7BD155C202F5CC700FF8D00 /* CoreLocation */,
 				C700B18320238499000FC421 /* UI Elements */,
 				C775DEBE201F2E80003457AD /* Utilities */,
@@ -288,6 +291,14 @@
 				C7BD155E202F5DBC00FF8D00 /* POIAnnotation.swift */,
 			);
 			path = CoreLocation;
+			sourceTree = "<group>";
+		};
+		C7BD1572202F92BD00FF8D00 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C7BD1573202F92F400FF8D00 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +396,7 @@
 				C74712E42028926B00795032 /* CLLocationCoordinate2D+Ext.swift in Sources */,
 				C7C78560201E4BD20043604E /* SCNNode+Ext.swift in Sources */,
 				C775DEC4201F2E80003457AD /* NodeGenerator.swift in Sources */,
+				C7BD1574202F92F400FF8D00 /* CoreDataStack.swift in Sources */,
 				C739E43C201CA85A0081259D /* CGFloat+Ext.swift in Sources */,
 				C739E450201CAB8C0081259D /* String+Ext.swift in Sources */,
 				C739E431201CA85A0081259D /* Sequence+Ext.swift in Sources */,

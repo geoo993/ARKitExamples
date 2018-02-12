@@ -80,11 +80,8 @@ public class AddressParser: NSObject{
             address.subLocality = self.subLocality as String
             address.subAdministrativeArea = self.administrativeArea as String
             address.state = ""
-            print(address)
             if(addressLines.count > 0) {
                 self.formattedAddress = CNPostalAddressFormatter.string(from: address, style: .mailingAddress) as NSString
-
-                print(formattedAddress)
             }else{
                 self.formattedAddress = ""
             }

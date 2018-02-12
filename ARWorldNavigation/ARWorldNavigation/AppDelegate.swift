@@ -7,16 +7,28 @@
 //
 
 import UIKit
+import AppCore
+import RealmSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    static var realm : Realm!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+//        FirebaseApp.configure()
+
+//        do {
+//            AppDelegate.realm = try Realm()
+            return true
+//        } catch {
+//
+//            print("Could not initialise realm")
+//            return false
+//        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

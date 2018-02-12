@@ -7,29 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C70914FD202FB696008FA873 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70914FE202FB696008FA873 /* RealmSwift.framework */; };
+		C7091503202FB7E9008FA873 /* LocationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7091502202FB7E9008FA873 /* LocationTarget.swift */; };
+		C709150A202FBE9B008FA873 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7091507202FBE49008FA873 /* Realm.framework */; };
+		C7769A2C2030B672005D6199 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7769A262030A6C3005D6199 /* GoogleService-Info.plist */; };
 		C7830ACC2027A4A500FD2FE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830ACB2027A4A500FD2FE6 /* AppDelegate.swift */; };
 		C7830AD62027A4A500FD2FE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7830AD42027A4A500FD2FE6 /* LaunchScreen.storyboard */; };
 		C7830AE62027A4D400FD2FE6 /* ARWorldNavigationDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7830AE42027A4D400FD2FE6 /* ARWorldNavigationDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7830AE92027A4D400FD2FE6 /* ARWorldNavigationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AE22027A4D400FD2FE6 /* ARWorldNavigationDemo.framework */; };
-		C7830AEA2027A4D400FD2FE6 /* ARWorldNavigationDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AE22027A4D400FD2FE6 /* ARWorldNavigationDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7830AF12027A4ED00FD2FE6 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7830AF32027A4F600FD2FE6 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */; };
-		C7830AF42027A52900FD2FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7830AD22027A4A500FD2FE6 /* Assets.xcassets */; };
-		C7830AF52027A53200FD2FE6 /* ARWorldNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7830ACF2027A4A500FD2FE6 /* ARWorldNavigation.storyboard */; };
-		C7830AF62027A53500FD2FE6 /* ARWorldNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830ACD2027A4A500FD2FE6 /* ARWorldNavigationViewController.swift */; };
 		C7830B282027D23100FD2FE6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7830B272027D23100FD2FE6 /* art.scnassets */; };
-		C7BD1566202F662100FF8D00 /* LocationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1565202F662100FF8D00 /* LocationTarget.swift */; };
+		C7A2B75020304DAD007EBA0D /* RealmObjectServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2B74F20304DAD007EBA0D /* RealmObjectServer.swift */; };
+		C7BD157D202FA26C00FF8D00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7830AD22027A4A500FD2FE6 /* Assets.xcassets */; };
+		C7BD157E202FA27700FF8D00 /* ARWorldNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7830ACF2027A4A500FD2FE6 /* ARWorldNavigation.storyboard */; };
+		C7BD157F202FA27B00FF8D00 /* ARSavedLocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1568202F8D2D00FF8D00 /* ARSavedLocationsTableViewController.swift */; };
+		C7BD1580202FA27F00FF8D00 /* ARWorldNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830ACD2027A4A500FD2FE6 /* ARWorldNavigationViewController.swift */; };
+		C7C5FB9A2030B91000C08CCF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70914FA202FB68A008FA873 /* RealmSwift.framework */; };
+		C7C5FB9C2030B92600C08CCF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7091507202FBE49008FA873 /* Realm.framework */; };
+		C7C5FB9D2030B92C00C08CCF /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */; };
+		C7C5FB9E2030B93400C08CCF /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A292030B5FC005D6199 /* Firebase.framework */; };
+		C7C5FB9F2030B93400C08CCF /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A0D203092F0005D6199 /* FirebaseAnalytics.framework */; };
+		C7C5FBA02030B93400C08CCF /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A05203092E9005D6199 /* FirebaseAuth.framework */; };
+		C7C5FBA12030B93400C08CCF /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A0C203092EF005D6199 /* FirebaseCore.framework */; };
+		C7C5FBA22030B93400C08CCF /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A0B203092EE005D6199 /* FirebaseCoreDiagnostics.framework */; };
+		C7C5FBA32030B93400C08CCF /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A09203092ED005D6199 /* FirebaseDatabase.framework */; };
+		C7C5FBA42030B93400C08CCF /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A06203092EA005D6199 /* FirebaseInstanceID.framework */; };
+		C7C5FBA52030B93400C08CCF /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A08203092EC005D6199 /* FirebaseNanoPB.framework */; };
+		C7C5FBA62030B93400C08CCF /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A0A203092EE005D6199 /* GoogleToolboxForMac.framework */; };
+		C7C5FBA72030B93400C08CCF /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A0E203092F1005D6199 /* GTMSessionFetcher.framework */; };
+		C7C5FBA82030B93400C08CCF /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A04203092E8005D6199 /* leveldb-library.framework */; };
+		C7C5FBA92030B93400C08CCF /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A07203092EB005D6199 /* nanopb.framework */; };
+		C7C5FBAA2030BA2E00C08CCF /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A292030B5FC005D6199 /* Firebase.framework */; };
+		C7C5FBAB2030BA2E00C08CCF /* Firebase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7769A292030B5FC005D6199 /* Firebase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7C5FBAC2030BA4F00C08CCF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7091507202FBE49008FA873 /* Realm.framework */; };
+		C7C5FBAD2030BA4F00C08CCF /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7091507202FBE49008FA873 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7C5FBAE2030BA5200C08CCF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70914FA202FB68A008FA873 /* RealmSwift.framework */; };
+		C7C5FBAF2030BA5200C08CCF /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C70914FA202FB68A008FA873 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C7830AE72027A4D400FD2FE6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7830AC02027A4A500FD2FE6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C7830AE12027A4D400FD2FE6;
-			remoteInfo = ARWorldNavigationDemo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C7830AEE2027A4D400FD2FE6 /* Embed Frameworks */ = {
@@ -38,8 +52,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C7830AEA2027A4D400FD2FE6 /* ARWorldNavigationDemo.framework in Embed Frameworks */,
+				C7C5FBAD2030BA4F00C08CCF /* Realm.framework in Embed Frameworks */,
 				C7830AF12027A4ED00FD2FE6 /* AppCore.framework in Embed Frameworks */,
+				C7C5FBAF2030BA5200C08CCF /* RealmSwift.framework in Embed Frameworks */,
+				C7C5FBAB2030BA2E00C08CCF /* Firebase.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +63,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C70914FA202FB68A008FA873 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C70914FE202FB696008FA873 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7091502202FB7E9008FA873 /* LocationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTarget.swift; sourceTree = "<group>"; };
+		C7091507202FBE49008FA873 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7769A0120308FD2005D6199 /* Firebase-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Firebase-Bridging-Header.h"; sourceTree = "<group>"; };
+		C7769A04203092E8005D6199 /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "leveldb-library.framework"; sourceTree = "<group>"; };
+		C7769A05203092E9005D6199 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
+		C7769A06203092EA005D6199 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		C7769A07203092EB005D6199 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		C7769A08203092EC005D6199 /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseNanoPB.framework; sourceTree = "<group>"; };
+		C7769A09203092ED005D6199 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
+		C7769A0A203092EE005D6199 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		C7769A0B203092EE005D6199 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		C7769A0C203092EF005D6199 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		C7769A0D203092F0005D6199 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		C7769A0E203092F1005D6199 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
+		C7769A262030A6C3005D6199 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C7769A292030B5FC005D6199 /* Firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7830AC82027A4A500FD2FE6 /* ARWorldNavigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARWorldNavigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7830ACB2027A4A500FD2FE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7830ACD2027A4A500FD2FE6 /* ARWorldNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARWorldNavigationViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +93,9 @@
 		C7830AE52027A4D400FD2FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7830B272027D23100FD2FE6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		C7BD1565202F662100FF8D00 /* LocationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTarget.swift; sourceTree = "<group>"; };
+		C7A2B74F20304DAD007EBA0D /* RealmObjectServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectServer.swift; sourceTree = "<group>"; };
+		C7BD1568202F8D2D00FF8D00 /* ARSavedLocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSavedLocationsTableViewController.swift; sourceTree = "<group>"; };
+		C7BD157B202FA24E00FF8D00 /* LocationTarget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationTarget.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +103,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7830AE92027A4D400FD2FE6 /* ARWorldNavigationDemo.framework in Frameworks */,
+				C7C5FB9E2030B93400C08CCF /* Firebase.framework in Frameworks */,
+				C7C5FB9F2030B93400C08CCF /* FirebaseAnalytics.framework in Frameworks */,
+				C7C5FBAE2030BA5200C08CCF /* RealmSwift.framework in Frameworks */,
+				C7C5FBA02030B93400C08CCF /* FirebaseAuth.framework in Frameworks */,
+				C7C5FBA12030B93400C08CCF /* FirebaseCore.framework in Frameworks */,
+				C7C5FBA22030B93400C08CCF /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				C7C5FBA32030B93400C08CCF /* FirebaseDatabase.framework in Frameworks */,
+				C7C5FBA42030B93400C08CCF /* FirebaseInstanceID.framework in Frameworks */,
+				C7C5FBA52030B93400C08CCF /* FirebaseNanoPB.framework in Frameworks */,
+				C7C5FBA62030B93400C08CCF /* GoogleToolboxForMac.framework in Frameworks */,
+				C7C5FBA72030B93400C08CCF /* GTMSessionFetcher.framework in Frameworks */,
+				C7C5FBA82030B93400C08CCF /* leveldb-library.framework in Frameworks */,
+				C7C5FBA92030B93400C08CCF /* nanopb.framework in Frameworks */,
+				C7C5FB9D2030B92C00C08CCF /* AppCore.framework in Frameworks */,
+				C7C5FB9A2030B91000C08CCF /* RealmSwift.framework in Frameworks */,
+				C7C5FB9C2030B92600C08CCF /* Realm.framework in Frameworks */,
+				C7C5FBAC2030BA4F00C08CCF /* Realm.framework in Frameworks */,
+				C7C5FBAA2030BA2E00C08CCF /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +128,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C70914FD202FB696008FA873 /* RealmSwift.framework in Frameworks */,
+				C709150A202FBE9B008FA873 /* Realm.framework in Frameworks */,
 				C7830AF32027A4F600FD2FE6 /* AppCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,9 +137,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7769A252030A67E005D6199 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				C7769A262030A6C3005D6199 /* GoogleService-Info.plist */,
+				C7769A0120308FD2005D6199 /* Firebase-Bridging-Header.h */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		C7830ABF2027A4A500FD2FE6 = {
 			isa = PBXGroup;
 			children = (
+				C7769A292030B5FC005D6199 /* Firebase.framework */,
+				C7769A0D203092F0005D6199 /* FirebaseAnalytics.framework */,
+				C7769A05203092E9005D6199 /* FirebaseAuth.framework */,
+				C7769A0C203092EF005D6199 /* FirebaseCore.framework */,
+				C7769A0B203092EE005D6199 /* FirebaseCoreDiagnostics.framework */,
+				C7769A09203092ED005D6199 /* FirebaseDatabase.framework */,
+				C7769A06203092EA005D6199 /* FirebaseInstanceID.framework */,
+				C7769A08203092EC005D6199 /* FirebaseNanoPB.framework */,
+				C7769A0A203092EE005D6199 /* GoogleToolboxForMac.framework */,
+				C7769A0E203092F1005D6199 /* GTMSessionFetcher.framework */,
+				C7769A04203092E8005D6199 /* leveldb-library.framework */,
+				C7769A07203092EB005D6199 /* nanopb.framework */,
+				C7091507202FBE49008FA873 /* Realm.framework */,
+				C70914FA202FB68A008FA873 /* RealmSwift.framework */,
 				C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */,
 				C7830ACA2027A4A500FD2FE6 /* ARWorldNavigation */,
 				C7830AE32027A4D400FD2FE6 /* ARWorldNavigationDemo */,
@@ -105,9 +183,11 @@
 		C7830ACA2027A4A500FD2FE6 /* ARWorldNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				C7769A252030A67E005D6199 /* Firebase */,
+				C7BD1579202FA21700FF8D00 /* CoreData */,
 				C7830ACB2027A4A500FD2FE6 /* AppDelegate.swift */,
 				C7830ACD2027A4A500FD2FE6 /* ARWorldNavigationViewController.swift */,
-				C7BD1565202F662100FF8D00 /* LocationTarget.swift */,
+				C7BD1568202F8D2D00FF8D00 /* ARSavedLocationsTableViewController.swift */,
 				C7830ACF2027A4A500FD2FE6 /* ARWorldNavigation.storyboard */,
 				C7830B272027D23100FD2FE6 /* art.scnassets */,
 				C7830AD22027A4A500FD2FE6 /* Assets.xcassets */,
@@ -129,8 +209,19 @@
 		C7830AF22027A4F600FD2FE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C70914FE202FB696008FA873 /* RealmSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7BD1579202FA21700FF8D00 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C7A2B74F20304DAD007EBA0D /* RealmObjectServer.swift */,
+				C7BD157A202FA24E00FF8D00 /* DataModel.xcdatamodeld */,
+				C7091502202FB7E9008FA873 /* LocationTarget.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +250,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C7830AE82027A4D400FD2FE6 /* PBXTargetDependency */,
 			);
 			name = ARWorldNavigation;
 			productName = ARWorldNavigation;
@@ -192,7 +282,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = Huis;
+				ORGANIZATIONNAME = "Geo Games";
 				TargetAttributes = {
 					C7830AC72027A4A500FD2FE6 = {
 						CreatedOnToolsVersion = 9.2;
@@ -228,7 +318,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7BD157D202FA26C00FF8D00 /* Assets.xcassets in Resources */,
+				C7769A2C2030B672005D6199 /* GoogleService-Info.plist in Resources */,
 				C7830AD62027A4A500FD2FE6 /* LaunchScreen.storyboard in Resources */,
+				C7BD157E202FA27700FF8D00 /* ARWorldNavigation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,9 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7830AF52027A53200FD2FE6 /* ARWorldNavigation.storyboard in Resources */,
 				C7830B282027D23100FD2FE6 /* art.scnassets in Resources */,
-				C7830AF42027A52900FD2FE6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +340,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7BD157F202FA27B00FF8D00 /* ARSavedLocationsTableViewController.swift in Sources */,
 				C7830ACC2027A4A500FD2FE6 /* AppDelegate.swift in Sources */,
-				C7BD1566202F662100FF8D00 /* LocationTarget.swift in Sources */,
+				C7BD1580202FA27F00FF8D00 /* ARWorldNavigationViewController.swift in Sources */,
+				C7091503202FB7E9008FA873 /* LocationTarget.swift in Sources */,
+				C7A2B75020304DAD007EBA0D /* RealmObjectServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,19 +352,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7830AF62027A53500FD2FE6 /* ARWorldNavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C7830AE82027A4D400FD2FE6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C7830AE12027A4D400FD2FE6 /* ARWorldNavigationDemo */;
-			targetProxy = C7830AE72027A4D400FD2FE6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C7830ACF2027A4A500FD2FE6 /* ARWorldNavigation.storyboard */ = {
@@ -402,13 +487,19 @@
 		C7830ADB2027A4A500FD2FE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U28DQFZA3Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ARWorldNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARWorldNavigation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ARWorldNavigation/Firebase/Firebase-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -417,13 +508,19 @@
 		C7830ADC2027A4A500FD2FE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U28DQFZA3Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ARWorldNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARWorldNavigation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ARWorldNavigation/Firebase/Firebase-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -506,6 +603,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C7BD157A202FA24E00FF8D00 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C7BD157B202FA24E00FF8D00 /* LocationTarget.xcdatamodel */,
+			);
+			currentVersion = C7BD157B202FA24E00FF8D00 /* LocationTarget.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C7830AC02027A4A500FD2FE6 /* Project object */;
 }
