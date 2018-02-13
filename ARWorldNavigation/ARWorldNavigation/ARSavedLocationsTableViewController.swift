@@ -18,7 +18,7 @@ public class ARSavedLocationsTableViewController: UITableViewController {
 
     var locationTargets: Results<LocationTarget>! {
         get {
-            if let realm = AppDelegate.realm {
+            if let realm = RealmObjectServer.realm {
                 return realm.objects(LocationTarget.self)
             } else {
                 return nil
@@ -34,6 +34,17 @@ public class ARSavedLocationsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+
+    // MARK: - Move a LocationTarget in Realm DataBase
+    func move(locationTarget item: LocationTarget, toIndex: Int) {
+
+    }
+
+    func delete(locationTarget item: LocationTarget) {
+        item.deleteFromRealm (completion: { (error) in
+            print("item deleted")
+        })
     }
 
 
@@ -70,8 +81,11 @@ public class ARSavedLocationsTableViewController: UITableViewController {
     // Override to support editing the table view.
     override public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let locationTarget = locationTargets[indexPath.row]
+            delete(locationTarget: locationTarget)
+            
             // Delete the row from the data source
-            //tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -87,7 +101,7 @@ public class ARSavedLocationsTableViewController: UITableViewController {
     // Override to support conditional rearranging of the table view.
     override public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
-        return true
+        return false
     }
 
 

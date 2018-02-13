@@ -41,8 +41,8 @@ extension LocationTarget {
     // MARK: - Save LocationTarget changes in Realm DataBase
     public func writeToRealm( completion: @escaping (Error?) -> Void) {
         do {
-            try AppDelegate.realm.write {
-                AppDelegate.realm.add(self, update: true)
+            try RealmObjectServer.realm.write {
+                RealmObjectServer.realm.add(self, update: true)
                 completion(nil)
             }
         } catch {
@@ -55,13 +55,13 @@ extension LocationTarget {
     func update(with locationTarget: LocationTarget, completion: @escaping (Error?) -> Void) {
 
         do {
-            try AppDelegate.realm.write {
+            try RealmObjectServer.realm.write {
                 self.tag = locationTarget.tag
                 self.address = locationTarget.address
                 self.altitude = locationTarget.altitude
                 self.latitude = locationTarget.latitude
                 self.longitude = locationTarget.longitude
-                AppDelegate.realm.add(self, update: true)
+                RealmObjectServer.realm.add(self, update: true)
                 completion(nil)
             }
         } catch {
@@ -72,7 +72,7 @@ extension LocationTarget {
 
     func move(toIndex: Int, completion: @escaping (Error?) -> Void) {
         do {
-            try AppDelegate.realm.write {
+            try RealmObjectServer.realm.write {
                 completion(nil)
             }
         } catch {
@@ -86,8 +86,8 @@ extension LocationTarget {
     // MARK: - Delete LocationTarget in Realm DataBase
     public func deleteFromRealm(completion: @escaping (Error?) -> Void) {
         do {
-            try AppDelegate.realm.write {
-                AppDelegate.realm.delete(self)
+            try RealmObjectServer.realm.write {
+                RealmObjectServer.realm.delete(self)
                 completion(nil)
             }
         } catch {

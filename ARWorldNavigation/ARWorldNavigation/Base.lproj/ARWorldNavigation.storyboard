@@ -15,8 +15,8 @@
         <scene sceneID="h2z-Vm-sh3">
             <objects>
                 <navigationController id="toB-dc-98x" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7p8-yW-xDZ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7p8-yW-xDZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -38,8 +38,11 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tzI-qL-Lxb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </mapView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.050000000000000003" minValue="0.0" maxValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="mWQ-VL-rrf">
+                                <rect key="frame" x="35.5" y="0.0" width="304" height="31"/>
+                            </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="D1T-eQ-GRb">
-                                <rect key="frame" x="37.5" y="20" width="300" height="58"/>
+                                <rect key="frame" x="37" y="40" width="300" height="58"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitute" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="c25-Dy-JqJ">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="18"/>
@@ -65,12 +68,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tzI-qL-Lxb" firstAttribute="leading" secondItem="4Po-gv-4cw" secondAttribute="leading" id="0Ie-9o-BPl"/>
+                            <constraint firstItem="mWQ-VL-rrf" firstAttribute="centerX" secondItem="tzI-qL-Lxb" secondAttribute="centerX" id="3nk-5M-Eu4"/>
                             <constraint firstItem="tzI-qL-Lxb" firstAttribute="trailing" secondItem="4Po-gv-4cw" secondAttribute="trailing" id="7Xb-1Q-oeA"/>
+                            <constraint firstItem="D1T-eQ-GRb" firstAttribute="top" secondItem="mWQ-VL-rrf" secondAttribute="bottom" constant="10" id="PNs-89-8dO"/>
                             <constraint firstItem="D1T-eQ-GRb" firstAttribute="centerX" secondItem="tzI-qL-Lxb" secondAttribute="centerX" id="UFB-Rt-OBn"/>
-                            <constraint firstItem="D1T-eQ-GRb" firstAttribute="top" secondItem="tzI-qL-Lxb" secondAttribute="top" constant="20" id="gUJ-n7-B7D"/>
+                            <constraint firstItem="mWQ-VL-rrf" firstAttribute="width" secondItem="tzI-qL-Lxb" secondAttribute="width" multiplier="0.8" id="VNG-wy-80L"/>
                             <constraint firstItem="tzI-qL-Lxb" firstAttribute="top" secondItem="4Po-gv-4cw" secondAttribute="top" id="hTe-2C-CSr"/>
                             <constraint firstItem="tzI-qL-Lxb" firstAttribute="bottom" secondItem="4Po-gv-4cw" secondAttribute="bottom" id="nZC-tP-MH0"/>
                             <constraint firstItem="D1T-eQ-GRb" firstAttribute="width" secondItem="tzI-qL-Lxb" secondAttribute="width" multiplier="0.8" id="r5T-av-Fxx"/>
+                            <constraint firstItem="mWQ-VL-rrf" firstAttribute="top" secondItem="tzI-qL-Lxb" secondAttribute="top" id="sWw-dn-r4v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Po-gv-4cw"/>
                     </view>
@@ -87,12 +93,13 @@
                         <outlet property="latitudeLabel" destination="75i-GG-9SY" id="dhA-jd-q8v"/>
                         <outlet property="longitudeLabel" destination="c25-Dy-JqJ" id="QgI-Om-7n0"/>
                         <outlet property="mapView" destination="tzI-qL-Lxb" id="kfs-Gp-Rbt"/>
+                        <outlet property="spanView" destination="mWQ-VL-rrf" id="cSU-Oz-IfI"/>
                         <segue destination="nEF-eI-sp3" kind="show" identifier="showLocationsTable" id="FB3-FD-17U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ThN-BZ-oUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-274" y="124"/>
+            <point key="canvasLocation" x="-274.39999999999998" y="123.68815592203899"/>
         </scene>
         <!--Saved Locations-->
         <scene sceneID="CpM-Hj-4Z1">

@@ -7,18 +7,7 @@
 //
 
 import Foundation
-
-enum LexiRealmError : Error, CustomStringConvertible {
-    case realmNotConfigured
-    case sessionSynchronization
-
-    var description: String {
-        switch self {
-        case .realmNotConfigured: return "Realm Not Configured"
-        case .sessionSynchronization: return "Session synchronization error"
-        }
-    }
-}
+import RealmSwift
 
 public class RealmObjectServer  {
     struct Access {
@@ -32,4 +21,6 @@ public class RealmObjectServer  {
         static let username = "ggeoo93@gmail.com"
         static let password = "sophonie91"
     }
+
+    public static var realm : Realm!
 }

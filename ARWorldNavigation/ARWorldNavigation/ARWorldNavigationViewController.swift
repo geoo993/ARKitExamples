@@ -17,7 +17,6 @@
 // https://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http
 // https://www.youtube.com/watch?v=OYu3bkOyJY8
 
-import Contacts
 import UIKit
 import CoreData
 import CoreLocation
@@ -26,7 +25,7 @@ import ARKit
 import SceneKit
 import AppCore
 import RealmSwift
-import Firebase
+//import Firebase
 
 public class ARWorldNavigationViewController: UIViewController {
 
@@ -36,11 +35,13 @@ public class ARWorldNavigationViewController: UIViewController {
 
     //@IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var mapView : MKMapView!
+    @IBOutlet weak var spanView : UISlider!
     @IBOutlet weak var longitudeLabel : UILabel!
     @IBOutlet weak var latitudeLabel : UILabel!
     @IBOutlet weak var altitudeLabel : UILabel!
 
     @IBAction func addLocation(_ sender: UIBarButtonItem) {
+
         var textfield = UITextField()
         
         // Create the alert controller
@@ -75,37 +76,22 @@ public class ARWorldNavigationViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        //grabData()
-        setup()
-    }
-
-    func setup() {
-        if ARConfiguration.isSupported {
-            locationManager.delegate = self
-
-            if getAutorization() {
-                setupMapView()
-
-                //update(location: worldCenter)
-                getLocation()
-
-                let gesture = UITapGestureRecognizer(target: self, action: #selector(handleMapTap))
-                gesture.numberOfTouchesRequired = 1
-                mapView.addGestureRecognizer(gesture)
-
-            }
-
-            //setupScene()
-
-        } else {
-            print("ARKit is not compatible with this phone.")
-            return
+        do {
+            RealmObjectServer.realm = try Realm()
+        } catch {
+            print("Could not initialise realm")
         }
-
+        
     }
-  
+
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        if RealmObjectServer.realm != nil {
+            //grabData()
+            setup()
+        }
+
         //let configuration = ARWorldTrackingConfiguration()
 
         //sceneView.session.run(configuration)
@@ -159,6 +145,33 @@ public class ARWorldNavigationViewController: UIViewController {
         }
     }
 
+
+    func setup() {
+        if ARConfiguration.isSupported {
+            locationManager.delegate = self
+
+            if getAutorization() {
+                setupMapView()
+
+                //update(location: worldCenter)
+                getLocation()
+
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(handleMapTap))
+                gesture.numberOfTouchesRequired = 1
+                mapView.addGestureRecognizer(gesture)
+
+            }
+
+            //setupScene()
+
+        } else {
+            print("ARKit is not compatible with this phone.")
+            return
+        }
+
+    }
+
+    /*
     func grabData() {
         let databaseRef = Database.database().reference()
         databaseRef.child("locationTargets").observe(.value, with: { (snapShot) in
@@ -178,8 +191,8 @@ public class ARWorldNavigationViewController: UIViewController {
                                                     latitude: latitude)
 
                 do {
-                    try AppDelegate.realm.write {
-                        AppDelegate.realm.add(locationTarget)
+                    try RealmObjectServer.realm.write {
+                        RealmObjectServer.realm.add(locationTarget)
                     }
                 } catch {
                     print("Error updating todo item in Realm \(error)")
@@ -187,6 +200,7 @@ public class ARWorldNavigationViewController: UIViewController {
             }
         })
     }
+    */
 
     func setupScene() {
         //sceneView.delegate = self
@@ -216,8 +230,8 @@ public class ARWorldNavigationViewController: UIViewController {
 
     func update(location: CLLocation) {
         currentLocation = location
-
-        let span : MKCoordinateSpan = MKCoordinateSpanMake(5.04, 5.04)
+        let spanValue = CLLocationDegrees(spanView.value)
+        let span : MKCoordinateSpan = MKCoordinateSpanMake(spanValue,spanValue)
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         let altitude = location.altitude
@@ -265,9 +279,8 @@ extension ARWorldNavigationViewController {
 
     // MARK: - Create new LocationTarget for SQL DataBase
     func addLocationTarget(with name : String){
-        print("adding target")
 
-        if navigationController != nil, let location = currentLocation {
+        if navigationController != nil, let location = currentLocation, RealmObjectServer.realm != nil {
 
             location.reverseGeocode (completion: { [unowned self] (placeMarks, errors) -> Void in
 
@@ -304,8 +317,8 @@ extension ARWorldNavigationViewController {
 
     func add( locationTarget item : LocationTarget) {
         item.writeToRealm (completion: { [unowned self] (error) in
-            print("item saved")
             self.performSegue(withIdentifier: "showLocationsTable", sender: self)
+            print("item saved")
         })
     }
     func update(locationTarget item : LocationTarget, with other: LocationTarget) {
@@ -314,22 +327,11 @@ extension ARWorldNavigationViewController {
         }
     }
 
-    // MARK: - Move a LocationTarget in Realm DataBase
-    func move(locationTarget item: LocationTarget, toIndex: Int) {
-    
-    }
-
-    func delete(locationTarget item: LocationTarget) {
-        item.deleteFromRealm (completion: { (error) in
-            print("item deleted")
-        })
-    }
-
     // MARK: - Delete all LocationTarget in Realm DataBase
     func deleteAllTodoItems() {
         do {
-            try AppDelegate.realm.write {
-                AppDelegate.realm.deleteAll()
+            try RealmObjectServer.realm.write {
+                RealmObjectServer.realm.deleteAll()
             }
         } catch {
             print("Error deleting all todo items in Realm \(error)")
