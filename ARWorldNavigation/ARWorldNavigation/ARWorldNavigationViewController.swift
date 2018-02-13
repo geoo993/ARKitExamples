@@ -69,37 +69,30 @@ public class ARWorldNavigationViewController: UIViewController {
     var currentLocation: CLLocation?
     let locationManager = CLLocationManager()
     var annotation = MKPointAnnotation()
-    var locationTargets : Results<LocationTarget>!
+
     var notificationToken: NotificationToken?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        print(RealmObjectServer.Access.syncAuthURL.absoluteString)
-        print(RealmObjectServer.Access.serverURL.absoluteString)
-
         //grabData()
-        setupRealm()
+        setup()
     }
 
     func setup() {
-        //AppDelegate.realm.add(LocationTarget(tag: "init", address: "none", altitude: 0.0, longitude: 0.0, latitude: 0.0))
-
         if ARConfiguration.isSupported {
             locationManager.delegate = self
 
             if getAutorization() {
                 setupMapView()
-                //setupRealm()
 
-/*
                 //update(location: worldCenter)
                 getLocation()
 
                 let gesture = UITapGestureRecognizer(target: self, action: #selector(handleMapTap))
                 gesture.numberOfTouchesRequired = 1
                 mapView.addGestureRecognizer(gesture)
- */
+
             }
 
             //setupScene()
@@ -194,100 +187,6 @@ public class ARWorldNavigationViewController: UIViewController {
             }
         })
     }
-    private func setupDataSource(with configuration: Realm.Configuration) {
-
-        Realm.asyncOpen(configuration: configuration) { realm, error in
-            if let realm = realm {
-
-                // Realm successfully opened, with all remote data available
-                self.locationTargets = realm.objects(LocationTarget.self)
-                self.notificationToken = self.locationTargets.observe({ (changes: RealmCollectionChange) in
-                    debugPrint("LocationTarget update event")
-                   // self.collectionView.reloadData()
-                })
-
-                AppDelegate.realm = realm
-                print(AppDelegate.realm.isEmpty)
-                let location = LocationTarget(tag: "init", address: "none", altitude: 0.0, longitude: 0.0, latitude: 0.0)
-                location.writeToRealm()
-
-            } else if let error = error {
-                // Handle error that occurred while opening or downloading the contents of the Realm
-                debugPrint("error: \(error.localizedDescription)")
-            }
-        }
-
-    }
-
-    func setupRealm() {
-        let username = RealmObjectServer.Access.username
-        let password = RealmObjectServer.Access.password
-        let server = RealmObjectServer.Access.syncAuthURL
-        let realmURL = RealmObjectServer.Access.serverURL
-        let realmPath = realmURL.absoluteString
-        let credentials = SyncCredentials.usernamePassword(username: username, password: password, register: false)
-
-        SyncUser.logIn(with: credentials, server: server) { user, error in
-            if let user = user {
-                print("user created" )
-                DispatchQueue.main.async {
-                    // Open Realm
-                    let syncConfig = SyncConfiguration(user: user, realmURL: realmURL)
-                    let configuration = Realm.Configuration(syncConfiguration: syncConfig, readOnly: false)
-
-                    AppDelegate.realm = try! Realm(configuration: configuration)
-                    let location = LocationTarget(tag: "init", address: "none", altitude: 0.0, longitude: 0.0, latitude: 0.0)
-                    location.writeToRealm()
-                    print("Realm added")
-
-                    // Show initial tasks
-                    func updateLocationTarget(with realm: Realm?) {
-                       // let permission = SyncPermission(realmPath: realmPath, username: username, accessLevel: .admin)
-                        let permission = SyncPermission(realmPath: realmPath, identity: "*", accessLevel: .admin)
-                        user.apply(permission) { error in
-                            if let error = error {
-                                // handle error
-                                print("Error: could not apply permisions. \(error.localizedDescription)")
-                                return
-                            }
-                            print("permission was successfully applied")
-                        }
-
-                        user.retrievePermissions { (permissions, error) in
-                            if let error = error {
-                                print("Error retrieving permisions. \(error.localizedDescription)")
-                                return
-                            }
-                            guard let permissions = permissions else {
-                                print("no permissions");
-                                return
-                            }
-                            print(permissions)
-                        }
-
-                        if realm == nil {
-                            self.locationTargets = realm?.objects(LocationTarget.self)
-                        }
-                        //self.tableView.reloadData()
-                    }
-                    updateLocationTarget(with: AppDelegate.realm)
-
-                    // Notify us when Realm changes
-                    self.notificationToken = AppDelegate.realm.observe({ (notification, realm) in
-                        updateLocationTarget(with: realm)
-                        debugPrint("LocationTarget update event")
-                        // self.collectionView.reloadData()
-                    })
-                }
-            } else if let error = error {
-                // Handle error that occurred while opening or downloading the contents of the Realm
-                debugPrint("error: \(error.localizedDescription)")
-                //fatalError(String(describing: error))
-            }
-
-        }
-    }
-
 
     func setupScene() {
         //sceneView.delegate = self
@@ -312,11 +211,12 @@ public class ARWorldNavigationViewController: UIViewController {
         annotation.title = name
         annotation.coordinate = location2D
         mapView.addAnnotation(annotation)
-        mapView.showAnnotations([annotation], animated: true)
+        //mapView.showAnnotations([annotation], animated: true)
     }
 
     func update(location: CLLocation) {
-       
+        currentLocation = location
+
         let span : MKCoordinateSpan = MKCoordinateSpanMake(5.04, 5.04)
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
@@ -325,7 +225,6 @@ public class ARWorldNavigationViewController: UIViewController {
         let locationPinCoordinate = CLLocationCoordinate2DMake(latitude, longitude)
         let region = MKCoordinateRegionMake(locationPinCoordinate, span)
         mapView.setRegion(region, animated: true)
-        mapView.showsUserLocation = true
         //let placeMark = MKPlacemark(coordinate: locationPinCoordinate)
 
         annotateMap(with: "", location2D: locationPinCoordinate)
@@ -381,7 +280,7 @@ extension ARWorldNavigationViewController {
                     if let placemark = placeMarks?.first {
                         let addresParcer = AddressParser(applePlacemark: placemark)
                         let addressDict = addresParcer.getAddressDictionary()
-                        //print(placemark.thoroughfare, placemark.postalCode, placemark.isoCountryCode, placemark.country)
+
                         //let streetName =  addressDict.object(forKey: "streetName") as? NSString ?? ""
                         let address = addressDict.object(forKey: "formattedAddress") as? NSString ?? ""
                         print(address)
@@ -403,72 +302,27 @@ extension ARWorldNavigationViewController {
         }
     }
 
-    // MARK: - Add LocationTarget in Realm DataBase
-    func add( locationTarget item : LocationTarget){
-        save(locationTarget: item, completionHandler: { () in
-
+    func add( locationTarget item : LocationTarget) {
+        item.writeToRealm (completion: { [unowned self] (error) in
+            print("item saved")
+            self.performSegue(withIdentifier: "showLocationsTable", sender: self)
         })
     }
-
-    // MARK: - Save LocationTarget changes in Realm DataBase
-    func save(locationTarget item : LocationTarget, completionHandler: @escaping () -> Void) {
-        do {
-            try AppDelegate.realm.write {
-                //let todoItem = TodoItem(title: item, done: false)
-                AppDelegate.realm.add(item)
-                DispatchQueue.main.async(execute: { () -> Void in
-                    completionHandler()
-                })
-            }
-            //tableView.reloadData()
-        }catch {
-            print("Error saving context", error)
-        }
-    }
-
-    // MARK: - Read from LocationTarget Realm DataBase
-    func fetchLocationTargets() {
-//        if let currentCategory = selectedCategory {
-//            todoItems = currentCategory.items.sorted(byKeyPath: "title", ascending: true)
-//            tableView.reloadData()
-//        }
-    }
-
-    // MARK: - Update LocationTarget in Realm DataBase
-    func update(locationTarget item: LocationTarget) {
-        do {
-            try AppDelegate.realm.write {
-                //item.done = !item.done
-                //tableView.reloadData()
-            }
-        } catch {
-            print("Error updating todo item in Realm \(error)")
-        }
-    }
-
-    // MARK: - Delete LocationTarget in Realm DataBase
-    func delete(locationTarget item: LocationTarget, reload : Bool = true ) {
-        do {
-            try AppDelegate.realm.write {
-                AppDelegate.realm.delete(item)
-                if reload {
-                    //tableView.reloadData()
-                }
-            }
-        } catch {
-            print("Error deleting todo item in Realm \(error)")
+    func update(locationTarget item : LocationTarget, with other: LocationTarget) {
+        item.update(with: other) { (error) in
+            print("item updated")
         }
     }
 
     // MARK: - Move a LocationTarget in Realm DataBase
     func move(locationTarget item: LocationTarget, toIndex: Int) {
-        //let itemToMove = item
+    
+    }
 
-        //guard let index = todoItems?.index(of: item) else { return }
-        //todoItems.remove(at: index)
-        //todoItems.insert(itemToMove, at: toIndex)
-        //tableView.reloadData()
-
+    func delete(locationTarget item: LocationTarget) {
+        item.deleteFromRealm (completion: { (error) in
+            print("item deleted")
+        })
     }
 
     // MARK: - Delete all LocationTarget in Realm DataBase
@@ -541,8 +395,7 @@ extension ARWorldNavigationViewController: CLLocationManagerDelegate {
 
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            currentLocation = location
-            //update(location: location)
+            update(location: location)
         }
     }
 

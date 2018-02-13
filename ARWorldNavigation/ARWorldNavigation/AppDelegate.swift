@@ -19,16 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        FirebaseApp.configure()
+        //FirebaseApp.configure()
 
-//        do {
-//            AppDelegate.realm = try Realm()
+        do {
+            AppDelegate.realm = try Realm()
             return true
-//        } catch {
-//
-//            print("Could not initialise realm")
-//            return false
-//        }
+        } catch {
+
+            print("Could not initialise realm")
+            return false
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
