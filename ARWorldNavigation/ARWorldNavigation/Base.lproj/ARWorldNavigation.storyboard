@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="zKK-TC-Kgr" kind="relationship" relationship="rootViewController" id="ubY-q6-BXX"/>
+                        <segue destination="zKK-TC-Kgr" kind="relationship" relationship="rootViewController" id="ERw-uQ-Agq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DoR-Zw-BkD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -30,7 +30,7 @@
         <!--World Navigation View Controller-->
         <scene sceneID="iD4-wl-2n4">
             <objects>
-                <viewController storyboardIdentifier="ARWorldNavigationViewController" id="zKK-TC-Kgr" customClass="ARWorldNavigationViewController" customModule="ARWorldNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARWorldNavigationViewController" id="zKK-TC-Kgr" customClass="ARWorldNavigationViewController" customModule="ARWorldNavigationDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bH7-Oo-uly">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,16 +101,33 @@
             </objects>
             <point key="canvasLocation" x="-274.39999999999998" y="123.68815592203899"/>
         </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="rtG-PZ-0Fj">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeViewController" id="jvU-GC-GlT" customClass="WelcomeViewController" customModule="ARWorldNavigationDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s3F-DG-thu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="v9M-Rp-J3V"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pii-Mc-pPl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f7o-bS-REI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1418" y="885"/>
+        </scene>
         <!--Saved Locations-->
         <scene sceneID="CpM-Hj-4Z1">
             <objects>
-                <tableViewController storyboardIdentifier="ARSavedLocationsTableViewController" id="nEF-eI-sp3" customClass="ARSavedLocationsTableViewController" customModule="ARWorldNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ARSavedLocationsTableViewController" id="nEF-eI-sp3" customClass="ARSavedLocationsTableViewController" customModule="ARWorldNavigationDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EfB-lc-RVf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loactionCell" id="lj6-dU-RHf" customClass="ARSavedLocaionCell" customModule="ARWorldNavigation" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" id="lj6-dU-RHf" customClass="ARSavedLocaionCell" customModule="ARWorldNavigationDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lj6-dU-RHf" id="a46-oD-jnu">
@@ -205,18 +222,24 @@
                         <connections>
                             <outlet property="dataSource" destination="nEF-eI-sp3" id="beP-BX-cIc"/>
                             <outlet property="delegate" destination="nEF-eI-sp3" id="rXn-mi-OLD"/>
+                            <outletCollection property="gestureRecognizers" destination="9gI-Wr-cvG" appends="YES" id="pbE-hU-m5D"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Saved Locations" id="Kfd-AJ-Vlz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="bO2-IM-fIL">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="bO2-IM-fIL">
                             <connections>
-                                <action selector="editing:" destination="nEF-eI-sp3" id="6L0-vi-XWX"/>
+                                <action selector="logoutAction:" destination="nEF-eI-sp3" id="Fen-gP-lnt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ybM-me-Jl2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="9gI-Wr-cvG">
+                    <connections>
+                        <action selector="doubleTapped:" destination="nEF-eI-sp3" id="qMM-QR-0A9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="620" y="124"/>
         </scene>

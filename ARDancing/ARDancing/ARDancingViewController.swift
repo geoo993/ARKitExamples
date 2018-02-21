@@ -23,7 +23,11 @@ public class ARDancingViewController: UIViewController {
     
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet var planeDetectedLabel: UILabel!
-    
+
+    @objc func rightBarButtonDidClick() {
+        audioPlayer?.stop()
+    }
+
     override public func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +41,9 @@ public class ARDancingViewController: UIViewController {
         
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
-        prepareAudioPlayer()
+        if prepareAudioPlayer() {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: .plain, target: self, action: #selector(rightBarButtonDidClick))
+        }
     }
     
     override public func viewWillAppear(_ animated: Bool) {
@@ -79,7 +85,7 @@ public class ARDancingViewController: UIViewController {
         }
     }
     
-    func prepareAudioPlayer() {
+    func prepareAudioPlayer() -> Bool {
         
         if (audioPlayer == nil){
             audioPlayer = AVAudioPlayer()
@@ -89,7 +95,7 @@ public class ARDancingViewController: UIViewController {
             
             guard let path = ARDancingViewController.bundle.path(forResource: "samba", ofType: "m4a") else {
                 print("Error: No Audio")
-                return
+                return false
             }
             audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: path ))
             audioPlayer?.prepareToPlay()
@@ -97,12 +103,15 @@ public class ARDancingViewController: UIViewController {
             let audioSession = AVAudioSession.sharedInstance()
             do {
                 try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+                return true
             }catch let error {
                 print(error.localizedDescription)
+                return false
             }
         }
         catch let error {
             print(error.localizedDescription)
+            return false
         }
         
     }
@@ -125,6 +134,7 @@ public class ARDancingViewController: UIViewController {
             
             if let player = audioPlayer {
                 player.play()
+                player.numberOfLoops = -1
             }
         }
     }

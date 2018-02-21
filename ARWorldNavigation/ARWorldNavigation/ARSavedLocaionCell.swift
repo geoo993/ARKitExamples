@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AppCore
 
 public class ARSavedLocaionCell: UITableViewCell {
 

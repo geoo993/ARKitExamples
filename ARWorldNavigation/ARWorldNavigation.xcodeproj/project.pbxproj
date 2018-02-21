@@ -15,6 +15,11 @@
 		C7830AF12027A4ED00FD2FE6 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7830AF32027A4F600FD2FE6 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */; };
 		C7830B282027D23100FD2FE6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7830B272027D23100FD2FE6 /* art.scnassets */; };
+		C7AF0A60203DD1CA0092A634 /* LocationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A5C203DD1C70092A634 /* LocationTarget.swift */; };
+		C7AF0A61203DD1CC0092A634 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A5D203DD1C70092A634 /* Item.swift */; };
+		C7AF0A62203DFC0D0092A634 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A4F203DB8260092A634 /* ItemsViewController.swift */; };
+		C7AF0A63203DFC1F0092A634 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A4A203DB6D80092A634 /* WelcomeViewController.swift */; };
+		C7AF0A65203E05290092A634 /* GrabData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A64203E05290092A634 /* GrabData.swift */; };
 		C7C5FB9D2030B92C00C08CCF /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */; };
 		C7C5FBAD2030BA4F00C08CCF /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7091507202FBE49008FA873 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7C5FBAF2030BA5200C08CCF /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C70914FA202FB68A008FA873 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -23,8 +28,6 @@
 		C7FC7EFC2032FA9F00D41511 /* ARSavedLocaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774752A20326C5B000A2F4C /* ARSavedLocaionCell.swift */; };
 		C7FC7EFD2032FAA500D41511 /* ARSavedLocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1568202F8D2D00FF8D00 /* ARSavedLocationsTableViewController.swift */; };
 		C7FC7EFE2032FAA900D41511 /* ARWorldNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830ACD2027A4A500FD2FE6 /* ARWorldNavigationViewController.swift */; };
-		C7FC7EFF2032FADC00D41511 /* RealmObjectServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2B74F20304DAD007EBA0D /* RealmObjectServer.swift */; };
-		C7FC7F002032FADF00D41511 /* LocationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7091502202FB7E9008FA873 /* LocationTarget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,7 +49,6 @@
 /* Begin PBXFileReference section */
 		C70914FA202FB68A008FA873 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70914FE202FB696008FA873 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7091502202FB7E9008FA873 /* LocationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTarget.swift; sourceTree = "<group>"; };
 		C7091507202FBE49008FA873 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C774752A20326C5B000A2F4C /* ARSavedLocaionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSavedLocaionCell.swift; sourceTree = "<group>"; };
 		C7769A0120308FD2005D6199 /* Firebase-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Firebase-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -63,7 +65,11 @@
 		C7830AE52027A4D400FD2FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7830B272027D23100FD2FE6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		C7A2B74F20304DAD007EBA0D /* RealmObjectServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectServer.swift; sourceTree = "<group>"; };
+		C7AF0A4A203DB6D80092A634 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		C7AF0A4F203DB8260092A634 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		C7AF0A5C203DD1C70092A634 /* LocationTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTarget.swift; sourceTree = "<group>"; };
+		C7AF0A5D203DD1C70092A634 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C7AF0A64203E05290092A634 /* GrabData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrabData.swift; sourceTree = "<group>"; };
 		C7BD1568202F8D2D00FF8D00 /* ARSavedLocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSavedLocationsTableViewController.swift; sourceTree = "<group>"; };
 		C7BD157B202FA24E00FF8D00 /* LocationTarget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationTarget.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +101,7 @@
 			children = (
 				C7769A262030A6C3005D6199 /* GoogleService-Info.plist */,
 				C7769A0120308FD2005D6199 /* Firebase-Bridging-Header.h */,
+				C7AF0A64203E05290092A634 /* GrabData.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -124,12 +131,15 @@
 		C7830ACA2027A4A500FD2FE6 /* ARWorldNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				C7AF0A5B203DD1940092A634 /* Realm */,
 				C7769A252030A67E005D6199 /* Firebase */,
 				C7BD1579202FA21700FF8D00 /* CoreData */,
 				C7830ACB2027A4A500FD2FE6 /* AppDelegate.swift */,
 				C7830ACD2027A4A500FD2FE6 /* ARWorldNavigationViewController.swift */,
 				C7BD1568202F8D2D00FF8D00 /* ARSavedLocationsTableViewController.swift */,
 				C774752A20326C5B000A2F4C /* ARSavedLocaionCell.swift */,
+				C7AF0A4A203DB6D80092A634 /* WelcomeViewController.swift */,
+				C7AF0A4F203DB8260092A634 /* ItemsViewController.swift */,
 				C7830ACF2027A4A500FD2FE6 /* ARWorldNavigation.storyboard */,
 				C7830B272027D23100FD2FE6 /* art.scnassets */,
 				C7830AD22027A4A500FD2FE6 /* Assets.xcassets */,
@@ -156,12 +166,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C7AF0A5B203DD1940092A634 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				C7AF0A5D203DD1C70092A634 /* Item.swift */,
+				C7AF0A5C203DD1C70092A634 /* LocationTarget.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		C7BD1579202FA21700FF8D00 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				C7A2B74F20304DAD007EBA0D /* RealmObjectServer.swift */,
 				C7BD157A202FA24E00FF8D00 /* DataModel.xcdatamodeld */,
-				C7091502202FB7E9008FA873 /* LocationTarget.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -282,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7830ACC2027A4A500FD2FE6 /* AppDelegate.swift in Sources */,
+				C7AF0A65203E05290092A634 /* GrabData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,10 +308,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7FC7EFC2032FA9F00D41511 /* ARSavedLocaionCell.swift in Sources */,
-				C7FC7EFF2032FADC00D41511 /* RealmObjectServer.swift in Sources */,
+				C7AF0A62203DFC0D0092A634 /* ItemsViewController.swift in Sources */,
 				C7FC7EFD2032FAA500D41511 /* ARSavedLocationsTableViewController.swift in Sources */,
-				C7FC7F002032FADF00D41511 /* LocationTarget.swift in Sources */,
+				C7AF0A60203DD1CA0092A634 /* LocationTarget.swift in Sources */,
+				C7AF0A61203DD1CC0092A634 /* Item.swift in Sources */,
 				C7FC7EFE2032FAA900D41511 /* ARWorldNavigationViewController.swift in Sources */,
+				C7AF0A63203DFC1F0092A634 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

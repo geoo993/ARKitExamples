@@ -128,8 +128,8 @@ public class ARDemosViewController: UITableViewController {
                    bundle: ARPlacesViewController.bundle, 
                    storyBoard: "ARPlaces"),
             Option(title: "AR World Navigation", 
-                   name: "ARWorldNavigationViewController", 
-                   bundle: ARWorldNavigationViewController.bundle, 
+                   name: "ARWorldNavigationViewController",
+                   bundle: ARWorldNavigationViewController.bundle,
                    storyBoard: "ARWorldNavigation")
         ]
         

@@ -58,6 +58,7 @@
 		C7A4E534202745D100C1783A /* Unit+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A4E532202745D000C1783A /* Unit+Ext.swift */; };
 		C7A4E535202745D100C1783A /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A4E533202745D000C1783A /* FormatDisplay.swift */; };
 		C7A52AB6201F520F003614C0 /* SCNView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52AB5201F520F003614C0 /* SCNView+Ext.swift */; };
+		C7AF0A59203DBFF00092A634 /* RealmObjectServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A56203DBFF00092A634 /* RealmObjectServer.swift */; };
 		C7B52659201C8A1D00134F00 /* AppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C7B52657201C8A1D00134F00 /* AppCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7B52660201C8B3400134F00 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B5265F201C8B3400134F00 /* Colors.xcassets */; };
 		C7BD1559202F596000FF8D00 /* MKRouteStep+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1558202F596000FF8D00 /* MKRouteStep+Ext.swift */; };
@@ -124,6 +125,7 @@
 		C7A4E532202745D000C1783A /* Unit+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+Ext.swift"; sourceTree = "<group>"; };
 		C7A4E533202745D000C1783A /* FormatDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 		C7A52AB5201F520F003614C0 /* SCNView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNView+Ext.swift"; sourceTree = "<group>"; };
+		C7AF0A56203DBFF00092A634 /* RealmObjectServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObjectServer.swift; sourceTree = "<group>"; };
 		C7B52654201C8A1D00134F00 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B52657201C8A1D00134F00 /* AppCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCore.h; sourceTree = "<group>"; };
 		C7B52658201C8A1D00134F00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -250,6 +252,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		C7AF0A53203DBF800092A634 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				C7AF0A56203DBFF00092A634 /* RealmObjectServer.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		C7B5264A201C8A1D00134F00 = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +279,7 @@
 		C7B52656201C8A1D00134F00 /* AppCore */ = {
 			isa = PBXGroup;
 			children = (
+				C7AF0A53203DBF800092A634 /* Realm */,
 				C7BD1572202F92BD00FF8D00 /* CoreData */,
 				C7BD155C202F5CC700FF8D00 /* CoreLocation */,
 				C700B18320238499000FC421 /* UI Elements */,
@@ -415,6 +426,7 @@
 				C700B19B20238881000FC421 /* RangeReplaceableCollection+Ext.swift in Sources */,
 				C7A4E535202745D100C1783A /* FormatDisplay.swift in Sources */,
 				C739E452201CAF900081259D /* SwiftRegex.swift in Sources */,
+				C7AF0A59203DBFF00092A634 /* RealmObjectServer.swift in Sources */,
 				C739E443201CA85A0081259D /* Int+Ext.swift in Sources */,
 				C739E3EF201C91100081259D /* UIVisualEffectViewX.swift in Sources */,
 				C7830B1C2027AA0900FD2FE6 /* NSRange+Ext.swift in Sources */,

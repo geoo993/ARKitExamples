@@ -12,37 +12,40 @@ import Foundation
 import RealmSwift
 
 // MARK: Model
-public final class LocationTarget: Object {
-    @objc dynamic var id = ""
-
+public class LocationTarget: Object {
+    @objc dynamic var locationId : String = NSUUID().uuidString
+    
     @objc dynamic var tag : String = ""
     @objc dynamic var address : String = ""
     @objc dynamic var altitude : Double = 0.0
     @objc dynamic var longitude : Double = 0.0
     @objc dynamic var latitude : Double = 0.0
 
-    public convenience init(id: String = NSUUID().uuidString, tag: String, address: String, altitude: Double, longitude : Double, latitude : Double) {
+    public convenience init(tag: String,
+                            address: String,
+                            altitude: Double,
+                            longitude : Double,
+                            latitude : Double) {
         self.init()
-        self.id = id
         self.tag = tag
         self.address = address
         self.altitude = altitude
         self.longitude = longitude
         self.latitude = latitude
     }
-
+    
     override public static func primaryKey() -> String? {
-        return "id"
+        return "locationId"
     }
 }
 
 extension LocationTarget {
 
     // MARK: - Save LocationTarget changes in Realm DataBase
-    public func writeToRealm( completion: @escaping (Error?) -> Void) {
+    public func write(to realm: Realm,  completion: @escaping (Error?) -> Void) {
         do {
-            try RealmObjectServer.realm.write {
-                RealmObjectServer.realm.add(self, update: true)
+            try realm.write {
+                realm.add(self, update: true)
                 completion(nil)
             }
         } catch {
@@ -52,16 +55,16 @@ extension LocationTarget {
     }
 
     // MARK: - Update `LocationTarget` if it already exists, add it if not.
-    func update(with locationTarget: LocationTarget, completion: @escaping (Error?) -> Void) {
+    public func update(to realm: Realm, with locationTarget: LocationTarget, completion: @escaping (Error?) -> Void) {
 
         do {
-            try RealmObjectServer.realm.write {
+            try realm.write {
                 self.tag = locationTarget.tag
                 self.address = locationTarget.address
                 self.altitude = locationTarget.altitude
                 self.latitude = locationTarget.latitude
                 self.longitude = locationTarget.longitude
-                RealmObjectServer.realm.add(self, update: true)
+                realm.add(self, update: true)
                 completion(nil)
             }
         } catch {
@@ -70,9 +73,9 @@ extension LocationTarget {
         }
     }
 
-    func move(toIndex: Int, completion: @escaping (Error?) -> Void) {
+    public func move(toIndex: Int, with realm: Realm, completion: @escaping (Error?) -> Void) {
         do {
-            try RealmObjectServer.realm.write {
+            try realm.write {
                 completion(nil)
             }
         } catch {
@@ -84,10 +87,10 @@ extension LocationTarget {
 
 
     // MARK: - Delete LocationTarget in Realm DataBase
-    public func deleteFromRealm(completion: @escaping (Error?) -> Void) {
+    public func delete(from realm: Realm, completion: @escaping (Error?) -> Void) {
         do {
-            try RealmObjectServer.realm.write {
-                RealmObjectServer.realm.delete(self)
+            try realm.write {
+                realm.delete(self)
                 completion(nil)
             }
         } catch {

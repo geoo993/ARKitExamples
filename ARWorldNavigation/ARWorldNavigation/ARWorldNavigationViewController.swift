@@ -16,6 +16,7 @@
 // https://stackoverflow.com/questions/47333208/starting-realm-object-server-on-aws-stalls
 // https://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http
 // https://www.youtube.com/watch?v=OYu3bkOyJY8
+// https://docs.realm.io/cloud/ios-todo-app
 
 import UIKit
 import CoreData
@@ -71,43 +72,45 @@ public class ARWorldNavigationViewController: UIViewController {
     let locationManager = CLLocationManager()
     var annotation = MKPointAnnotation()
 
-    var notificationToken: NotificationToken?
+    var realm : Realm!
 
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        do {
-            RealmObjectServer.realm = try Realm()
-        } catch {
-            print("Could not initialise realm")
-        }
-        
     }
 
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if RealmObjectServer.realm != nil {
             //grabData()
-            setup()
+        DispatchQueue.main.async { [unowned self] () in
+
+            self.setupRealm(completion: { [weak self] (realm, error) in
+                guard let this = self else { return }
+                if let realm = realm {
+                    this.realm = realm
+                    print("we have a new realm")
+                    this.setup()
+                }
+
+                if let error = error {
+                    print("Could not initialise realm", error)
+                }
+            })
         }
 
-        //let configuration = ARWorldTrackingConfiguration()
-
-        //sceneView.session.run(configuration)
     }
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showHelperAlertIfNeeded()
     }
- 
+
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         //sceneView.session.pause()
         locationManager.stopUpdatingLocation()
 
-        notificationToken?.invalidate()
     }
     
     private func showHelperAlertIfNeeded() {
@@ -132,11 +135,11 @@ public class ARWorldNavigationViewController: UIViewController {
             let bundle = Bundle.main
             if bundle.object(forInfoDictionaryKey: "NSLocationAlwaysAndWhenInUseUsageDescription") != nil {
                 locationManager.requestAlwaysAuthorization()
-                print("notDetermined but Alway autorization")
+                print("not Determined but Alway autorization")
                 return true
             } else if bundle.object(forInfoDictionaryKey: "NSLocationWhenInUseUsageDescription") != nil {
                 locationManager.requestWhenInUseAuthorization()
-                print("notDetermined but Alway autorization")
+                print("not Determined but Alway autorization")
                 return true
             } else {
                 print("No description provided")
@@ -145,9 +148,47 @@ public class ARWorldNavigationViewController: UIViewController {
         }
     }
 
+    func setupRealm(completion : @escaping (Realm?, Error?) -> Void ) {
+
+        if let user = SyncUser.current {
+            
+            RealmObjectServer.setupRealm(with: user,
+                                         objectTypes: [LocationTarget.self],
+                                         completion: { (realm, error) in
+                completion(realm, nil)
+            })
+        } else {
+
+            let alertController = UIAlertController(title: "Login to Realm Cloud", message: "Supply a nice username!", preferredStyle: .alert)
+
+            alertController.addAction(UIAlertAction(title: "Login",
+                                                    style: .default,
+                                                    handler: { alert -> Void in
+                let textField = alertController.textFields![0] as UITextField
+
+                RealmObjectServer.setupRealm(with: textField.text!,
+                                             isAdmin: true,
+                                             objectTypes: [LocationTarget.self],
+                                             completion: { (realm, error) in
+                    completion(realm, error)
+                })
+
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
+                textField.placeholder = "A Name for your user"
+            })
+
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+
 
     func setup() {
         if ARConfiguration.isSupported {
+            //let configuration = ARWorldTrackingConfiguration()
+            //sceneView.session.run(configuration)
+
             locationManager.delegate = self
 
             if getAutorization() {
@@ -159,7 +200,6 @@ public class ARWorldNavigationViewController: UIViewController {
                 let gesture = UITapGestureRecognizer(target: self, action: #selector(handleMapTap))
                 gesture.numberOfTouchesRequired = 1
                 mapView.addGestureRecognizer(gesture)
-
             }
 
             //setupScene()
@@ -170,38 +210,7 @@ public class ARWorldNavigationViewController: UIViewController {
         }
 
     }
-
-    /*
-    func grabData() {
-        let databaseRef = Database.database().reference()
-        databaseRef.child("locationTargets").observe(.value, with: { (snapShot) in
-            for snap in snapShot.children.allObjects as! [DataSnapshot] {
-                guard let dictionary = snap.value as? [String : AnyObject] else { return }
-                let tag = dictionary["tag"] as! String
-                let address = dictionary["address"] as! String
-                let altitude = dictionary["altitude"] as! Double
-                let longitude = dictionary["longitude"] as! Double
-                let latitude = dictionary["latitude"] as! Double
-
-                print(address, tag, altitude, longitude, latitude)
-                let locationTarget = LocationTarget(tag: tag,
-                                                    address: address,
-                                                    altitude: altitude,
-                                                    longitude: longitude,
-                                                    latitude: latitude)
-
-                do {
-                    try RealmObjectServer.realm.write {
-                        RealmObjectServer.realm.add(locationTarget)
-                    }
-                } catch {
-                    print("Error updating todo item in Realm \(error)")
-                }
-            }
-        })
-    }
-    */
-
+    
     func setupScene() {
         //sceneView.delegate = self
         //sceneView.scene = SCNScene()
@@ -269,28 +278,30 @@ extension ARWorldNavigationViewController {
 
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showLocationsTable" {
-
+            if let destination = segue.destination as? ARSavedLocationsTableViewController {
+                destination.realm = realm
+            }
         }
     }
 }
 
-//MARK: - CoreData SQL DataBase implemetation
+//MARK: - Relam Cloud implemetation
 extension ARWorldNavigationViewController {
 
     // MARK: - Create new LocationTarget for SQL DataBase
     func addLocationTarget(with name : String){
 
-        if navigationController != nil, let location = currentLocation, RealmObjectServer.realm != nil {
+        if navigationController != nil, let location = currentLocation, realm != nil {
 
-            location.reverseGeocode (completion: { [unowned self] (placeMarks, errors) -> Void in
-
+            location.reverseGeocode (completion: { [weak self] (placeMarks, errors) -> Void in
+                guard let this = self else { return }
                 if (errors != nil) {
                     let error = (errors?.localizedDescription ?? "")
                     print("Reverse geocoder failed with error" + error )
                     return
                 } else {
 
-                    if let placemark = placeMarks?.first {
+                    if let placemark = placeMarks?.first, let realm = this.realm {
                         let addresParcer = AddressParser(applePlacemark: placemark)
                         let addressDict = addresParcer.getAddressDictionary()
 
@@ -303,7 +314,16 @@ extension ARWorldNavigationViewController {
                                                             altitude: location.altitude,
                                                             longitude: location.coordinate.latitude,
                                                             latitude: location.coordinate.latitude)
-                        self.add(locationTarget: locationTarget)
+
+                        locationTarget.write(to: realm, completion: { [weak self] (error) in
+                            guard let this2 = self else { return }
+                            if let error = error {
+                                print("could not write to realm:", error)
+                            }
+                            this2.performSegue(withIdentifier: "showLocationsTable", sender: self)
+                            print("item saved")
+                        })
+
                     }
                     else {
                         print("No Placemarks Found, problem with the data received from geocoder")
@@ -312,29 +332,6 @@ extension ARWorldNavigationViewController {
                 }
             })
 
-        }
-    }
-
-    func add( locationTarget item : LocationTarget) {
-        item.writeToRealm (completion: { [unowned self] (error) in
-            self.performSegue(withIdentifier: "showLocationsTable", sender: self)
-            print("item saved")
-        })
-    }
-    func update(locationTarget item : LocationTarget, with other: LocationTarget) {
-        item.update(with: other) { (error) in
-            print("item updated")
-        }
-    }
-
-    // MARK: - Delete all LocationTarget in Realm DataBase
-    func deleteAllTodoItems() {
-        do {
-            try RealmObjectServer.realm.write {
-                RealmObjectServer.realm.deleteAll()
-            }
-        } catch {
-            print("Error deleting all todo items in Realm \(error)")
         }
     }
 
