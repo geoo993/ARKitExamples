@@ -8,6 +8,8 @@
 
 // https://medium.com/journey-of-one-thousand-apps/arkit-and-corelocation-part-one-fc7cb2fa0150
 // https://medium.com/journey-of-one-thousand-apps/arkit-and-corelocation-part-three-98b1d51e2eac
+// https://www.movable-type.co.uk/scripts/latlong.html
+// https://developer.apple.com/documentation/arkit/arconfiguration.worldalignment/2873776-gravityandheading
 // https://stackoverflow.com/questions/43097932/realm-sync-swift-example
 // https://www.youtube.com/watch?v=fwVeP5BLGtA
 // https://www.youtube.com/watch?v=7u9-8e-sSJA
@@ -17,6 +19,36 @@
 // https://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http
 // https://www.youtube.com/watch?v=OYu3bkOyJY8
 // https://docs.realm.io/cloud/ios-todo-app
+
+
+/*
+
+Creating an AR experience depends on being able to construct a coordinate system for placing objects in a virtual 3D world that maps to the real-world position and motion of the device. When you run a session configuration, ARKit creates a scene coordinate system based on the position and orientation of the device; any ARAnchor objects you create or that the AR session detects are positioned relative to that coordinate system.
+
+The position and orientation of the device as of when the session configuration is first run determine the rest of the coordinate system.
+
+ Although, (configuration.worldAlignment = .gravityAndHeading) option fixes the directions of the three coordinate axes to real-world directions, the location of the coordinate system’s origin is still relative to the device, matching the device’s position as of when the session configuration is first run.
+
+ Because ARKit automatically matches SceneKit space to the real world, placing a virtual object such that it appears to maintain a real-world position requires only setting that object’s SceneKit position appropriately.
+ 
+ Matrices are used to transform 3D coordinates. These include:
+ - Rotation (changing orientation)
+ - Scaling (size changes)
+ - Translation (moving position)
+
+
+ Questions
+ - run a new coordinte system by creating a new AR session
+ - make that new coordinatesystem of the new AR session the origin of the current running loop
+ - record the distance away from that origin point in real world coordinate system (altitude, longitude, latitude), as you move the device.
+
+ - calculate the relative bearing (angle) between phone and a target point and display it on screen
+ - then calculate the distance between those two points
+
+
+ GOAL -- TAP ON A LOCATION AND AR SCENE WILL GUID YOU TO THE OBJECT IN THAT LOCATION
+
+ */
 
 import UIKit
 import CoreData
@@ -34,7 +66,6 @@ public class ARWorldNavigationViewController: UIViewController {
         return Bundle(identifier: "com.geo-games.ARWorldNavigationDemo")!
     }
 
-    //@IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var mapView : MKMapView!
     @IBOutlet weak var spanView : UISlider!
     @IBOutlet weak var longitudeLabel : UILabel!
@@ -42,7 +73,7 @@ public class ARWorldNavigationViewController: UIViewController {
     @IBOutlet weak var altitudeLabel : UILabel!
 
     @IBAction func addLocation(_ sender: UIBarButtonItem) {
-
+        
         var textfield = UITextField()
         
         // Create the alert controller
@@ -54,42 +85,59 @@ public class ARWorldNavigationViewController: UIViewController {
             guard let text = textfield.text else { return }
             self.addLocationTarget(with: text)
         }
-        let action2 = UIAlertAction(title: "Cancel", style: .cancel) { action in
+
+        let action2 = UIAlertAction(title: "Saved Locations", style: .default) { [unowned self] action in
+            self.goToSavedLocations()
+        }
+
+        let action3 = UIAlertAction(title: "AR Scene", style: .default) { [unowned self] action in
+            self.goToARScene()
+        }
+
+        let action4 = UIAlertAction(title: "Cancel", style: .cancel) { action in
             print("cancel")
         }
+
         alertController.addTextField { alertTextfield in
             alertTextfield.placeholder = "Add name of this location"
             textfield = alertTextfield
         }
+
         alertController.addAction(action1)
         alertController.addAction(action2)
+        alertController.addAction(action3)
+        alertController.addAction(action4)
 
         present(alertController, animated: true, completion: nil)
+
     }
 
-    let worldCenter = CLLocation(latitude: 0, longitude: 0)
+    var isOriginSet: Bool = false
+    var originLocation: CLLocation?
     var currentLocation: CLLocation?
     let locationManager = CLLocationManager()
-    var annotation = MKPointAnnotation()
+    var steps: [MKRouteStep] = []
+    var annotations: [POIAnnotation] = []
+    var annotationColor = UIColor.random
+    var sourceAnnotation = MKPointAnnotation()
+    var destinationAnnotation = MKPointAnnotation()
+    var overlays = [MKOverlay]()
 
     var realm : Realm!
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-            //grabData()
         DispatchQueue.main.async { [unowned self] () in
 
             self.setupRealm(completion: { [weak self] (realm, error) in
                 guard let this = self else { return }
                 if let realm = realm {
                     this.realm = realm
-                    print("we have a new realm")
                     this.setup()
                 }
 
@@ -119,7 +167,6 @@ public class ARWorldNavigationViewController: UIViewController {
             let alert = UIAlertController(title: title, message: "Tap on camera button to see places of interest, then select a place of interest to get more info.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
             UserDefaults.standard.set(true, forKey: key)
         }
     }
@@ -151,7 +198,6 @@ public class ARWorldNavigationViewController: UIViewController {
     func setupRealm(completion : @escaping (Realm?, Error?) -> Void ) {
 
         if let user = SyncUser.current {
-            
             RealmObjectServer.setupRealm(with: user,
                                          objectTypes: [LocationTarget.self],
                                          completion: { (realm, error) in
@@ -185,36 +231,17 @@ public class ARWorldNavigationViewController: UIViewController {
 
 
     func setup() {
+
         if ARConfiguration.isSupported {
-            //let configuration = ARWorldTrackingConfiguration()
-            //sceneView.session.run(configuration)
-
-            locationManager.delegate = self
-
             if getAutorization() {
                 setupMapView()
-
-                //update(location: worldCenter)
-                getLocation()
-
-                let gesture = UITapGestureRecognizer(target: self, action: #selector(handleMapTap))
-                gesture.numberOfTouchesRequired = 1
-                mapView.addGestureRecognizer(gesture)
+                setupLocationManager()
             }
-
-            //setupScene()
-
         } else {
             print("ARKit is not compatible with this phone.")
             return
         }
 
-    }
-    
-    func setupScene() {
-        //sceneView.delegate = self
-        //sceneView.scene = SCNScene()
-        //sceneView.session.delegate = self
     }
 
     func setupMapView() {
@@ -222,52 +249,150 @@ public class ARWorldNavigationViewController: UIViewController {
         mapView.showsScale = true
         mapView.showsPointsOfInterest = true
         mapView.showsUserLocation = true
+
+        addTapGesture()
     }
 
-    func getLocation () {
+    func setupLocationManager() {
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.stopUpdatingLocation()
         locationManager.startUpdatingLocation()
     }
 
-    func annotateMap(with name : String, location2D: CLLocationCoordinate2D) {
+    func addTapGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleMapTap))
+        gesture.numberOfTouchesRequired = 1
+        gesture.numberOfTapsRequired = 1
+        mapView.addGestureRecognizer(gesture)
+    }
+
+    func annotateMap(with annotation: MKPointAnnotation, name : String, location2D: CLLocationCoordinate2D) {
         annotation.title = name
+        annotation.subtitle = "AR World Navigation"
         annotation.coordinate = location2D
         mapView.addAnnotation(annotation)
-        //mapView.showAnnotations([annotation], animated: true)
+        mapView.showAnnotations([annotation], animated: true)
     }
 
     func update(location: CLLocation) {
-        currentLocation = location
         let spanValue = CLLocationDegrees(spanView.value)
         let span : MKCoordinateSpan = MKCoordinateSpanMake(spanValue,spanValue)
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         let altitude = location.altitude
-        let translation = worldCenter.translation(to: location)
         let locationPinCoordinate = CLLocationCoordinate2DMake(latitude, longitude)
         let region = MKCoordinateRegionMake(locationPinCoordinate, span)
-        mapView.setRegion(region, animated: true)
-        //let placeMark = MKPlacemark(coordinate: locationPinCoordinate)
 
-        annotateMap(with: "", location2D: locationPinCoordinate)
+        if currentLocation == nil {
+            mapView.setRegion(region, animated: true)
+            //let placeMark = MKPlacemark(coordinate: locationPinCoordinate)
+        }
 
+        currentLocation = location
+
+        annotateMap(with: sourceAnnotation, name: "", location2D: locationPinCoordinate)
+
+        /*
         print("latitude",latitude,
-              ", latitude trans", translation.latitudeTranslation,
-              ", longitude",longitude,
-              ", longitude trans",translation.longitudeTranslation,
-              ", altitude",altitude,
-              ", altitude trans",translation.altitudeTranslation,
-              ", speed", location.speed)
+              ",\nlatitude trans", translation.latitudeTranslation,
+              ",\nlongitude",longitude,
+              ",\nlongitude trans",translation.longitudeTranslation,
+              ",\naltitude",altitude,
+              ",\naltitude trans",translation.altitudeTranslation,
+              ",\nspeed", location.speed)
+        */
 
+        if let origin = originLocation {
+//            let distance = CLLocationCoordinate2D
+//                .intermediaryLocations(from: origin,
+//                                       to: location,
+//                                       intervalPerNodeInMeters: 0)
+            let haversine = origin.coordinate.haversine(to: location.coordinate)
+            let distanceEarth = origin.coordinate.distanceEarth(to: location.coordinate)
+            let translation = origin.translation(to: location)
+            print("\norigin lat", origin.coordinate.latitude,
+                  "origin long", origin.coordinate.longitude,
+                  "origin alt", origin.altitude,
+                  "origin lat", location.coordinate.latitude,
+                  "origin long", location.coordinate.longitude,
+                  "origin alt", location.altitude,
+                  "haversine", haversine,
+                  "distance earth", distanceEarth,
+                  "translation lat", translation.latitudeTranslation,
+                  "translation long", translation.longitudeTranslation,
+                  "translation alt", translation.altitudeTranslation)
+        }
         DispatchQueue.main.async { [unowned self] () in
             self.longitudeLabel.text = "longitude: \(longitude)"
             self.latitudeLabel.text = "latitude: \(latitude)"
             self.altitudeLabel.text = "altitude: \(altitude)"
         }
+
     }
 
-    
+    func updateRoute(from current: CLLocation,
+                     to destination: CLLocation,
+                     transportType: MKDirectionsTransportType) {
+
+        let sourceCoordinates2D = CLLocationCoordinate2DMake(current.coordinate.latitude,
+                                                             current.coordinate.longitude)
+        annotateMap(with: sourceAnnotation, name: "current", location2D: sourceCoordinates2D)
+
+        let destinationCoordinates2D = CLLocationCoordinate2DMake(destination.coordinate.latitude,
+                                                                  destination.coordinate.longitude)
+        annotateMap(with: destinationAnnotation, name:"destination", location2D: destinationCoordinates2D)
+
+        let directionRequest = MKDirectionsRequest()
+
+        NavigationService
+            .getDirections(from: sourceCoordinates2D,
+                           to: destinationCoordinates2D,
+                           request: directionRequest,
+                           transportType: transportType)
+            { [weak self] (route, steps) in
+                guard let this = self else { return }
+
+                this.steps.removeAll()
+                this.annotations.removeAll()
+                for step in steps {
+                    this.steps.append(step)
+                    let annotation = POIAnnotation(coordinate: step.location.coordinate, name: "N " + step.instructions)
+                    this.annotations.append(annotation)
+                }
+                this.steps.append(contentsOf: steps)
+
+                this.addCircleAnnotations(with: this.annotations)
+                //this.addLineAnnotations(with: route)
+        }
+
+    }
+
+    func addLineAnnotations(with route: MKRoute) {
+        annotationColor = .random
+
+        let rect = route.polyline.boundingMapRect
+        let region = MKCoordinateRegionForMapRect(rect)
+        mapView.setRegion(region, animated: true)
+        mapView.add(route.polyline, level: .aboveRoads)
+    }
+
+    func addCircleAnnotations(with annotations: [POIAnnotation]) {
+        annotationColor = .random
+        mapView.removeOverlays(overlays)
+
+        DispatchQueue.main.async { [weak self] () in
+            annotations.forEach { annotation in
+            // Step annotations are green, intermediary are blue
+                guard let this = self else { return }
+                //self.mapView?.addAnnotation(annotation)
+                let circleOverlay = MKCircle(center: annotation.coordinate, radius: 0.2)
+                this.mapView.add(circleOverlay)
+                this.overlays.append(circleOverlay)
+            }
+        }
+    }
+
     deinit {
         print("AR World Navigation deinit")
     }
@@ -277,10 +402,21 @@ public class ARWorldNavigationViewController: UIViewController {
 extension ARWorldNavigationViewController {
 
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showLocationsTable" {
-            if let destination = segue.destination as? ARSavedLocationsTableViewController {
-                destination.realm = realm
+        guard let segueIdentifier = segue.identifier else { return }
+        switch segueIdentifier {
+        case "showLocationsTable":
+            let destination = segue.destination as! ARSavedLocationsTableViewController
+            destination.realm = realm
+        case "showARScene":
+            let locationTargets =  realm.objects(LocationTarget.self)
+            let destination = segue.destination as! ARLocationTargetsViewController
+            if let originLocation = locationTargets.first(where: { $0.isOrigin == true }) {
+                let locations = locationTargets.filter({ $0.isOrigin != true })
+                destination.originLocation = originLocation.toLocation
+                destination.locations = locations.map({ $0.toLocation })
             }
+        default:
+            break
         }
     }
 }
@@ -305,22 +441,27 @@ extension ARWorldNavigationViewController {
                         let addresParcer = AddressParser(applePlacemark: placemark)
                         let addressDict = addresParcer.getAddressDictionary()
 
-                        //let streetName =  addressDict.object(forKey: "streetName") as? NSString ?? ""
                         let address = addressDict.object(forKey: "formattedAddress") as? NSString ?? ""
                         print(address)
 
                         let locationTarget = LocationTarget(tag: name,
                                                             address: String(address),
                                                             altitude: location.altitude,
-                                                            longitude: location.coordinate.latitude,
-                                                            latitude: location.coordinate.latitude)
+                                                            longitude: location.coordinate.longitude,
+                                                            latitude: location.coordinate.latitude,
+                                                            horizontalAccuracy: location.horizontalAccuracy,
+                                                            verticalAccuracy: location.verticalAccuracy,
+                                                            course: location.course,
+                                                            speed: location.speed,
+                                                            timestamp: location.timestamp,
+                                                            isOrigin: false)
 
                         locationTarget.write(to: realm, completion: { [weak self] (error) in
-                            guard let this2 = self else { return }
+                            guard let this = self else { return }
                             if let error = error {
                                 print("could not write to realm:", error)
                             }
-                            this2.performSegue(withIdentifier: "showLocationsTable", sender: self)
+                            this.performSegue(withIdentifier: "showLocationsTable", sender: self)
                             print("item saved")
                         })
 
@@ -332,6 +473,18 @@ extension ARWorldNavigationViewController {
                 }
             })
 
+        }
+    }
+
+    func goToSavedLocations(){
+        if navigationController != nil {
+            performSegue(withIdentifier: "showLocationsTable", sender: self)
+        }
+    }
+
+    func goToARScene(){
+        if navigationController != nil {
+            performSegue(withIdentifier: "showARScene", sender: self)
         }
     }
 
@@ -348,45 +501,12 @@ extension ARWorldNavigationViewController {
             // Convert map tap point to coordinate
             let coord: CLLocationCoordinate2D = map.convert(touchPoint, toCoordinateFrom: mapView)
             let location = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
-            update(location: location)
+            //update(location: location)
+            if let current = currentLocation {
+                updateRoute(from: current, to: location, transportType: .walking)
+            }
         }
     }
-
-}
-
-// MARK: - ARSCNViewDelegate
-extension ARWorldNavigationViewController : ARSCNViewDelegate {
-    
-    /*
-     // Override to create and configure nodes for anchors added to the view's session.
-     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-     let node = SCNNode()
-     
-     return node
-     }
-     */
-    
-    public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-     
-    }
-    
-    public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-      
-    }
-    
-    public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-     
-    }
-    
-    public func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        
-    }
-    
-}
-
-// MARK: - ARSessionDelegate
-extension ARWorldNavigationViewController : ARSessionDelegate {
-    
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -394,13 +514,17 @@ extension ARWorldNavigationViewController: CLLocationManagerDelegate {
 
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
+            if isOriginSet == false {
+                originLocation = location
+                isOriginSet = true
+            }
             update(location: location)
         }
     }
 
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status != .notDetermined || status != .denied || status != .restricted {
-            getLocation()
+            setupLocationManager()
         }
     }
 }
@@ -408,5 +532,20 @@ extension ARWorldNavigationViewController: CLLocationManagerDelegate {
 // MARK: - CLLocationManagerDelegate
 extension ARWorldNavigationViewController: MKMapViewDelegate {
 
+    public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+
+        let overlayRenderer: MKOverlayPathRenderer
+        if overlay is MKCircle {
+            overlayRenderer = MKCircleRenderer(overlay: overlay)
+        } else {
+            overlayRenderer = MKPolylineRenderer(overlay: overlay)
+        }
+
+        overlayRenderer.fillColor = UIColor.black.withAlphaComponent(0.1)
+        overlayRenderer.strokeColor = annotationColor
+        overlayRenderer.lineWidth = 4
+
+        return overlayRenderer
+    }
 }
 

@@ -28,7 +28,7 @@ public class ARSavedLocationsTableViewController: UITableViewController {
         isEditing = !isEditing
     }
 
-    var realm : Realm?
+    weak var realm : Realm!
     var notificationToken: NotificationToken?
     var locationTargets: Results<LocationTarget>! {
         get {
@@ -75,33 +75,16 @@ public class ARSavedLocationsTableViewController: UITableViewController {
         }
     }
 
-
     // MARK: - LocationTarget in Realm DataBase
     func move(locationTarget item: LocationTarget, toIndex: Int) {
 
     }
 
     func update(locationTarget item : LocationTarget, with other: LocationTarget) {
-        if let realm = realm {
-            item.update(to: realm, with: other) { (error) in
-                print("item updated")
-            }
+        item.update(to: realm, with: other) { (error) in
+            print("item updated")
         }
     }
-
-    // MARK: - Delete all LocationTarget in Realm DataBase
-    func deleteAllTodoItems() {
-        if let realm = realm {
-            do {
-                try realm.write {
-                    realm.deleteAll()
-                }
-            } catch {
-                print("Error deleting all todo items in Realm \(error)")
-            }
-        }
-    }
-
 
     // MARK: - Table view data source
 
@@ -115,14 +98,13 @@ public class ARSavedLocationsTableViewController: UITableViewController {
         return locationTargets.count
     }
 
-
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath) as? ARSavedLocaionCell else {
             return UITableViewCell()
         }
         let location = locationTargets[indexPath.row]
-        cell.setLoaction(with: location)
-
+        cell.setLocation(with: location)
+        cell.accessoryType = location.isOrigin ? .checkmark : .none
         return cell
     }
 
@@ -135,7 +117,7 @@ public class ARSavedLocationsTableViewController: UITableViewController {
 
     // Override to support editing the table view.
     override public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete, let realm = self.realm {
+        if editingStyle == .delete {
             let locationTarget = locationTargets[indexPath.row]
             locationTarget.delete(from: realm, completion: { (error) in
                 print("item deleted")
@@ -162,7 +144,11 @@ public class ARSavedLocationsTableViewController: UITableViewController {
         //tableData.insert(locationToMove, atIndex: toIndexPath.row)
     }
 
+    override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        let locationTarget = locationTargets[indexPath.row]
+        LocationTarget.updateOrigin(of: locationTarget, in: locationTargets, with: realm)
+    }
 
     /*
     // MARK: - Navigation
@@ -174,11 +160,9 @@ public class ARSavedLocationsTableViewController: UITableViewController {
     }
     */
 
-    
-
     deinit {
         notificationToken?.invalidate()
-        print("AR Locations deinit")
+        print("AR Saved Locations deinit")
     }
     
 }

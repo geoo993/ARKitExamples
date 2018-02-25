@@ -16,7 +16,7 @@ import SceneKit
 
 extension matrix_float4x4 {
     
-    public func position() -> SCNVector3 {
+    public var position: SCNVector3 {
         
         //    column 0  column 1  column 2  column 3
         //         1        0         0       X       

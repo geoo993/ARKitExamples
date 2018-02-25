@@ -41,7 +41,7 @@ public class ARHoopsViewController: UIViewController {
         // Set the view's delegate
         sceneView.delegate = self
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showFeaturePoints]
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         sceneView.autoenablesDefaultLighting = true
 

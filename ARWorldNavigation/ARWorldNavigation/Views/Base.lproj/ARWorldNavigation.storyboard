@@ -32,17 +32,17 @@
             <objects>
                 <viewController storyboardIdentifier="ARWorldNavigationViewController" id="zKK-TC-Kgr" customClass="ARWorldNavigationViewController" customModule="ARWorldNavigationDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bH7-Oo-uly">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tzI-qL-Lxb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                             </mapView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.050000000000000003" minValue="0.0" maxValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="mWQ-VL-rrf">
-                                <rect key="frame" x="35.5" y="0.0" width="304" height="31"/>
+                                <rect key="frame" x="35.5" y="116" width="304" height="31"/>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="D1T-eQ-GRb">
-                                <rect key="frame" x="37" y="40" width="300" height="58"/>
+                                <rect key="frame" x="37" y="156" width="300" height="58"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitute" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="c25-Dy-JqJ">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="18"/>
@@ -87,7 +87,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="altitudeLabel" destination="V0q-Jj-fc8" id="IvS-Qq-mXX"/>
                         <outlet property="latitudeLabel" destination="75i-GG-9SY" id="dhA-jd-q8v"/>
@@ -95,34 +94,49 @@
                         <outlet property="mapView" destination="tzI-qL-Lxb" id="kfs-Gp-Rbt"/>
                         <outlet property="spanView" destination="mWQ-VL-rrf" id="cSU-Oz-IfI"/>
                         <segue destination="nEF-eI-sp3" kind="show" identifier="showLocationsTable" id="FB3-FD-17U"/>
+                        <segue destination="jvU-GC-GlT" kind="show" identifier="showARScene" id="fAY-Mv-9wI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ThN-BZ-oUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-274.39999999999998" y="123.68815592203899"/>
         </scene>
-        <!--Welcome View Controller-->
+        <!--Targets-->
         <scene sceneID="rtG-PZ-0Fj">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" id="jvU-GC-GlT" customClass="WelcomeViewController" customModule="ARWorldNavigationDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARLocationTargetsViewController" id="jvU-GC-GlT" customClass="ARLocationTargetsViewController" customModule="ARWorldNavigationDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s3F-DG-thu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBD-03-KfF">
+                                <rect key="frame" x="-0.5" y="58" width="375" height="667"/>
+                            </arscnView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hBD-03-KfF" firstAttribute="centerX" secondItem="v9M-Rp-J3V" secondAttribute="centerX" id="1iu-Gf-ozK"/>
+                            <constraint firstItem="hBD-03-KfF" firstAttribute="centerY" secondItem="v9M-Rp-J3V" secondAttribute="centerY" id="Oaw-Rp-XfQ"/>
+                            <constraint firstItem="hBD-03-KfF" firstAttribute="height" secondItem="s3F-DG-thu" secondAttribute="height" id="XOx-Ib-nLD"/>
+                            <constraint firstItem="hBD-03-KfF" firstAttribute="width" secondItem="s3F-DG-thu" secondAttribute="width" id="slb-NR-rjE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="v9M-Rp-J3V"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pii-Mc-pPl"/>
+                    <navigationItem key="navigationItem" title="Targets" id="pii-Mc-pPl"/>
+                    <connections>
+                        <outlet property="sceneView" destination="hBD-03-KfF" id="oRG-4j-IbO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7o-bS-REI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1418" y="885"/>
+            <point key="canvasLocation" x="-274" y="944"/>
         </scene>
         <!--Saved Locations-->
         <scene sceneID="CpM-Hj-4Z1">
             <objects>
                 <tableViewController storyboardIdentifier="ARSavedLocationsTableViewController" id="nEF-eI-sp3" customClass="ARSavedLocationsTableViewController" customModule="ARWorldNavigationDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EfB-lc-RVf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -232,7 +246,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ybM-me-Jl2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="9gI-Wr-cvG">

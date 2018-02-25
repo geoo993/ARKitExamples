@@ -6,8 +6,6 @@
 //  Copyright © 2018 LEXI LABS. All rights reserved.
 //
 
-import Foundation
-
 public extension UIDevice {
     
     /// pares the deveice name as the standard name

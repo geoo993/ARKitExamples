@@ -22,7 +22,7 @@ public class ARSavedLocaionCell: UITableViewCell {
         return _location
     }
 
-    public func setLoaction(with location: LocationTarget) {
+    public func setLocation(with location: LocationTarget) {
         _location = location
         tagLabel.text = location.tag
         addressLabel.text = location.address

@@ -40,7 +40,7 @@ public class ARShooterViewController: UIViewController {
         
         sceneView.scene.physicsWorld.contactDelegate = self
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showFeaturePoints]
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         sceneView.autoenablesDefaultLighting = true
         
