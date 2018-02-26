@@ -127,7 +127,7 @@ public extension Array where Array.Iterator.Element: Hashable {
         return tempList
     }
 
-    public func numberOfOccurrences() -> [Element: Int] {
+    public func elementFrequencyCounter() -> [Element: Int] {
         return reduce([:]) { (accu: [Element: Int], element) in
             var accu = accu
             accu[element] = accu[element]?.advanced(by: 1) ?? 1

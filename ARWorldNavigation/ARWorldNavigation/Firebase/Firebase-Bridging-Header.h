@@ -1,3 +1,3 @@
 // https://github.com/soheilbm/Firebase
-//#import "Firebase.h"
+#import "Firebase.h"
 

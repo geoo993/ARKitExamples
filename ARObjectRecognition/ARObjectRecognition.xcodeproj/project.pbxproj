@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C72C6528204432C300BD7A8B /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72C6526204432C300BD7A8B /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C72C652A204432CE00BD7A8B /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72C6526204432C300BD7A8B /* AppCore.framework */; };
+		C72E6A1520439092001901AE /* ARObjectRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C784AF8F20438982000376F0 /* ARObjectRecognitionViewController.swift */; };
+		C784AF8C20438982000376F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C784AF8B20438982000376F0 /* AppDelegate.swift */; };
+		C784AF9820438982000376F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C784AF9620438982000376F0 /* LaunchScreen.storyboard */; };
+		C784AFA820438B03000376F0 /* ARObjectRecognitionDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C784AFA620438B03000376F0 /* ARObjectRecognitionDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C784AFAB20438B03000376F0 /* ARObjectRecognitionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C784AFA420438B03000376F0 /* ARObjectRecognitionDemo.framework */; };
+		C784AFAC20438B03000376F0 /* ARObjectRecognitionDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C784AFA420438B03000376F0 /* ARObjectRecognitionDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C784AFB320438B9A000376F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C784AF9420438982000376F0 /* Assets.xcassets */; };
+		C784AFB420438BA1000376F0 /* ARObjectRecognition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C784AF9120438982000376F0 /* ARObjectRecognition.storyboard */; };
+		C7BB2BA520441901004D7B62 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C784AFB520438C29000376F0 /* Inceptionv3.mlmodel */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C784AFA920438B03000376F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C784AF8020438982000376F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C784AFA320438B03000376F0;
+			remoteInfo = ARObjectRecognitionDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C784AFB020438B03000376F0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C784AFAC20438B03000376F0 /* ARObjectRecognitionDemo.framework in Embed Frameworks */,
+				C72C6528204432C300BD7A8B /* AppCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C72C6526204432C300BD7A8B /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C784AF8820438982000376F0 /* ARObjectRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARObjectRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C784AF8B20438982000376F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C784AF8F20438982000376F0 /* ARObjectRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARObjectRecognitionViewController.swift; sourceTree = "<group>"; };
+		C784AF9220438982000376F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARObjectRecognition.storyboard; sourceTree = "<group>"; };
+		C784AF9420438982000376F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C784AF9720438982000376F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C784AF9920438982000376F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C784AFA420438B03000376F0 /* ARObjectRecognitionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARObjectRecognitionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C784AFA620438B03000376F0 /* ARObjectRecognitionDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARObjectRecognitionDemo.h; sourceTree = "<group>"; };
+		C784AFA720438B03000376F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C784AFB520438C29000376F0 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
+		C7BB2B9D20441331004D7B62 /* Inceptionv3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Inceptionv3-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C784AF8520438982000376F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C784AFAB20438B03000376F0 /* ARObjectRecognitionDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C784AFA020438B03000376F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C72C652A204432CE00BD7A8B /* AppCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C72C6529204432CE00BD7A8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C784AF7F20438982000376F0 = {
+			isa = PBXGroup;
+			children = (
+				C72C6526204432C300BD7A8B /* AppCore.framework */,
+				C784AF8A20438982000376F0 /* ARObjectRecognition */,
+				C784AFA520438B03000376F0 /* ARObjectRecognitionDemo */,
+				C784AF8920438982000376F0 /* Products */,
+				C72C6529204432CE00BD7A8B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C784AF8920438982000376F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C784AF8820438982000376F0 /* ARObjectRecognition.app */,
+				C784AFA420438B03000376F0 /* ARObjectRecognitionDemo.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C784AF8A20438982000376F0 /* ARObjectRecognition */ = {
+			isa = PBXGroup;
+			children = (
+				C784AFB120438B5D000376F0 /* CoreMLModels */,
+				C784AF8B20438982000376F0 /* AppDelegate.swift */,
+				C784AF8F20438982000376F0 /* ARObjectRecognitionViewController.swift */,
+				C784AF9120438982000376F0 /* ARObjectRecognition.storyboard */,
+				C784AF9420438982000376F0 /* Assets.xcassets */,
+				C784AF9620438982000376F0 /* LaunchScreen.storyboard */,
+				C784AF9920438982000376F0 /* Info.plist */,
+			);
+			path = ARObjectRecognition;
+			sourceTree = "<group>";
+		};
+		C784AFA520438B03000376F0 /* ARObjectRecognitionDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C784AFA620438B03000376F0 /* ARObjectRecognitionDemo.h */,
+				C784AFA720438B03000376F0 /* Info.plist */,
+			);
+			path = ARObjectRecognitionDemo;
+			sourceTree = "<group>";
+		};
+		C784AFB120438B5D000376F0 /* CoreMLModels */ = {
+			isa = PBXGroup;
+			children = (
+				C784AFB520438C29000376F0 /* Inceptionv3.mlmodel */,
+				C7BB2B9D20441331004D7B62 /* Inceptionv3-Bridging-Header.h */,
+			);
+			path = CoreMLModels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C784AFA120438B03000376F0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C784AFA820438B03000376F0 /* ARObjectRecognitionDemo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C784AF8720438982000376F0 /* ARObjectRecognition */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C784AF9C20438982000376F0 /* Build configuration list for PBXNativeTarget "ARObjectRecognition" */;
+			buildPhases = (
+				C784AF8420438982000376F0 /* Sources */,
+				C784AF8520438982000376F0 /* Frameworks */,
+				C784AF8620438982000376F0 /* Resources */,
+				C784AFB020438B03000376F0 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C784AFAA20438B03000376F0 /* PBXTargetDependency */,
+			);
+			name = ARObjectRecognition;
+			productName = ARObjectRecognition;
+			productReference = C784AF8820438982000376F0 /* ARObjectRecognition.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C784AFA320438B03000376F0 /* ARObjectRecognitionDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C784AFAD20438B03000376F0 /* Build configuration list for PBXNativeTarget "ARObjectRecognitionDemo" */;
+			buildPhases = (
+				C784AF9F20438B03000376F0 /* Sources */,
+				C784AFA020438B03000376F0 /* Frameworks */,
+				C784AFA120438B03000376F0 /* Headers */,
+				C784AFA220438B03000376F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARObjectRecognitionDemo;
+			productName = ARObjectRecognitionDemo;
+			productReference = C784AFA420438B03000376F0 /* ARObjectRecognitionDemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C784AF8020438982000376F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Geo Games";
+				TargetAttributes = {
+					C784AF8720438982000376F0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					C784AFA320438B03000376F0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C784AF8320438982000376F0 /* Build configuration list for PBXProject "ARObjectRecognition" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C784AF7F20438982000376F0;
+			productRefGroup = C784AF8920438982000376F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C784AF8720438982000376F0 /* ARObjectRecognition */,
+				C784AFA320438B03000376F0 /* ARObjectRecognitionDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C784AF8620438982000376F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C784AF9820438982000376F0 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C784AFA220438B03000376F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C784AFB420438BA1000376F0 /* ARObjectRecognition.storyboard in Resources */,
+				C784AFB320438B9A000376F0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C784AF8420438982000376F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C784AF8C20438982000376F0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C784AF9F20438B03000376F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C72E6A1520439092001901AE /* ARObjectRecognitionViewController.swift in Sources */,
+				C7BB2BA520441901004D7B62 /* Inceptionv3.mlmodel in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C784AFAA20438B03000376F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C784AFA320438B03000376F0 /* ARObjectRecognitionDemo */;
+			targetProxy = C784AFA920438B03000376F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C784AF9120438982000376F0 /* ARObjectRecognition.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C784AF9220438982000376F0 /* Base */,
+			);
+			name = ARObjectRecognition.storyboard;
+			sourceTree = "<group>";
+		};
+		C784AF9620438982000376F0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C784AF9720438982000376F0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C784AF9A20438982000376F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C784AF9B20438982000376F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C784AF9D20438982000376F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COREML_CODEGEN_LANGUAGE = Swift;
+				DEVELOPMENT_TEAM = U28DQFZA3Z;
+				INFOPLIST_FILE = ARObjectRecognition/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARObjectRecognition";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C784AF9E20438982000376F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COREML_CODEGEN_LANGUAGE = Swift;
+				DEVELOPMENT_TEAM = U28DQFZA3Z;
+				INFOPLIST_FILE = ARObjectRecognition/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARObjectRecognition";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C784AFAE20438B03000376F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COREML_CODEGEN_LANGUAGE = Swift;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ARObjectRecognitionDemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARObjectRecognitionDemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C784AFAF20438B03000376F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COREML_CODEGEN_LANGUAGE = Swift;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ARObjectRecognitionDemo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARObjectRecognitionDemo";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C784AF8320438982000376F0 /* Build configuration list for PBXProject "ARObjectRecognition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C784AF9A20438982000376F0 /* Debug */,
+				C784AF9B20438982000376F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C784AF9C20438982000376F0 /* Build configuration list for PBXNativeTarget "ARObjectRecognition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C784AF9D20438982000376F0 /* Debug */,
+				C784AF9E20438982000376F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C784AFAD20438B03000376F0 /* Build configuration list for PBXNativeTarget "ARObjectRecognitionDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C784AFAE20438B03000376F0 /* Debug */,
+				C784AFAF20438B03000376F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C784AF8020438982000376F0 /* Project object */;
+}

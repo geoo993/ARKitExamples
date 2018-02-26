@@ -26,6 +26,7 @@ import ARDancingDemo
 import ARHomeDemo
 import ARPlacesDemo
 import ARWorldNavigationDemo
+import ARObjectRecognitionDemo
 
 private let CellIdentifier = "tableCell"
 
@@ -130,7 +131,11 @@ public class ARDemosViewController: UITableViewController {
             Option(title: "AR World Navigation", 
                    name: "ARWorldNavigationViewController",
                    bundle: ARWorldNavigationViewController.bundle,
-                   storyBoard: "ARWorldNavigation")
+                   storyBoard: "ARWorldNavigation"),
+            Option(title: "AR Object Recognition",
+                   name: "ARObjectRecognitionViewController",
+                   bundle: ARObjectRecognitionViewController.bundle,
+                   storyBoard: "ARObjectRecognition")
         ]
         
         updateNavBar(with: selectedColor)

@@ -15,6 +15,7 @@
 		C7830AF12027A4ED00FD2FE6 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7830AF32027A4F600FD2FE6 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */; };
 		C7830B282027D23100FD2FE6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7830B272027D23100FD2FE6 /* art.scnassets */; };
+		C784AF4020438437000376F0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C784AF3F20438437000376F0 /* Default-568h@2x.png */; };
 		C7AF0A60203DD1CA0092A634 /* LocationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A5C203DD1C70092A634 /* LocationTarget.swift */; };
 		C7AF0A61203DD1CC0092A634 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A5D203DD1C70092A634 /* Item.swift */; };
 		C7AF0A65203E05290092A634 /* GrabData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A64203E05290092A634 /* GrabData.swift */; };
@@ -23,7 +24,6 @@
 		C7C5FBAF2030BA5200C08CCF /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C70914FA202FB68A008FA873 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7DAAB472042F8A300325DB9 /* LocationTargetNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DAAB452042F88500325DB9 /* LocationTargetNode.swift */; };
 		C7DAAB492042F8DE00325DB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830ACB2027A4A500FD2FE6 /* AppDelegate.swift */; };
-		C7DAAB4D20436C5600325DB9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7DAAB4C20436C5600325DB9 /* Default-568h@2x.png */; };
 		C7FC7EFA2032FA9500D41511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7830AD22027A4A500FD2FE6 /* Assets.xcassets */; };
 		C7FC7EFB2032FA9B00D41511 /* ARWorldNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7830ACF2027A4A500FD2FE6 /* ARWorldNavigation.storyboard */; };
 		C7FC7EFC2032FA9F00D41511 /* ARSavedLocaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774752A20326C5B000A2F4C /* ARSavedLocaionCell.swift */; };
@@ -67,13 +67,13 @@
 		C7830AE52027A4D400FD2FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7830B272027D23100FD2FE6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		C784AF3F20438437000376F0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C7AF0A5C203DD1C70092A634 /* LocationTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTarget.swift; sourceTree = "<group>"; };
 		C7AF0A5D203DD1C70092A634 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C7AF0A64203E05290092A634 /* GrabData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrabData.swift; sourceTree = "<group>"; };
 		C7BD1568202F8D2D00FF8D00 /* ARSavedLocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSavedLocationsTableViewController.swift; sourceTree = "<group>"; };
 		C7BD157B202FA24E00FF8D00 /* LocationTarget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationTarget.xcdatamodel; sourceTree = "<group>"; };
 		C7DAAB452042F88500325DB9 /* LocationTargetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTargetNode.swift; sourceTree = "<group>"; };
-		C7DAAB4C20436C5600325DB9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 		C7830ABF2027A4A500FD2FE6 = {
 			isa = PBXGroup;
 			children = (
-				C7DAAB4C20436C5600325DB9 /* Default-568h@2x.png */,
+				C784AF3F20438437000376F0 /* Default-568h@2x.png */,
 				C7091507202FBE49008FA873 /* Realm.framework */,
 				C70914FA202FB68A008FA873 /* RealmSwift.framework */,
 				C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */,
@@ -305,7 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7830AD62027A4A500FD2FE6 /* LaunchScreen.storyboard in Resources */,
-				C7DAAB4D20436C5600325DB9 /* Default-568h@2x.png in Resources */,
+				C784AF4020438437000376F0 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +484,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = ARWorldNavigation/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ARWorldNavigationDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARWorldNavigation";
@@ -505,7 +505,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = ARWorldNavigation/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ARWorldNavigationDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARWorldNavigation";
@@ -532,6 +532,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARWorldNavigationDemo";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -555,6 +556,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARWorldNavigationDemo";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

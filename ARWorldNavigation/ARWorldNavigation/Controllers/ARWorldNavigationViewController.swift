@@ -58,6 +58,7 @@ import ARKit
 import SceneKit
 import AppCore
 import RealmSwift
+import AppServices
 //import Firebase
 
 public class ARWorldNavigationViewController: UIViewController {

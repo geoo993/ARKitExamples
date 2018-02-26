@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ARObjectRecognition/ARObjectRecognition.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AppServices/AppServices.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ARWorldNavigation/ARWorldNavigation.xcodeproj">
    </FileRef>
    <FileRef

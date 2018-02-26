@@ -62,7 +62,6 @@ public extension String {
     }
     
     private func tokenizeIndexRanges(option: CFOptionFlags) -> [Range<String.Index>] {
-        
         return tokenizeRanges(option: option).flatMap { self.range(fromCountableRange: $0) }
     }
    
@@ -98,6 +97,41 @@ public extension String {
         return self[regexIncludingSpecialCharactersWithinWords]
             .ranges()
             .map { $0.location ..< ($0.location + $0.length) }
+    }
+
+    public func toWordsFromRegexIncludingSpecialCharactersWithinWordsAndPunctuations() -> [String] {
+        return self[regexIncludingSpecialCharactersWithinWordsAndPunctuations]
+            .matches()
+    }
+
+    public func toNSRangesFromRegexIncludingSpecialCharactersWithinWordsAndPunctuations() -> [NSRange] {
+        return self[regexIncludingSpecialCharactersWithinWordsAndPunctuations]
+            .ranges()
+    }
+
+    public func toRangesFromRegexIncludingSpecialCharactersWithinWordsAndPunctuations() -> [Range<Int>] {
+        return self[regexIncludingSpecialCharactersWithinWordsAndPunctuations]
+            .ranges()
+            .map { $0.location ..< ($0.location + $0.length) }
+    }
+
+    public func toWords() -> [String] {
+        let range = self.range(of: self)!
+        var words = [String]()
+        enumerateSubstrings(in: range, options: .byWords) { (substring, _, _, _) -> Void in
+            words.append(substring!)
+        }
+        return words
+    }
+
+    public func toWordRanges() -> [Range<String.Index>] {
+        let wordRange = self.range(of: self)!
+        var ranges = [Range<String.Index>]()
+
+        enumerateSubstrings(in: wordRange, options: .byWords) { (_, range, _, _) -> Void in
+            ranges.append(range)
+        }
+        return ranges
     }
  
     public func toLinguisticSentenceRanges() ->  [Range<String.Index>] {
@@ -220,16 +254,23 @@ public extension String {
             return self[index(startIndex, offsetBy: value.lowerBound)...]
         }
     }
+
+    subscript(_ range: NSRange) -> String {
+        let start = self.index(self.startIndex, offsetBy: range.lowerBound)
+        let end = self.index(self.startIndex, offsetBy: range.upperBound)
+        let subString = self[start..<end]
+        return String(subString)
+    }
+
+    subscript (range: Range<Int>) -> String {
+        let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
+        let endIndex = self.index(self.startIndex, offsetBy: range.count)
+        return String(self[startIndex..<endIndex])
+    }
     
     subscript (index: Int) -> Character {
         let charIndex = self.index(self.startIndex,offsetBy:index)
         return self[charIndex]
-    }
-    
-    subscript (range: Range<Int>) -> String {
-        let startIndex = self.index(self.startIndex,offsetBy: range.lowerBound) 
-        let endIndex = self.index(self.startIndex,offsetBy: range.count) 
-        return String(self[startIndex..<endIndex])
     }
     
     public func substring(from: Int) -> String {
@@ -242,9 +283,9 @@ public extension String {
         return String(self[..<index]) // Swift 4
     }
 
-    public func substring(from: Int, to: Int) -> String {
-        let start = index(startIndex, offsetBy: from)
-        let end = index(start, offsetBy: to - from)
+    public func substring(from fromIndex: Int, to toIndex: Int) -> String {
+        let start = index(startIndex, offsetBy: fromIndex)
+        let end = index(start, offsetBy: toIndex - fromIndex)
         return String(self[start ..< end])
     }
     
@@ -257,10 +298,6 @@ public extension String {
         return substring(from: range.lowerBound, to: range.upperBound)
     }
     
-    public static func replaceAt(str: String, index: Int, newCharac: String) -> String {
-        return str.substring(to: index - 1)  + newCharac + str.substring(from: index)
-    }
-    
     public func nsRange(fromStringIndex range: Range<String.Index>) -> NSRange {
         return NSRange(range, in: self)
     }
@@ -271,7 +308,7 @@ public extension String {
     }
     
     public func nsRange() -> NSRange {
-        return NSRange.init(location: 0,length: count)
+        return NSRange(location: 0, length: self.utf16.count)
     }
     
     public func range(fromNSRange nsRange: NSRange) -> Range<String.Index>? {
@@ -327,7 +364,35 @@ public extension String {
             else { return nil }
         return from ..< to
     }
- 
+
+    public func ranges(from string: String) -> [NSRange] {
+        let wordRangesInt = self.toWordRangesFromRegex()
+        var ranges: [NSRange] = []
+        for range in wordRangesInt {
+            let wordToHighlight = self.substring(withRange: range)
+            if string == wordToHighlight {
+                let stringIndexRange = self.range(fromRangeInt: range)
+                let nsRange = self.nsRange(fromStringIndex: stringIndexRange)
+                ranges.append(nsRange)
+            }
+        }
+        return ranges
+    }
+
+    public func range(ofUniqueWord word: String) -> NSRange? {
+        let words = self
+            .toWordsFromRegexIncludingSpecialCharactersWithinWords()
+            .elementFrequencyCounter()
+        if let count = words[word], count < 2 {
+            return (self as NSString).range(of: word)
+        }
+        return nil
+    }
+
+    public static func replaceAt(str: String, index: Int, newCharac: String) -> String {
+        return str.substring(to: index - 1)  + newCharac + str.substring(from: index)
+    }
+
     public func replaceHypthensWithNonBreakingHyphens() -> String {
         let nonBreakingHyphen = "\u{2011}"
         let hyphen = "\u{2010}"
@@ -340,6 +405,32 @@ public extension String {
         }
     }
 
+    public func highlight(words ranges: [NSRange], toColor color: UIColor) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        for range in ranges {
+            attributedString.addAttributes([.foregroundColor: color], range: range)
+        }
+        return attributedString
+    }
+
+    public func underLine(word range: NSRange, toColor color: UIColor,
+                          style: NSUnderlineStyle) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        attributedString.addAttributes([.underlineStyle: style.rawValue,
+                                        .foregroundColor: color], range: range)
+        return attributedString
+    }
+
+    public func underLine(words ranges: [NSRange], toColor color: UIColor,
+                          style: NSUnderlineStyle) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        for range in ranges {
+            attributedString.addAttributes([.underlineStyle: style.rawValue,
+                                            .foregroundColor: color], range: range)
+        }
+        return attributedString
+    }
+
     public func getUniqueWords() -> [String] {
         let words = toWordsFromRegexIncludingSpecialCharactersWithinWords()
         let uniqueWords = Set(words)
@@ -348,7 +439,7 @@ public extension String {
     
     public func getNonRepeatingWord() -> [String] {
         let words = toWordsFromRegexIncludingSpecialCharactersWithinWords()
-        let wordsFrequency = words.numberOfOccurrences()
+        let wordsFrequency = words.elementFrequencyCounter()
         return wordsFrequency
             .filter({ $0.value == 1 })
             .map({$0.key })
@@ -356,7 +447,7 @@ public extension String {
     
     public func getRepeatingWord() -> [String] {
         let words = toWordsFromRegexIncludingSpecialCharactersWithinWords()
-        let wordsFrequency = words.numberOfOccurrences()
+        let wordsFrequency = words.elementFrequencyCounter()
         return wordsFrequency
             .filter({ $0.value > 1 })
             .map({$0.key })
