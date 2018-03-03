@@ -27,6 +27,7 @@ import ARHomeDemo
 import ARPlacesDemo
 import ARWorldNavigationDemo
 import ARObjectRecognitionDemo
+import ARObjectDetectionDemo
 
 private let CellIdentifier = "tableCell"
 
@@ -68,7 +69,7 @@ public class ARDemosViewController: UITableViewController {
         self.tableView.separatorStyle = .none
         
         self.options = [
-            Option(title:"Plane Detection", 
+            Option(title:"AR Plane Detection",
                    name: "FloorIsLavaViewController", 
                    bundle: FloorIsLavaViewController.bundle, 
                    storyBoard: "FloorIsLava"),
@@ -135,7 +136,11 @@ public class ARDemosViewController: UITableViewController {
             Option(title: "AR Object Recognition",
                    name: "ARObjectRecognitionViewController",
                    bundle: ARObjectRecognitionViewController.bundle,
-                   storyBoard: "ARObjectRecognition")
+                   storyBoard: "ARObjectRecognition"),
+            Option(title: "AR Object Detection",
+                   name: "ARObjectDetectionViewController",
+                   bundle: ARObjectDetectionViewController.bundle,
+                   storyBoard: "ARObjectDetection")
         ]
         
         updateNavBar(with: selectedColor)

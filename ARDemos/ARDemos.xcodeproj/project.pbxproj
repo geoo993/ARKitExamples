@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C70914F8202FB670008FA873 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70914F7202FB670008FA873 /* RealmSwift.framework */; };
-		C70914F9202FB670008FA873 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C70914F7202FB670008FA873 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7116AC5204AC9F8006BD08F /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AC3204AC9F8006BD08F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7116AC8204AC9F8006BD08F /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AC6204AC9F8006BD08F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7116ACB204AC9F8006BD08F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AC9204AC9F8006BD08F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7116ACE204AC9F8006BD08F /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ACC204AC9F8006BD08F /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7116AD1204AC9F8006BD08F /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ACF204AC9F8006BD08F /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7116AD4204AC9F8006BD08F /* HDAugmentedReality.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AD2204AC9F8006BD08F /* HDAugmentedReality.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7116AD7204AC9F8006BD08F /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AD5204AC9F8006BD08F /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7116ADA204AC9F9006BD08F /* Each.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AD8204AC9F9006BD08F /* Each.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7116ADC204ACA4B006BD08F /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AC0204AC915006BD08F /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7116B19204ACC3E006BD08F /* ARObjectDetectionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116B18204ACC3E006BD08F /* ARObjectDetectionDemo.framework */; };
+		C7116B1A204ACC3E006BD08F /* ARObjectDetectionDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116B18204ACC3E006BD08F /* ARObjectDetectionDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7143D592021EF0D000923B9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7143D582021EF0D000923B9 /* art.scnassets */; };
 		C72998EE20232010009B0F4C /* ARDancingDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72998ED20232010009B0F4C /* ARDancingDemo.framework */; };
 		C72998EF20232010009B0F4C /* ARDancingDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72998ED20232010009B0F4C /* ARDancingDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -16,7 +25,6 @@
 		C72F823620221E2200958877 /* ARDiceeDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72F823420221E2200958877 /* ARDiceeDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C753D956202137D50027B094 /* WackAJellyFishDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C753D955202137D50027B094 /* WackAJellyFishDemo.framework */; };
 		C753D957202137D50027B094 /* WackAJellyFishDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C753D955202137D50027B094 /* WackAJellyFishDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C753D95A2021393B0027B094 /* Each.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C753D9582021393B0027B094 /* Each.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C75EBB732020DBEB00E484CE /* ARDrawingDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */; };
 		C75EBB742020DBEB00E484CE /* ARDrawingDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C75EBB922020E38200E484CE /* ARPlanetsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */; };
@@ -27,7 +35,6 @@
 		C7830AF92027A61100FD2FE6 /* ARWorldNavigationDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AF72027A61100FD2FE6 /* ARWorldNavigationDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C784AF7A20438725000376F0 /* AppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C784AF7920438725000376F0 /* AppServices.framework */; };
 		C784AF7B20438725000376F0 /* AppServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C784AF7920438725000376F0 /* AppServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C784AF7E20438839000376F0 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C784AF7C20438839000376F0 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C784AFB820438C5F000376F0 /* ARObjectRecognitionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C784AFB720438C5F000376F0 /* ARObjectRecognitionDemo.framework */; };
 		C784AFB920438C5F000376F0 /* ARObjectRecognitionDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C784AFB720438C5F000376F0 /* ARObjectRecognitionDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7857B292021562500CE199E /* IKEADemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B282021562500CE199E /* IKEADemo.framework */; };
@@ -40,10 +47,6 @@
 		C7857B7320215E4500CE199E /* ARHoopsDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B7120215E4500CE199E /* ARHoopsDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7857B8B2021650F00CE199E /* ARShooterDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B8A2021650F00CE199E /* ARShooterDemo.framework */; };
 		C7857B8C2021650F00CE199E /* ARShooterDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B8A2021650F00CE199E /* ARShooterDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7A7C29E20276C280094C295 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A7C29C20276C280094C295 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7A7C2A120276C280094C295 /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A7C29F20276C280094C295 /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7A7C2A420276C280094C295 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A7C2A220276C280094C295 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7A7C2A720276C280094C295 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A7C2A520276C280094C295 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7CFCA8620220BBC005CD6F5 /* FloorIsLavaDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCA8520220BBC005CD6F5 /* FloorIsLavaDemo.framework */; };
 		C7CFCA8720220BBC005CD6F5 /* FloorIsLavaDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCA8520220BBC005CD6F5 /* FloorIsLavaDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7CFCAC520221175005CD6F5 /* TossShapesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCAC420221175005CD6F5 /* TossShapesDemo.framework */; };
@@ -55,12 +58,10 @@
 		C7DD3D542020D79B000B5543 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DD3D522020D79B000B5543 /* LaunchScreen.storyboard */; };
 		C7DD3D5C2020D825000B5543 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7DD3D5B2020D825000B5543 /* AppCore.framework */; };
 		C7DD3D5D2020D825000B5543 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7DD3D5B2020D825000B5543 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7DD3D612020D923000B5543 /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7DD3D5F2020D923000B5543 /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7E0222E20226E260091D145 /* ARTelevisionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0222D20226E260091D145 /* ARTelevisionDemo.framework */; };
 		C7E0222F20226E260091D145 /* ARTelevisionDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0222D20226E260091D145 /* ARTelevisionDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7F3C526202757B70028C2AE /* ARPlacesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F3C525202757B70028C2AE /* ARPlacesDemo.framework */; };
 		C7F3C527202757B70028C2AE /* ARPlacesDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7F3C525202757B70028C2AE /* ARPlacesDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7F3C52A202759AC0028C2AE /* HDAugmentedReality.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7F3C528202759AC0028C2AE /* HDAugmentedReality.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,32 +71,33 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C70914F9202FB670008FA873 /* RealmSwift.framework in Embed Frameworks */,
-				C7A7C2A120276C280094C295 /* SVProgressHUD.framework in Embed Frameworks */,
 				C7857B412021594400CE199E /* ARMeasuringDemo.framework in Embed Frameworks */,
 				C7CFCAC620221175005CD6F5 /* TossShapesDemo.framework in Embed Frameworks */,
+				C7116AC8204AC9F8006BD08F /* RealmSwift.framework in Embed Frameworks */,
 				C7857B2A2021562500CE199E /* IKEADemo.framework in Embed Frameworks */,
-				C7A7C29E20276C280094C295 /* Alamofire.framework in Embed Frameworks */,
-				C7F3C52A202759AC0028C2AE /* HDAugmentedReality.framework in Embed Frameworks */,
-				C7A7C2A420276C280094C295 /* SwiftyJSON.framework in Embed Frameworks */,
 				C7857B7320215E4500CE199E /* ARHoopsDemo.framework in Embed Frameworks */,
+				C7116AC5204AC9F8006BD08F /* Realm.framework in Embed Frameworks */,
 				C75EBB742020DBEB00E484CE /* ARDrawingDemo.framework in Embed Frameworks */,
-				C7A7C2A720276C280094C295 /* SDWebImage.framework in Embed Frameworks */,
+				C7116ADC204ACA4B006BD08F /* Chameleon.framework in Embed Frameworks */,
+				C7116ACB204AC9F8006BD08F /* Alamofire.framework in Embed Frameworks */,
+				C7116AD1204AC9F8006BD08F /* SwiftyJSON.framework in Embed Frameworks */,
+				C7116AD4204AC9F8006BD08F /* HDAugmentedReality.framework in Embed Frameworks */,
 				C7857B8C2021650F00CE199E /* ARShooterDemo.framework in Embed Frameworks */,
 				C7857B5A20215BCD00CE199E /* ARPortalDemo.framework in Embed Frameworks */,
+				C7116ADA204AC9F9006BD08F /* Each.framework in Embed Frameworks */,
 				C7DD3D5D2020D825000B5543 /* AppCore.framework in Embed Frameworks */,
 				C7F3C527202757B70028C2AE /* ARPlacesDemo.framework in Embed Frameworks */,
 				C7E0222F20226E260091D145 /* ARTelevisionDemo.framework in Embed Frameworks */,
 				C77768AE20253A8300CE16BB /* ARHomeDemo.framework in Embed Frameworks */,
 				C75EBB932020E38200E484CE /* ARPlanetsDemo.framework in Embed Frameworks */,
-				C784AF7E20438839000376F0 /* Realm.framework in Embed Frameworks */,
 				C784AF7B20438725000376F0 /* AppServices.framework in Embed Frameworks */,
+				C7116B1A204ACC3E006BD08F /* ARObjectDetectionDemo.framework in Embed Frameworks */,
 				C72F823620221E2200958877 /* ARDiceeDemo.framework in Embed Frameworks */,
+				C7116ACE204AC9F8006BD08F /* SVProgressHUD.framework in Embed Frameworks */,
 				C7CFCA8720220BBC005CD6F5 /* FloorIsLavaDemo.framework in Embed Frameworks */,
 				C7830AF92027A61100FD2FE6 /* ARWorldNavigationDemo.framework in Embed Frameworks */,
+				C7116AD7204AC9F8006BD08F /* SDWebImage.framework in Embed Frameworks */,
 				C784AFB920438C5F000376F0 /* ARObjectRecognitionDemo.framework in Embed Frameworks */,
-				C753D95A2021393B0027B094 /* Each.framework in Embed Frameworks */,
-				C7DD3D612020D923000B5543 /* Chameleon.framework in Embed Frameworks */,
 				C753D957202137D50027B094 /* WackAJellyFishDemo.framework in Embed Frameworks */,
 				C72998EF20232010009B0F4C /* ARDancingDemo.framework in Embed Frameworks */,
 			);
@@ -105,30 +107,34 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C70914F7202FB670008FA873 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116AC0204AC915006BD08F /* Chameleon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Chameleon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116AC3204AC9F8006BD08F /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116AC6204AC9F8006BD08F /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116AC9204AC9F8006BD08F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116ACC204AC9F8006BD08F /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116ACF204AC9F8006BD08F /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116AD2204AC9F8006BD08F /* HDAugmentedReality.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HDAugmentedReality.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116AD5204AC9F8006BD08F /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116AD8204AC9F9006BD08F /* Each.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Each.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116B18204ACC3E006BD08F /* ARObjectDetectionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARObjectDetectionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7143D582021EF0D000923B9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		C72998ED20232010009B0F4C /* ARDancingDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDancingDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72F823420221E2200958877 /* ARDiceeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDiceeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C753D955202137D50027B094 /* WackAJellyFishDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WackAJellyFishDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C753D9582021393B0027B094 /* Each.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Each.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDrawingDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPlanetsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77768AC20253A8300CE16BB /* ARHomeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARHomeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7830AF72027A61100FD2FE6 /* ARWorldNavigationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARWorldNavigationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C784AF7920438725000376F0 /* AppServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C784AF7C20438839000376F0 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C784AFB720438C5F000376F0 /* ARObjectRecognitionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARObjectRecognitionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B282021562500CE199E /* IKEADemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IKEADemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B3F2021594400CE199E /* ARMeasuringDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARMeasuringDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B5820215BCD00CE199E /* ARPortalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPortalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B7120215E4500CE199E /* ARHoopsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARHoopsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B8A2021650F00CE199E /* ARShooterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARShooterDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7A7C29C20276C280094C295 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7A7C29F20276C280094C295 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7A7C2A220276C280094C295 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7A7C2A520276C280094C295 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7CFCA8520220BBC005CD6F5 /* FloorIsLavaDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FloorIsLavaDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7CFCAC420221175005CD6F5 /* TossShapesDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TossShapesDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D6DC26204AF68A006666FF /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		C7DD3D442020D79B000B5543 /* ARDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DD3D472020D79B000B5543 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DD3D4B2020D79B000B5543 /* ARDemosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDemosViewController.swift; sourceTree = "<group>"; };
@@ -137,10 +143,8 @@
 		C7DD3D532020D79B000B5543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7DD3D552020D79B000B5543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7DD3D5B2020D825000B5543 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7DD3D5F2020D923000B5543 /* Chameleon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Chameleon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E0222D20226E260091D145 /* ARTelevisionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARTelevisionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F3C525202757B70028C2AE /* ARPlacesDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPlacesDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7F3C528202759AC0028C2AE /* HDAugmentedReality.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HDAugmentedReality.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +157,6 @@
 				C7CFCAC520221175005CD6F5 /* TossShapesDemo.framework in Frameworks */,
 				C7857B292021562500CE199E /* IKEADemo.framework in Frameworks */,
 				C7857B7220215E4500CE199E /* ARHoopsDemo.framework in Frameworks */,
-				C70914F8202FB670008FA873 /* RealmSwift.framework in Frameworks */,
 				C75EBB732020DBEB00E484CE /* ARDrawingDemo.framework in Frameworks */,
 				C784AFB820438C5F000376F0 /* ARObjectRecognitionDemo.framework in Frameworks */,
 				C7857B8B2021650F00CE199E /* ARShooterDemo.framework in Frameworks */,
@@ -168,6 +171,7 @@
 				C7CFCA8620220BBC005CD6F5 /* FloorIsLavaDemo.framework in Frameworks */,
 				C753D956202137D50027B094 /* WackAJellyFishDemo.framework in Frameworks */,
 				C72998EE20232010009B0F4C /* ARDancingDemo.framework in Frameworks */,
+				C7116B19204ACC3E006BD08F /* ARObjectDetectionDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,16 +181,19 @@
 		C7DD3D3B2020D79B000B5543 = {
 			isa = PBXGroup;
 			children = (
+				C7116B18204ACC3E006BD08F /* ARObjectDetectionDemo.framework */,
+				C7116AD8204AC9F9006BD08F /* Each.framework */,
+				C7116AD5204AC9F8006BD08F /* SDWebImage.framework */,
+				C7116AD2204AC9F8006BD08F /* HDAugmentedReality.framework */,
+				C7116ACF204AC9F8006BD08F /* SwiftyJSON.framework */,
+				C7116ACC204AC9F8006BD08F /* SVProgressHUD.framework */,
+				C7116AC9204AC9F8006BD08F /* Alamofire.framework */,
+				C7116AC6204AC9F8006BD08F /* RealmSwift.framework */,
+				C7116AC3204AC9F8006BD08F /* Realm.framework */,
+				C7116AC0204AC915006BD08F /* Chameleon.framework */,
 				C784AFB720438C5F000376F0 /* ARObjectRecognitionDemo.framework */,
-				C784AF7C20438839000376F0 /* Realm.framework */,
 				C784AF7920438725000376F0 /* AppServices.framework */,
-				C70914F7202FB670008FA873 /* RealmSwift.framework */,
 				C7830AF72027A61100FD2FE6 /* ARWorldNavigationDemo.framework */,
-				C7A7C2A520276C280094C295 /* SDWebImage.framework */,
-				C7A7C2A220276C280094C295 /* SwiftyJSON.framework */,
-				C7A7C29F20276C280094C295 /* SVProgressHUD.framework */,
-				C7A7C29C20276C280094C295 /* Alamofire.framework */,
-				C7F3C528202759AC0028C2AE /* HDAugmentedReality.framework */,
 				C7F3C525202757B70028C2AE /* ARPlacesDemo.framework */,
 				C77768AC20253A8300CE16BB /* ARHomeDemo.framework */,
 				C72998ED20232010009B0F4C /* ARDancingDemo.framework */,
@@ -199,11 +206,9 @@
 				C7857B5820215BCD00CE199E /* ARPortalDemo.framework */,
 				C7857B3F2021594400CE199E /* ARMeasuringDemo.framework */,
 				C7857B282021562500CE199E /* IKEADemo.framework */,
-				C753D9582021393B0027B094 /* Each.framework */,
 				C753D955202137D50027B094 /* WackAJellyFishDemo.framework */,
 				C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */,
 				C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */,
-				C7DD3D5F2020D923000B5543 /* Chameleon.framework */,
 				C7DD3D5B2020D825000B5543 /* AppCore.framework */,
 				C7DD3D462020D79B000B5543 /* ARDemos */,
 				C7DD3D452020D79B000B5543 /* Products */,
@@ -221,6 +226,7 @@
 		C7DD3D462020D79B000B5543 /* ARDemos */ = {
 			isa = PBXGroup;
 			children = (
+				C7D6DC26204AF68A006666FF /* Scene.sks */,
 				C7143D582021EF0D000923B9 /* art.scnassets */,
 				C7DD3D472020D79B000B5543 /* AppDelegate.swift */,
 				C7DD3D4B2020D79B000B5543 /* ARDemosViewController.swift */,

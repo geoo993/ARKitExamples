@@ -70,6 +70,8 @@
 		C7BD1574202F92F400FF8D00 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1573202F92F400FF8D00 /* CoreDataStack.swift */; };
 		C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */; };
 		C7C78560201E4BD20043604E /* SCNNode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */; };
+		C7D02085204AD9E700EA15B3 /* SKScene+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D02084204AD9E700EA15B3 /* SKScene+Ext.swift */; };
+		C7D6DC2C204AFCB1006666FF /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7D6DC2B204AFCB1006666FF /* Inceptionv3.mlmodel */; };
 		C7DAAB4B2043623500325DB9 /* LocationServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DAAB4A2043623500325DB9 /* LocationServiceDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +143,8 @@
 		C7BD1573202F92F400FF8D00 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellX.swift; sourceTree = "<group>"; };
 		C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Ext.swift"; sourceTree = "<group>"; };
+		C7D02084204AD9E700EA15B3 /* SKScene+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKScene+Ext.swift"; sourceTree = "<group>"; };
+		C7D6DC2B204AFCB1006666FF /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		C7DAAB4A2043623500325DB9 /* LocationServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +227,7 @@
 				C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */,
 				C739E417201CA85A0081259D /* SCNVector3+Ext.swift */,
 				C7A52AB5201F520F003614C0 /* SCNView+Ext.swift */,
+				C7D02084204AD9E700EA15B3 /* SKScene+Ext.swift */,
 				C739E404201CA85A0081259D /* Sequence+Ext.swift */,
 				C739E44F201CAB8C0081259D /* String+Ext.swift */,
 				C739E451201CAF900081259D /* SwiftRegex.swift */,
@@ -280,14 +285,15 @@
 		C7B52656201C8A1D00134F00 /* AppCore */ = {
 			isa = PBXGroup;
 			children = (
-				C72C2F412042DDC600518B9C /* Playgrounds */,
 				C7BD1572202F92BD00FF8D00 /* CoreData */,
 				C7BD155C202F5CC700FF8D00 /* CoreLocation */,
-				C700B18320238499000FC421 /* UI Elements */,
-				C775DEBE201F2E80003457AD /* Utilities */,
+				C739E3DC201C91100081259D /* DesignableX */,
 				C739E44C201CAAFF0081259D /* DeviceType */,
 				C739E3F1201CA85A0081259D /* Extensions */,
-				C739E3DC201C91100081259D /* DesignableX */,
+				C7D6DC29204AFCB1006666FF /* Models */,
+				C72C2F412042DDC600518B9C /* Playgrounds */,
+				C700B18320238499000FC421 /* UI Elements */,
+				C775DEBE201F2E80003457AD /* Utilities */,
 				C7B5265F201C8B3400134F00 /* Colors.xcassets */,
 				C7B52657201C8A1D00134F00 /* AppCore.h */,
 				C7B52658201C8A1D00134F00 /* Info.plist */,
@@ -315,6 +321,22 @@
 				C7BD1573202F92F400FF8D00 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C7D6DC29204AFCB1006666FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7D6DC2A204AFCB1006666FF /* CoreML */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C7D6DC2A204AFCB1006666FF /* CoreML */ = {
+			isa = PBXGroup;
+			children = (
+				C7D6DC2B204AFCB1006666FF /* Inceptionv3.mlmodel */,
+			);
+			path = CoreML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +422,7 @@
 				C739E3EB201C91100081259D /* UIViewAnchorPoint.swift in Sources */,
 				C739E433201CA85A0081259D /* CGPoint+Ext.swift in Sources */,
 				C739E444201CA85A0081259D /* SCNVector3+Ext.swift in Sources */,
+				C7D02085204AD9E700EA15B3 /* SKScene+Ext.swift in Sources */,
 				C7830B1F2027AA0900FD2FE6 /* UINavigationBar+Ext.swift in Sources */,
 				C739E446201CA85A0081259D /* UIDevice+Ext.swift in Sources */,
 				C7BD1561202F5DBC00FF8D00 /* POIAnnotation.swift in Sources */,
@@ -457,6 +480,7 @@
 				C7A4E531202745C300C1783A /* LocationManager.swift in Sources */,
 				C7072136202151750071F6FE /* SCNScene+Ext.swift in Sources */,
 				C739E441201CA85A0081259D /* Array+Ext.swift in Sources */,
+				C7D6DC2C204AFCB1006666FF /* Inceptionv3.mlmodel in Sources */,
 				C739E439201CA85A0081259D /* SCNAction+Ext.swift in Sources */,
 				C7A4E534202745D100C1783A /* Unit+Ext.swift in Sources */,
 			);

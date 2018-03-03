@@ -58,7 +58,7 @@ public class ARPlacesViewController: UIViewController {
     }
     
     private func showHelperAlertIfNeeded() {
-        let key = "ARShooterViewController.helperAlert.didShow"
+        let key = "ARPlacesViewController.helperAlert.didShow"
         if !UserDefaults.standard.bool(forKey: key) {
             let alert = UIAlertController(title: title, message: "Tap on camera button to see places of interest, then select a place of interest to get more info.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

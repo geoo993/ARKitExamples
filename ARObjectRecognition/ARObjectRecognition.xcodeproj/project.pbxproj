@@ -17,7 +17,7 @@
 		C784AFAC20438B03000376F0 /* ARObjectRecognitionDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C784AFA420438B03000376F0 /* ARObjectRecognitionDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C784AFB320438B9A000376F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C784AF9420438982000376F0 /* Assets.xcassets */; };
 		C784AFB420438BA1000376F0 /* ARObjectRecognition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C784AF9120438982000376F0 /* ARObjectRecognition.storyboard */; };
-		C7BB2BA520441901004D7B62 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C784AFB520438C29000376F0 /* Inceptionv3.mlmodel */; };
+		C7D6DC2F204AFD2B006666FF /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7D6DC2D204AFD1A006666FF /* Inceptionv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,7 @@
 		C784AFA420438B03000376F0 /* ARObjectRecognitionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARObjectRecognitionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C784AFA620438B03000376F0 /* ARObjectRecognitionDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARObjectRecognitionDemo.h; sourceTree = "<group>"; };
 		C784AFA720438B03000376F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C784AFB520438C29000376F0 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
-		C7BB2B9D20441331004D7B62 /* Inceptionv3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Inceptionv3-Bridging-Header.h"; sourceTree = "<group>"; };
+		C7D6DC2D204AFD1A006666FF /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Inceptionv3.mlmodel; path = ../../AppCore/AppCore/Models/CoreML/Inceptionv3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +110,7 @@
 		C784AF8A20438982000376F0 /* ARObjectRecognition */ = {
 			isa = PBXGroup;
 			children = (
-				C784AFB120438B5D000376F0 /* CoreMLModels */,
+				C7D6DC2D204AFD1A006666FF /* Inceptionv3.mlmodel */,
 				C784AF8B20438982000376F0 /* AppDelegate.swift */,
 				C784AF8F20438982000376F0 /* ARObjectRecognitionViewController.swift */,
 				C784AF9120438982000376F0 /* ARObjectRecognition.storyboard */,
@@ -129,15 +128,6 @@
 				C784AFA720438B03000376F0 /* Info.plist */,
 			);
 			path = ARObjectRecognitionDemo;
-			sourceTree = "<group>";
-		};
-		C784AFB120438B5D000376F0 /* CoreMLModels */ = {
-			isa = PBXGroup;
-			children = (
-				C784AFB520438C29000376F0 /* Inceptionv3.mlmodel */,
-				C7BB2B9D20441331004D7B62 /* Inceptionv3-Bridging-Header.h */,
-			);
-			path = CoreMLModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C72E6A1520439092001901AE /* ARObjectRecognitionViewController.swift in Sources */,
-				C7BB2BA520441901004D7B62 /* Inceptionv3.mlmodel in Sources */,
+				C7D6DC2F204AFD2B006666FF /* Inceptionv3.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +402,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COREML_CODEGEN_LANGUAGE = Swift;
-				DEVELOPMENT_TEAM = U28DQFZA3Z;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ARObjectRecognition/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARObjectRecognition";
@@ -430,7 +420,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COREML_CODEGEN_LANGUAGE = Swift;
-				DEVELOPMENT_TEAM = U28DQFZA3Z;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ARObjectRecognition/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARObjectRecognition";

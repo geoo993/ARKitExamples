@@ -6,7 +6,6 @@
 //  Copyright © 2018 Geo Games. All rights reserved.
 //
 
-import Foundation
 import SceneKit
 
 // MARK: - Scene extensions

@@ -7,12 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7116AB0204AC678006BD08F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AB1204AC678006BD08F /* Realm.framework */; };
+		C7116AB2204AC699006BD08F /* Each.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AB3204AC699006BD08F /* Each.framework */; };
+		C7116AB4204AC6BA006BD08F /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AB8204AC6BA006BD08F /* Chameleon.framework */; };
+		C7116AB5204AC6BA006BD08F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AB9204AC6BA006BD08F /* SDWebImage.framework */; };
+		C7116AB6204AC6BA006BD08F /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ABA204AC6BA006BD08F /* SVProgressHUD.framework */; };
+		C7116AB7204AC6BA006BD08F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ABB204AC6BA006BD08F /* SwiftyJSON.framework */; };
+		C7116ABC204AC728006BD08F /* HDAugmentedReality.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ABD204AC728006BD08F /* HDAugmentedReality.framework */; };
+		C7116ABE204AC7A8006BD08F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ABF204AC7A8006BD08F /* Alamofire.framework */; };
 		C784AF6B20438563000376F0 /* AppServices.h in Headers */ = {isa = PBXBuildFile; fileRef = C784AF6920438563000376F0 /* AppServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C784AF762043865D000376F0 /* RealmObjectServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C784AF752043865D000376F0 /* RealmObjectServer.swift */; };
 		C784AF77204386BA000376F0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C784AF78204386BA000376F0 /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C7116AB1204AC678006BD08F /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116AB3204AC699006BD08F /* Each.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Each.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116AB8204AC6BA006BD08F /* Chameleon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Chameleon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116AB9204AC6BA006BD08F /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116ABA204AC6BA006BD08F /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116ABB204AC6BA006BD08F /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116ABD204AC728006BD08F /* HDAugmentedReality.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HDAugmentedReality.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7116ABF204AC7A8006BD08F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C784AF6720438562000376F0 /* AppServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C784AF6920438563000376F0 /* AppServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppServices.h; sourceTree = "<group>"; };
 		C784AF712043856F000376F0 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +42,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7116ABE204AC7A8006BD08F /* Alamofire.framework in Frameworks */,
+				C7116ABC204AC728006BD08F /* HDAugmentedReality.framework in Frameworks */,
+				C7116AB4204AC6BA006BD08F /* Chameleon.framework in Frameworks */,
+				C7116AB5204AC6BA006BD08F /* SDWebImage.framework in Frameworks */,
+				C7116AB6204AC6BA006BD08F /* SVProgressHUD.framework in Frameworks */,
+				C7116AB7204AC6BA006BD08F /* SwiftyJSON.framework in Frameworks */,
+				C7116AB2204AC699006BD08F /* Each.framework in Frameworks */,
+				C7116AB0204AC678006BD08F /* Realm.framework in Frameworks */,
 				C784AF77204386BA000376F0 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,6 +87,14 @@
 		C784AF6F2043856F000376F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7116ABF204AC7A8006BD08F /* Alamofire.framework */,
+				C7116ABD204AC728006BD08F /* HDAugmentedReality.framework */,
+				C7116AB8204AC6BA006BD08F /* Chameleon.framework */,
+				C7116AB9204AC6BA006BD08F /* SDWebImage.framework */,
+				C7116ABA204AC6BA006BD08F /* SVProgressHUD.framework */,
+				C7116ABB204AC6BA006BD08F /* SwiftyJSON.framework */,
+				C7116AB3204AC699006BD08F /* Each.framework */,
+				C7116AB1204AC678006BD08F /* Realm.framework */,
 				C784AF78204386BA000376F0 /* RealmSwift.framework */,
 				C784AF712043856F000376F0 /* Realm.framework */,
 			);
