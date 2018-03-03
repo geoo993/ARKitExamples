@@ -1,0 +1,18 @@
+[submodule "Carthage/Checkouts/realm-cocoa"]
+	url = https://github.com/realm/realm-cocoa.git
+[submodule "Carthage/Checkouts/Firebase"]
+	url = https://github.com/soheilbm/Firebase.git
+[submodule "Carthage/Checkouts/HDAugmentedReality"]
+	url = https://github.com/DanijelHuis/HDAugmentedReality.git
+[submodule "Carthage/Checkouts/SDWebImage"]
+	url = https://github.com/rs/SDWebImage.git
+[submodule "Carthage/Checkouts/Chameleon"]
+	url = https://github.com/ViccAlexander/Chameleon.git
+[submodule "Carthage/Checkouts/SwiftyJSON"]
+	url = https://github.com/SwiftyJSON/SwiftyJSON.git
+[submodule "Carthage/Checkouts/Alamofire"]
+	url = https://github.com/Alamofire/Alamofire.git
+[submodule "Carthage/Checkouts/SVProgressHUD"]
+	url = https://github.com/SVProgressHUD/SVProgressHUD.git
+[submodule "Carthage/Checkouts/Each"]
+	url = https://github.com/dalu93/Each.git

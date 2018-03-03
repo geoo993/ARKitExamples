@@ -100,7 +100,7 @@ public class ARObjectRecognitionViewController: UIViewController {
     private func showHelperAlertIfNeeded() {
         let key = "ARObjectRecognitionViewController.helperAlert.didShow"
         if !UserDefaults.standard.bool(forKey: key) {
-            let alert = UIAlertController(title: title, message: "Find object for Core ML to iedntify and tap on screen to show the text description.", preferredStyle: .alert)
+            let alert = UIAlertController(title: title, message: "Find objects for Core ML to identify and tap on screen to show the object description.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             UserDefaults.standard.set(true, forKey: key)

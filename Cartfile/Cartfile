@@ -7,3 +7,6 @@ github "SVProgressHUD/SVProgressHUD"
 github "SwiftyJSON/SwiftyJSON"
 github "realm/realm-cocoa"
 github "soheilbm/Firebase"
+github "mapbox/Turf-swift" "master"
+github "mapbox/MapboxDirections.swift"
+binary "https://www.mapbox.com/ios-sdk/Mapbox-iOS-SDK.json" ~> 3.7

@@ -186,7 +186,7 @@ public class ARHoopsViewController: UIViewController {
     private func showHelperAlertIfNeeded() {
         let key = "ARHoopsViewController.helperAlert.didShow"
         if !UserDefaults.standard.bool(forKey: key) {
-            let alert = UIAlertController(title: title, message: "Detect horizontal plane and add basketboard coart. Tap hold on screen to throw basketballs.", preferredStyle: .alert)
+            let alert = UIAlertController(title: title, message: "Detect horizontal plane and add basketball coart. Tap hold on screen to throw basketballs.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             UserDefaults.standard.set(true, forKey: key)

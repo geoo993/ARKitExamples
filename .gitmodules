@@ -25,3 +25,9 @@
 [submodule "Carthage/Checkouts/Firebase"]
 	path = Cartfile/Carthage/Checkouts/Firebase
 	url = https://github.com/soheilbm/Firebase.git
+[submodule "Carthage/Checkouts/Turf-swift"]
+	path = Cartfile/Carthage/Checkouts/Turf-swift
+	url = https://github.com/mapbox/Turf-swift.git
+[submodule "Carthage/Checkouts/MapboxDirections.swift"]
+	path = Cartfile/Carthage/Checkouts/MapboxDirections.swift
+	url = https://github.com/mapbox/MapboxDirections.swift.git
