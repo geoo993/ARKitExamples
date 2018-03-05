@@ -17,6 +17,8 @@ Demos of various ways you can use apple ARKit framework.
 * AR Home
 * AR Places
 * AR World Navigation
+* AR Object Recognition
+* AR Object Detection
 * AR Unity
     * AR Home
     * AR Dragon
