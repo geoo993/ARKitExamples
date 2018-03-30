@@ -34,8 +34,8 @@ The Demos can all be run by:
 - on completion, open the ARKitExamples.xcworkspace
 - build AppCore target
 - then build AppServices target
-- then run the ARDemos target for all the demos
-note: in ARdemos, update the provisioning profile and build indentifier to your settings.
+- then run the ARDemos target for all the demos.
+- note: in ARdemos, update the provisioning profile and build indentifier to your settings.
 
 ## References
  https://github.com/ProjectDent/ARKit-CoreLocation 
