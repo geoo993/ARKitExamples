@@ -24,7 +24,7 @@ Demos of various ways you can use apple ARKit framework.
     * AR Dragon
     * AR Chair (Scale and Rotate)
 
-## Requirments
+## Requirements
 ARKit requires iOS 11, and can be downloaded from Apple’s Developer website.
 
 ## Usage
