@@ -18,8 +18,6 @@
 		C7A7C2B42027784C0094C295 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A7C2B22027784C0094C295 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7A7C2B52027785B0094C295 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A7C2B22027784C0094C295 /* SDWebImage.framework */; };
 		C7A7C2B7202782D90094C295 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A7C2B6202782D80094C295 /* PlaceAnnotationView.swift */; };
-		C7F3C50F2027510D0028C2AE /* HDAugmentedReality.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7F3C50D2027510D0028C2AE /* HDAugmentedReality.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7F3C510202751190028C2AE /* HDAugmentedReality.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F3C50D2027510D0028C2AE /* HDAugmentedReality.framework */; };
 		C7F3C5112027564D0028C2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A4E5492027462E00C1783A /* Assets.xcassets */; };
 		C7F3C513202756580028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A4E54B2027462E00C1783A /* LaunchScreen.storyboard */; };
 		C7F3C5142027565B0028C2AE /* ARPlaces.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A4E5462027462E00C1783A /* ARPlaces.storyboard */; };
@@ -48,7 +46,6 @@
 			files = (
 				C7A7C2AA20276C3F0094C295 /* SwiftyJSON.framework in Embed Frameworks */,
 				C7A4E5612027476A00C1783A /* ARPlacesDemo.framework in Embed Frameworks */,
-				C7F3C50F2027510D0028C2AE /* HDAugmentedReality.framework in Embed Frameworks */,
 				C7A7C2B42027784C0094C295 /* SDWebImage.framework in Embed Frameworks */,
 				C7A4E5682027477C00C1783A /* AppCore.framework in Embed Frameworks */,
 			);
@@ -75,7 +72,6 @@
 		C7A7C2AC202772F70094C295 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A7C2B22027784C0094C295 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A7C2B6202782D80094C295 /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
-		C7F3C50D2027510D0028C2AE /* HDAugmentedReality.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HDAugmentedReality.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F3C52B202767900028C2AE /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,7 +89,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A4E56A2027478300C1783A /* AppCore.framework in Frameworks */,
-				C7F3C510202751190028C2AE /* HDAugmentedReality.framework in Frameworks */,
 				C7A7C2AB20276C490094C295 /* SwiftyJSON.framework in Frameworks */,
 				C7A7C2B52027785B0094C295 /* SDWebImage.framework in Frameworks */,
 			);
@@ -108,7 +103,6 @@
 				C7A7C2B22027784C0094C295 /* SDWebImage.framework */,
 				C7A7C2AC202772F70094C295 /* Alamofire.framework */,
 				C7A7C2A820276C3F0094C295 /* SwiftyJSON.framework */,
-				C7F3C50D2027510D0028C2AE /* HDAugmentedReality.framework */,
 				C7A4E5662027477C00C1783A /* AppCore.framework */,
 				C7A4E5412027462E00C1783A /* ARPlaces */,
 				C7A4E55A2027476A00C1783A /* ARPlacesDemo */,

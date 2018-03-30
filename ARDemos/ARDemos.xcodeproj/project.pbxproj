@@ -12,7 +12,6 @@
 		C7116ACB204AC9F8006BD08F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AC9204AC9F8006BD08F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7116ACE204AC9F8006BD08F /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ACC204AC9F8006BD08F /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7116AD1204AC9F8006BD08F /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ACF204AC9F8006BD08F /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7116AD4204AC9F8006BD08F /* HDAugmentedReality.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AD2204AC9F8006BD08F /* HDAugmentedReality.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7116AD7204AC9F8006BD08F /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AD5204AC9F8006BD08F /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7116ADA204AC9F9006BD08F /* Each.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AD8204AC9F9006BD08F /* Each.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7116ADC204ACA4B006BD08F /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AC0204AC915006BD08F /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -81,7 +80,6 @@
 				C7116ADC204ACA4B006BD08F /* Chameleon.framework in Embed Frameworks */,
 				C7116ACB204AC9F8006BD08F /* Alamofire.framework in Embed Frameworks */,
 				C7116AD1204AC9F8006BD08F /* SwiftyJSON.framework in Embed Frameworks */,
-				C7116AD4204AC9F8006BD08F /* HDAugmentedReality.framework in Embed Frameworks */,
 				C7857B8C2021650F00CE199E /* ARShooterDemo.framework in Embed Frameworks */,
 				C7857B5A20215BCD00CE199E /* ARPortalDemo.framework in Embed Frameworks */,
 				C7116ADA204AC9F9006BD08F /* Each.framework in Embed Frameworks */,

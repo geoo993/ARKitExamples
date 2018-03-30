@@ -1,7 +1,7 @@
 
 import Foundation
 import CoreLocation
-import HDAugmentedReality
+import AppCore
 
 public let apiURL = "https://maps.googleapis.com/maps/api/place/"
 public let apiKey = "AIzaSyABIVczL_qw5mJU5KhNNRSsGASW68JXfag"

@@ -9,7 +9,6 @@
 // https://www.raywenderlich.com/146436/augmented-reality-ios-tutorial-location-based-2
 
 import UIKit
-import HDAugmentedReality
 import AppCore
 import CoreLocation
 import MapKit

@@ -28,9 +28,10 @@ public extension ARCamera.TrackingState {
                 return "TRACKING LIMITED\nToo much camera movement"
             case .insufficientFeatures:
                 return "TRACKING LIMITED\nNot enough surface detail"
-            
             case .initializing:
                 return "Initializing AR Session"
+            case .relocalizing:
+                return "Relocalizing AR Session"
             }
         }
     }
@@ -189,6 +190,8 @@ public class ARTextManager {
                 
                 case .initializing:
                     message += "Initializing AR Session"
+                case .relocalizing:
+                    message += "Relocalizing AR Session"
                 }
 			case .normal: break
 			}

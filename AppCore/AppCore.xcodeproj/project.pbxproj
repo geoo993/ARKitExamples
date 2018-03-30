@@ -42,6 +42,15 @@
 		C739E452201CAF900081259D /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E451201CAF900081259D /* SwiftRegex.swift */; };
 		C74712E42028926B00795032 /* CLLocationCoordinate2D+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74712E32028926B00795032 /* CLLocationCoordinate2D+Ext.swift */; };
 		C74712E62028983F00795032 /* MatrixHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74712E52028983F00795032 /* MatrixHelper.swift */; };
+		C761C1D4206E323C002997B1 /* ARAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761C1C9206E323C002997B1 /* ARAnnotation.swift */; };
+		C761C1D5206E323C002997B1 /* ARTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761C1CA206E323C002997B1 /* ARTrackingManager.swift */; };
+		C761C1D6206E323C002997B1 /* ARPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761C1CB206E323C002997B1 /* ARPresenter.swift */; };
+		C761C1D7206E323C002997B1 /* ARAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761C1CC206E323C002997B1 /* ARAnnotationView.swift */; };
+		C761C1D8206E323C002997B1 /* ARPresenterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761C1CD206E323C002997B1 /* ARPresenterTransform.swift */; };
+		C761C1D9206E323C002997B1 /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761C1CE206E323C002997B1 /* ARConfiguration.swift */; };
+		C761C1DA206E323C002997B1 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761C1D0206E323C002997B1 /* CameraView.swift */; };
+		C761C1DB206E323C002997B1 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761C1D1206E323C002997B1 /* ARViewController.swift */; };
+		C761C1DC206E323C002997B1 /* DebugMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761C1D3206E323C002997B1 /* DebugMapViewController.swift */; };
 		C775DEC3201F2E80003457AD /* ShapeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEBF201F2E80003457AD /* ShapeGenerator.swift */; };
 		C775DEC4201F2E80003457AD /* NodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEC0201F2E80003457AD /* NodeGenerator.swift */; };
 		C775DEC5201F2E80003457AD /* ShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEC1201F2E80003457AD /* ShapeType.swift */; };
@@ -113,6 +122,15 @@
 		C739E451201CAF900081259D /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
 		C74712E32028926B00795032 /* CLLocationCoordinate2D+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Ext.swift"; sourceTree = "<group>"; };
 		C74712E52028983F00795032 /* MatrixHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixHelper.swift; sourceTree = "<group>"; };
+		C761C1C9206E323C002997B1 /* ARAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARAnnotation.swift; sourceTree = "<group>"; };
+		C761C1CA206E323C002997B1 /* ARTrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTrackingManager.swift; sourceTree = "<group>"; };
+		C761C1CB206E323C002997B1 /* ARPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARPresenter.swift; sourceTree = "<group>"; };
+		C761C1CC206E323C002997B1 /* ARAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARAnnotationView.swift; sourceTree = "<group>"; };
+		C761C1CD206E323C002997B1 /* ARPresenterTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARPresenterTransform.swift; sourceTree = "<group>"; };
+		C761C1CE206E323C002997B1 /* ARConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
+		C761C1D0206E323C002997B1 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		C761C1D1206E323C002997B1 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		C761C1D3206E323C002997B1 /* DebugMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugMapViewController.swift; sourceTree = "<group>"; };
 		C775DEBF201F2E80003457AD /* ShapeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeGenerator.swift; sourceTree = "<group>"; };
 		C775DEC0201F2E80003457AD /* NodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeGenerator.swift; sourceTree = "<group>"; };
 		C775DEC1201F2E80003457AD /* ShapeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeType.swift; sourceTree = "<group>"; };
@@ -250,6 +268,38 @@
 			path = DeviceType;
 			sourceTree = "<group>";
 		};
+		C761C1C8206E323C002997B1 /* HDAugmentedRealityClasses */ = {
+			isa = PBXGroup;
+			children = (
+				C761C1C9206E323C002997B1 /* ARAnnotation.swift */,
+				C761C1CA206E323C002997B1 /* ARTrackingManager.swift */,
+				C761C1CB206E323C002997B1 /* ARPresenter.swift */,
+				C761C1CC206E323C002997B1 /* ARAnnotationView.swift */,
+				C761C1CD206E323C002997B1 /* ARPresenterTransform.swift */,
+				C761C1CE206E323C002997B1 /* ARConfiguration.swift */,
+				C761C1CF206E323C002997B1 /* External */,
+				C761C1D1206E323C002997B1 /* ARViewController.swift */,
+				C761C1D2206E323C002997B1 /* Debug */,
+			);
+			path = HDAugmentedRealityClasses;
+			sourceTree = "<group>";
+		};
+		C761C1CF206E323C002997B1 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				C761C1D0206E323C002997B1 /* CameraView.swift */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		C761C1D2206E323C002997B1 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				C761C1D3206E323C002997B1 /* DebugMapViewController.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		C775DEBE201F2E80003457AD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +335,7 @@
 		C7B52656201C8A1D00134F00 /* AppCore */ = {
 			isa = PBXGroup;
 			children = (
+				C761C1C8206E323C002997B1 /* HDAugmentedRealityClasses */,
 				C7BD1572202F92BD00FF8D00 /* CoreData */,
 				C7BD155C202F5CC700FF8D00 /* CoreLocation */,
 				C739E3DC201C91100081259D /* DesignableX */,
@@ -422,12 +473,14 @@
 				C739E3EB201C91100081259D /* UIViewAnchorPoint.swift in Sources */,
 				C739E433201CA85A0081259D /* CGPoint+Ext.swift in Sources */,
 				C739E444201CA85A0081259D /* SCNVector3+Ext.swift in Sources */,
+				C761C1DB206E323C002997B1 /* ARViewController.swift in Sources */,
 				C7D02085204AD9E700EA15B3 /* SKScene+Ext.swift in Sources */,
 				C7830B1F2027AA0900FD2FE6 /* UINavigationBar+Ext.swift in Sources */,
 				C739E446201CA85A0081259D /* UIDevice+Ext.swift in Sources */,
 				C7BD1561202F5DBC00FF8D00 /* POIAnnotation.swift in Sources */,
 				C7830B1E2027AA0900FD2FE6 /* NSAttributedString+Ext.swift in Sources */,
 				C739E43B201CA85A0081259D /* UIColor+Ext.swift in Sources */,
+				C761C1D5206E323C002997B1 /* ARTrackingManager.swift in Sources */,
 				C775DEC6201F2E80003457AD /* GameHelper.swift in Sources */,
 				C7830B212027B9D800FD2FE6 /* UINavigationController+Ext.swift in Sources */,
 				C739E42B201CA85A0081259D /* Double+Ext.swift in Sources */,
@@ -437,22 +490,27 @@
 				C775DEC4201F2E80003457AD /* NodeGenerator.swift in Sources */,
 				C7375361204227EC00C7D8C7 /* NavigationService.swift in Sources */,
 				C7BD1574202F92F400FF8D00 /* CoreDataStack.swift in Sources */,
+				C761C1D4206E323C002997B1 /* ARAnnotation.swift in Sources */,
 				C739E43C201CA85A0081259D /* CGFloat+Ext.swift in Sources */,
 				C739E450201CAB8C0081259D /* String+Ext.swift in Sources */,
 				C739E431201CA85A0081259D /* Sequence+Ext.swift in Sources */,
 				C775DEC3201F2E80003457AD /* ShapeGenerator.swift in Sources */,
 				C74712E62028983F00795032 /* MatrixHelper.swift in Sources */,
 				C7BD1562202F5DBC00FF8D00 /* LocationData.swift in Sources */,
+				C761C1D7206E323C002997B1 /* ARAnnotationView.swift in Sources */,
 				C77768AB20252F4A00CE16BB /* ARTextManager.swift in Sources */,
 				C775DEC5201F2E80003457AD /* ShapeType.swift in Sources */,
+				C761C1D6206E323C002997B1 /* ARPresenter.swift in Sources */,
 				C700B196202385C6000FC421 /* ARSCNView+Ext.swift in Sources */,
 				C700B19120238499000FC421 /* Plane.swift in Sources */,
 				C739E3F0201C91100081259D /* UISliderX.swift in Sources */,
+				C761C1D9206E323C002997B1 /* ARConfiguration.swift in Sources */,
 				C7BD1564202F5F7B00FF8D00 /* AddressParser.swift in Sources */,
 				C7BD155B202F5C4E00FF8D00 /* CLLocation+Ext.swift in Sources */,
 				C739E3EE201C91100081259D /* UIViewX.swift in Sources */,
 				C7830B1D2027AA0900FD2FE6 /* UIFont+Ext.swift in Sources */,
 				C700B19B20238881000FC421 /* RangeReplaceableCollection+Ext.swift in Sources */,
+				C761C1D8206E323C002997B1 /* ARPresenterTransform.swift in Sources */,
 				C7A4E535202745D100C1783A /* FormatDisplay.swift in Sources */,
 				C739E452201CAF900081259D /* SwiftRegex.swift in Sources */,
 				C739E443201CA85A0081259D /* Int+Ext.swift in Sources */,
@@ -467,6 +525,7 @@
 				C7BD1559202F596000FF8D00 /* MKRouteStep+Ext.swift in Sources */,
 				C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */,
 				C77768A920252AAA00CE16BB /* UserDefaults+Ext.swift in Sources */,
+				C761C1DA206E323C002997B1 /* CameraView.swift in Sources */,
 				C739E3EC201C91100081259D /* UIViewControllerX.swift in Sources */,
 				C7DAAB4B2043623500325DB9 /* LocationServiceDelegate.swift in Sources */,
 				C739E3ED201C91100081259D /* UIImageViewX.swift in Sources */,
@@ -475,6 +534,7 @@
 				C739E442201CA85A0081259D /* DeviceType.swift in Sources */,
 				C700B18D20238499000FC421 /* FocusSquare.swift in Sources */,
 				C7830B262027CD0700FD2FE6 /* LocationService.swift in Sources */,
+				C761C1DC206E323C002997B1 /* DebugMapViewController.swift in Sources */,
 				C700B18C20238499000FC421 /* FocusSquareSegment.swift in Sources */,
 				C739E3EA201C91100081259D /* UILabelX.swift in Sources */,
 				C7A4E531202745C300C1783A /* LocationManager.swift in Sources */,

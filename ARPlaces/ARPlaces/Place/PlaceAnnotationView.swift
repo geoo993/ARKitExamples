@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import HDAugmentedReality
+import AppCore
 import SDWebImage
 
 //1

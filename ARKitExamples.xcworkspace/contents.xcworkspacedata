@@ -86,9 +86,6 @@
             location = "group:Cartfile/Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj">
          </FileRef>
          <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/HDAugmentedReality/HDAugmentedRealityDemo.xcodeproj">
-         </FileRef>
-         <FileRef
             location = "group:Cartfile/Carthage/Checkouts/SDWebImage/SDWebImage.xcodeproj">
          </FileRef>
          <FileRef
