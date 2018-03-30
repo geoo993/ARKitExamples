@@ -1,7 +1,6 @@
 github "ViccAlexander/Chameleon"
 github "rs/SDWebImage"
 github "dalu93/Each"
-gitHub "DanijelHuis/HDAugmentedReality"
 github "Alamofire/Alamofire" ~> 4.5
 github "SVProgressHUD/SVProgressHUD"
 github "SwiftyJSON/SwiftyJSON"
