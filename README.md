@@ -28,9 +28,14 @@ Demos of various ways you can use apple ARKit framework.
 ARKit requires iOS 11, and can be downloaded from Apple’s Developer website.
 
 ## Usage
-the Demos can all be run by:
-- opening the ARKitExamples.xcworkspace
-- running the ARDemos target (note: update the provisioning profile and build indentifier)
+The Demos can all be run by:
+- opening the Cartfile from the project directory in Terminal (i.e ‘cd Downloads/ARKitExamples-master/Cartfile’).
+- from the directory, run command ‘./cartfile-update.sh’ in terminal to get the project dependencies with carthage.
+- on completion, open the ARKitExamples.xcworkspace
+- build AppCore target
+- then build AppServices target
+- then run the ARDemos target for all the demos
+note: in ARdemos, update the provisioning profile and build indentifier to your settings.
 
 ## References
  https://github.com/ProjectDent/ARKit-CoreLocation 
