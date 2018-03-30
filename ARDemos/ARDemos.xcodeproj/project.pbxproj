@@ -111,7 +111,6 @@
 		C7116AC9204AC9F8006BD08F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7116ACC204AC9F8006BD08F /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7116ACF204AC9F8006BD08F /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7116AD2204AC9F8006BD08F /* HDAugmentedReality.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HDAugmentedReality.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7116AD5204AC9F8006BD08F /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7116AD8204AC9F9006BD08F /* Each.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Each.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7116B18204ACC3E006BD08F /* ARObjectDetectionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARObjectDetectionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,7 +181,6 @@
 				C7116B18204ACC3E006BD08F /* ARObjectDetectionDemo.framework */,
 				C7116AD8204AC9F9006BD08F /* Each.framework */,
 				C7116AD5204AC9F8006BD08F /* SDWebImage.framework */,
-				C7116AD2204AC9F8006BD08F /* HDAugmentedReality.framework */,
 				C7116ACF204AC9F8006BD08F /* SwiftyJSON.framework */,
 				C7116ACC204AC9F8006BD08F /* SVProgressHUD.framework */,
 				C7116AC9204AC9F8006BD08F /* Alamofire.framework */,
@@ -451,6 +449,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
 				INFOPLIST_FILE = ARDemos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARDemos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -466,6 +465,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
 				INFOPLIST_FILE = ARDemos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARDemos";
 				PRODUCT_NAME = "$(TARGET_NAME)";

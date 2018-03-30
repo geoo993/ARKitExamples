@@ -99,9 +99,6 @@
          location = "group:Cartfile">
       </FileRef>
       <FileRef
-         location = "group:carthage-build.sh">
-      </FileRef>
-      <FileRef
          location = "group:carthage-update.sh">
       </FileRef>
    </Group>

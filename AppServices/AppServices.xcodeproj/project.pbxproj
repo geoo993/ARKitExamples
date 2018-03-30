@@ -13,7 +13,6 @@
 		C7116AB5204AC6BA006BD08F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116AB9204AC6BA006BD08F /* SDWebImage.framework */; };
 		C7116AB6204AC6BA006BD08F /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ABA204AC6BA006BD08F /* SVProgressHUD.framework */; };
 		C7116AB7204AC6BA006BD08F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ABB204AC6BA006BD08F /* SwiftyJSON.framework */; };
-		C7116ABC204AC728006BD08F /* HDAugmentedReality.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ABD204AC728006BD08F /* HDAugmentedReality.framework */; };
 		C7116ABE204AC7A8006BD08F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116ABF204AC7A8006BD08F /* Alamofire.framework */; };
 		C784AF6B20438563000376F0 /* AppServices.h in Headers */ = {isa = PBXBuildFile; fileRef = C784AF6920438563000376F0 /* AppServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C784AF762043865D000376F0 /* RealmObjectServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C784AF752043865D000376F0 /* RealmObjectServer.swift */; };
@@ -43,7 +42,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7116ABE204AC7A8006BD08F /* Alamofire.framework in Frameworks */,
-				C7116ABC204AC728006BD08F /* HDAugmentedReality.framework in Frameworks */,
 				C7116AB4204AC6BA006BD08F /* Chameleon.framework in Frameworks */,
 				C7116AB5204AC6BA006BD08F /* SDWebImage.framework in Frameworks */,
 				C7116AB6204AC6BA006BD08F /* SVProgressHUD.framework in Frameworks */,
@@ -318,6 +316,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AppServices/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.AppServices";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -343,6 +342,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AppServices/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.AppServices";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
