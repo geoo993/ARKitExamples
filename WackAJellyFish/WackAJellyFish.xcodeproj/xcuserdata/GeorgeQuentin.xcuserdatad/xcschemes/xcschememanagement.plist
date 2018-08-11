@@ -6,8 +6,10 @@
 	<dict>
 		<key>WackAJellyFish.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>65</integer>
+			<integer>69</integer>
 		</dict>
 		<key>WackAJellyFishDemo.xcscheme</key>
 		<dict>
@@ -18,6 +20,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>C753D945202137170027B094</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7A46E7C201D427400BD26CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

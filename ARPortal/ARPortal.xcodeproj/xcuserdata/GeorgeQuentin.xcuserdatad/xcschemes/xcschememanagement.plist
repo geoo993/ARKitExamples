@@ -6,8 +6,10 @@
 	<dict>
 		<key>ARPortal.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>61</integer>
+			<integer>63</integer>
 		</dict>
 		<key>ARPortalDemo.xcscheme</key>
 		<dict>
@@ -18,6 +20,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>C7857B4620215AA900CE199E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7A52AC2201F5A07003614C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

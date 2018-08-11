@@ -6,8 +6,10 @@
 	<dict>
 		<key>ARPlanets.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>66</integer>
+			<integer>68</integer>
 		</dict>
 		<key>ARPlanetsDemo.xcscheme</key>
 		<dict>
@@ -19,6 +21,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C7310736201CF25100523CB5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C75EBB7F2020E2AB00E484CE</key>
 		<dict>
 			<key>primary</key>

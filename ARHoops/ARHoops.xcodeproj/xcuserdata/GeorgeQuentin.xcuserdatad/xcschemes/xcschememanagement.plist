@@ -6,8 +6,10 @@
 	<dict>
 		<key>ARHoops.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>59</integer>
+			<integer>64</integer>
 		</dict>
 		<key>ARHoopsDemo.xcscheme</key>
 		<dict>
@@ -18,6 +20,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>C7857B5F20215D4500CE199E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7E7FFD42020696D00970264</key>
 		<dict>
 			<key>primary</key>
 			<true/>

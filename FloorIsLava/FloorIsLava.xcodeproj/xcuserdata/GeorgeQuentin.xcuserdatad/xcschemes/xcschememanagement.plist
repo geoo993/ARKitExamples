@@ -6,8 +6,10 @@
 	<dict>
 		<key>FloorIsLava.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>63</integer>
+			<integer>67</integer>
 		</dict>
 		<key>FloorIsLavaDemo.xcscheme</key>
 		<dict>
@@ -17,6 +19,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C7242483201DD1870031C7F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C7CFCA7220220AE6005CD6F5</key>
 		<dict>
 			<key>primary</key>

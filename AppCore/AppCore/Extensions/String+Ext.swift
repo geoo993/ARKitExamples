@@ -74,20 +74,24 @@ public extension String {
             .ranges()
             .map { $0.location ..< ($0.location + $0.length) }
     }
- 
-    private var regexSpecialCharactersBounderies : String {
-        return "[-'%$#&/]\\b|\\b[‑'%$#&/]|\\b[‐'%$#&/]|\\d*\\.?\\d+|[A-Za-z0-9]|\\([A-Za-z0-9]"
+
+    private var regexSpecialCharactersBounderies: String {
+        // https://regex101.com/
+        return "[-'’%$#&/]\\b|\\b[‑'’%$#&/]|\\b[‐'’%$#&/]|\\d*\\.?\\d+|[A-Za-z0-9]|\\([A-Za-z0-9]"
     }
-    
+
     private var regexIncludingSpecialCharactersWithinWords: String {
+        // http://rubular.com/r/egE3v951RH
         return "(?<=\\s|^|\\b)(?:\(regexSpecialCharactersBounderies)+\\))+(?=\\s|$|\\b)"
     }
-    
+
     private var regexIncludingSpecialCharactersWithinWordsAndPunctuations: String {
+        // https://regex101.com/r/IpOqXy/17
+        // https://stackoverflow.com/questions/42019240/regex-to-match-words-with-punctuation-but-not-punctuation-alone
         return "(?<=\\s|^|\\b)(?:\(regexSpecialCharactersBounderies)+\\))+(?=\\s|$|\\b)"
-            + "|(\\.|\\,|\\:|\")"
+            + "|[^A-Za-z0-9\\s]"
     }
-    
+
     public func toWordsFromRegexIncludingSpecialCharactersWithinWords() -> [String] {
         return self[regexIncludingSpecialCharactersWithinWords]
             .matches()

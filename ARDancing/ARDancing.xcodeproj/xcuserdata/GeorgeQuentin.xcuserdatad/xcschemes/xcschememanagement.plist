@@ -6,8 +6,10 @@
 	<dict>
 		<key>ARDancing.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>54</integer>
+			<integer>59</integer>
 		</dict>
 		<key>ARDancingDemo.xcscheme</key>
 		<dict>
@@ -17,6 +19,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C72998C320231EC9009B0F4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C72998DF20231F48009B0F4C</key>
 		<dict>
 			<key>primary</key>

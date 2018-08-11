@@ -6,8 +6,10 @@
 	<dict>
 		<key>ARObjectDetection.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>49</integer>
+			<integer>56</integer>
 		</dict>
 		<key>ARObjectDetectionDemo.xcscheme</key>
 		<dict>
@@ -17,6 +19,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C7116AE9204ACB57006BD08F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C7116B07204ACBF5006BD08F</key>
 		<dict>
 			<key>primary</key>

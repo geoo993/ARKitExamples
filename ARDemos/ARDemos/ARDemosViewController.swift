@@ -28,6 +28,8 @@ import ARPlacesDemo
 import ARWorldNavigationDemo
 import ARObjectRecognitionDemo
 import ARObjectDetectionDemo
+import ARVehicleDemo
+import ARFireballDemo
 
 private let CellIdentifier = "tableCell"
 
@@ -140,7 +142,15 @@ public class ARDemosViewController: UITableViewController {
             Option(title: "AR Object Detection",
                    name: "ARObjectDetectionViewController",
                    bundle: ARObjectDetectionViewController.bundle,
-                   storyBoard: "ARObjectDetection")
+                   storyBoard: "ARObjectDetection"),
+            Option(title: "AR Vehicle",
+                   name: "ARVehicleViewController",
+                   bundle: ARVehicleViewController.bundle,
+                   storyBoard: "ARVehicle"),
+            Option(title: "AR Fireball",
+                   name: "ARFireballViewController",
+                   bundle: ARFireballViewController.bundle,
+                   storyBoard: "ARFireball")
         ]
         
         updateNavBar(with: selectedColor)

@@ -17,8 +17,8 @@ public class FloorIsLavaViewController: UIViewController {
         return Bundle(identifier: "com.geo-games.FloorIsLavaDemo")!
     }
     
-    let grid = UIImage(named:"art.scnassets/grid.png")
-    let lava = UIImage(named:"lava")
+    let grid = UIImage(named:"art.scnassets/grid.png", in: FloorIsLavaViewController.bundle, compatibleWith: nil)
+    let lava = UIImage(named: "lava", in: FloorIsLavaViewController.bundle, compatibleWith: nil)
     fileprivate var planes: [String : SCNNode] = [:]
     
     var bottomNode : SCNNode!
@@ -124,6 +124,7 @@ extension FloorIsLavaViewController: ARSCNViewDelegate {
         
         let key = planeAnchor.identifier.uuidString
         let planeNode = NodeGenerator.generatePlaneFrom(planeAnchor: planeAnchor, physics: true, hidden: false)
+        node.geometry?.firstMaterial?.diffuse.contents = lava
         node.addChildNode(planeNode)
         planes[key] = planeNode
         

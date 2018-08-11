@@ -6,8 +6,10 @@
 	<dict>
 		<key>IKEA.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>64</integer>
+			<integer>66</integer>
 		</dict>
 		<key>IKEADemo.xcscheme</key>
 		<dict>
@@ -18,6 +20,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>C707213B2021546D0071F6FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7A88CDD201DDB4200255242</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -6,8 +6,10 @@
 	<dict>
 		<key>ARTelevision.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>56</integer>
+			<integer>58</integer>
 		</dict>
 		<key>ARTelevisionDemo.xcscheme</key>
 		<dict>
@@ -17,6 +19,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C7E021F7202256110091D145</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C7E02213202258190091D145</key>
 		<dict>
 			<key>primary</key>

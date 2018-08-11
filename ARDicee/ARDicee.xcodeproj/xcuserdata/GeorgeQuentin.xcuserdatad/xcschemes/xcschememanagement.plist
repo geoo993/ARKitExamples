@@ -6,8 +6,10 @@
 	<dict>
 		<key>ARDicee.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>55</integer>
+			<integer>60</integer>
 		</dict>
 		<key>ARDiceeDemo.xcscheme</key>
 		<dict>
@@ -17,6 +19,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C72F81FF2022169500958877</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C72F821B202216A600958877</key>
 		<dict>
 			<key>primary</key>

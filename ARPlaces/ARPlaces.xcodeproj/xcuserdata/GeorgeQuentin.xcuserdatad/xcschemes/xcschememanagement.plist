@@ -6,8 +6,10 @@
 	<dict>
 		<key>ARPlaces.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>52</integer>
+			<integer>53</integer>
 		</dict>
 		<key>ARPlacesDemo.xcscheme</key>
 		<dict>
@@ -17,6 +19,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C7A4E53E2027462E00C1783A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C7A4E5582027476A00C1783A</key>
 		<dict>
 			<key>primary</key>

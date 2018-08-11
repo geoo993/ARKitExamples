@@ -6,8 +6,10 @@
 	<dict>
 		<key>TossShapes.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>57</integer>
+			<integer>62</integer>
 		</dict>
 		<key>TossShapesDemo.xcscheme</key>
 		<dict>
@@ -17,6 +19,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C7CFCA9120220EC1005CD6F5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C7CFCAB120220F1C005CD6F5</key>
 		<dict>
 			<key>primary</key>

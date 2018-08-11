@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ARFireball/ARFireball.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ARVehicle/ARVehicle.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:ARObjectDetection/ARObjectDetection.xcodeproj">
    </FileRef>
    <FileRef
@@ -45,9 +51,6 @@
    </FileRef>
    <FileRef
       location = "group:ARMeasuring/ARMeasuring.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:DrivingCar/DrivingCar.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:IKEA/IKEA.xcodeproj">

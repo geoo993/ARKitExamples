@@ -335,6 +335,7 @@
 		C7B52656201C8A1D00134F00 /* AppCore */ = {
 			isa = PBXGroup;
 			children = (
+				C7DCD84C211F6837002E9FA3 /* Metal */,
 				C761C1C8206E323C002997B1 /* HDAugmentedRealityClasses */,
 				C7BD1572202F92BD00FF8D00 /* CoreData */,
 				C7BD155C202F5CC700FF8D00 /* CoreLocation */,
@@ -388,6 +389,13 @@
 				C7D6DC2B204AFCB1006666FF /* Inceptionv3.mlmodel */,
 			);
 			path = CoreML;
+			sourceTree = "<group>";
+		};
+		C7DCD84C211F6837002E9FA3 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Metal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -673,7 +681,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AppCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.AppCore";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -694,7 +702,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AppCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.AppCore";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
