@@ -38,6 +38,7 @@ public extension Double {
 
     public var toRadians: Double { return self * .pi / 180 }
     public var toDegrees: Double { return self * 180 / .pi }
+    public var toCGFloat: CGFloat { return CGFloat(self) }
 
     public func format(f: String) -> String {
         return NSString(format: "%\(f)f" as NSString, self) as String

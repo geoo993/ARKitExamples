@@ -10,6 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 import AppCore
+import CoreMotion
 
 public class ARVehicleViewController: UIViewController {
 
@@ -17,9 +18,12 @@ public class ARVehicleViewController: UIViewController {
         return Bundle(identifier: "com.geo-games.ARVehicleDemo")!
     }
 
-    fileprivate var planes: [String : SCNNode] = [:]
-
     var bottomNode : SCNNode!
+    var vehicle = SCNPhysicsVehicle()
+    let motionManager = CMMotionManager()
+    var orientation: CGFloat = 0
+    var accelerationValues: [UIAccelerationValue] = [UIAccelerationValue(0), UIAccelerationValue(0)]
+    var touched: Int = 0
 
     @IBOutlet var sceneView: ARSCNView!
 
@@ -31,14 +35,14 @@ public class ARVehicleViewController: UIViewController {
         // Set the view's delegate
         sceneView.delegate = self
 
-        sceneView.scene.physicsWorld.contactDelegate = self
-
         // Show statistics such as fps and timing information
-        //sceneView.showsStatistics = true
+        sceneView.showsStatistics = true
 
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
 
         sceneView.autoenablesDefaultLighting = true
+
+        setupAccelerometer()
 
     }
 
@@ -68,20 +72,89 @@ public class ARVehicleViewController: UIViewController {
         sceneView.session.pause()
     }
 
-    @IBAction func tapScreen() {
-        /*
-        if let camera = self.sceneView.pointOfView {
-            let cube = NodeGenerator.generateRandomShapeInFrontOf(node: camera,
-                                                                  color: .random,
-                                                                  at: SCNVector3(x: 0, y: 0, z: -1),
-                                                                  with: true)
-            //NodeGenerator.generateCubeInFrontOf(node: camera, physics: true, color: .random)
-            sceneView.scene.rootNode.addChildNode(cube)
-        }
- */
-    }
-    // MARK: - Private Methods
+    @IBAction func addCar() {
 
+        if let scene = SCNScene.loadScene(from: ARVehicleViewController.bundle, scnassets: "arts", name: "vehicleScene"),
+            let chassis = scene.rootNode.childNode(withName: "chassis", recursively: false),
+            let frontLeft = chassis.childNode(withName: "frontLeftParent", recursively: false),
+            let frontRight = chassis.childNode(withName: "frontRightParent", recursively: false),
+            let rearLeft = chassis.childNode(withName: "rearLeftParent", recursively: false),
+            let rearRight = chassis.childNode(withName: "rearRightParent", recursively: false) {
+
+            /*
+            When you set the value of this property, the node’s rotation, orientation, eulerAngles, position, and scale properties automatically change to match the new transform, and vice versa.
+ */
+            guard let pointOfView = sceneView.pointOfView else { return }
+            // position is a combination of orientation and location
+            let transform = pointOfView.transform
+            let currentPositionOfCamera = transform.orientation + transform.translation
+
+            let body = SCNPhysicsBody(type: SCNPhysicsBodyType.dynamic,
+                                      shape: SCNPhysicsShape(node: chassis, options: [SCNPhysicsShape.Option.keepAsCompound : true]))
+            body.mass = 5
+            chassis.position = currentPositionOfCamera
+            chassis.physicsBody = body
+            self.vehicle = SCNPhysicsVehicle(chassisBody: chassis.physicsBody!,
+                                             wheels: [SCNPhysicsVehicleWheel(node: rearLeft),
+                                                      SCNPhysicsVehicleWheel(node: rearRight),
+                                                      SCNPhysicsVehicleWheel(node: frontLeft),
+                                                      SCNPhysicsVehicleWheel(node: frontRight)])
+            self.sceneView.scene.physicsWorld.addBehavior(vehicle)
+            self.sceneView.scene.rootNode.addChildNode(chassis)
+        }
+    }
+
+    // MARK: - Concrete
+    private func createConcrete(planeAnchor: ARPlaneAnchor) -> SCNNode {
+        let image = UIImage(named: "concrete", in: ARVehicleViewController.bundle, compatibleWith: nil)
+        let concreteNode = SCNNode(geometry: SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(CGFloat(planeAnchor.extent.z))))
+        concreteNode.geometry?.firstMaterial?.diffuse.contents = image
+        concreteNode.geometry?.firstMaterial?.isDoubleSided = true
+        concreteNode.position = SCNVector3(planeAnchor.center.x,planeAnchor.center.y,planeAnchor.center.z)
+        concreteNode.eulerAngles = SCNVector3((90.0).toRadians, 0, 0)
+
+        let staticBody = SCNPhysicsBody.static()
+        concreteNode.physicsBody = staticBody
+        return concreteNode
+    }
+
+    // MARK: - Accelerometer
+    public func setupAccelerometer() {
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 1.0 / 60 //
+
+            // the following function will be triggered 60 times a second
+            motionManager.startAccelerometerUpdates(to: .main) { [weak self] (data, error) in
+
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                ///print("accelerometer is detecting acceleration")
+                if let acceleration = data?.acceleration {
+                    self?.accelerometerDidChange(acceleration: acceleration)
+                }
+            }
+        } else {
+            print("Accelerometer not available")
+        }
+    }
+
+    func accelerometerDidChange(acceleration: CMAcceleration) {
+        accelerationValues[1] = filtered(currentAcceleration: accelerationValues[1], updatedAcceleration: acceleration.y)
+        accelerationValues[0] = filtered(currentAcceleration: accelerationValues[0], updatedAcceleration: acceleration.x)
+
+        //print("hori:", acceleration.x, "vert:", acceleration.y, "\n")
+        self.orientation = accelerationValues[0] > 0 ?  -accelerationValues[1].toCGFloat : accelerationValues[1].toCGFloat
+
+    }
+    func filtered(currentAcceleration: Double, updatedAcceleration: Double) -> Double {
+        let kfilteringFactor = 0.5
+        return updatedAcceleration * kfilteringFactor + currentAcceleration * (1 - kfilteringFactor)
+    }
+
+
+    // MARK: - Show alert
     private func showHelperAlertIfNeeded() {
         let key = "ARVehicleViewController.helperAlert.didShow"
         if !UserDefaults.standard.bool(forKey: key) {
@@ -93,18 +166,20 @@ public class ARVehicleViewController: UIViewController {
         }
     }
 
-    func createLava(planeAnchor: ARPlaneAnchor) -> SCNNode {
-        let image = UIImage(named: "concrete", in: ARVehicleViewController.bundle, compatibleWith: nil)
-        let lavaNode = SCNNode(geometry: SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(CGFloat(planeAnchor.extent.z))))
-        lavaNode.geometry?.firstMaterial?.diffuse.contents = image
-        lavaNode.geometry?.firstMaterial?.isDoubleSided = true
-        lavaNode.position = SCNVector3(planeAnchor.center.x,planeAnchor.center.y,planeAnchor.center.z)
-        lavaNode.eulerAngles = SCNVector3((90.0).toRadians, 0, 0)
-        return lavaNode
-    }
-
     deinit {
         print("AR Vehicle deinit")
+    }
+}
+
+// MARK: - Gestures
+extension ARVehicleViewController {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let _ = touches.first else { return }
+        self.touched += touches.count
+    }
+
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.touched = 0
     }
 }
 
@@ -121,9 +196,9 @@ extension ARVehicleViewController: ARSCNViewDelegate {
      */
     public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        let lavaNode = createLava(planeAnchor: planeAnchor)
-        node.addChildNode(lavaNode)
-        print("new flat surface detected, new ARPlaneAnchor added")
+        let concreteNode = createConcrete(planeAnchor: planeAnchor)
+        node.addChildNode(concreteNode)
+        //print("new flat surface detected, new ARPlaneAnchor added")
 
     }
 
@@ -131,13 +206,13 @@ extension ARVehicleViewController: ARSCNViewDelegate {
     public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
 
-        print("updating floor's anchor...")
+        //print("updating floor's anchor...")
         node.enumerateChildNodes { (childNode, _) in
             childNode.removeFromParentNode()
 
         }
-        let lavaNode = createLava(planeAnchor: planeAnchor)
-        node.addChildNode(lavaNode)
+        let concreteNode = createConcrete(planeAnchor: planeAnchor)
+        node.addChildNode(concreteNode)
     }
 
     public func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
@@ -149,8 +224,32 @@ extension ARVehicleViewController: ARSCNViewDelegate {
         guard let _ = anchor as? ARPlaneAnchor else {return}
         node.enumerateChildNodes { (childNode, _) in
             childNode.removeFromParentNode()
-
         }
+
+    }
+
+    // this fucntion is run once per frame
+    public func renderer(_ renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: TimeInterval) {
+        // front wheel at index of vehicle wheels array
+        self.vehicle.setSteeringAngle(-orientation, forWheelAt: 2)
+        self.vehicle.setSteeringAngle(-orientation, forWheelAt: 3)
+
+        var engineForce: CGFloat = 0
+        var brakingForce: CGFloat = 0
+        switch self.touched {
+        case 1:
+            engineForce = 50
+        case 2:
+            engineForce = -50
+        case 3:
+            brakingForce = 200
+        default: break
+        }
+
+        self.vehicle.applyEngineForce(engineForce, forWheelAt: 0)
+        self.vehicle.applyEngineForce(engineForce, forWheelAt: 1)
+        self.vehicle.applyBrakingForce(brakingForce, forWheelAt: 0)
+        self.vehicle.applyBrakingForce(brakingForce, forWheelAt: 1)
 
     }
 
@@ -167,22 +266,5 @@ extension ARVehicleViewController: ARSCNViewDelegate {
     public func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
 
-    }
-}
-
-extension ARVehicleViewController : SCNPhysicsContactDelegate {
-
-    public func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        let mask = contact.nodeA.physicsBody!.categoryBitMask | contact.nodeB.physicsBody!.categoryBitMask
-
-        /*
-        if CollisionTypes(rawValue: mask) == [CollisionTypes.bottom, CollisionTypes.shape] {
-            if contact.nodeA.physicsBody!.categoryBitMask == CollisionTypes.bottom.rawValue {
-                contact.nodeB.removeFromParentNode()
-            } else {
-                contact.nodeA.removeFromParentNode()
-            }
-        }
- */
     }
 }

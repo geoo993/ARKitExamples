@@ -1,37 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1qf-wG-GMD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Vehicle View Controller-->
-        <scene sceneID="tXr-a1-R10">
+        <scene sceneID="Sto-Ve-QXf">
             <objects>
-                <viewController storyboardIdentifier="ARVehicleViewController" id="BV1-FR-VrT" customClass="ARVehicleViewController" customModule="ARVehicleDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
+                <viewController storyboardIdentifier="ARVehicleViewController" id="1qf-wG-GMD" customClass="ARVehicleViewController" customModule="ARVehicleDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5hQ-HV-cP3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="chS-Td-dQK" appends="YES" id="0t2-8V-OqY"/>
-                        </connections>
-                    </arscnView>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCj-3c-3Hh">
+                                <rect key="frame" x="-0.5" y="20" width="375" height="647"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lo-Ya-DxU">
+                                <rect key="frame" x="20" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.23157319430000001" green="0.89601296190000002" blue="0.58695769310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FY8-bT-b7r"/>
+                                    <constraint firstAttribute="width" constant="50" id="JBJ-j5-ha5"/>
+                                </constraints>
+                                <state key="normal" title="add"/>
+                                <connections>
+                                    <action selector="addCar" destination="1qf-wG-GMD" eventType="touchUpInside" id="jSz-Sq-Dx8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lCj-3c-3Hh" firstAttribute="centerY" secondItem="0BZ-cX-chh" secondAttribute="centerY" id="4YE-Qs-U9V"/>
+                            <constraint firstItem="lCj-3c-3Hh" firstAttribute="centerX" secondItem="0BZ-cX-chh" secondAttribute="centerX" id="Ph2-ni-aRN"/>
+                            <constraint firstItem="lCj-3c-3Hh" firstAttribute="width" secondItem="0BZ-cX-chh" secondAttribute="width" id="Z43-MO-3Za"/>
+                            <constraint firstItem="lCj-3c-3Hh" firstAttribute="height" secondItem="0BZ-cX-chh" secondAttribute="height" id="aHE-fO-bg4"/>
+                            <constraint firstItem="0BZ-cX-chh" firstAttribute="bottom" secondItem="0Lo-Ya-DxU" secondAttribute="bottom" constant="20" id="c6z-TS-5gt"/>
+                            <constraint firstItem="0Lo-Ya-DxU" firstAttribute="leading" secondItem="0BZ-cX-chh" secondAttribute="leading" constant="20" id="rWz-s3-PiH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0BZ-cX-chh"/>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="sceneView" destination="lCj-3c-3Hh" id="0eB-CU-nK5"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="chS-Td-dQK">
-                    <connections>
-                        <action selector="tapScreen" destination="BV1-FR-VrT" id="Kgn-sT-0Zx"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EEh-Wy-51Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="947" y="-150"/>
         </scene>
     </scenes>
 </document>

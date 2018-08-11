@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C73939D9211F7D9C00E99139 /* arts.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DCD81F211F5C8E002E9FA3 /* arts.scnassets */; };
 		C7DCD81E211F5C8E002E9FA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCD81D211F5C8E002E9FA3 /* AppDelegate.swift */; };
-		C7DCD820211F5C8E002E9FA3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DCD81F211F5C8E002E9FA3 /* art.scnassets */; };
+		C7DCD820211F5C8E002E9FA3 /* arts.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DCD81F211F5C8E002E9FA3 /* arts.scnassets */; };
 		C7DCD82A211F5C8F002E9FA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DCD828211F5C8F002E9FA3 /* LaunchScreen.storyboard */; };
 		C7DCD83A211F5D3C002E9FA3 /* ARVehicleDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7DCD838211F5D3C002E9FA3 /* ARVehicleDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7DCD83D211F5D3C002E9FA3 /* ARVehicleDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7DCD836211F5D3C002E9FA3 /* ARVehicleDemo.framework */; };
@@ -46,7 +47,7 @@
 /* Begin PBXFileReference section */
 		C7DCD81A211F5C8E002E9FA3 /* ARVehicle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARVehicle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DCD81D211F5C8E002E9FA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7DCD81F211F5C8E002E9FA3 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		C7DCD81F211F5C8E002E9FA3 /* arts.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = arts.scnassets; sourceTree = "<group>"; };
 		C7DCD821211F5C8E002E9FA3 /* ARVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVehicleViewController.swift; sourceTree = "<group>"; };
 		C7DCD824211F5C8E002E9FA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARVehicle.storyboard; sourceTree = "<group>"; };
 		C7DCD826211F5C8F002E9FA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				C7DCD81D211F5C8E002E9FA3 /* AppDelegate.swift */,
-				C7DCD81F211F5C8E002E9FA3 /* art.scnassets */,
+				C7DCD81F211F5C8E002E9FA3 /* arts.scnassets */,
 				C7DCD821211F5C8E002E9FA3 /* ARVehicleViewController.swift */,
 				C7DCD823211F5C8E002E9FA3 /* ARVehicle.storyboard */,
 				C7DCD826211F5C8F002E9FA3 /* Assets.xcassets */,
@@ -221,7 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7DCD820211F5C8E002E9FA3 /* art.scnassets in Resources */,
+				C7DCD820211F5C8E002E9FA3 /* arts.scnassets in Resources */,
 				C7DCD82A211F5C8F002E9FA3 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C73939D9211F7D9C00E99139 /* arts.scnassets in Resources */,
 				C7DCD845211F5DAB002E9FA3 /* Assets.xcassets in Resources */,
 				C7DCD844211F5DA8002E9FA3 /* ARVehicle.storyboard in Resources */,
 			);
