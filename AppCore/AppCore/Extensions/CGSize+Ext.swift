@@ -13,9 +13,14 @@ import ARKit
 public extension CGSize {
     
 	public init(_ point: CGPoint) {
-		self.width = point.x
+        self.init()
+        self.width = point.x
 		self.height = point.y
 	}
+
+    public var half: CGSize {
+        return CGSize(width: self.width / 2, height: self.height / 2)
+    }
 }
 
 public func + (left: CGSize, right: CGSize) -> CGSize {

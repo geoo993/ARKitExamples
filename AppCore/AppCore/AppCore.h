@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AppCore/ShaderTypes.h>
 
 //! Project version number for AppCore.
 FOUNDATION_EXPORT double AppCoreVersionNumber;

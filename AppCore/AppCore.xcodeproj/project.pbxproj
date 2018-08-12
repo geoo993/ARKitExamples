@@ -14,9 +14,20 @@
 		C700B199202385C6000FC421 /* CGSize+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B195202385C6000FC421 /* CGSize+Ext.swift */; };
 		C700B19B20238881000FC421 /* RangeReplaceableCollection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B19A20238881000FC421 /* RangeReplaceableCollection+Ext.swift */; };
 		C7072136202151750071F6FE /* SCNScene+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7072135202151750071F6FE /* SCNScene+Ext.swift */; };
-		C724C2F82028A694005799C0 /* Matrix+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724C2F72028A694005799C0 /* Matrix+Ext.swift */; };
 		C7375361204227EC00C7D8C7 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7375360204227EC00C7D8C7 /* NavigationService.swift */; };
 		C73939DB211F85BF00E99139 /* SCNMatrix4+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939DA211F85BF00E99139 /* SCNMatrix4+Ext.swift */; };
+		C73939DF211FAC9200E99139 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939DD211FAC9100E99139 /* Renderable.swift */; };
+		C73939E0211FAC9200E99139 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939DE211FAC9100E99139 /* Renderer.swift */; };
+		C73939EF211FACF700E99139 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E3211FACF700E99139 /* Model.swift */; };
+		C73939F0211FACF700E99139 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E4211FACF700E99139 /* Instance.swift */; };
+		C73939F1211FACF700E99139 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E5211FACF700E99139 /* Camera.swift */; };
+		C73939F2211FACF700E99139 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E6211FACF700E99139 /* Node.swift */; };
+		C73939F3211FACF700E99139 /* VertexShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C73939E8211FACF700E99139 /* VertexShader.metal */; };
+		C73939F4211FACF700E99139 /* FragmentShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C73939E9211FACF700E99139 /* FragmentShader.metal */; };
+		C73939F5211FACF700E99139 /* Shader.h in Headers */ = {isa = PBXBuildFile; fileRef = C73939EA211FACF700E99139 /* Shader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C73939F6211FACF700E99139 /* ShaderTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = C73939EB211FACF700E99139 /* ShaderTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C73939F7211FACF700E99139 /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939ED211FACF700E99139 /* Texturable.swift */; };
+		C73939FA211FAD7800E99139 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939F9211FAD7800E99139 /* Scene.swift */; };
 		C739E3E7201C91100081259D /* UIViewXRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E3DD201C91100081259D /* UIViewXRadialGradient.swift */; };
 		C739E3E8201C91100081259D /* UITextFieldX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E3DE201C91100081259D /* UITextFieldX.swift */; };
 		C739E3E9201C91100081259D /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E3DF201C91100081259D /* UIButtonX.swift */; };
@@ -83,6 +94,16 @@
 		C7D02085204AD9E700EA15B3 /* SKScene+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D02084204AD9E700EA15B3 /* SKScene+Ext.swift */; };
 		C7D6DC2C204AFCB1006666FF /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7D6DC2B204AFCB1006666FF /* Inceptionv3.mlmodel */; };
 		C7DAAB4B2043623500325DB9 /* LocationServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DAAB4A2043623500325DB9 /* LocationServiceDelegate.swift */; };
+		C7FC1F25211FB012004CCB80 /* Exponential.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F1B211FB012004CCB80 /* Exponential.swift */; };
+		C7FC1F27211FB012004CCB80 /* Matrix_Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F1D211FB012004CCB80 /* Matrix_Transform.swift */; };
+		C7FC1F28211FB012004CCB80 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F1E211FB012004CCB80 /* Common.swift */; };
+		C7FC1F29211FB012004CCB80 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F1F211FB012004CCB80 /* Transform.swift */; };
+		C7FC1F2A211FB012004CCB80 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F20211FB012004CCB80 /* Vector.swift */; };
+		C7FC1F2B211FB012004CCB80 /* Trigonometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F21211FB012004CCB80 /* Trigonometric.swift */; };
+		C7FC1F2C211FB012004CCB80 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F22211FB012004CCB80 /* Matrix.swift */; };
+		C7FC1F2D211FB012004CCB80 /* Quaternion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F23211FB012004CCB80 /* Quaternion.swift */; };
+		C7FC1F2E211FB012004CCB80 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F24211FB012004CCB80 /* Types.swift */; };
+		C7FC1F30211FB0CD004CCB80 /* Geometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F2F211FB0CD004CCB80 /* Geometric.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,11 +114,22 @@
 		C700B195202385C6000FC421 /* CGSize+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Ext.swift"; sourceTree = "<group>"; };
 		C700B19A20238881000FC421 /* RangeReplaceableCollection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Ext.swift"; sourceTree = "<group>"; };
 		C7072135202151750071F6FE /* SCNScene+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNScene+Ext.swift"; sourceTree = "<group>"; };
-		C724C2F72028A694005799C0 /* Matrix+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Matrix+Ext.swift"; sourceTree = "<group>"; };
 		C724C2F92028AA03005799C0 /* SCNMathExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNMathExtensions.swift; sourceTree = "<group>"; };
 		C72C2F422042DEAD00518B9C /* Measurement.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Measurement.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C7375360204227EC00C7D8C7 /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		C73939DA211F85BF00E99139 /* SCNMatrix4+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNMatrix4+Ext.swift"; sourceTree = "<group>"; };
+		C73939DD211FAC9100E99139 /* Renderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
+		C73939DE211FAC9100E99139 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		C73939E3211FACF700E99139 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C73939E4211FACF700E99139 /* Instance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
+		C73939E5211FACF700E99139 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		C73939E6211FACF700E99139 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		C73939E8211FACF700E99139 /* VertexShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = VertexShader.metal; sourceTree = "<group>"; };
+		C73939E9211FACF700E99139 /* FragmentShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = FragmentShader.metal; sourceTree = "<group>"; };
+		C73939EA211FACF700E99139 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		C73939EB211FACF700E99139 /* ShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
+		C73939ED211FACF700E99139 /* Texturable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
+		C73939F9211FAD7800E99139 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		C739E3DD201C91100081259D /* UIViewXRadialGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewXRadialGradient.swift; sourceTree = "<group>"; };
 		C739E3DE201C91100081259D /* UITextFieldX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldX.swift; sourceTree = "<group>"; };
 		C739E3DF201C91100081259D /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
@@ -166,6 +198,16 @@
 		C7D02084204AD9E700EA15B3 /* SKScene+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKScene+Ext.swift"; sourceTree = "<group>"; };
 		C7D6DC2B204AFCB1006666FF /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		C7DAAB4A2043623500325DB9 /* LocationServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceDelegate.swift; sourceTree = "<group>"; };
+		C7FC1F1B211FB012004CCB80 /* Exponential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exponential.swift; sourceTree = "<group>"; };
+		C7FC1F1D211FB012004CCB80 /* Matrix_Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix_Transform.swift; sourceTree = "<group>"; };
+		C7FC1F1E211FB012004CCB80 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		C7FC1F1F211FB012004CCB80 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		C7FC1F20211FB012004CCB80 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		C7FC1F21211FB012004CCB80 /* Trigonometric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trigonometric.swift; sourceTree = "<group>"; };
+		C7FC1F22211FB012004CCB80 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		C7FC1F23211FB012004CCB80 /* Quaternion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quaternion.swift; sourceTree = "<group>"; };
+		C7FC1F24211FB012004CCB80 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		C7FC1F2F211FB0CD004CCB80 /* Geometric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometric.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +247,53 @@
 			path = Playgrounds;
 			sourceTree = "<group>";
 		};
+		C73939DC211FAC9100E99139 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				C73939DD211FAC9100E99139 /* Renderable.swift */,
+				C73939DE211FAC9100E99139 /* Renderer.swift */,
+			);
+			path = Renderer;
+			sourceTree = "<group>";
+		};
+		C73939E1211FACF700E99139 /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				C73939E3211FACF700E99139 /* Model.swift */,
+				C73939E4211FACF700E99139 /* Instance.swift */,
+				C73939E5211FACF700E99139 /* Camera.swift */,
+				C73939E6211FACF700E99139 /* Node.swift */,
+			);
+			path = Node;
+			sourceTree = "<group>";
+		};
+		C73939E7211FACF700E99139 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				C73939E9211FACF700E99139 /* FragmentShader.metal */,
+				C73939E8211FACF700E99139 /* VertexShader.metal */,
+				C73939EA211FACF700E99139 /* Shader.h */,
+				C73939EB211FACF700E99139 /* ShaderTypes.h */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		C73939EC211FACF700E99139 /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				C73939ED211FACF700E99139 /* Texturable.swift */,
+			);
+			path = Textures;
+			sourceTree = "<group>";
+		};
+		C73939F8211FAD7800E99139 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C73939F9211FAD7800E99139 /* Scene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		C739E3DC201C91100081259D /* DesignableX */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +326,6 @@
 				C739E3FE201CA85A0081259D /* Double+Ext.swift */,
 				C7A4E533202745D000C1783A /* FormatDisplay.swift */,
 				C739E416201CA85A0081259D /* Int+Ext.swift */,
-				C724C2F72028A694005799C0 /* Matrix+Ext.swift */,
 				C7BD1558202F596000FF8D00 /* MKRouteStep+Ext.swift */,
 				C7830B1A2027AA0800FD2FE6 /* NSAttributedString+Ext.swift */,
 				C7830B182027AA0800FD2FE6 /* NSRange+Ext.swift */,
@@ -397,8 +485,31 @@
 		C7DCD84C211F6837002E9FA3 /* Metal */ = {
 			isa = PBXGroup;
 			children = (
+				C73939F8211FAD7800E99139 /* Scenes */,
+				C73939E1211FACF700E99139 /* Node */,
+				C73939E7211FACF700E99139 /* Shaders */,
+				C73939EC211FACF700E99139 /* Textures */,
+				C73939DC211FAC9100E99139 /* Renderer */,
+				C7FC1F1A211FB012004CCB80 /* Utilities */,
 			);
 			path = Metal;
+			sourceTree = "<group>";
+		};
+		C7FC1F1A211FB012004CCB80 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C7FC1F2F211FB0CD004CCB80 /* Geometric.swift */,
+				C7FC1F1B211FB012004CCB80 /* Exponential.swift */,
+				C7FC1F1D211FB012004CCB80 /* Matrix_Transform.swift */,
+				C7FC1F1E211FB012004CCB80 /* Common.swift */,
+				C7FC1F1F211FB012004CCB80 /* Transform.swift */,
+				C7FC1F20211FB012004CCB80 /* Vector.swift */,
+				C7FC1F21211FB012004CCB80 /* Trigonometric.swift */,
+				C7FC1F22211FB012004CCB80 /* Matrix.swift */,
+				C7FC1F23211FB012004CCB80 /* Quaternion.swift */,
+				C7FC1F24211FB012004CCB80 /* Types.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,7 +519,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C73939F6211FACF700E99139 /* ShaderTypes.h in Headers */,
 				C7B52659201C8A1D00134F00 /* AppCore.h in Headers */,
+				C73939F5211FACF700E99139 /* Shader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,16 +597,21 @@
 				C73939DB211F85BF00E99139 /* SCNMatrix4+Ext.swift in Sources */,
 				C739E3EB201C91100081259D /* UIViewAnchorPoint.swift in Sources */,
 				C739E433201CA85A0081259D /* CGPoint+Ext.swift in Sources */,
+				C73939DF211FAC9200E99139 /* Renderable.swift in Sources */,
 				C739E444201CA85A0081259D /* SCNVector3+Ext.swift in Sources */,
+				C73939F4211FACF700E99139 /* FragmentShader.metal in Sources */,
 				C761C1DB206E323C002997B1 /* ARViewController.swift in Sources */,
 				C7D02085204AD9E700EA15B3 /* SKScene+Ext.swift in Sources */,
 				C7830B1F2027AA0900FD2FE6 /* UINavigationBar+Ext.swift in Sources */,
+				C7FC1F25211FB012004CCB80 /* Exponential.swift in Sources */,
 				C739E446201CA85A0081259D /* UIDevice+Ext.swift in Sources */,
 				C7BD1561202F5DBC00FF8D00 /* POIAnnotation.swift in Sources */,
 				C7830B1E2027AA0900FD2FE6 /* NSAttributedString+Ext.swift in Sources */,
 				C739E43B201CA85A0081259D /* UIColor+Ext.swift in Sources */,
+				C73939E0211FAC9200E99139 /* Renderer.swift in Sources */,
 				C761C1D5206E323C002997B1 /* ARTrackingManager.swift in Sources */,
 				C775DEC6201F2E80003457AD /* GameHelper.swift in Sources */,
+				C73939F1211FACF700E99139 /* Camera.swift in Sources */,
 				C7830B212027B9D800FD2FE6 /* UINavigationController+Ext.swift in Sources */,
 				C739E42B201CA85A0081259D /* Double+Ext.swift in Sources */,
 				C7A52AB6201F520F003614C0 /* SCNView+Ext.swift in Sources */,
@@ -503,11 +621,13 @@
 				C7375361204227EC00C7D8C7 /* NavigationService.swift in Sources */,
 				C7BD1574202F92F400FF8D00 /* CoreDataStack.swift in Sources */,
 				C761C1D4206E323C002997B1 /* ARAnnotation.swift in Sources */,
+				C73939F0211FACF700E99139 /* Instance.swift in Sources */,
 				C739E43C201CA85A0081259D /* CGFloat+Ext.swift in Sources */,
 				C739E450201CAB8C0081259D /* String+Ext.swift in Sources */,
 				C739E431201CA85A0081259D /* Sequence+Ext.swift in Sources */,
 				C775DEC3201F2E80003457AD /* ShapeGenerator.swift in Sources */,
 				C74712E62028983F00795032 /* MatrixHelper.swift in Sources */,
+				C73939FA211FAD7800E99139 /* Scene.swift in Sources */,
 				C7BD1562202F5DBC00FF8D00 /* LocationData.swift in Sources */,
 				C761C1D7206E323C002997B1 /* ARAnnotationView.swift in Sources */,
 				C77768AB20252F4A00CE16BB /* ARTextManager.swift in Sources */,
@@ -518,28 +638,37 @@
 				C739E3F0201C91100081259D /* UISliderX.swift in Sources */,
 				C761C1D9206E323C002997B1 /* ARConfiguration.swift in Sources */,
 				C7BD1564202F5F7B00FF8D00 /* AddressParser.swift in Sources */,
+				C73939F7211FACF700E99139 /* Texturable.swift in Sources */,
 				C7BD155B202F5C4E00FF8D00 /* CLLocation+Ext.swift in Sources */,
 				C739E3EE201C91100081259D /* UIViewX.swift in Sources */,
 				C7830B1D2027AA0900FD2FE6 /* UIFont+Ext.swift in Sources */,
+				C7FC1F28211FB012004CCB80 /* Common.swift in Sources */,
 				C700B19B20238881000FC421 /* RangeReplaceableCollection+Ext.swift in Sources */,
 				C761C1D8206E323C002997B1 /* ARPresenterTransform.swift in Sources */,
+				C7FC1F30211FB0CD004CCB80 /* Geometric.swift in Sources */,
+				C73939EF211FACF700E99139 /* Model.swift in Sources */,
+				C7FC1F2A211FB012004CCB80 /* Vector.swift in Sources */,
 				C7A4E535202745D100C1783A /* FormatDisplay.swift in Sources */,
+				C7FC1F2D211FB012004CCB80 /* Quaternion.swift in Sources */,
 				C739E452201CAF900081259D /* SwiftRegex.swift in Sources */,
 				C739E443201CA85A0081259D /* Int+Ext.swift in Sources */,
 				C739E3EF201C91100081259D /* UIVisualEffectViewX.swift in Sources */,
 				C7830B1C2027AA0900FD2FE6 /* NSRange+Ext.swift in Sources */,
-				C724C2F82028A694005799C0 /* Matrix+Ext.swift in Sources */,
 				C739E3E8201C91100081259D /* UITextFieldX.swift in Sources */,
+				C7FC1F2C211FB012004CCB80 /* Matrix.swift in Sources */,
 				C775DECA201F3049003457AD /* CollisionTypes.swift in Sources */,
 				C7BD1560202F5DBC00FF8D00 /* LocationTranslation.swift in Sources */,
 				C739E449201CA85A0081259D /* CGRect+Ext.swift in Sources */,
+				C7FC1F2E211FB012004CCB80 /* Types.swift in Sources */,
 				C739E3E7201C91100081259D /* UIViewXRadialGradient.swift in Sources */,
 				C7BD1559202F596000FF8D00 /* MKRouteStep+Ext.swift in Sources */,
 				C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */,
+				C7FC1F2B211FB012004CCB80 /* Trigonometric.swift in Sources */,
 				C77768A920252AAA00CE16BB /* UserDefaults+Ext.swift in Sources */,
 				C761C1DA206E323C002997B1 /* CameraView.swift in Sources */,
 				C739E3EC201C91100081259D /* UIViewControllerX.swift in Sources */,
 				C7DAAB4B2043623500325DB9 /* LocationServiceDelegate.swift in Sources */,
+				C7FC1F27211FB012004CCB80 /* Matrix_Transform.swift in Sources */,
 				C739E3ED201C91100081259D /* UIImageViewX.swift in Sources */,
 				C739E3E9201C91100081259D /* UIButtonX.swift in Sources */,
 				C700B199202385C6000FC421 /* CGSize+Ext.swift in Sources */,
@@ -547,10 +676,13 @@
 				C700B18D20238499000FC421 /* FocusSquare.swift in Sources */,
 				C7830B262027CD0700FD2FE6 /* LocationService.swift in Sources */,
 				C761C1DC206E323C002997B1 /* DebugMapViewController.swift in Sources */,
+				C73939F3211FACF700E99139 /* VertexShader.metal in Sources */,
 				C700B18C20238499000FC421 /* FocusSquareSegment.swift in Sources */,
 				C739E3EA201C91100081259D /* UILabelX.swift in Sources */,
 				C7A4E531202745C300C1783A /* LocationManager.swift in Sources */,
+				C73939F2211FACF700E99139 /* Node.swift in Sources */,
 				C7072136202151750071F6FE /* SCNScene+Ext.swift in Sources */,
+				C7FC1F29211FB012004CCB80 /* Transform.swift in Sources */,
 				C739E441201CA85A0081259D /* Array+Ext.swift in Sources */,
 				C7D6DC2C204AFCB1006666FF /* Inceptionv3.mlmodel in Sources */,
 				C739E439201CA85A0081259D /* SCNAction+Ext.swift in Sources */,
