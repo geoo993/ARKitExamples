@@ -59,6 +59,19 @@ using namespace metal;
  }
  */
 
+// Captured image vertex function
+vertex VertexOut image_vertex_shader(const ImageVertexIn vertexIn [[stage_in]]) {
+    VertexOut vertexOut;
+
+    // Pass through the image vertex's position
+    vertexOut.position = float4(vertexIn.position, 0.0f, 1.0f);
+
+    // Pass through the texture coordinate
+    vertexOut.textureCoordinates = vertexIn.textureCoordinates;
+
+    return vertexOut;
+}
+
 vertex VertexOut vertex_shader(const VertexIn vertexIn [[ stage_in ]],
                                constant Constants &constants [[ buffer(BufferIndexConstants) ]],
                                constant Uniform &uniform [[ buffer(BufferIndexUniforms) ]]) {

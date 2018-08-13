@@ -19,6 +19,8 @@
 #import <simd/simd.h>
 
 // --------- Buffers and Indexes --------
+// Buffer index values shared between shader and C code to ensure Metal shader buffer inputs match
+//   Metal API buffer set calls
 typedef NS_ENUM(NSInteger, BufferIndex)
 {
     BufferIndexMeshPositions        = 0,
@@ -30,7 +32,6 @@ typedef NS_ENUM(NSInteger, BufferIndex)
     BufferIndexPointLightInfo       = 6,
     BufferIndexSpotLightInfo        = 7,
     BufferIndexConstants            = 8,
-    BufferIndexToon                 = 9,
     BufferIndexFireBall             = 10,
 };
 
@@ -42,6 +43,8 @@ typedef NS_ENUM(NSInteger, VertexAttribute)
     VertexAttributeNormal   = 3,
 };
 
+// Texture index values shared between shader and C code to ensure Metal shader texture indices
+//   match indices of Metal API texture set calls
 typedef NS_ENUM(NSInteger, TextureIndex)
 {
     TextureIndexColor           = 0,
@@ -49,6 +52,8 @@ typedef NS_ENUM(NSInteger, TextureIndex)
     TextureIndexNormalMap       = 2,
     TextureIndexDiffuseMap      = 3,
     TextureIndexSpecularMap     = 4,
+    TextureIndexY               = 5,
+    TextureIndexCbCr            = 6,
 };
 
 
@@ -67,6 +72,11 @@ typedef struct
     matrix_float4x4 viewMatrix;
     matrix_float3x3 normalMatrix;
 } Uniform;
+
+typedef struct {
+    matrix_float4x4 modelMatrix;
+} InstanceUniform;
+
 
 // --------- Attributes --------
 typedef struct

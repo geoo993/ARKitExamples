@@ -15,8 +15,8 @@
 using namespace metal;
 
 typedef struct {
-    float2 position [[attribute(kVertexAttributePosition)]];
-    float2 texCoord [[attribute(kVertexAttributeTexcoord)]];
+    float2 position [[attribute(VertexAttributePosition)]];
+    float2 texCoord [[attribute(VertexAttributeTexcoord)]];
 } ImageVertex;
 
 
@@ -27,7 +27,7 @@ typedef struct {
 
 
 // Captured image vertex function
-vertex ImageColorInOut capturedImageVertexTransform(ImageVertex in [[stage_in]]) {
+vertex ImageColorInOut image_vertex_shader(ImageVertex in [[stage_in]]) {
     ImageColorInOut out;
     
     // Pass through the image vertex's position
@@ -40,9 +40,9 @@ vertex ImageColorInOut capturedImageVertexTransform(ImageVertex in [[stage_in]])
 }
 
 // Captured image fragment function
-fragment float4 capturedImageFragmentShader(ImageColorInOut in [[stage_in]],
-                                            texture2d<float, access::sample> capturedImageTextureY [[ texture(kTextureIndexY) ]],
-                                            texture2d<float, access::sample> capturedImageTextureCbCr [[ texture(kTextureIndexCbCr) ]]) {
+fragment float4 fragment_image_shader(ImageColorInOut in [[stage_in]],
+                                            texture2d<float, access::sample> capturedImageTextureY [[ texture(TextureIndexY) ]],
+                                            texture2d<float, access::sample> capturedImageTextureCbCr [[ texture(TextureIndexCbCr) ]]) {
     
     constexpr sampler colorSampler(mip_filter::linear,
                                    mag_filter::linear,
@@ -63,7 +63,7 @@ fragment float4 capturedImageFragmentShader(ImageColorInOut in [[stage_in]],
     return ycbcrToRGBTransform * ycbcr;
 }
 
-
+/*
 typedef struct {
     float3 position [[attribute(kVertexAttributePosition)]];
     float2 texCoord [[attribute(kVertexAttributeTexcoord)]];
@@ -166,3 +166,4 @@ fragment float4 anchorGeometryFragmentLighting(ColorInOut in [[stage_in]],
     // colorMap for this fragment's alpha value
     return float4(color, in.color.w);
 }
+*/

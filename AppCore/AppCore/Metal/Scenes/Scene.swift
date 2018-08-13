@@ -53,9 +53,11 @@ open class Scene: Node {
         //                              index: BufferIndex.fireBall.rawValue)
 
         // Camera
+        /*
         var cameraInfo = CameraInfo(position: camera.position, front: camera.front)
         commandEncoder.setFragmentBytes(&cameraInfo, length: MemoryLayout<CameraInfo>.stride,
                                         index: BufferIndex.cameraInfo.rawValue)
+        */
         for child in children {
             child.render(commandEncoder: commandEncoder,
                          parentModelMatrix: sceneOrigin,

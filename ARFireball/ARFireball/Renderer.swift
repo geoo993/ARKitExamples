@@ -10,7 +10,7 @@ import Foundation
 import Metal
 import MetalKit
 import ARKit
-import AppCore
+//import AppCore
 /*
 protocol RenderDestinationProvider {
     var currentRenderPassDescriptor: MTLRenderPassDescriptor? { get }
@@ -19,6 +19,7 @@ protocol RenderDestinationProvider {
     var depthStencilPixelFormat: MTLPixelFormat { get set }
     var sampleCount: Int { get set }
 }
+
 
 // The max number of command buffers in flight
 let kMaxBuffersInFlight: Int = 3
@@ -37,9 +38,10 @@ let kImagePlaneVertexData: [Float] = [
     -1.0,  1.0,  0.0, 0.0,
     1.0,  1.0,  1.0, 0.0,
 ]
-
+*/
 
 class Rendererr {
+    /*
     let bundle: Bundle
     let session: ARSession
     let device: MTLDevice
@@ -141,7 +143,7 @@ class Rendererr {
                 renderEncoder.label = "MyRenderEncoder"
                 
                 drawCapturedImage(renderEncoder: renderEncoder)
-                drawAnchorGeometry(renderEncoder: renderEncoder)
+                //drawAnchorGeometry(renderEncoder: renderEncoder)
                 
                 // We're done encoding commands
                 renderEncoder.endEncoding()
@@ -154,12 +156,12 @@ class Rendererr {
             commandBuffer.commit()
         }
     }
-    
+    */
     // MARK: - Private
     
     func loadMetal() {
         // Create and load our basic Metal state objects
-        
+        /*
         // Set the default formats needed to render
         renderDestination.depthStencilPixelFormat = .depth32Float_stencil8
         renderDestination.colorPixelFormat = .bgra8Unorm
@@ -237,7 +239,10 @@ class Rendererr {
         var textureCache: CVMetalTextureCache?
         CVMetalTextureCacheCreate(nil, nil, device, nil, &textureCache)
         capturedImageTextureCache = textureCache
-        
+
+ */
+
+        /*
         let anchorGeometryVertexFunction = defaultLibrary.makeFunction(name: "anchorGeometryVertexTransform")!
         let anchorGeometryFragmentFunction = defaultLibrary.makeFunction(name: "anchorGeometryFragmentLighting")!
         
@@ -293,11 +298,12 @@ class Rendererr {
         anchorDepthStateDescriptor.depthCompareFunction = .less
         anchorDepthStateDescriptor.isDepthWriteEnabled = true
         anchorDepthState = device.makeDepthStencilState(descriptor: anchorDepthStateDescriptor)
-        
+        */
+
         // Create the command queue
-        commandQueue = device.makeCommandQueue()
+        //commandQueue = device.makeCommandQueue()
     }
-    
+    /*
     func loadAssets() {
         // Create and load our assets into Metal objects including meshes and textures
         
@@ -476,7 +482,8 @@ class Rendererr {
         
         renderEncoder.popDebugGroup()
     }
-    
+ */
+    /*
     func drawAnchorGeometry(renderEncoder: MTLRenderCommandEncoder) {
         guard anchorInstanceCount > 0 else {
             return
@@ -508,5 +515,6 @@ class Rendererr {
         
         renderEncoder.popDebugGroup()
     }
-}
  */
+}
+

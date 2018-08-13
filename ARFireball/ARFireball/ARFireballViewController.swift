@@ -18,8 +18,6 @@ public class ARFireballViewController: UIViewController {
         return Bundle(identifier: "com.geo-games.ARFireballDemo")!
     }
 
-    @IBOutlet weak var metalKitView: MTKView!
-
     var session: ARSession!
     var renderer: Renderer!
 
@@ -43,12 +41,11 @@ public class ARFireballViewController: UIViewController {
         sceneView.autoenablesDefaultLighting = true
  */
 
-
         // Set the view to use the default device
-        if let view = self.metalKitView {
+        if let view = self.view as? MTKView {
             //1) Create a reference to the GPU, which is the Device and setup properties
             view.device = MTLCreateSystemDefaultDevice() //  A device is an abstraction of the GPU and provides us a few methods and properties.
-            view.clearColor = MTLClearColorMake(0.01, 0.01, 0.01, 1.0)
+            //view.clearColor = MTLClearColorMake(0.01, 0.01, 0.01, 1.0)
             view.backgroundColor = UIColor.clear
 
             guard let device = view.device else {
@@ -62,18 +59,16 @@ public class ARFireballViewController: UIViewController {
             let width = CGFloat.width(ofDevice: currentDevice).width
             let height = CGFloat.height(ofDevice: currentDevice).height
             let screenSize = CGSize(width: width, height: height)
-            let camera = Camera(fov: 45, size: screenSize, zNear: 0.1, zFar: 100)
-
-            //let scene = GameObjectScene(mtkView: metalKitView, camera: camera)
-
+            let camera = Camera(fov: 45, size: screenSize, zNear: 0.001, zFar: 1000)
 
             // create renderer
-            renderer = Renderer(mtkView: view, session: session, bundle: ARFireballViewController.bundle, renderDestination: view)
-            renderer.scene = LightsScene(mtkView: view, camera: camera)
-            renderer.scene.sceneSizeWillChange(to: screenSize)
+            renderer = Renderer(mtkView: view, session: session, renderDestination: view)
+            renderer.drawRectResized(size: screenSize)
+            //renderer.scene = LightsScene(mtkView: view, camera: camera)
+            //renderer.scene.sceneSizeWillChange(to: screenSize)
 
             // Setup MTKView and delegate
-            metalKitView.delegate = renderer
+            view.delegate = renderer
         }
 
 

@@ -14,26 +14,12 @@
         <scene sceneID="i4D-0E-wpf">
             <objects>
                 <viewController storyboardIdentifier="ARFireballViewController" id="nXa-QB-cpd" customClass="ARFireballViewController" customModule="ARFireballDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rV1-kc-2pj">
+                    <view key="view" contentMode="scaleToFill" id="rV1-kc-2pj" customClass="MTKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zg6-G6-Lg7" customClass="MTKView">
-                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Zg6-G6-Lg7" firstAttribute="height" secondItem="rV1-kc-2pj" secondAttribute="height" id="baF-gd-v6k"/>
-                            <constraint firstItem="Zg6-G6-Lg7" firstAttribute="width" secondItem="rV1-kc-2pj" secondAttribute="width" id="hAb-Eh-OpT"/>
-                            <constraint firstItem="Zg6-G6-Lg7" firstAttribute="centerY" secondItem="rV1-kc-2pj" secondAttribute="centerY" id="sqO-dp-SlV"/>
-                            <constraint firstItem="Zg6-G6-Lg7" firstAttribute="centerX" secondItem="gs4-mJ-FFX" secondAttribute="centerX" id="yhe-UC-QIm"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gs4-mJ-FFX"/>
                     </view>
-                    <connections>
-                        <outlet property="metalKitView" destination="Zg6-G6-Lg7" id="mrP-e0-LeH"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADp-Gm-yu1" sceneMemberID="firstResponder"/>
             </objects>

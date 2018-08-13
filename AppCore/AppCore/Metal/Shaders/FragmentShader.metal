@@ -70,3 +70,27 @@ fragment half4 fragment_textured_mask_shader(VertexOut vertexIn [[ stage_in ]],
     // Return the fragment color for the fragments that aren't discarded:
     return half4(textcolor.r, textcolor.g, textcolor.b, 1);
 }
+
+// Captured image fragment function
+fragment float4 fragment_image_shader(VertexOut vertexIn [[stage_in]],
+                                      texture2d<float, access::sample> capturedImageTextureY [[ texture(TextureIndexY) ]],
+                                      texture2d<float, access::sample> capturedImageTextureCbCr [[ texture(TextureIndexCbCr) ]]) {
+
+    constexpr sampler colorSampler(mip_filter::linear,
+                                   mag_filter::linear,
+                                   min_filter::linear);
+
+    const float4x4 ycbcrToRGBTransform = float4x4(
+                                                  float4(+1.0000f, +1.0000f, +1.0000f, +0.0000f),
+                                                  float4(+0.0000f, -0.3441f, +1.7720f, +0.0000f),
+                                                  float4(+1.4020f, -0.7141f, +0.0000f, +0.0000f),
+                                                  float4(-0.7010f, +0.5291f, -0.8860f, +1.0000f)
+                                                  );
+
+    // Sample Y and CbCr textures to get the YCbCr color at the given texture coordinate
+    float4 ycbcr = float4(capturedImageTextureY.sample(colorSampler, vertexIn.textureCoordinates).r,
+                          capturedImageTextureCbCr.sample(colorSampler, vertexIn.textureCoordinates).rg, 1.0);
+
+    // Return converted RGB color
+    return ycbcrToRGBTransform * ycbcr;
+}

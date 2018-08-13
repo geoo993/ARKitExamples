@@ -21,6 +21,11 @@ struct VertexIn {
     float3 normal [[ attribute(VertexAttributeNormal) ]];
 };
 
+struct ImageVertexIn {
+    float2 position [[attribute(VertexAttributePosition)]];
+    float2 textureCoordinates [[attribute(VertexAttributeTexcoord)]];
+};
+
 // this tells the rasterisor, which of these data items contains, contains the vertex position or color value
 struct VertexOut {
     float4 position [[ position ]];
@@ -32,5 +37,6 @@ struct VertexOut {
     float4 eyeNormal;
     float noise;
 };
+
 
 #endif /* Shader_h */
