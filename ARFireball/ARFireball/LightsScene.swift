@@ -13,10 +13,10 @@ public final class LightsScene: Scene {
     override public func setup(view: MTKView) {
         super.setup(view: view)
         self.name = "Lights scene"
-        let image = ARImage(mtkView: view, renderDestination: view,
-                            fragmentShader: .fragment_image_shader)
-        image.name = "AR Captured Image"
-        add(childNode: image)
+        //let image = ARImage(mtkView: view, renderDestination: view,
+        //                    fragmentShader: .fragment_image_shader)
+        //image.name = "AR Captured Image"
+        //add(childNode: image)
 
         let mushroom = Model(mtkView: view, renderDestination: view, modelName: "mushroom",
                              imageName: "mushroom", fragmentShader: .fragment_anchor_shader)

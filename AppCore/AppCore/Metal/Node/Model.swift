@@ -48,17 +48,17 @@ open class Model: Node {
         // describe the texture data
         vertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].format = .float2
         vertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].offset = MemoryLayout<Float>.stride * 3
-        vertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
+        vertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshPositions.rawValue
 
         // describe the color data
         vertexDescriptor.attributes[VertexAttribute.color.rawValue].format = .float4
         vertexDescriptor.attributes[VertexAttribute.color.rawValue].offset = MemoryLayout<Float>.stride * 5
-        vertexDescriptor.attributes[VertexAttribute.color.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
+        vertexDescriptor.attributes[VertexAttribute.color.rawValue].bufferIndex = BufferIndex.meshPositions.rawValue
 
         // describe the normal data
         vertexDescriptor.attributes[VertexAttribute.normal.rawValue].format = .float3
         vertexDescriptor.attributes[VertexAttribute.normal.rawValue].offset = MemoryLayout<Float>.stride * 9
-        vertexDescriptor.attributes[VertexAttribute.normal.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
+        vertexDescriptor.attributes[VertexAttribute.normal.rawValue].bufferIndex = BufferIndex.meshPositions.rawValue
 
         // tell the vertex descriptor the size of the information held for each vertex
         // An object that configures how vertex data and attributes are fetched by a vertex function.
@@ -66,11 +66,11 @@ open class Model: Node {
         vertexDescriptor.layouts[BufferIndex.meshPositions.rawValue].stride = MemoryLayout<Float>.stride * 12
         vertexDescriptor.layouts[BufferIndex.meshPositions.rawValue].stepRate = 1
         vertexDescriptor.layouts[BufferIndex.meshPositions.rawValue].stepFunction = MTLVertexStepFunction.perVertex
-
-        // Generic Attribute Buffer Layout
-        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stride = MemoryLayout<Float>.stride * 16
-        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stepRate = 1
-        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stepFunction = MTLVertexStepFunction.perVertex
+//
+//        // Generic Attribute Buffer Layout
+//        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stride = MemoryLayout<Float>.stride * 16
+//        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stepRate = 1
+//        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stepFunction = MTLVertexStepFunction.perVertex
 
         return vertexDescriptor
     }
@@ -354,7 +354,7 @@ extension Model: Renderable {
                                                      instanceCount: anchorInstanceCount)
 
             }
-            
+
         }
 
     }
