@@ -3,6 +3,7 @@
 
 import UIKit
 import MetalKit
+import ARKit
 
 protocol Renderable {
     var pipelineState: MTLRenderPipelineState! { get set }
@@ -13,14 +14,15 @@ protocol Renderable {
     var vertexDescriptor: MTLVertexDescriptor { get }
     var uniform: Uniform { get set }
     var drawType: MTLPrimitiveType { get set }
-    func doRender(commandEncoder: MTLRenderCommandEncoder,
+    func doRender(commandBuffer: MTLCommandBuffer,
+                  commandEncoder: MTLRenderCommandEncoder,
                   modelMatrix: matrix_float4x4,
-                  camera: Camera)
+                  camera: Camera,
+                  currentFrame: ARFrame)
 }
 
 extension Renderable {
 
-    // MARK: - Setup pipeline state
     func buildPipelineState(device: MTLDevice,
                             renderDestination: RenderDestinationProvider) -> MTLRenderPipelineState {
         //1) all our shader functions will be stored in a library
@@ -32,6 +34,7 @@ extension Renderable {
          // we load all the shader files with a metal file extension in the project
         let vertexFunction = library.makeFunction(name: vertexFunctionName.rawValue)
         let fragmentFunction = library.makeFunction(name: fragmentFunctionName.rawValue)
+        
 
         //3) create pipeline descriptor
         // the descriptor contains the reference to the shader functions and
@@ -74,14 +77,6 @@ extension Renderable {
         return device.makeSamplerState(descriptor: descriptor)!
     }
 
-    func cashTexture(device: MTLDevice) -> CVMetalTextureCache {
-        // Create captured image texture cache
-        var textureCache: CVMetalTextureCache?
-        CVMetalTextureCacheCreate(nil, nil, device, nil, &textureCache)
-        return textureCache!
-    }
-
-    // MARK: - Setup sampler state
     func buildDepthStencilState(device: MTLDevice) -> MTLDepthStencilState {
         // in order to move to 3D we need a depth buffer.
         // rendering triangles that are facing us still does not take into account Depth.

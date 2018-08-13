@@ -23,6 +23,7 @@
 // http://metalbyexample.com/modern-metal-1/
 
 import MetalKit
+import ARKit
 
 class Model: Node {
 
@@ -77,6 +78,9 @@ class Model: Node {
     var meshes: [AnyObject]?
 
     var texture: MTLTexture?
+    var imageTextureCache: CVMetalTextureCache!
+    var imageTextureY: CVMetalTexture?
+    var imageTextureCbCr: CVMetalTexture?
 
     //MARK: - initialise the Renderer with a device
     init(mtkView: MTKView, renderDestination: RenderDestinationProvider, modelName: String, vertexShader: VertexFunction = .vertex_shader, fragmentShader: FragmentFunction) {
@@ -163,7 +167,8 @@ class Model: Node {
 
 extension Model: Renderable {
 
-    func doRender(commandEncoder: MTLRenderCommandEncoder, modelMatrix: matrix_float4x4, camera: Camera) {
+    func doRender(commandBuffer: MTLCommandBuffer, commandEncoder: MTLRenderCommandEncoder, modelMatrix: matrix_float4x4,
+                  camera: Camera, currentFrame: ARFrame) {
 
         commandEncoder.setRenderPipelineState(pipelineState)
         commandEncoder.setFragmentSamplerState(samplerState, index: 0)

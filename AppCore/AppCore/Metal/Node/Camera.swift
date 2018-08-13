@@ -47,6 +47,8 @@ public class Camera {
     // Screen
     var screenSize: CGSize           // size of the screen window
 
+    var viewportSizeDidChange: Bool = false
+
     public init(fov: Float, size: CGSize, zNear: Float, zFar: Float) {
         screenSize = size
         perspectiveProjectionMatrix = matrix_identity_float4x4
@@ -254,6 +256,7 @@ public class Camera {
     }
 
     func setPerspectiveProjectionMatrix(screenSize: CGSize){
+        self.viewportSizeDidChange = true
         self.screenSize = screenSize
         self.perspectiveProjectionMatrix = matrix_float4x4(projectionFov: radians(degrees: fieldOfView),
                                                            aspect: Float(screenSize.width / screenSize.height),

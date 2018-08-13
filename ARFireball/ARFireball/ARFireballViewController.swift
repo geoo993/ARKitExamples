@@ -63,9 +63,8 @@ public class ARFireballViewController: UIViewController {
 
             // create renderer
             renderer = Renderer(mtkView: view, session: session, renderDestination: view)
-            renderer.drawRectResized(size: screenSize)
-            //renderer.scene = LightsScene(mtkView: view, camera: camera)
-            //renderer.scene.sceneSizeWillChange(to: screenSize)
+            renderer.scene = LightsScene(mtkView: view, camera: camera)
+            renderer.scene.sceneSizeWillChange(to: screenSize)
 
             // Setup MTKView and delegate
             view.delegate = renderer

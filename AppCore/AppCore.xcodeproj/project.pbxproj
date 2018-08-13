@@ -81,6 +81,8 @@
 		C7A4E534202745D100C1783A /* Unit+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A4E532202745D000C1783A /* Unit+Ext.swift */; };
 		C7A4E535202745D100C1783A /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A4E533202745D000C1783A /* FormatDisplay.swift */; };
 		C7A52AB6201F520F003614C0 /* SCNView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52AB5201F520F003614C0 /* SCNView+Ext.swift */; };
+		C7B044942121B64600BE6368 /* ARImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B044932121B64600BE6368 /* ARImage.swift */; };
+		C7B044962121BB5100BE6368 /* RenderableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B044952121BB5100BE6368 /* RenderableImage.swift */; };
 		C7B52659201C8A1D00134F00 /* AppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C7B52657201C8A1D00134F00 /* AppCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7B52660201C8B3400134F00 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B5265F201C8B3400134F00 /* Colors.xcassets */; };
 		C7BD1559202F596000FF8D00 /* MKRouteStep+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1558202F596000FF8D00 /* MKRouteStep+Ext.swift */; };
@@ -184,6 +186,8 @@
 		C7A4E532202745D000C1783A /* Unit+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+Ext.swift"; sourceTree = "<group>"; };
 		C7A4E533202745D000C1783A /* FormatDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 		C7A52AB5201F520F003614C0 /* SCNView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNView+Ext.swift"; sourceTree = "<group>"; };
+		C7B044932121B64600BE6368 /* ARImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARImage.swift; sourceTree = "<group>"; };
+		C7B044952121BB5100BE6368 /* RenderableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderableImage.swift; sourceTree = "<group>"; };
 		C7B52654201C8A1D00134F00 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B52657201C8A1D00134F00 /* AppCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCore.h; sourceTree = "<group>"; };
 		C7B52658201C8A1D00134F00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				C73939DD211FAC9100E99139 /* Renderable.swift */,
+				C7B044952121BB5100BE6368 /* RenderableImage.swift */,
 				C73939DE211FAC9100E99139 /* Renderer.swift */,
 				C7778D932120C47D00F98572 /* RenderDestinationProvider.swift */,
 			);
@@ -265,6 +270,7 @@
 				C7778D9A2120E9B100F98572 /* Camera.swift */,
 				C73939E3211FACF700E99139 /* Model.swift */,
 				C73939E4211FACF700E99139 /* Instance.swift */,
+				C7B044932121B64600BE6368 /* ARImage.swift */,
 				C73939E6211FACF700E99139 /* Node.swift */,
 			);
 			path = Node;
@@ -660,6 +666,7 @@
 				C7FC1F2A211FB012004CCB80 /* Vector.swift in Sources */,
 				C7A4E535202745D100C1783A /* FormatDisplay.swift in Sources */,
 				C7FC1F2D211FB012004CCB80 /* Quaternion.swift in Sources */,
+				C7B044942121B64600BE6368 /* ARImage.swift in Sources */,
 				C739E452201CAF900081259D /* SwiftRegex.swift in Sources */,
 				C739E443201CA85A0081259D /* Int+Ext.swift in Sources */,
 				C739E3EF201C91100081259D /* UIVisualEffectViewX.swift in Sources */,
@@ -675,6 +682,7 @@
 				C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */,
 				C7FC1F2B211FB012004CCB80 /* Trigonometric.swift in Sources */,
 				C77768A920252AAA00CE16BB /* UserDefaults+Ext.swift in Sources */,
+				C7B044962121BB5100BE6368 /* RenderableImage.swift in Sources */,
 				C761C1DA206E323C002997B1 /* CameraView.swift in Sources */,
 				C739E3EC201C91100081259D /* UIViewControllerX.swift in Sources */,
 				C7DAAB4B2043623500325DB9 /* LocationServiceDelegate.swift in Sources */,

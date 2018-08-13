@@ -13,7 +13,8 @@ public final class LightsScene: Scene {
     override public func setup(view: MTKView) {
         super.setup(view: view)
         self.name = "Lights scene"
-
+        let image = ARImage(mtkView: view, renderDestination: view, fragmentShader: .fragment_image_shader)
+        add(childNode: image)
     }
 
     override public func update(deltaTime: Float) {

@@ -1,5 +1,6 @@
 
 import MetalKit
+import ARKit
 
 // if we are using a model multiple times within our scene, we can use instancing to load the model once,
 // but have different instances of the mesh with differen positions in the scene.
@@ -75,7 +76,8 @@ class Instance: Node {
 
 extension Instance: Renderable {
 
-    func doRender(commandEncoder: MTLRenderCommandEncoder, modelMatrix: matrix_float4x4, camera: Camera) {
+    func doRender(commandBuffer: MTLCommandBuffer, commandEncoder: MTLRenderCommandEncoder, modelMatrix: matrix_float4x4,
+                  camera: Camera, currentFrame: ARFrame) {
         guard let instanceBuffer = instanceBuffer, nodes.count > 0 else { return }
 
         commandEncoder.setRenderPipelineState(pipelineState)

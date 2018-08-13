@@ -1,5 +1,6 @@
 
 import MetalKit
+import ARKit
 
 open class Node {
     public var name = "Untitled"
@@ -48,24 +49,27 @@ open class Node {
         return nil
     }
 
-    func render(commandEncoder: MTLRenderCommandEncoder,
+    func render(commandBuffer: MTLCommandBuffer,
+                commandEncoder: MTLRenderCommandEncoder,
                 parentModelMatrix: matrix_float4x4,
-                camera: Camera) {
+                camera: Camera, frame: ARFrame) {
         if overrideModelMatrix == false {
             self.modelMatrix = makeModelMatrix
         }
         let originAndModel = matrix_multiply(parentModelMatrix, modelMatrix)
         for child in children {
-            child.render(commandEncoder: commandEncoder,
+            child.render(commandBuffer: commandBuffer,
+                         commandEncoder: commandEncoder,
                          parentModelMatrix: originAndModel,
-                         camera: camera)
+                         camera: camera, frame: frame)
         }
 
         if let renderable = self as? Renderable {
             commandEncoder.pushDebugGroup(name)
-            renderable.doRender(commandEncoder: commandEncoder,
+            renderable.doRender(commandBuffer: commandBuffer,
+                                commandEncoder: commandEncoder,
                                 modelMatrix: originAndModel,
-                                camera: camera)
+                                camera: camera, currentFrame: frame)
             commandEncoder.popDebugGroup()
         }
 
