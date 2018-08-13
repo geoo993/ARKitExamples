@@ -59,21 +59,7 @@ using namespace metal;
  }
  */
 
-// Captured image vertex function
-vertex VertexOut image_vertex_shader(const ImageVertexIn vertexIn [[stage_in]]) {
-    VertexOut vertexOut;
-
-    // Pass through the image vertex's position
-    vertexOut.position = float4(vertexIn.position, 0.0f, 1.0f);
-
-    // Pass through the texture coordinate
-    vertexOut.textureCoordinates = vertexIn.textureCoordinates;
-
-    return vertexOut;
-}
-
 vertex VertexOut vertex_shader(const VertexIn vertexIn [[ stage_in ]],
-                               constant Constants &constants [[ buffer(BufferIndexConstants) ]],
                                constant Uniform &uniform [[ buffer(BufferIndexUniforms) ]]) {
     VertexOut vertexOut;
 
@@ -84,7 +70,7 @@ vertex VertexOut vertex_shader(const VertexIn vertexIn [[ stage_in ]],
     // (variously called “eye space,” “view space,” or “camera space”)
 
     // Transform the vertex spatial position using
-    float4 position = float4(vertexIn.position, 1.0f); // model local vertex postion
+    float4 position = float4(vertexIn.position.x, vertexIn.position.y, vertexIn.position.z, 1.0f);// model local vertex postion
     float4x4 modelViewMatrix = uniform.viewMatrix * uniform.modelMatrix;
 
     // This moves the vertex position from model space to clip space, which is needed by the next stages of the pipeline
@@ -98,7 +84,7 @@ vertex VertexOut vertex_shader(const VertexIn vertexIn [[ stage_in ]],
     // We do this because we will want to calculate things like lighting and reflections in eye space instead of model space.
     // For the same reason, we also compute the eye space position of the vertex.
     vertexOut.eyePosition = modelViewMatrix * position; // eye position, relative to the camera
-    vertexOut.eyeNormal = modelViewMatrix * float4(vertexIn.normal, 0);
+    vertexOut.eyeNormal = modelViewMatrix * float4(vertexIn.normal.x, vertexIn.normal.y, vertexIn.normal.z, 0.0f);
 
     return vertexOut;
 }
@@ -114,7 +100,7 @@ vertex VertexOut vertex_instance_shader(const VertexIn vertexIn [[ stage_in ]],
     VertexOut vertexOut;
 
     // Transform the vertex spatial position using
-    float4 position = float4(vertexIn.position, 1.0); // model local vertex postion
+    float4 position = float4(vertexIn.position.x, vertexIn.position.y, vertexIn.position.z, 1.0f); // model local vertex postion
     float4x4 modelViewMatrix = uniform.viewMatrix * uniform.modelMatrix;
 
     // This moves the vertex position from model space to clip space, which is needed by the next stages of the pipeline
@@ -128,7 +114,7 @@ vertex VertexOut vertex_instance_shader(const VertexIn vertexIn [[ stage_in ]],
     // We do this because we will want to calculate things like lighting and reflections in eye space instead of model space.
     // For the same reason, we also compute the eye space position of the vertex.
     vertexOut.eyePosition = modelViewMatrix * position; // eye position, relative to the camera
-    vertexOut.eyeNormal = modelViewMatrix * float4(vertexIn.normal, 0);
+    vertexOut.eyeNormal = modelViewMatrix * float4(vertexIn.normal.x, vertexIn.normal.y, vertexIn.normal.z, 0.0f);
 
     return vertexOut;
 }

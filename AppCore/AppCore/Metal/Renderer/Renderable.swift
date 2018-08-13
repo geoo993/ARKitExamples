@@ -25,11 +25,13 @@ extension Renderable {
 
     func buildPipelineState(device: MTLDevice,
                             renderDestination: RenderDestinationProvider) -> MTLRenderPipelineState {
+
+        let appCoreBundle = Bundle(identifier: "com.geo-games.AppCore")!
         //1) all our shader functions will be stored in a library
         // so we setup a new library and set the vertex and fragment shader created
-        guard let library = try? device.makeDefaultLibrary(bundle: renderDestination.bundle)
+        guard let library = try? device.makeDefaultLibrary(bundle: appCoreBundle)
             else { fatalError("could not create default library")}
-
+        
         //2) xcode will compile these function when we compile the project,
          // we load all the shader files with a metal file extension in the project
         let vertexFunction = library.makeFunction(name: vertexFunctionName.rawValue)
@@ -64,6 +66,7 @@ extension Renderable {
         } catch let error as NSError {
             fatalError("Failed to create pipeline state, error \(error.localizedDescription)")
         }
+
         return pipelineState
     }
 

@@ -40,7 +40,7 @@ public class ARFireballViewController: UIViewController {
 
         sceneView.autoenablesDefaultLighting = true
  */
-
+        
         // Set the view to use the default device
         if let view = self.view as? MTKView {
             //1) Create a reference to the GPU, which is the Device and setup properties
@@ -70,6 +70,8 @@ public class ARFireballViewController: UIViewController {
             view.delegate = renderer
         }
 
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
 
     }
 
@@ -97,6 +99,22 @@ public class ARFireballViewController: UIViewController {
 
         // Pause the view's session
         session.pause()
+    }
+
+    @objc
+    func handleTap(gestureRecognize: UITapGestureRecognizer) {
+        // Create anchor using the camera's current position
+        if let currentFrame = session.currentFrame {
+
+            // Create a transform with a translation of 0.2 meters in front of the camera
+            var translation = matrix_identity_float4x4
+            translation.columns.3.z = -0.2
+            let transform = simd_mul(currentFrame.camera.transform, translation)
+
+            // Add a new anchor to the session
+            let anchor = ARAnchor(transform: transform)
+            session.add(anchor: anchor)
+        }
     }
 
     private func showHelperAlertIfNeeded() {

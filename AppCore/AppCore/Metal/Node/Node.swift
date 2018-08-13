@@ -5,14 +5,14 @@ import ARKit
 open class Node {
     public var name = "Untitled"
     weak var parent: Node?
-    var children: [Node] = []
-    var position = float3(0)
-    var rotation = float3(0)
-    var scale = float3(1)
-    var width: Float = 1
-    var height: Float = 1
-    var material = MaterialInfo()
-    var overrideModelMatrix = false
+    public var children: [Node] = []
+    public var position = float3(0)
+    public var rotation = float3(0)
+    public var scale = float3(1)
+    public var width: Float = 1
+    public var height: Float = 1
+    public var material = MaterialInfo()
+    public var overrideModelMatrix = false
 
     private var makeModelMatrix: matrix_float4x4 {
         var matrix = matrix_float4x4(translationX: position.x,

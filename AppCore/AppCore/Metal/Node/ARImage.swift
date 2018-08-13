@@ -180,7 +180,6 @@ extension ARImage: Renderable {
 
         if camera.viewportSizeDidChange {
             camera.viewportSizeDidChange = false
-            print("orientation changed")
             updateImagePlane(frame: currentFrame, camera: camera)
         }
 

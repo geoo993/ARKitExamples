@@ -24,14 +24,15 @@
 typedef NS_ENUM(NSInteger, BufferIndex)
 {
     BufferIndexMeshPositions        = 0,
-    BufferIndexUniforms             = 1,
-    BufferIndexInstances            = 2,
-    BufferIndexCameraInfo           = 3,
-    BufferIndexMaterialInfo         = 4,
-    BufferIndexDirectionalLightInfo = 5,
-    BufferIndexPointLightInfo       = 6,
-    BufferIndexSpotLightInfo        = 7,
-    BufferIndexConstants            = 8,
+    BufferIndexMeshGenerics         = 1,
+    BufferIndexUniforms             = 2,
+    BufferIndexInstances            = 3,
+    BufferIndexCameraInfo           = 4,
+    BufferIndexMaterialInfo         = 5,
+    BufferIndexDirectionalLightInfo = 6,
+    BufferIndexPointLightInfo       = 7,
+    BufferIndexSpotLightInfo        = 8,
+    BufferIndexConstants            = 9,
     BufferIndexFireBall             = 10,
 };
 
@@ -75,6 +76,7 @@ typedef struct
 
 typedef struct {
     matrix_float4x4 modelMatrix;
+    matrix_float3x3 normalMatrix;
 } InstanceUniform;
 
 

@@ -28,6 +28,7 @@ public enum VertexFunction: String {
     case vertex_instance_shader
     case vertex_fire_ball_shader
     case image_vertex_shader
+    case vertex_anchor_shader
 }
 
 public enum FragmentFunction: String {
@@ -43,6 +44,7 @@ public enum FragmentFunction: String {
     case fragment_toon_shader
     case fragment_fire_ball_shader
     case fragment_image_shader
+    case fragment_anchor_shader
 }
 
 public struct Vertex {

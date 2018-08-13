@@ -35,7 +35,7 @@ class Instance: Node {
 
     //Mark: - initialiser
     init(mtkView: MTKView, renderDestination: RenderDestinationProvider,  modelName: String, instances: Int, vertexShader: VertexFunction = .vertex_shader, fragmentShader: FragmentFunction) {
-        self.model = Model(mtkView: mtkView, renderDestination: renderDestination, modelName: modelName, fragmentShader: fragmentShader)
+        self.model = Model(mtkView: mtkView, renderDestination: renderDestination, modelName: modelName, imageName: modelName, fragmentShader: fragmentShader)
         self.vertexFunctionName = vertexShader
         self.fragmentFunctionName = model.fragmentFunctionName
         self.vertexDescriptor = model.vertexDescriptor

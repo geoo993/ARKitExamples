@@ -14,6 +14,8 @@
 		C700B199202385C6000FC421 /* CGSize+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B195202385C6000FC421 /* CGSize+Ext.swift */; };
 		C700B19B20238881000FC421 /* RangeReplaceableCollection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700B19A20238881000FC421 /* RangeReplaceableCollection+Ext.swift */; };
 		C7072136202151750071F6FE /* SCNScene+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7072135202151750071F6FE /* SCNScene+Ext.swift */; };
+		C718199A21220C4F00E207DB /* ImageShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C718199921220C4F00E207DB /* ImageShader.metal */; };
+		C718199C21220E0900E207DB /* AnchorShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C718199B21220E0800E207DB /* AnchorShader.metal */; };
 		C7375361204227EC00C7D8C7 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7375360204227EC00C7D8C7 /* NavigationService.swift */; };
 		C73939DB211F85BF00E99139 /* SCNMatrix4+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939DA211F85BF00E99139 /* SCNMatrix4+Ext.swift */; };
 		C73939DF211FAC9200E99139 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939DD211FAC9100E99139 /* Renderable.swift */; };
@@ -117,6 +119,8 @@
 		C700B195202385C6000FC421 /* CGSize+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Ext.swift"; sourceTree = "<group>"; };
 		C700B19A20238881000FC421 /* RangeReplaceableCollection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Ext.swift"; sourceTree = "<group>"; };
 		C7072135202151750071F6FE /* SCNScene+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNScene+Ext.swift"; sourceTree = "<group>"; };
+		C718199921220C4F00E207DB /* ImageShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ImageShader.metal; sourceTree = "<group>"; };
+		C718199B21220E0800E207DB /* AnchorShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = AnchorShader.metal; sourceTree = "<group>"; };
 		C724C2F92028AA03005799C0 /* SCNMathExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNMathExtensions.swift; sourceTree = "<group>"; };
 		C72C2F422042DEAD00518B9C /* Measurement.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Measurement.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C7375360204227EC00C7D8C7 /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
@@ -270,8 +274,8 @@
 				C7778D9A2120E9B100F98572 /* Camera.swift */,
 				C73939E3211FACF700E99139 /* Model.swift */,
 				C73939E4211FACF700E99139 /* Instance.swift */,
-				C7B044932121B64600BE6368 /* ARImage.swift */,
 				C73939E6211FACF700E99139 /* Node.swift */,
+				C7B044932121B64600BE6368 /* ARImage.swift */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -279,6 +283,8 @@
 		C73939E7211FACF700E99139 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				C718199B21220E0800E207DB /* AnchorShader.metal */,
+				C718199921220C4F00E207DB /* ImageShader.metal */,
 				C73939E9211FACF700E99139 /* FragmentShader.metal */,
 				C73939E8211FACF700E99139 /* VertexShader.metal */,
 				C73939EA211FACF700E99139 /* Shader.h */,
@@ -613,6 +619,7 @@
 			files = (
 				C73939DB211F85BF00E99139 /* SCNMatrix4+Ext.swift in Sources */,
 				C739E3EB201C91100081259D /* UIViewAnchorPoint.swift in Sources */,
+				C718199A21220C4F00E207DB /* ImageShader.metal in Sources */,
 				C739E433201CA85A0081259D /* CGPoint+Ext.swift in Sources */,
 				C73939DF211FAC9200E99139 /* Renderable.swift in Sources */,
 				C739E444201CA85A0081259D /* SCNVector3+Ext.swift in Sources */,
@@ -641,6 +648,7 @@
 				C739E43C201CA85A0081259D /* CGFloat+Ext.swift in Sources */,
 				C739E450201CAB8C0081259D /* String+Ext.swift in Sources */,
 				C739E431201CA85A0081259D /* Sequence+Ext.swift in Sources */,
+				C718199C21220E0900E207DB /* AnchorShader.metal in Sources */,
 				C775DEC3201F2E80003457AD /* ShapeGenerator.swift in Sources */,
 				C74712E62028983F00795032 /* MatrixHelper.swift in Sources */,
 				C73939FA211FAD7800E99139 /* Scene.swift in Sources */,

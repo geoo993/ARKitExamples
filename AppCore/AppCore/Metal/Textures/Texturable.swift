@@ -54,7 +54,7 @@ extension Texturable {
             do {
                 texture = try textureLoader.newTexture(URL: textureURL, options: textureLoaderOptions)
             } catch {
-                print("texture not created")
+                fatalError("texture not created with error: \(error.localizedDescription)")
             }
         }
 
@@ -78,9 +78,8 @@ extension Texturable {
                                                 scaleFactor: 1.0,
                                                 bundle: nil,
                                                 options: textureLoaderOptions)
-        } catch {
-            print("texture not created")
-            return nil
+        } catch let error {
+            fatalError("texture not created with error: \(error.localizedDescription)")
         }
 
     }

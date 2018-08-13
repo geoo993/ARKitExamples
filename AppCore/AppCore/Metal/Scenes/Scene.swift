@@ -3,9 +3,9 @@ import ARKit
 
 open class Scene: Node {
     
-    var rootNode: Node!
-    var camera: Camera!
-    var time: Float = 0
+    public var rootNode: Node!
+    public var camera: Camera!
+    public var time: Float = 0
 
     private let sceneOrigin = matrix_identity_float4x4
 
