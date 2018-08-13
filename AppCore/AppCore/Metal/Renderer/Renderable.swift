@@ -21,15 +21,17 @@ protocol Renderable {
 extension Renderable {
 
     // MARK: - Setup pipeline state
-    func buildPipelineState(metalKitView: MTKView) -> MTLRenderPipelineState {
-        let device = metalKitView.device!
+    func buildPipelineState(device: MTLDevice,
+                            renderDestination: RenderDestinationProvider) -> MTLRenderPipelineState {
         //1) all our shader functions will be stored in a library
         // so we setup a new library and set the vertex and fragment shader created
-        let library = device.makeDefaultLibrary()
+        guard let library = try? device.makeDefaultLibrary(bundle: renderDestination.bundle)
+            else { fatalError("could not create default library")}
 
-        //2) xcode will compile these function when we complie the project
-        let vertexFunction = library?.makeFunction(name: vertexFunctionName.rawValue)
-        let fragmentFunction = library?.makeFunction(name: fragmentFunctionName.rawValue)
+        //2) xcode will compile these function when we compile the project,
+         // we load all the shader files with a metal file extension in the project
+        let vertexFunction = library.makeFunction(name: vertexFunctionName.rawValue)
+        let fragmentFunction = library.makeFunction(name: fragmentFunctionName.rawValue)
 
         //3) create pipeline descriptor
         // the descriptor contains the reference to the shader functions and
@@ -40,10 +42,10 @@ extension Renderable {
         pipelineDescriptor.vertexFunction = vertexFunction
         pipelineDescriptor.fragmentFunction = fragmentFunction
 
-        pipelineDescriptor.sampleCount = metalKitView.sampleCount
-        pipelineDescriptor.depthAttachmentPixelFormat = metalKitView.depthStencilPixelFormat // .depth32Float
-        pipelineDescriptor.stencilAttachmentPixelFormat = metalKitView.depthStencilPixelFormat
-        pipelineDescriptor.colorAttachments[0].pixelFormat = metalKitView.colorPixelFormat //.bgra8Unorm // unorm means that the value falls between 0 and 255
+        pipelineDescriptor.sampleCount = renderDestination.sampleCount
+        pipelineDescriptor.depthAttachmentPixelFormat = renderDestination.depthStencilPixelFormat // .depth32Float
+        pipelineDescriptor.stencilAttachmentPixelFormat = renderDestination.depthStencilPixelFormat
+        pipelineDescriptor.colorAttachments[0].pixelFormat = renderDestination.colorPixelFormat //.bgra8Unorm // unorm means that the value falls between 0 and 255
         
         pipelineDescriptor.colorAttachments[0].isBlendingEnabled = true
         pipelineDescriptor.colorAttachments[0].rgbBlendOperation = .add
@@ -57,7 +59,7 @@ extension Renderable {
         do {
             pipelineState = try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
         } catch let error as NSError {
-            fatalError("error: \(error.localizedDescription)")
+            fatalError("Failed to create pipeline state, error \(error.localizedDescription)")
         }
         return pipelineState
     }
@@ -70,6 +72,13 @@ extension Renderable {
         descriptor.magFilter = .linear
         descriptor.mipFilter = .linear
         return device.makeSamplerState(descriptor: descriptor)!
+    }
+
+    func cashTexture(device: MTLDevice) -> CVMetalTextureCache {
+        // Create captured image texture cache
+        var textureCache: CVMetalTextureCache?
+        CVMetalTextureCacheCreate(nil, nil, device, nil, &textureCache)
+        return textureCache!
     }
 
     // MARK: - Setup sampler state
@@ -101,6 +110,8 @@ extension Renderable {
         depthStencilDescriptor.isDepthWriteEnabled = true
         
         return device.makeDepthStencilState(descriptor: depthStencilDescriptor)!
+
+
     }
 
 }

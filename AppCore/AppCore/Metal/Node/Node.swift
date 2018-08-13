@@ -1,8 +1,8 @@
 
 import MetalKit
 
-class Node {
-    var name = "Untitled"
+open class Node {
+    public var name = "Untitled"
     weak var parent: Node?
     var children: [Node] = []
     var position = float3(0)
@@ -26,18 +26,18 @@ class Node {
         return matrix
     }
 
-    var modelMatrix: matrix_float4x4!
+    public var modelMatrix: matrix_float4x4!
 
-    init(name: String) {
+    public init(name: String) {
         self.name = name
         self.modelMatrix = makeModelMatrix
     }
     
-    func add(childNode: Node) {
+    public func add(childNode: Node) {
         children.append(childNode)
     }
 
-    func get(childNode name: String) -> Node? {
+    public func get(childNode name: String) -> Node? {
         for node in children {
             if node.name == name {
                 return node

@@ -79,36 +79,36 @@ class Model: Node {
     var texture: MTLTexture?
 
     //MARK: - initialise the Renderer with a device
-    init(mtkView: MTKView, modelName: String, vertexShader: VertexFunction = .vertex_shader, fragmentShader: FragmentFunction) {
+    init(mtkView: MTKView, renderDestination: RenderDestinationProvider, modelName: String, vertexShader: VertexFunction = .vertex_shader, fragmentShader: FragmentFunction) {
         super.init(name: modelName)
         self.vertexFunctionName = vertexShader
         self.fragmentFunctionName = fragmentShader
         let imageName = modelName + ".png"
-        setupBuffers(mtkView: mtkView, modelName: modelName, imageName: imageName)
+        setupBuffers(mtkView: mtkView, renderDestination: renderDestination, modelName: modelName, imageName: imageName)
     }
 
-    init(mtkView: MTKView, modelName: String, imageName: String, vertexShader: VertexFunction = .vertex_shader, fragmentShader: FragmentFunction) {
+    init(mtkView: MTKView, renderDestination: RenderDestinationProvider, modelName: String, imageName: String, vertexShader: VertexFunction = .vertex_shader, fragmentShader: FragmentFunction) {
         super.init(name: modelName)
         self.vertexFunctionName = vertexShader
         self.fragmentFunctionName = fragmentShader
-        setupBuffers(mtkView: mtkView, modelName: modelName, imageName: imageName)
+        setupBuffers(mtkView: mtkView, renderDestination: renderDestination, modelName: modelName, imageName: imageName)
     }
 
-    func setupBuffers(mtkView: MTKView, modelName: String, imageName: String) {
+    func setupBuffers(mtkView: MTKView, renderDestination: RenderDestinationProvider, modelName: String, imageName: String) {
         guard let device = mtkView.device else { fatalError("No Device Found") }
-        loadModel(device: device, modelName: modelName)
+        loadModel(device: device, renderDestination: renderDestination, modelName: modelName)
 
-        if let texture = setTexture(device: device, imageName: imageName) {
+        if let texture = setTexture(device: device, imageName: imageName, bundle: renderDestination.bundle) {
             self.texture = texture
         }
-        pipelineState = buildPipelineState(metalKitView: mtkView)
+        pipelineState = buildPipelineState(device: device, renderDestination: renderDestination)
         samplerState = buildSamplerState(device: device)
         depthStencilState = buildDepthStencilState(device: device)
     }
 
 
-    func loadModel(device: MTLDevice, modelName: String) {
-        guard let assetURL = Bundle.main.url(forResource: modelName, withExtension: "obj") else {
+    func loadModel(device: MTLDevice, renderDestination: RenderDestinationProvider, modelName: String) {
+        guard let assetURL = renderDestination.bundle.url(forResource: modelName, withExtension: "obj") else {
             fatalError("Asset \(modelName) does not exist.")
         }
 

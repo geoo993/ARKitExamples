@@ -57,6 +57,8 @@ public extension float3 {
 public extension Float {
     public var toRadians : Float { return self * Float.pi / 180.0 }
     public var toDegrees : Float { return self * 180.0 / Float.pi }
+    public var toInt: Int { return Int(self) }
+    public var toCGFloat: CGFloat { return CGFloat(self) }
     public var metersToLatitude : Float { return self / (6360500.0) }
     public var metersToLongitude : Float { return self / (5602900.0) }
     

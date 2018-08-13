@@ -28,7 +28,7 @@ protocol Texturable {
 extension Texturable {
 
     // MARK: - Setup texture with bundle resource
-    func setTexture(device: MTLDevice, imageName: String) -> MTLTexture? {
+    func setTexture(device: MTLDevice, imageName: String, bundle: Bundle) -> MTLTexture? {
         let textureLoader = MTKTextureLoader(device: device)
 
         // Loading texure
@@ -47,7 +47,7 @@ extension Texturable {
         }
 
         // load texture using the passed in image name
-        if let textureURL = Bundle.main.url(forResource: imageName, withExtension: nil) {
+        if let textureURL = bundle.url(forResource: imageName, withExtension: nil) {
             do {
                 texture = try textureLoader.newTexture(URL: textureURL, options: textureLoaderOptions)
             } catch {

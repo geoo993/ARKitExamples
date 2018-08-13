@@ -1,6 +1,7 @@
 import MetalKit
+import ARKit
 
-class Scene: Node {
+open class Scene: Node {
     
     var rootNode: Node!
     var camera: Camera!
@@ -8,7 +9,7 @@ class Scene: Node {
 
     private let sceneOrigin = matrix_identity_float4x4
 
-    init(mtkView: MTKView, camera: Camera) {
+    public init(mtkView: MTKView, camera: Camera) {
 
         //1) Create a reference to the GPU, which is the Device
         super.init(name: "Untitled")
@@ -18,19 +19,19 @@ class Scene: Node {
         setup(view: mtkView)
     }
 
-    override func add(childNode: Node) {
+    override public func add(childNode: Node) {
         super.add(childNode: childNode)
     }
 
-    func setup(view: MTKView) {
+    open func setup(view: MTKView) {
 
     }
 
-    func update(deltaTime: Float) {
+    open func update(deltaTime: Float) {
         
     }
 
-    func sceneSizeWillChange(to size: CGSize) {
+    open func sceneSizeWillChange(to size: CGSize) {
         camera.setPerspectiveProjectionMatrix(screenSize: size)
     }
 
@@ -39,9 +40,12 @@ class Scene: Node {
     func touchesEnded(_ view: UIView, touches: Set<UITouch>, with event: UIEvent?) {}
     func touchesCancelled(_ view: UIView, touches: Set<UITouch>, with event: UIEvent?) {}
 
-    func render(commandEncoder: MTLRenderCommandEncoder, deltaTime: Float) {
+    func render(commandEncoder: MTLRenderCommandEncoder, deltaTime: Float, frame: ARFrame) {
         update(deltaTime: deltaTime)
 
+        let view = frame.camera.viewMatrix(for: .landscapeRight)
+        camera.setViewMatrix(matrix: view)
+        camera.setPerspectiveProjectionMatrix(frame: frame, orientation: .landscapeRight)
 
         // fire ball edge
         //var fireBallConstant = FireBallConstants(time: time * 0.2, frequency: fireBallFreq, explosion: fireBallExplo)

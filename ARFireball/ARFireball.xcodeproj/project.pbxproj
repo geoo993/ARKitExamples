@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7778DA02120FBA900F98572 /* ARFireballViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7778D9E2120FB7C00F98572 /* ARFireballViewController.swift */; };
+		C7778DA12120FBB300F98572 /* LightsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7778D9C2120F8A800F98572 /* LightsScene.swift */; };
+		C7778DA42120FFD000F98572 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7778DA32120FFD000F98572 /* AppCore.framework */; };
 		C7DCD85A211F685A002E9FA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCD859211F685A002E9FA3 /* AppDelegate.swift */; };
 		C7DCD869211F685B002E9FA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DCD867211F685B002E9FA3 /* LaunchScreen.storyboard */; };
 		C7DCD87A211F6872002E9FA3 /* ARFireballDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7DCD878211F6872002E9FA3 /* ARFireballDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7DCD87D211F6872002E9FA3 /* ARFireballDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7DCD876211F6872002E9FA3 /* ARFireballDemo.framework */; };
 		C7DCD87E211F6872002E9FA3 /* ARFireballDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7DCD876211F6872002E9FA3 /* ARFireballDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7DCD883211F68B7002E9FA3 /* ARFireballViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCD860211F685A002E9FA3 /* ARFireballViewController.swift */; };
 		C7DCD884211F68BA002E9FA3 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCD85E211F685A002E9FA3 /* Renderer.swift */; };
 		C7DCD885211F68D0002E9FA3 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = C7DCD85B211F685A002E9FA3 /* Shaders.metal */; };
 		C7DCD886211F68E2002E9FA3 /* ARFireball.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DCD862211F685A002E9FA3 /* ARFireball.storyboard */; };
@@ -46,11 +48,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C7778D9C2120F8A800F98572 /* LightsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsScene.swift; sourceTree = "<group>"; };
+		C7778D9E2120FB7C00F98572 /* ARFireballViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARFireballViewController.swift; sourceTree = "<group>"; };
+		C7778DA32120FFD000F98572 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DCD856211F685A002E9FA3 /* ARFireball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFireball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DCD859211F685A002E9FA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DCD85B211F685A002E9FA3 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		C7DCD85E211F685A002E9FA3 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
-		C7DCD860211F685A002E9FA3 /* ARFireballViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFireballViewController.swift; sourceTree = "<group>"; };
 		C7DCD863211F685A002E9FA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARFireball.storyboard; sourceTree = "<group>"; };
 		C7DCD865211F685B002E9FA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7DCD868211F685B002E9FA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,18 +79,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7778DA42120FFD000F98572 /* AppCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7778DA22120FFD000F98572 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7778DA32120FFD000F98572 /* AppCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C7DCD84D211F685A002E9FA3 = {
 			isa = PBXGroup;
 			children = (
 				C7DCD858211F685A002E9FA3 /* ARFireball */,
 				C7DCD877211F6872002E9FA3 /* ARFireballDemo */,
 				C7DCD857211F685A002E9FA3 /* Products */,
+				C7778DA22120FFD000F98572 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,10 +116,11 @@
 		C7DCD858211F685A002E9FA3 /* ARFireball */ = {
 			isa = PBXGroup;
 			children = (
+				C7778D9E2120FB7C00F98572 /* ARFireballViewController.swift */,
 				C7DCD859211F685A002E9FA3 /* AppDelegate.swift */,
 				C7DCD85B211F685A002E9FA3 /* Shaders.metal */,
 				C7DCD85E211F685A002E9FA3 /* Renderer.swift */,
-				C7DCD860211F685A002E9FA3 /* ARFireballViewController.swift */,
+				C7778D9C2120F8A800F98572 /* LightsScene.swift */,
 				C7DCD862211F685A002E9FA3 /* ARFireball.storyboard */,
 				C7DCD865211F685B002E9FA3 /* Assets.xcassets */,
 				C7DCD867211F685B002E9FA3 /* LaunchScreen.storyboard */,
@@ -249,8 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7DCD885211F68D0002E9FA3 /* Shaders.metal in Sources */,
+				C7778DA12120FBB300F98572 /* LightsScene.swift in Sources */,
 				C7DCD884211F68BA002E9FA3 /* Renderer.swift in Sources */,
-				C7DCD883211F68B7002E9FA3 /* ARFireballViewController.swift in Sources */,
+				C7778DA02120FBA900F98572 /* ARFireballViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

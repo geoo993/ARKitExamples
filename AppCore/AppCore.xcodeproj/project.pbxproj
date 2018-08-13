@@ -20,7 +20,6 @@
 		C73939E0211FAC9200E99139 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939DE211FAC9100E99139 /* Renderer.swift */; };
 		C73939EF211FACF700E99139 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E3211FACF700E99139 /* Model.swift */; };
 		C73939F0211FACF700E99139 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E4211FACF700E99139 /* Instance.swift */; };
-		C73939F1211FACF700E99139 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E5211FACF700E99139 /* Camera.swift */; };
 		C73939F2211FACF700E99139 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E6211FACF700E99139 /* Node.swift */; };
 		C73939F3211FACF700E99139 /* VertexShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C73939E8211FACF700E99139 /* VertexShader.metal */; };
 		C73939F4211FACF700E99139 /* FragmentShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C73939E9211FACF700E99139 /* FragmentShader.metal */; };
@@ -70,6 +69,8 @@
 		C775DECA201F3049003457AD /* CollisionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEC9201F3049003457AD /* CollisionTypes.swift */; };
 		C77768A920252AAA00CE16BB /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77768A820252AAA00CE16BB /* UserDefaults+Ext.swift */; };
 		C77768AB20252F4A00CE16BB /* ARTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77768AA20252F4A00CE16BB /* ARTextManager.swift */; };
+		C7778D942120C47D00F98572 /* RenderDestinationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7778D932120C47D00F98572 /* RenderDestinationProvider.swift */; };
+		C7778D9B2120E9B300F98572 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7778D9A2120E9B100F98572 /* Camera.swift */; };
 		C7830B1C2027AA0900FD2FE6 /* NSRange+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830B182027AA0800FD2FE6 /* NSRange+Ext.swift */; };
 		C7830B1D2027AA0900FD2FE6 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830B192027AA0800FD2FE6 /* UIFont+Ext.swift */; };
 		C7830B1E2027AA0900FD2FE6 /* NSAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830B1A2027AA0800FD2FE6 /* NSAttributedString+Ext.swift */; };
@@ -122,7 +123,6 @@
 		C73939DE211FAC9100E99139 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		C73939E3211FACF700E99139 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C73939E4211FACF700E99139 /* Instance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
-		C73939E5211FACF700E99139 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		C73939E6211FACF700E99139 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		C73939E8211FACF700E99139 /* VertexShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = VertexShader.metal; sourceTree = "<group>"; };
 		C73939E9211FACF700E99139 /* FragmentShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = FragmentShader.metal; sourceTree = "<group>"; };
@@ -172,6 +172,8 @@
 		C775DEC9201F3049003457AD /* CollisionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionTypes.swift; sourceTree = "<group>"; };
 		C77768A820252AAA00CE16BB /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
 		C77768AA20252F4A00CE16BB /* ARTextManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTextManager.swift; sourceTree = "<group>"; };
+		C7778D932120C47D00F98572 /* RenderDestinationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderDestinationProvider.swift; sourceTree = "<group>"; };
+		C7778D9A2120E9B100F98572 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		C7830B182027AA0800FD2FE6 /* NSRange+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+Ext.swift"; sourceTree = "<group>"; };
 		C7830B192027AA0800FD2FE6 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		C7830B1A2027AA0800FD2FE6 /* NSAttributedString+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Ext.swift"; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			children = (
 				C73939DD211FAC9100E99139 /* Renderable.swift */,
 				C73939DE211FAC9100E99139 /* Renderer.swift */,
+				C7778D932120C47D00F98572 /* RenderDestinationProvider.swift */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -259,9 +262,9 @@
 		C73939E1211FACF700E99139 /* Node */ = {
 			isa = PBXGroup;
 			children = (
+				C7778D9A2120E9B100F98572 /* Camera.swift */,
 				C73939E3211FACF700E99139 /* Model.swift */,
 				C73939E4211FACF700E99139 /* Instance.swift */,
-				C73939E5211FACF700E99139 /* Camera.swift */,
 				C73939E6211FACF700E99139 /* Node.swift */,
 			);
 			path = Node;
@@ -407,6 +410,13 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		C7778D972120E12400F98572 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C7B5264A201C8A1D00134F00 = {
 			isa = PBXGroup;
 			children = (
@@ -491,6 +501,7 @@
 				C73939EC211FACF700E99139 /* Textures */,
 				C73939DC211FAC9100E99139 /* Renderer */,
 				C7FC1F1A211FB012004CCB80 /* Utilities */,
+				C7778D972120E12400F98572 /* Extensions */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -611,7 +622,6 @@
 				C73939E0211FAC9200E99139 /* Renderer.swift in Sources */,
 				C761C1D5206E323C002997B1 /* ARTrackingManager.swift in Sources */,
 				C775DEC6201F2E80003457AD /* GameHelper.swift in Sources */,
-				C73939F1211FACF700E99139 /* Camera.swift in Sources */,
 				C7830B212027B9D800FD2FE6 /* UINavigationController+Ext.swift in Sources */,
 				C739E42B201CA85A0081259D /* Double+Ext.swift in Sources */,
 				C7A52AB6201F520F003614C0 /* SCNView+Ext.swift in Sources */,
@@ -679,6 +689,7 @@
 				C73939F3211FACF700E99139 /* VertexShader.metal in Sources */,
 				C700B18C20238499000FC421 /* FocusSquareSegment.swift in Sources */,
 				C739E3EA201C91100081259D /* UILabelX.swift in Sources */,
+				C7778D942120C47D00F98572 /* RenderDestinationProvider.swift in Sources */,
 				C7A4E531202745C300C1783A /* LocationManager.swift in Sources */,
 				C73939F2211FACF700E99139 /* Node.swift in Sources */,
 				C7072136202151750071F6FE /* SCNScene+Ext.swift in Sources */,
@@ -686,6 +697,7 @@
 				C739E441201CA85A0081259D /* Array+Ext.swift in Sources */,
 				C7D6DC2C204AFCB1006666FF /* Inceptionv3.mlmodel in Sources */,
 				C739E439201CA85A0081259D /* SCNAction+Ext.swift in Sources */,
+				C7778D9B2120E9B300F98572 /* Camera.swift in Sources */,
 				C7A4E534202745D100C1783A /* Unit+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

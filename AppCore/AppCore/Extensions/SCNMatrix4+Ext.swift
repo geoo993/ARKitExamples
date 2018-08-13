@@ -15,6 +15,32 @@ public extension SCNMatrix4
     // https://gamedev.stackexchange.com/questions/50963/how-to-extract-euler-angles-from-transformation-matrix
     // https://www.opengl.org/discussion_boards/showthread.php/159215-Is-it-possible-to-extract-rotation-translation-scale-given-a-matrix
 
+    /*
+     https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/CoreAnimationBasics/CoreAnimationBasics.html#//apple_ref/doc/uid/TP40004514-CH2-SW18
+    x [ m11 m12 m13 m14 ]
+    y | m21 m22 m23 m24 |
+    z | m31 m32 m33 m34 |
+    w [ m41 m42 m43 m44 ]
+     */
+
+    /*
+     // identity
+     x [ 1   0   0   0 ]
+     y | 0   1   0   0 |
+     z | 0   0   1   0 |
+     w [ 0   0   0   1 ]
+    */
+    public var identity: SCNVector4 {
+        return  SCNVector4(1, 1, 1, 1)
+    }
+
+    /*
+    // translation
+    x [ 1   0   0   0 ]
+    y | 0   1   0   0 |
+    z | 0   0   1   0 |
+    w [ x   y   z   1 ]
+    */
     public var translation: SCNVector3 {
         // the translation/position in fourth column in the matrix
         return  SCNVector3(m41, m42, m43)
@@ -25,6 +51,13 @@ public extension SCNMatrix4
         return  SCNVector3(-m31, -m32, -m33) // in the third column in the matrix
     }
 
+    /*
+     // translation
+     x [ x   0   0   0 ]
+     y | 0   y   0   0 |
+     z | 0   0   z   0 |
+     w [ 0   0   0   1 ]
+     */
     public var scale: SCNVector3 {
         return SCNVector3(m11, m22, m33)
     }

@@ -5,11 +5,12 @@
 //  Created by GEORGE QUENTIN on 30/06/2018.
 //  Copyright © 2018 Geo Games. All rights reserved.
 //
+// https://developer.apple.com/library/archive/samplecode/AdoptingMetalII/Listings/ObjectsExample_Utils_swift.html
 
 import MetalKit
-import AppCore
+import ARKit
 
-class Camera {
+public class Camera {
 
     var position: float3       // The position of the camera's centre of projection
     private var rotation: float3
@@ -46,7 +47,7 @@ class Camera {
     // Screen
     var screenSize: CGSize           // size of the screen window
 
-    init(fov: Float, size: CGSize, zNear: Float, zFar: Float) {
+    public init(fov: Float, size: CGSize, zNear: Float, zFar: Float) {
         screenSize = size
         perspectiveProjectionMatrix = matrix_identity_float4x4
         orthographicProjectionMatrix = matrix_identity_float4x4
@@ -101,7 +102,6 @@ class Camera {
         )
 
         // https://gamedev.stackexchange.com/questions/50963/how-to-extract-euler-angles-from-transformation-matrix
-        //let xRotation = rota
 
     }
 
@@ -262,6 +262,12 @@ class Camera {
 
     }
 
+    func setPerspectiveProjectionMatrix(frame: ARFrame, orientation: UIInterfaceOrientation){
+        self.perspectiveProjectionMatrix = frame.camera.projectionMatrix(for: orientation,
+                                                                         viewportSize: screenSize, zNear: nearPlane.toCGFloat, zFar: farPlane.toCGFloat)
+
+    }
+
     // The the camera orthographic projection matrix to match the width and height passed in
     func setOrthographicProjectionMatrix(width: Float, height: Float, zNear: Float, zFar: Float){
         orthographicProjectionMatrix = ortho(left: 0, right: width, bottom: 0, top: height, zNear: zNear, zFar: zFar)
@@ -277,6 +283,61 @@ class Camera {
     func computeNormalMatrix(modelMatrix: matrix_float4x4) -> matrix_float3x3
     {
         return modelMatrix.upperLeft3x3().transpose.inverse
+    }
+
+    func setViewMatrix(matrix: matrix_float4x4) {
+        // http://larc.unt.edu/ian/classes/fall11/csce4215/notes/4%20Rotation.pdf
+        // https://www.opengl.org/discussion_boards/showthread.php/175515-Get-Direction-from-Transformation-
+
+        /*
+         RT = right
+         UP = up
+         BK = back
+         POS = position/translation
+         US = uniform scale
+         
+        [0] [4] [8 ] [12]
+        [1] [5] [9 ] [13]
+        [2] [6] [10] [14]
+        [3] [7] [11] [15]
+
+        [RT.x] [UP.x] [BK.x] [POS.x]
+        [RT.y] [UP.y] [BK.y] [POS.y]
+        [RT.z] [UP.z] [BK.z] [POS.Z]
+        [    ] [    ] [    ] [US   ]
+
+        x [ m11 m12 m13 m14 ]
+        y | m21 m22 m23 m24 |
+        z | m31 m32 m33 m34 |
+        w [ m41 m42 m43 m44 ]
+        */
+
+        back = float3(matrix.columns.2.x, matrix.columns.2.y, matrix.columns.2.z)
+        front = normalize(back) * -1.0
+
+        up = float3(matrix.columns.1.x, matrix.columns.1.y, matrix.columns.1.z)
+        down = normalize(up) * -1.0
+
+        right = float3(matrix.columns.0.x, matrix.columns.0.y, matrix.columns.0.z)
+        left = normalize(right) * -1.0
+
+        position = float3(matrix.columns.3.x, matrix.columns.3.y, matrix.columns.3.z)
+
+        view = position + front
+        viewMatrix = lookAt(
+            eye: position, // what position you want the camera to be at when looking at something in World Space
+            center: view, // // what position you want the camera to be  looking at in World Space, meaning look at what(using vec3) ?  // meaning the camera view point
+            up: up  //which direction is up, you can set to (0,-1,0) to look upside-down
+        )
+    }
+
+    func createViewmatrix() -> matrix_float4x4 {
+        var m = matrix_float4x4()
+        m.columns.0 = float4(right.x, right.y, right.z, 0.0)
+        m.columns.1 = float4(up.x, up.y, up.z, 0.0)
+        m.columns.2 = float4(front.x, front.y, front.z, 0.0)
+        m.columns.3 = float4(position.x, position.y, position.z, 1.0)
+        return m.inverse
     }
 
 }

@@ -11,7 +11,7 @@ import Metal
 import MetalKit
 import ARKit
 import AppCore
-
+/*
 protocol RenderDestinationProvider {
     var currentRenderPassDescriptor: MTLRenderPassDescriptor? { get }
     var currentDrawable: CAMetalDrawable? { get }
@@ -39,7 +39,7 @@ let kImagePlaneVertexData: [Float] = [
 ]
 
 
-class Renderer {
+class Rendererr {
     let bundle: Bundle
     let session: ARSession
     let device: MTLDevice
@@ -364,7 +364,7 @@ class Renderer {
         // Update the shared uniforms of the frame
         
         let uniforms = sharedUniformBufferAddress.assumingMemoryBound(to: SharedUniforms.self)
-        
+
         uniforms.pointee.viewMatrix = frame.camera.viewMatrix(for: .landscapeRight)
         uniforms.pointee.projectionMatrix = frame.camera.projectionMatrix(for: .landscapeRight, viewportSize: viewportSize, zNear: 0.001, zFar: 1000)
 
@@ -509,3 +509,4 @@ class Renderer {
         renderEncoder.popDebugGroup()
     }
 }
+ */

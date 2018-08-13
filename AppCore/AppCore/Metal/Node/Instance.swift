@@ -33,20 +33,20 @@ class Instance: Node {
     var drawType: MTLPrimitiveType = .triangle
 
     //Mark: - initialiser
-    init(mtkView: MTKView, modelName: String, instances: Int, vertexShader: VertexFunction = .vertex_shader, fragmentShader: FragmentFunction) {
-        self.model = Model(mtkView: mtkView, modelName: modelName, fragmentShader: fragmentShader)
+    init(mtkView: MTKView, renderDestination: RenderDestinationProvider,  modelName: String, instances: Int, vertexShader: VertexFunction = .vertex_shader, fragmentShader: FragmentFunction) {
+        self.model = Model(mtkView: mtkView, renderDestination: renderDestination, modelName: modelName, fragmentShader: fragmentShader)
         self.vertexFunctionName = vertexShader
         self.fragmentFunctionName = model.fragmentFunctionName
         self.vertexDescriptor = model.vertexDescriptor
         super.init(name: modelName)
         create(instances: instances)
-        setupBuffers(mtkView: mtkView)
+        setupBuffers(mtkView: mtkView, renderDestination: renderDestination)
     }
 
-    func setupBuffers(mtkView: MTKView) {
+    func setupBuffers(mtkView: MTKView, renderDestination: RenderDestinationProvider) {
         guard let device = mtkView.device else { fatalError("No Device Found") }
         makeBuffer(device: device)
-        pipelineState = buildPipelineState(metalKitView: mtkView)
+        pipelineState = buildPipelineState(device: device, renderDestination: renderDestination)
         samplerState = buildSamplerState(device: device)
         depthStencilState = buildDepthStencilState(device: device)
     }
