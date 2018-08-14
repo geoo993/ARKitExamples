@@ -39,9 +39,11 @@ AR_Unity/ProjectSettings
 AR_Unity/UnityARDragon
 AR_Unity/UnityARScaleRotate
 
+
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Cartfile/Carthage/Checkouts
 
 Cartfile/Carthage/Build
+
