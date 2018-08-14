@@ -6,13 +6,28 @@
 //  Copyright © 2018 Geo Games. All rights reserved.
 //
 
-import Foundation
+import Metal
+import MetalKit
+import ARKit
 
 protocol RenderableImage {
     var imagePlaneVertexBuffer: MTLBuffer! { get set }
+    var imagePlaneVertexData: [Float] { get }
+    var imageTextureY: CVMetalTexture? { get set }
+    var imageTextureCbCr: CVMetalTexture? { get set }
+    var imageTextureCache: CVMetalTextureCache! { get set }
+    var imageVertexDescriptor: MTLVertexDescriptor { get }
 }
 
 extension RenderableImage {
+
+    // MARK: - Setup Image Cache
+    func buildImageTextureCache(device: MTLDevice) -> CVMetalTextureCache {
+        // Create captured image texture cache
+        var textureCache: CVMetalTextureCache?
+        CVMetalTextureCacheCreate(nil, nil, device, nil, &textureCache)
+        return textureCache!
+    }
 
     // MARK: - Setup stencil state
     func buildImageDepthStencilState(device: MTLDevice) -> MTLDepthStencilState {
@@ -59,6 +74,20 @@ extension RenderableImage {
             fatalError("Failed to create pipeline state, error \(error.localizedDescription)")
         }
         return pipelineState
+    }
+
+    func createTexture(fromPixelBuffer pixelBuffer: CVPixelBuffer, pixelFormat: MTLPixelFormat, planeIndex: Int) -> CVMetalTexture? {
+        let width = CVPixelBufferGetWidthOfPlane(pixelBuffer, planeIndex)
+        let height = CVPixelBufferGetHeightOfPlane(pixelBuffer, planeIndex)
+
+        var texture: CVMetalTexture? = nil
+        let status = CVMetalTextureCacheCreateTextureFromImage(nil, imageTextureCache, pixelBuffer, nil, pixelFormat, width, height, planeIndex, &texture)
+
+        if status != kCVReturnSuccess {
+            texture = nil
+        }
+
+        return texture
     }
 
 }

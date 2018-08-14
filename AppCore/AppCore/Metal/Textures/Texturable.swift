@@ -23,9 +23,6 @@ import MetalKit
 
 protocol Texturable {
     var texture: MTLTexture? { get set }
-    var imageTextureCache: CVMetalTextureCache! { get set }
-    var imageTextureY: CVMetalTexture? { get set }
-    var imageTextureCbCr: CVMetalTexture? { get set }
 }
 
 extension Texturable {
@@ -117,25 +114,4 @@ extension Texturable {
         return texture
     }
 
-    // MARK: - Setup Image Cache
-    func createImageTextureCache(device: MTLDevice) -> CVMetalTextureCache {
-        // Create captured image texture cache
-        var textureCache: CVMetalTextureCache?
-        CVMetalTextureCacheCreate(nil, nil, device, nil, &textureCache)
-        return textureCache!
-    }
-
-    func createTexture(fromPixelBuffer pixelBuffer: CVPixelBuffer, pixelFormat: MTLPixelFormat, planeIndex: Int) -> CVMetalTexture? {
-        let width = CVPixelBufferGetWidthOfPlane(pixelBuffer, planeIndex)
-        let height = CVPixelBufferGetHeightOfPlane(pixelBuffer, planeIndex)
-
-        var texture: CVMetalTexture? = nil
-        let status = CVMetalTextureCacheCreateTextureFromImage(nil, imageTextureCache, pixelBuffer, nil, pixelFormat, width, height, planeIndex, &texture)
-
-        if status != kCVReturnSuccess {
-            texture = nil
-        }
-
-        return texture
-    }
 }

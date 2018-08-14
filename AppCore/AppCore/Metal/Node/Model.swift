@@ -48,17 +48,17 @@ open class Model: Node {
         // describe the texture data
         vertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].format = .float2
         vertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].offset = MemoryLayout<Float>.stride * 3
-        vertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshPositions.rawValue
+        vertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
 
         // describe the color data
         vertexDescriptor.attributes[VertexAttribute.color.rawValue].format = .float4
         vertexDescriptor.attributes[VertexAttribute.color.rawValue].offset = MemoryLayout<Float>.stride * 5
-        vertexDescriptor.attributes[VertexAttribute.color.rawValue].bufferIndex = BufferIndex.meshPositions.rawValue
+        vertexDescriptor.attributes[VertexAttribute.color.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
 
         // describe the normal data
         vertexDescriptor.attributes[VertexAttribute.normal.rawValue].format = .float3
         vertexDescriptor.attributes[VertexAttribute.normal.rawValue].offset = MemoryLayout<Float>.stride * 9
-        vertexDescriptor.attributes[VertexAttribute.normal.rawValue].bufferIndex = BufferIndex.meshPositions.rawValue
+        vertexDescriptor.attributes[VertexAttribute.normal.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
 
         // tell the vertex descriptor the size of the information held for each vertex
         // An object that configures how vertex data and attributes are fetched by a vertex function.
@@ -66,11 +66,11 @@ open class Model: Node {
         vertexDescriptor.layouts[BufferIndex.meshPositions.rawValue].stride = MemoryLayout<Float>.stride * 12
         vertexDescriptor.layouts[BufferIndex.meshPositions.rawValue].stepRate = 1
         vertexDescriptor.layouts[BufferIndex.meshPositions.rawValue].stepFunction = MTLVertexStepFunction.perVertex
-//
-//        // Generic Attribute Buffer Layout
-//        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stride = MemoryLayout<Float>.stride * 16
-//        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stepRate = 1
-//        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stepFunction = MTLVertexStepFunction.perVertex
+
+        // Generic Attribute Buffer Layout
+        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stride = MemoryLayout<Float>.stride * 18
+        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stepRate = 1
+        vertexDescriptor.layouts[BufferIndex.meshGenerics.rawValue].stepFunction = MTLVertexStepFunction.perVertex
 
         return vertexDescriptor
     }
@@ -84,123 +84,23 @@ open class Model: Node {
     var meshes: [AnyObject]?
 
     var texture: MTLTexture?
-    var imageTextureCache: CVMetalTextureCache!
-    var imageTextureY: CVMetalTexture?
-    var imageTextureCbCr: CVMetalTexture?
-
-    //MARK: - Anchors
-
-    var sharedUniformBuffer: MTLBuffer!
-    var anchorUniformBuffer: MTLBuffer!
-    // Used to determine _uniformBufferStride each frame.
-    //   This is the current frame number modulo kMaxBuffersInFlight
-    var uniformBufferIndex: Int = 0
-
-    // Offset within _sharedUniformBuffer to set for the current frame
-    var sharedUniformBufferOffset: Int = 0
-
-    // Offset within _anchorUniformBuffer to set for the current frame
-    var anchorUniformBufferOffset: Int = 0
-
-    // Addresses to write shared uniforms to each frame
-    var sharedUniformBufferAddress: UnsafeMutableRawPointer!
-
-    // Addresses to write anchor uniforms to each frame
-    var anchorUniformBufferAddress: UnsafeMutableRawPointer!
-
-    // The number of anchor instances to render
-    var anchorInstanceCount: Int = 0
 
     //MARK: - initialise the Renderer with a device
-    public init(mtkView: MTKView, renderDestination: RenderDestinationProvider, modelName: String, imageName: String, vertexShader: VertexFunction = .vertex_shader, fragmentShader: FragmentFunction) {
+    public init(mtkView: MTKView, renderDestination: RenderDestinationProvider, modelName: String,
+                imageName: String, vertexShader: VertexFunction = .vertex_anchor_shader, fragmentShader: FragmentFunction) {
         super.init(name: modelName)
         self.vertexFunctionName = vertexShader
         self.fragmentFunctionName = fragmentShader
 
         guard let device = mtkView.device else { fatalError("No Device Found") }
-        createBuffers(device: device)
-        loadModel(device: device, renderDestination: renderDestination, modelName: modelName)
-
-        if let texture = setTexture(device: device, imageName: imageName, bundle: renderDestination.bundle) {
-            self.texture = texture
-        }
-        pipelineState = buildPipelineState(device: device, renderDestination: renderDestination)
+        texture = setTexture(device: device, imageName: imageName, bundle: renderDestination.bundle)
+        pipelineState = buildPipelineState(device: device,
+                                            renderDestination: renderDestination,
+                                            vertexFunctionName: vertexShader,
+                                            fragmentFunctionName: fragmentShader)
         samplerState = buildSamplerState(device: device)
         depthStencilState = buildDepthStencilState(device: device)
-    }
-
-    private func createBuffers(device: MTLDevice) {
-
-        // Calculate our uniform buffer sizes. We allocate kMaxBuffersInFlight instances for uniform
-        //   storage in a single buffer. This allows us to update uniforms in a ring (i.e. triple
-        //   buffer the uniforms) so that the GPU reads from one slot in the ring wil the CPU writes
-        //   to another. Anchor uniforms should be specified with a max instance count for instancing.
-        //   Also uniform storage must be aligned (to 256 bytes) to meet the requirements to be an
-        //   argument in the constant address space of our shading functions.
-        let sharedUniformBufferSize = kAlignedSharedUniformsSize * kMaxBuffersInFlight
-        let anchorUniformBufferSize = kAlignedInstanceUniformsSize * kMaxBuffersInFlight
-
-        // Create and allocate our uniform buffer objects. Indicate shared storage so that both the
-        //   CPU can access the buffer
-        sharedUniformBuffer = device.makeBuffer(length: sharedUniformBufferSize, options: .storageModeShared)
-        sharedUniformBuffer.label = "SharedUniformBuffer"
-
-        anchorUniformBuffer = device.makeBuffer(length: anchorUniformBufferSize, options: .storageModeShared)
-        anchorUniformBuffer.label = "AnchorUniformBuffer"
-    }
-
-    private func updateBufferStates() {
-        // Update the location(s) to which we'll write to in our dynamically changing Metal buffers for
-        //   the current frame (i.e. update our slot in the ring buffer used for the current frame)
-
-        uniformBufferIndex = (uniformBufferIndex + 1) % kMaxBuffersInFlight
-
-        sharedUniformBufferOffset = kAlignedSharedUniformsSize * uniformBufferIndex
-        anchorUniformBufferOffset = kAlignedInstanceUniformsSize * uniformBufferIndex
-
-        sharedUniformBufferAddress = sharedUniformBuffer.contents().advanced(by: sharedUniformBufferOffset)
-        anchorUniformBufferAddress = anchorUniformBuffer.contents().advanced(by: anchorUniformBufferOffset)
-    }
-
-
-    private func updateSharedUniforms(frame: ARFrame, camera: Camera) {
-        // Update the shared uniforms of the frame
-
-        let uniforms = sharedUniformBufferAddress.assumingMemoryBound(to: Uniform.self)
-
-        //uniforms.pointee.projectionMatrix = camera.perspectiveProjectionMatrix
-        //uniforms.pointee.viewMatrix = camera.viewMatrix
-        uniforms.pointee.viewMatrix = frame.camera.viewMatrix(for: .landscapeRight)
-        uniforms.pointee.projectionMatrix = frame.camera
-            .projectionMatrix(for: .landscapeRight, viewportSize: camera.screenSize, zNear: 0.001, zFar: 1000)
-
-    }
-
-    private func updateAnchors(frame: ARFrame, camera: Camera) {
-        // Update the anchor uniform buffer with transforms of the current frame's anchors
-        anchorInstanceCount = min(frame.anchors.count, kMaxAnchorInstanceCount)
-
-        var anchorOffset: Int = 0
-        if anchorInstanceCount == kMaxAnchorInstanceCount {
-            anchorOffset = max(frame.anchors.count - kMaxAnchorInstanceCount, 0)
-        }
-
-        for index in 0..<anchorInstanceCount {
-            let anchor = frame.anchors[index + anchorOffset]
-
-            // Flip Z axis to convert geometry from right handed to left handed
-            var coordinateSpaceTransform = matrix_identity_float4x4
-            coordinateSpaceTransform.columns.2.z = -1.0
-
-            let modelMatrix = simd_mul(anchor.transform, coordinateSpaceTransform)
-
-            // model matrix
-            let anchorUniforms = anchorUniformBufferAddress.assumingMemoryBound(to: InstanceUniform.self).advanced(by: index)
-            anchorUniforms.pointee.modelMatrix = modelMatrix
-
-            // normal matrix
-            anchorUniforms.pointee.normalMatrix = modelMatrix.upperLeft3x3().transpose.inverse
-        }
+        loadModel(device: device, renderDestination: renderDestination, modelName: modelName)
     }
 
     private func loadModel(device: MTLDevice, renderDestination: RenderDestinationProvider, modelName: String) {
@@ -268,15 +168,9 @@ extension Model: Renderable {
 
     func doRender(commandBuffer: MTLCommandBuffer, commandEncoder: MTLRenderCommandEncoder,
                   modelMatrix: matrix_float4x4,
-                  camera: Camera, currentFrame: ARFrame) {
-
-        updateBufferStates()
-
-        updateSharedUniforms(frame: currentFrame, camera: camera)
-        updateAnchors(frame: currentFrame, camera: camera)
-
-
-        guard anchorInstanceCount > 0 else {
+                  camera: Camera, renderUniform: RenderUniformProvider) {
+        
+        guard renderUniform.anchorInstanceCount > 0 else {
             return
         }
 
@@ -319,9 +213,12 @@ extension Model: Renderable {
         }
 
 
-        commandEncoder.setVertexBuffer(anchorUniformBuffer, offset: anchorUniformBufferOffset, index: BufferIndex.instances.rawValue)
-        commandEncoder.setVertexBuffer(sharedUniformBuffer, offset: sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
-        commandEncoder.setFragmentBuffer(sharedUniformBuffer, offset: sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
+        commandEncoder.setVertexBuffer(renderUniform.anchorUniformBuffer,
+                                       offset: renderUniform.anchorUniformBufferOffset, index: BufferIndex.instances.rawValue)
+        commandEncoder.setVertexBuffer(renderUniform.sharedUniformBuffer,
+                                       offset: renderUniform.sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
+        commandEncoder.setFragmentBuffer(renderUniform.sharedUniformBuffer,
+                                         offset: renderUniform.sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
 
         guard let meshes = meshes as? [MTKMesh], meshes.count > 0 else { return }
 
@@ -351,7 +248,7 @@ extension Model: Renderable {
                                                      indexType: submesh.indexType,
                                                      indexBuffer: submesh.indexBuffer.buffer,
                                                      indexBufferOffset: submesh.indexBuffer.offset,
-                                                     instanceCount: anchorInstanceCount)
+                                                     instanceCount: renderUniform.anchorInstanceCount)
 
             }
 

@@ -52,7 +52,7 @@ open class Node {
     func render(commandBuffer: MTLCommandBuffer,
                 commandEncoder: MTLRenderCommandEncoder,
                 parentModelMatrix: matrix_float4x4,
-                camera: Camera, frame: ARFrame) {
+                camera: Camera, renderUniform: RenderUniformProvider) {
         if overrideModelMatrix == false {
             self.modelMatrix = makeModelMatrix
         }
@@ -61,7 +61,7 @@ open class Node {
             child.render(commandBuffer: commandBuffer,
                          commandEncoder: commandEncoder,
                          parentModelMatrix: originAndModel,
-                         camera: camera, frame: frame)
+                         camera: camera, renderUniform: renderUniform)
         }
 
         if let renderable = self as? Renderable {
@@ -69,7 +69,7 @@ open class Node {
             renderable.doRender(commandBuffer: commandBuffer,
                                 commandEncoder: commandEncoder,
                                 modelMatrix: originAndModel,
-                                camera: camera, currentFrame: frame)
+                                camera: camera, renderUniform: renderUniform)
             commandEncoder.popDebugGroup()
         }
 

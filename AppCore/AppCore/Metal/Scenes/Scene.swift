@@ -40,7 +40,8 @@ open class Scene: Node {
     func touchesEnded(_ view: UIView, touches: Set<UITouch>, with event: UIEvent?) {}
     func touchesCancelled(_ view: UIView, touches: Set<UITouch>, with event: UIEvent?) {}
 
-    func render(commandBuffer: MTLCommandBuffer, commandEncoder: MTLRenderCommandEncoder, deltaTime: Float, frame: ARFrame) {
+    func render(commandBuffer: MTLCommandBuffer, commandEncoder: MTLRenderCommandEncoder,
+                renderUniform: RenderUniformProvider, frame: ARFrame, deltaTime: Float) {
         update(deltaTime: deltaTime)
 
         let view = frame.camera.viewMatrix(for: .landscapeRight)
@@ -61,7 +62,7 @@ open class Scene: Node {
         for child in children {
             child.render(commandBuffer: commandBuffer, commandEncoder: commandEncoder,
                          parentModelMatrix: sceneOrigin,
-                         camera: camera, frame: frame)
+                         camera: camera, renderUniform: renderUniform)
         }
     }
 

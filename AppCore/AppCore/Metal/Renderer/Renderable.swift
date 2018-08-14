@@ -18,13 +18,15 @@ protocol Renderable {
                   commandEncoder: MTLRenderCommandEncoder,
                   modelMatrix: matrix_float4x4,
                   camera: Camera,
-                  currentFrame: ARFrame)
+                  renderUniform: RenderUniformProvider)
 }
 
 extension Renderable {
 
     func buildPipelineState(device: MTLDevice,
-                            renderDestination: RenderDestinationProvider) -> MTLRenderPipelineState {
+                            renderDestination: RenderDestinationProvider,
+                            vertexFunctionName: VertexFunction,
+                            fragmentFunctionName: FragmentFunction) -> MTLRenderPipelineState {
 
         let appCoreBundle = Bundle(identifier: "com.geo-games.AppCore")!
         //1) all our shader functions will be stored in a library
