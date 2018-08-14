@@ -15,15 +15,20 @@ open class Node {
     public var overrideModelMatrix = false
 
     public var modelMatrix: matrix_float4x4 {
-        var matrix = matrix_float4x4(translationX: position.x,
-                                     y: position.y,
-                                     z: position.z)
-        matrix = matrix.rotatedBy(rotationAngle: rotation.x.toRadians,
-                                  x: 1, y: 1, z: 0)
-        matrix = matrix.rotatedBy(rotationAngle: rotation.y.toRadians,
-                                  x: 0, y: 1, z: 0)
-        matrix = matrix.rotatedBy(rotationAngle: rotation.z.toRadians,
-                                  x: 0, y: 0, z: 1)
+        /*
+        let translationMatrix = matrix_float4x4(translationX: position.x, y: position.y, z: position.z)
+        let rotationX = matrix_float4x4(rotationAngle: rotation.x.toRadians, x: 1, y: 0, z: 0)
+        let rotationY = matrix_float4x4(rotationAngle: rotation.y.toRadians, x: 0, y: 1, z: 0)
+        let rotationZ = matrix_float4x4(rotationAngle: rotation.z.toRadians, x: 0, y: 0, z: 1)
+        let rotationMatrix = rotationX * rotationY * rotationZ
+        let scaledMatrix = matrix_float4x4(scaleX: scale.x, y: scale.y, z: scale.z)
+        // M = T * R * S
+        return translationMatrix * rotationMatrix * scaledMatrix
+*/
+        var matrix = matrix_float4x4(translationX: position.x, y: position.y, z: position.z)
+        matrix = matrix.rotatedBy(rotationAngle: rotation.x.toRadians, x: 1, y: 0, z: 0)
+        matrix = matrix.rotatedBy(rotationAngle: rotation.y.toRadians, x: 0, y: 1, z: 0)
+        matrix = matrix.rotatedBy(rotationAngle: rotation.z.toRadians, x: 0, y: 0, z: 1)
         matrix = matrix.scaledBy(x: scale.x, y: scale.y, z: scale.z)
         return matrix
     }

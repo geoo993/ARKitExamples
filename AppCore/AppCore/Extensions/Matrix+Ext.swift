@@ -696,7 +696,6 @@ extension matrix_float4x4 {
         )))
     }
 
-
     // https://stackoverflow.com/questions/45463627/how-do-i-rotate-an-arkit-4x4-matrix-around-y-using-apples-simd-library
     func makeRotationYMatrix(angle: Float) -> simd_float3x3 {
         let rows = [
@@ -735,10 +734,17 @@ extension matrix_float4x4 {
      z | 0   0   z   0 |
      w [ 0   0   0   1 ]
      */
+    //https://math.stackexchange.com/questions/237369/given-this-transformation-matrix-how-do-i-decompose-it-into-translation-rotati
     /// get scale vector from the matrix
     public var scale: float3 {
-        return float3(columns.0.x, columns.1.y, columns.2.z)
+        //return float3(columns.0.x, columns.1.y, columns.2.z)
+
+        let x = float3(columns.0.x, columns.1.x, columns.2.x).length()
+        let y = float3(columns.0.y, columns.1.y, columns.2.y).length()
+        let z = float3(columns.0.z, columns.1.z, columns.2.z).length()
+        return float3(x, y, z)
     }
+
 
     // https://math.stackexchange.com/questions/237369/given-this-transformation-matrix-how-do-i-decompose-it-into-translation-rotati
     /// get the rotation matrix
@@ -768,7 +774,7 @@ extension matrix_float4x4 {
      */
     /// rotation from rotation matrix in radians
     public var rotation: float3 {
-        let columns = rotationMatrix.columns
+        //let columns = rotationMatrix.columns
         let x = atan2(columns.2.y, columns.2.z)
         let y = atan2(-columns.2.x, sqrt((columns.2.y * columns.2.y) + (columns.2.z * columns.2.z)))
         let z = atan2(columns.1.x, columns.0.x)

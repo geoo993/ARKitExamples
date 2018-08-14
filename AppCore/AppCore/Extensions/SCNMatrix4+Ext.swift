@@ -58,8 +58,14 @@ public extension SCNMatrix4
      z | 0   0   z   0 |
      w [ 0   0   0   1 ]
      */
+    //https://math.stackexchange.com/questions/237369/given-this-transformation-matrix-how-do-i-decompose-it-into-translation-rotati
+    /// get scale vector from the matrix
     public var scale: SCNVector3 {
-        return SCNVector3(m11, m22, m33)
+        //return SCNVector3(m11, m22, m33)
+        let x = SCNVector3(m11, m21, m31).length()
+        let y = SCNVector3(m12, m22, m32).length()
+        let z = SCNVector3(m13, m23, m33).length()
+        return SCNVector3(x, y, z)
     }
 
     // https://math.stackexchange.com/questions/237369/given-this-transformation-matrix-how-do-i-decompose-it-into-translation-rotati

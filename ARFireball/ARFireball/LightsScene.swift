@@ -29,8 +29,8 @@ public final class LightsScene: Scene {
                              imageName: "mushroom.png", fragmentShader: .fragment_anchor_shader)
         mushroom.name = "Mushroom"
         mushroom.position = float3(0, 0, -0.2) // Create a transform with a translation of 0.2 meters in front of the camera
-        mushroom.scale = float3(0.01, 0.01, 0.01)
-        mushroom.rotation = float3(10, 30, 80)
+        mushroom.scale = float3(0.4, 0.4, 0.4)
+        mushroom.rotation = float3(70, 20, 50)
         add(childNode: mushroom)
         
     }

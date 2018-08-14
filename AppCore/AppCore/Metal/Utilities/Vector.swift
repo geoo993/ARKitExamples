@@ -20,7 +20,14 @@ public extension float3 {
         return float3(x.toRadians, y.toRadians, z.toRadians)
     }
 
-    
+    public func length() -> Float {
+        return sqrtf(x * x + y * y + z * z)
+    }
+
+    public func normalized() -> float3 {
+        return self / length()
+    }
+
     public init(_ v: float4) {
         self.init(v.x, v.y, v.z)
     }

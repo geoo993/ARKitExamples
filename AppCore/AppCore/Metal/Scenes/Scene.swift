@@ -3,24 +3,30 @@ import ARKit
 
 open class Scene: Node {
     
-    public var rootNode: Node!
     public var camera: Camera!
+    public var session: ARSession!
     public var time: Float = 0
 
     private let sceneOrigin = matrix_identity_float4x4
 
-    public init(mtkView: MTKView, camera: Camera) {
+    public init(mtkView: MTKView, session: ARSession, camera: Camera) {
 
         //1) Create a reference to the GPU, which is the Device
         super.init(name: "Untitled")
-        rootNode = Node(name: "Root")
-        add(childNode: rootNode)
+        self.session = session
         self.camera = camera
         setup(view: mtkView)
     }
 
     override public func add(childNode: Node) {
         super.add(childNode: childNode)
+        if let currentFrame = session.currentFrame {
+            let currnetOrigin = currentFrame.camera.transform
+            let transform = simd_mul(currnetOrigin, childNode.modelMatrix)
+
+            let anchor = ARAnchor(transform: transform)
+            session.add(anchor: anchor)
+        }
     }
 
     open func setup(view: MTKView) {
