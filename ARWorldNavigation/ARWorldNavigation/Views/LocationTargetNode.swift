@@ -18,7 +18,7 @@ public class LocationTargetNode: SCNNode {
     var anchor: ARAnchor? {
         didSet {
             guard let transform = anchor?.transform else { return }
-            self.position = transform.position
+            self.position = transform.position.toVector3
         }
     }
 

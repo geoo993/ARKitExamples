@@ -25,6 +25,17 @@ import SceneKit
 
 public extension SCNVector3
 {
+    public var toFloat3: float3 {
+        return float3(x, y, z)
+    }
+
+    public var toDegress: SCNVector3 {
+        return SCNVector3(x.toDegrees, y.toDegrees, z.toDegrees)
+    }
+
+    public var toRadians: SCNVector3 {
+        return SCNVector3(x.toRadians, y.toRadians, z.toRadians)
+    }
     
     public static var zero : SCNVector3 {
         return SCNVector3(0,0,0)

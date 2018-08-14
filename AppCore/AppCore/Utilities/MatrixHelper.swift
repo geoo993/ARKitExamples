@@ -16,7 +16,7 @@ import SceneKit
 public class MatrixHelper {
  
     public static func rotateAroundY(with matrix: matrix_float4x4, for degrees: Float) -> matrix_float4x4 {
-        return matrix.rotateAroundY(for: degrees)
+        return matrix.rotateAroundY(degrees: degrees)
     }
 
     public static func translationMatrix(translation : vector_float4) -> matrix_float4x4 {

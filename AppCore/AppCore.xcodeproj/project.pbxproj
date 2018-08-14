@@ -99,12 +99,11 @@
 		C7D6DC2C204AFCB1006666FF /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7D6DC2B204AFCB1006666FF /* Inceptionv3.mlmodel */; };
 		C7DAAB4B2043623500325DB9 /* LocationServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DAAB4A2043623500325DB9 /* LocationServiceDelegate.swift */; };
 		C7FC1F25211FB012004CCB80 /* Exponential.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F1B211FB012004CCB80 /* Exponential.swift */; };
-		C7FC1F27211FB012004CCB80 /* Matrix_Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F1D211FB012004CCB80 /* Matrix_Transform.swift */; };
 		C7FC1F28211FB012004CCB80 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F1E211FB012004CCB80 /* Common.swift */; };
 		C7FC1F29211FB012004CCB80 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F1F211FB012004CCB80 /* Transform.swift */; };
 		C7FC1F2A211FB012004CCB80 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F20211FB012004CCB80 /* Vector.swift */; };
 		C7FC1F2B211FB012004CCB80 /* Trigonometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F21211FB012004CCB80 /* Trigonometric.swift */; };
-		C7FC1F2C211FB012004CCB80 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F22211FB012004CCB80 /* Matrix.swift */; };
+		C7FC1F2C211FB012004CCB80 /* Matrix+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F22211FB012004CCB80 /* Matrix+Ext.swift */; };
 		C7FC1F2D211FB012004CCB80 /* Quaternion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F23211FB012004CCB80 /* Quaternion.swift */; };
 		C7FC1F2E211FB012004CCB80 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F24211FB012004CCB80 /* Types.swift */; };
 		C7FC1F30211FB0CD004CCB80 /* Geometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC1F2F211FB0CD004CCB80 /* Geometric.swift */; };
@@ -207,12 +206,11 @@
 		C7D6DC2B204AFCB1006666FF /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		C7DAAB4A2043623500325DB9 /* LocationServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceDelegate.swift; sourceTree = "<group>"; };
 		C7FC1F1B211FB012004CCB80 /* Exponential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exponential.swift; sourceTree = "<group>"; };
-		C7FC1F1D211FB012004CCB80 /* Matrix_Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix_Transform.swift; sourceTree = "<group>"; };
 		C7FC1F1E211FB012004CCB80 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		C7FC1F1F211FB012004CCB80 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		C7FC1F20211FB012004CCB80 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		C7FC1F21211FB012004CCB80 /* Trigonometric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trigonometric.swift; sourceTree = "<group>"; };
-		C7FC1F22211FB012004CCB80 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		C7FC1F22211FB012004CCB80 /* Matrix+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix+Ext.swift"; sourceTree = "<group>"; };
 		C7FC1F23211FB012004CCB80 /* Quaternion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quaternion.swift; sourceTree = "<group>"; };
 		C7FC1F24211FB012004CCB80 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		C7FC1F2F211FB0CD004CCB80 /* Geometric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometric.swift; sourceTree = "<group>"; };
@@ -338,6 +336,7 @@
 				C739E3FE201CA85A0081259D /* Double+Ext.swift */,
 				C7A4E533202745D000C1783A /* FormatDisplay.swift */,
 				C739E416201CA85A0081259D /* Int+Ext.swift */,
+				C7FC1F22211FB012004CCB80 /* Matrix+Ext.swift */,
 				C7BD1558202F596000FF8D00 /* MKRouteStep+Ext.swift */,
 				C7830B1A2027AA0800FD2FE6 /* NSAttributedString+Ext.swift */,
 				C7830B182027AA0800FD2FE6 /* NSRange+Ext.swift */,
@@ -417,13 +416,6 @@
 				C775DEC1201F2E80003457AD /* ShapeType.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		C7778D972120E12400F98572 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C7B5264A201C8A1D00134F00 = {
@@ -510,7 +502,6 @@
 				C73939EC211FACF700E99139 /* Textures */,
 				C73939DC211FAC9100E99139 /* Renderer */,
 				C7FC1F1A211FB012004CCB80 /* Utilities */,
-				C7778D972120E12400F98572 /* Extensions */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -520,12 +511,10 @@
 			children = (
 				C7FC1F2F211FB0CD004CCB80 /* Geometric.swift */,
 				C7FC1F1B211FB012004CCB80 /* Exponential.swift */,
-				C7FC1F1D211FB012004CCB80 /* Matrix_Transform.swift */,
 				C7FC1F1E211FB012004CCB80 /* Common.swift */,
 				C7FC1F1F211FB012004CCB80 /* Transform.swift */,
 				C7FC1F20211FB012004CCB80 /* Vector.swift */,
 				C7FC1F21211FB012004CCB80 /* Trigonometric.swift */,
-				C7FC1F22211FB012004CCB80 /* Matrix.swift */,
 				C7FC1F23211FB012004CCB80 /* Quaternion.swift */,
 				C7FC1F24211FB012004CCB80 /* Types.swift */,
 			);
@@ -676,7 +665,7 @@
 				C739E3EF201C91100081259D /* UIVisualEffectViewX.swift in Sources */,
 				C7830B1C2027AA0900FD2FE6 /* NSRange+Ext.swift in Sources */,
 				C739E3E8201C91100081259D /* UITextFieldX.swift in Sources */,
-				C7FC1F2C211FB012004CCB80 /* Matrix.swift in Sources */,
+				C7FC1F2C211FB012004CCB80 /* Matrix+Ext.swift in Sources */,
 				C775DECA201F3049003457AD /* CollisionTypes.swift in Sources */,
 				C7BD1560202F5DBC00FF8D00 /* LocationTranslation.swift in Sources */,
 				C739E449201CA85A0081259D /* CGRect+Ext.swift in Sources */,
@@ -690,7 +679,6 @@
 				C761C1DA206E323C002997B1 /* CameraView.swift in Sources */,
 				C739E3EC201C91100081259D /* UIViewControllerX.swift in Sources */,
 				C7DAAB4B2043623500325DB9 /* LocationServiceDelegate.swift in Sources */,
-				C7FC1F27211FB012004CCB80 /* Matrix_Transform.swift in Sources */,
 				C739E3ED201C91100081259D /* UIImageViewX.swift in Sources */,
 				C739E3E9201C91100081259D /* UIButtonX.swift in Sources */,
 				C700B199202385C6000FC421 /* CGSize+Ext.swift in Sources */,

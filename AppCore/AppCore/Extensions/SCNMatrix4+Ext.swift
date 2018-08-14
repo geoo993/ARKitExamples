@@ -62,31 +62,39 @@ public extension SCNMatrix4
         return SCNVector3(m11, m22, m33)
     }
 
-    // TODO: calculation must be verified, this could be incorrect or incomplete
-    public func rotation(xAxis: Float, yAxis: Float, zAxis: Float, angle: Float) -> SCNVector3 {
-        /*
-        your rotation has the form, Code :
-        [ ax*ax*(1-c)+c    ax*ay*(1-c)+az*s  ax*az*(1-c)-ay*s   0]
-        |ax*ay*(1-c)-az*s   ay*ay*(1-c)+c    ay*az*(1-c)+ax*s   0|
-        |ax*az*(1-c)+ay*s  ay*az*(1-c)-ax*s   az*az*(1-c)+c     0|
-        [       0                 0                 0           1]
+    // https://math.stackexchange.com/questions/237369/given-this-transformation-matrix-how-do-i-decompose-it-into-translation-rotati
 
-        where (ax, ay, az) defines a unitized axis of rotation, and c and s are the cosine and sine of the angle of rotation.
-         */
-        let x: Float = xAxis
-        let y: Float = yAxis
-        let z: Float = zAxis
-        let w: Float = angle
-        let row1 = SCNVector3(cos(w) + pow(x, 2) * (1 - cos(w)),
-                              x * y * (1 - cos(w)) - z * sin(w),
-                              x * z * (1 - cos(w)) + y*sin(w))
-        let row2 = SCNVector3(y*x*(1-cos(w)) + z*sin(w),
-                              cos(w) + pow(y, 2) * (1 - cos(w)),
-                              y*z*(1-cos(w)) - x*sin(w))
-        let row3 = SCNVector3(z*x*(1 - cos(w)) - y*sin(w),
-                              z*y*(1 - cos(w)) + x*sin(w),
-                              cos(w) + pow(z, 2) * ( 1 - cos(w)))
-
-        return SCNVector3( row1.dot(vector: row1), row2.dot(vector: row2), row3.dot(vector: row3))
+    // https://math.stackexchange.com/questions/237369/given-this-transformation-matrix-how-do-i-decompose-it-into-translation-rotati
+    /// get the rotation matrix
+    public var rotationMatrix: SCNMatrix4 {
+        let scale = self.scale
+        return SCNMatrix4(m11: m11 / scale.x, m12: m12 / scale.y, m13: m13 / scale.z, m14: 0,
+                          m21: m21 / scale.x, m22: m22 / scale.y, m23: m23 / scale.z, m24: 0,
+                          m31: m31 / scale.x, m32: m32 / scale.y, m33: m33 / scale.z, m34: 0,
+                          m41: 0, m42: 0, m43: 0, m44: 1)
     }
+
+    /*
+     https://stackoverflow.com/questions/15022630/how-to-calculate-the-angle-from-rotation-matrix
+     https://www.learnopencv.com/rotation-matrix-to-euler-angles/
+     https://gamedev.stackexchange.com/questions/50963/how-to-extract-euler-angles-from-transformation-matrix
+     [ r11   r12   r13   0  ]
+     | r21   r22   r23   0  |
+     | r31   r32   r33   0  |
+     [  0     0     0    1  ]
+
+     The 3 Euler angles are
+     𝜽x = atan2(r32, r33)
+     𝜽y = atan2(-r31, sqrt((r32 * r32) +  (r33 * r33)))
+     𝜽z = atan2(r21, r11);
+     */
+    /// rotation from rotation matrix in radians
+    public var rotation: SCNVector3 {
+        let m = rotationMatrix
+        let x = atan2(m.m32, m.m33)
+        let y = atan2(-m.m31, sqrt((m.m32 * m.m32) + (m.m33 * m.m33)))
+        let z = atan2(m.m21, m.m11)
+        return SCNVector3(x, y, z)
+    }
+
 }

@@ -27,6 +27,7 @@ public class ARFireballViewController: UIViewController {
         // Set the view's delegate
         session = ARSession()
         session.delegate = self
+
         /*
         sceneView.antialiasingMode = .multisampling4X
 
@@ -63,15 +64,12 @@ public class ARFireballViewController: UIViewController {
 
             // create renderer
             renderer = Renderer(mtkView: view, session: session, renderDestination: view)
-            renderer.scene = LightsScene(mtkView: view, camera: camera)
+            renderer.scene = LightsScene(mtkView: view, session: session, camera: camera)
             renderer.scene.sceneSizeWillChange(to: screenSize)
 
             // Setup MTKView and delegate
             view.delegate = renderer
         }
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tapGesture)
 
     }
 
@@ -99,22 +97,6 @@ public class ARFireballViewController: UIViewController {
 
         // Pause the view's session
         session.pause()
-    }
-
-    @objc
-    func handleTap(gestureRecognize: UITapGestureRecognizer) {
-        // Create anchor using the camera's current position
-        if let currentFrame = session.currentFrame {
-
-            // Create a transform with a translation of 0.2 meters in front of the camera
-            var translation = matrix_identity_float4x4
-            translation.columns.3.z = -0.2
-            let transform = simd_mul(currentFrame.camera.transform, translation)
-
-            // Add a new anchor to the session
-            let anchor = ARAnchor(transform: transform)
-            session.add(anchor: anchor)
-        }
     }
 
     private func showHelperAlertIfNeeded() {
@@ -159,5 +141,24 @@ extension ARFireballViewController: ARSessionDelegate {
     public func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
 
+    }
+}
+
+// MARK: - Gestures
+extension ARFireballViewController {
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        renderer?.scene.touchesBegan(view, touches:touches, with: event)
+    }
+
+    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        renderer?.scene.touchesMoved(view, touches: touches, with: event)
+    }
+
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        renderer?.scene.touchesEnded(view, touches: touches, with: event)
+    }
+
+    override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        renderer?.scene.touchesCancelled(view, touches: touches, with: event)
     }
 }

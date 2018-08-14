@@ -146,7 +146,7 @@ public class ARLocationTargetsViewController: UIViewController {
             let scale: Float = 10.0//100 / Float(distance)
             node.scale = SCNVector3(x: scale, y: scale, z: scale)
             node.anchor = ARAnchor(transform: transform)
-            node.position = transform.position
+            node.position = transform.position.toVector3
         }
     }
 

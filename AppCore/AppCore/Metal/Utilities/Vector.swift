@@ -4,9 +4,22 @@
 //
 
 import Foundation
+import SceneKit
 import simd
 
 public extension float3 {
+    public var toVector3: SCNVector3 {
+        return SCNVector3(x, y, z)
+    }
+
+    public var toDegress: float3 {
+        return float3(x.toDegrees, y.toDegrees, z.toDegrees)
+    }
+
+    public var toRadians: float3 {
+        return float3(x.toRadians, y.toRadians, z.toRadians)
+    }
+
     
     public init(_ v: float4) {
         self.init(v.x, v.y, v.z)
