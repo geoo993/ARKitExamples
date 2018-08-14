@@ -32,8 +32,6 @@
 		C77768AE20253A8300CE16BB /* ARHomeDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C77768AC20253A8300CE16BB /* ARHomeDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7830AF82027A61100FD2FE6 /* ARWorldNavigationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AF72027A61100FD2FE6 /* ARWorldNavigationDemo.framework */; };
 		C7830AF92027A61100FD2FE6 /* ARWorldNavigationDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AF72027A61100FD2FE6 /* ARWorldNavigationDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C784AF7A20438725000376F0 /* AppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C784AF7920438725000376F0 /* AppServices.framework */; };
-		C784AF7B20438725000376F0 /* AppServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C784AF7920438725000376F0 /* AppServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C784AFB820438C5F000376F0 /* ARObjectRecognitionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C784AFB720438C5F000376F0 /* ARObjectRecognitionDemo.framework */; };
 		C784AFB920438C5F000376F0 /* ARObjectRecognitionDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C784AFB720438C5F000376F0 /* ARObjectRecognitionDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7857B292021562500CE199E /* IKEADemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B282021562500CE199E /* IKEADemo.framework */; };
@@ -94,7 +92,6 @@
 				C7E0222F20226E260091D145 /* ARTelevisionDemo.framework in Embed Frameworks */,
 				C77768AE20253A8300CE16BB /* ARHomeDemo.framework in Embed Frameworks */,
 				C75EBB932020E38200E484CE /* ARPlanetsDemo.framework in Embed Frameworks */,
-				C784AF7B20438725000376F0 /* AppServices.framework in Embed Frameworks */,
 				C7116B1A204ACC3E006BD08F /* ARObjectDetectionDemo.framework in Embed Frameworks */,
 				C72F823620221E2200958877 /* ARDiceeDemo.framework in Embed Frameworks */,
 				C7116ACE204AC9F8006BD08F /* SVProgressHUD.framework in Embed Frameworks */,
@@ -128,7 +125,6 @@
 		C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPlanetsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77768AC20253A8300CE16BB /* ARHomeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARHomeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7830AF72027A61100FD2FE6 /* ARWorldNavigationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARWorldNavigationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C784AF7920438725000376F0 /* AppServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C784AFB720438C5F000376F0 /* ARObjectRecognitionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARObjectRecognitionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B282021562500CE199E /* IKEADemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IKEADemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B3F2021594400CE199E /* ARMeasuringDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARMeasuringDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,7 +154,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7857B402021594400CE199E /* ARMeasuringDemo.framework in Frameworks */,
-				C784AF7A20438725000376F0 /* AppServices.framework in Frameworks */,
 				C7CFCAC520221175005CD6F5 /* TossShapesDemo.framework in Frameworks */,
 				C7857B292021562500CE199E /* IKEADemo.framework in Frameworks */,
 				C7857B7220215E4500CE199E /* ARHoopsDemo.framework in Frameworks */,
@@ -200,7 +195,6 @@
 				C7116AC3204AC9F8006BD08F /* Realm.framework */,
 				C7116AC0204AC915006BD08F /* Chameleon.framework */,
 				C784AFB720438C5F000376F0 /* ARObjectRecognitionDemo.framework */,
-				C784AF7920438725000376F0 /* AppServices.framework */,
 				C7830AF72027A61100FD2FE6 /* ARWorldNavigationDemo.framework */,
 				C7F3C525202757B70028C2AE /* ARPlacesDemo.framework */,
 				C77768AC20253A8300CE16BB /* ARHomeDemo.framework */,
@@ -462,7 +456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
 				INFOPLIST_FILE = ARDemos/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARDemos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -480,7 +474,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDAK5XPRG7;
 				INFOPLIST_FILE = ARDemos/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARDemos";
 				PRODUCT_NAME = "$(TARGET_NAME)";

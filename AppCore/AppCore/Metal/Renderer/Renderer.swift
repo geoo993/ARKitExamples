@@ -82,6 +82,7 @@ public class Renderer: NSObject {
     }
 
     //MARK: - Render Uniform Provider
+    public var anchors: [ARAnchor] = []
     public var sharedUniformBuffer: MTLBuffer!
     public var anchorUniformBuffer: MTLBuffer!
     public var uniformBufferIndex: Int = 0
@@ -89,6 +90,7 @@ public class Renderer: NSObject {
     public var anchorUniformBufferOffset: Int = 0
     public var sharedUniformBufferAddress: UnsafeMutableRawPointer!
     public var anchorUniformBufferAddress: UnsafeMutableRawPointer!
+    public var anchorMaterialBufferAddress: UnsafeMutableRawPointer!
     public var anchorInstanceCount: Int = 0
 
     var meshes: [AnyObject]?
@@ -188,8 +190,8 @@ public class Renderer: NSObject {
             return
         }
 
-        imageTextureY = createTexture(fromPixelBuffer: pixelBuffer, pixelFormat: .r8Unorm, planeIndex:0)
-        imageTextureCbCr = createTexture(fromPixelBuffer: pixelBuffer, pixelFormat: .rg8Unorm, planeIndex:1)
+        imageTextureY = createTexture(fromPixelBuffer: pixelBuffer, pixelFormat: .r8Unorm, planeIndex: 0)
+        imageTextureCbCr = createTexture(fromPixelBuffer: pixelBuffer, pixelFormat: .rg8Unorm, planeIndex: 1)
     }
 
 
@@ -229,47 +231,6 @@ public class Renderer: NSObject {
         commandEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
     }
 
-    private func updateSharedUniforms(frame: ARFrame, camera: Camera) {
-        // Update the shared uniforms of the frame
-
-        let uniforms = sharedUniformBufferAddress.assumingMemoryBound(to: Uniform.self)
-
-//        uniforms.pointee.projectionMatrix = camera.perspectiveProjectionMatrix
-//        uniforms.pointee.viewMatrix = camera.viewMatrix
-        uniforms.pointee.viewMatrix = frame.camera.viewMatrix(for: .landscapeRight)
-        uniforms.pointee.projectionMatrix = frame.camera
-            .projectionMatrix(for: .landscapeRight, viewportSize: camera.screenSize,
-                              zNear: camera.nearPlane.toCGFloat, zFar: camera.farPlane.toCGFloat)
-
-    }
-
-    private func updateAnchors(frame: ARFrame) {
-        // Update the anchor uniform buffer with transforms of the current frame's anchors
-        anchorInstanceCount = min(frame.anchors.count, kMaxAnchorInstanceCount)
-
-        var anchorOffset: Int = 0
-        if anchorInstanceCount == kMaxAnchorInstanceCount {
-            anchorOffset = max(frame.anchors.count - kMaxAnchorInstanceCount, 0)
-        }
-
-        for index in 0..<anchorInstanceCount {
-            let anchor = frame.anchors[index + anchorOffset]
-
-            // Flip Z axis to convert geometry from right handed to left handed
-            var coordinateSpaceTransform = matrix_identity_float4x4
-            coordinateSpaceTransform.columns.2.z = -1.0
-
-            let modelMatrix = simd_mul(anchor.transform, coordinateSpaceTransform)
-
-            // model matrix
-            let anchorUniforms = anchorUniformBufferAddress.assumingMemoryBound(to: InstanceUniform.self).advanced(by: index)
-            anchorUniforms.pointee.modelMatrix = modelMatrix
-
-            // normal matrix
-            anchorUniforms.pointee.normalMatrix = modelMatrix.upperLeft3x3().transpose.inverse
-        }
-    }
-    
 }
 
 // MARK: - MTKViewDelegate
@@ -332,20 +293,33 @@ extension Renderer: MTKViewDelegate {
         let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: descriptor)!
         commandEncoder.label = "Primary Render Encoder"
 
+
         updateBufferStates()
-        
+
         if let currentFrame = session.currentFrame, let scene = scene {
 
-            updateSharedUniforms(frame: currentFrame, camera: scene.camera)
-            updateAnchors(frame: currentFrame)
-            updateCapturedImageTextures(frame: currentFrame)
+            anchors = currentFrame.anchors
+            anchorInstanceCount = min(currentFrame.anchors.count, kMaxAnchorInstanceCount)
+
+            // Update the shared uniforms of the frame
+            let viewMatrix = currentFrame.camera.viewMatrix(for: .landscapeRight)
+            scene.camera.setViewMatrix(matrix: viewMatrix)
+            scene.camera.setPerspectiveProjectionMatrix(frame: currentFrame, orientation: .landscapeRight)
+
+            let uniforms = sharedUniformBufferAddress.assumingMemoryBound(to: Uniform.self)
+
+            //        uniforms.pointee.projectionMatrix = camera.perspectiveProjectionMatrix
+            //        uniforms.pointee.viewMatrix = camera.viewMatrix
+            uniforms.pointee.viewMatrix = currentFrame.camera.viewMatrix(for: .landscapeRight)
+            uniforms.pointee.projectionMatrix = currentFrame.camera
+                .projectionMatrix(for: .landscapeRight, viewportSize: scene.camera.screenSize,
+                                  zNear: scene.camera.nearPlane.toCGFloat, zFar: scene.camera.farPlane.toCGFloat)
 
             if scene.camera.viewportSizeDidChange {
                 scene.camera.viewportSizeDidChange = false
                 updateImagePlane(frame: currentFrame, camera: scene.camera)
             }
 
-            drawCapturedImage(commandEncoder: commandEncoder)
 
             let deltaTime = 1 / Float(view.preferredFramesPerSecond)
             scene.time += 1 / Float(view.preferredFramesPerSecond)
@@ -354,7 +328,12 @@ extension Renderer: MTKViewDelegate {
             scene.render(commandBuffer: commandBuffer,
                          commandEncoder: commandEncoder,
                          renderUniform: self,
-                         frame: currentFrame, deltaTime: deltaTime)
+                         frame: currentFrame,
+                         deltaTime: deltaTime)
+
+
+            updateCapturedImageTextures(frame: currentFrame)
+            drawCapturedImage(commandEncoder: commandEncoder)
         }
 
         // Once we’re done drawing, we need to call endEncoding() on our render command encoder to end the pass—and the frame:

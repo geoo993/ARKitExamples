@@ -16,7 +16,6 @@ protocol Renderable {
     var drawType: MTLPrimitiveType { get set }
     func doRender(commandBuffer: MTLCommandBuffer,
                   commandEncoder: MTLRenderCommandEncoder,
-                  modelMatrix: matrix_float4x4,
                   camera: Camera,
                   renderUniform: RenderUniformProvider)
 }

@@ -25,6 +25,7 @@ open class Scene: Node {
             let transform = simd_mul(currnetOrigin, childNode.modelMatrix)
 
             let anchor = ARAnchor(transform: transform)
+            childNode.uuid = anchor.identifier.uuidString
             session.add(anchor: anchor)
         }
     }
@@ -49,10 +50,6 @@ open class Scene: Node {
     func render(commandBuffer: MTLCommandBuffer, commandEncoder: MTLRenderCommandEncoder,
                 renderUniform: RenderUniformProvider, frame: ARFrame, deltaTime: Float) {
         update(deltaTime: deltaTime)
-
-        let view = frame.camera.viewMatrix(for: .landscapeRight)
-        camera.setViewMatrix(matrix: view)
-        camera.setPerspectiveProjectionMatrix(frame: frame, orientation: .landscapeRight)
 
         // fire ball edge
         //var fireBallConstant = FireBallConstants(time: time * 0.2, frequency: fireBallFreq, explosion: fireBallExplo)

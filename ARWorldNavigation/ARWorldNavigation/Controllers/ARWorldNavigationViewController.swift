@@ -57,8 +57,8 @@ import MapKit
 import ARKit
 import SceneKit
 import AppCore
+import Realm
 import RealmSwift
-import AppServices
 //import Firebase
 
 public class ARWorldNavigationViewController: UIViewController {
@@ -197,13 +197,25 @@ public class ARWorldNavigationViewController: UIViewController {
     }
 
     func setupRealm(completion : @escaping (Realm?, Error?) -> Void ) {
-
+        
         if let user = SyncUser.current {
+            /*
+            Realm.asyncOpen(configuration: configuration, callback: { (realm, error) in
+                if let error = error {
+                    //single(.error(error))
+                } else if let realm = realm {
+                    //single(.success(realm))
+                } else {
+                    //single(.error(RealmError.realmUnavailable(configuration)))
+                }
+            })
+
             RealmObjectServer.setupRealm(with: user,
                                          objectTypes: [LocationTarget.self],
                                          completion: { (realm, error) in
                 completion(realm, nil)
             })
+            */
         } else {
 
             let alertController = UIAlertController(title: "Login to Realm Cloud", message: "Supply a nice username!", preferredStyle: .alert)
@@ -212,13 +224,15 @@ public class ARWorldNavigationViewController: UIViewController {
                                                     style: .default,
                                                     handler: { alert -> Void in
                 let textField = alertController.textFields![0] as UITextField
-
+                                                        /*
+                let creds = SyncCredentials.usernamePassword(username: username, password: password, register: register)
                 RealmObjectServer.setupRealm(with: textField.text!,
                                              isAdmin: true,
                                              objectTypes: [LocationTarget.self],
                                              completion: { (realm, error) in
                     completion(realm, error)
                 })
+                                                        */
 
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
