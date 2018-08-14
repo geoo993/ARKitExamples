@@ -197,25 +197,20 @@ public class ARWorldNavigationViewController: UIViewController {
     }
 
     func setupRealm(completion : @escaping (Realm?, Error?) -> Void ) {
-        
+
+        // https://realm.io/docs/tutorials/realmtasks/
         if let user = SyncUser.current {
-            /*
+            let configuration = user.configuration()
             Realm.asyncOpen(configuration: configuration, callback: { (realm, error) in
                 if let error = error {
-                    //single(.error(error))
+                    completion(nil, error)
                 } else if let realm = realm {
-                    //single(.success(realm))
+                    completion(realm, nil)
                 } else {
-                    //single(.error(RealmError.realmUnavailable(configuration)))
+                    completion(nil, nil)
                 }
             })
 
-            RealmObjectServer.setupRealm(with: user,
-                                         objectTypes: [LocationTarget.self],
-                                         completion: { (realm, error) in
-                completion(realm, nil)
-            })
-            */
         } else {
 
             let alertController = UIAlertController(title: "Login to Realm Cloud", message: "Supply a nice username!", preferredStyle: .alert)
@@ -223,17 +218,34 @@ public class ARWorldNavigationViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Login",
                                                     style: .default,
                                                     handler: { alert -> Void in
-                let textField = alertController.textFields![0] as UITextField
-                                                        /*
-                let creds = SyncCredentials.usernamePassword(username: username, password: password, register: register)
-                RealmObjectServer.setupRealm(with: textField.text!,
-                                             isAdmin: true,
-                                             objectTypes: [LocationTarget.self],
-                                             completion: { (realm, error) in
-                    completion(realm, error)
-                })
-                                                        */
 
+                let MY_INSTANCE_ADDRESS = "projectstem.de1a.cloud.realm.io" // <- update this
+                let AUTH_URL = URL(string: "https://\(MY_INSTANCE_ADDRESS)")!
+                let LOCATIONS_URL = URL(string: "realms://\(MY_INSTANCE_ADDRESS)/locationTargets")!
+                let textField = alertController.textFields![0] as UITextField
+                let credentials = SyncCredentials.nickname(textField.text!)
+
+                SyncUser.all.forEach({ _, user in user.logOut() })
+                SyncUser.logIn(with: credentials, server: AUTH_URL, timeout: 2, onCompletion: { user, error in
+                    guard let user = user else {
+                        if let error = error { print("❗️ \(error)") }
+                        completion(nil, error)
+                        return
+                    }
+
+                    DispatchQueue.main.async {
+                        var configuration = user.configuration(realmURL: LOCATIONS_URL, fullSynchronization: true, enableSSLValidation: false)
+                        configuration.objectTypes = [LocationTarget.self]
+
+                        do {
+                            let realm = try Realm(configuration: configuration)
+                            completion(realm, nil)
+                        } catch let error {
+                            completion(nil, error)
+                        }
+
+                    }
+                })
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
