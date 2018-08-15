@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C7143D3F2021D888000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E7FFEC202069C400970264 /* AppCore.framework */; };
-		C7193D4F202086EA00B28CC3 /* Each.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7193D4D202086EA00B28CC3 /* Each.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7857B6420215D4500CE199E /* ARHoopsDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7857B6220215D4500CE199E /* ARHoopsDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7857B6720215D4500CE199E /* ARHoopsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B6020215D4500CE199E /* ARHoopsDemo.framework */; };
 		C7857B6820215D4500CE199E /* ARHoopsDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B6020215D4500CE199E /* ARHoopsDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -20,7 +19,6 @@
 		C7E029CD21236C4300DD0B5F /* Each.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7193D4D202086EA00B28CC3 /* Each.framework */; };
 		C7E7FFD92020696D00970264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E7FFD82020696D00970264 /* AppDelegate.swift */; };
 		C7E7FFDB2020696D00970264 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFDA2020696D00970264 /* art.scnassets */; };
-		C7E7FFEE202069C400970264 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7E7FFEC202069C400970264 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7F3C51E202756DB0028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E7FFE32020696D00970264 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +40,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C7857B6820215D4500CE199E /* ARHoopsDemo.framework in Embed Frameworks */,
-				C7E7FFEE202069C400970264 /* AppCore.framework in Embed Frameworks */,
-				C7193D4F202086EA00B28CC3 /* Each.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

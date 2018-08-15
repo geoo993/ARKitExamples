@@ -13,18 +13,16 @@
 		C7143D2F2021D757000923B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E87201D427400BD26CB /* Assets.xcassets */; };
 		C7143D302021D75B000923B9 /* WackAJellyFish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E84201D427400BD26CB /* WackAJellyFish.storyboard */; };
 		C7143D312021D75D000923B9 /* WackAJellyFishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A46E82201D427400BD26CB /* WackAJellyFishViewController.swift */; };
+		C73EBB642124B64F00AF01E3 /* WackAJellyFishDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C753D946202137170027B094 /* WackAJellyFishDemo.framework */; };
+		C73EBB652124B64F00AF01E3 /* WackAJellyFishDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C753D946202137170027B094 /* WackAJellyFishDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C753D94A202137170027B094 /* WackAJellyFishDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C753D948202137170027B094 /* WackAJellyFishDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C753D94D202137170027B094 /* WackAJellyFishDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C753D946202137170027B094 /* WackAJellyFishDemo.framework */; };
-		C753D94E202137170027B094 /* WackAJellyFishDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C753D946202137170027B094 /* WackAJellyFishDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7A46E81201D427400BD26CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A46E80201D427400BD26CB /* AppDelegate.swift */; };
-		C7C8C688201D47CC00959FA2 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C686201D47CC00959FA2 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7C8C694201D4B7A00959FA2 /* JellyFish.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C8C693201D4B7A00959FA2 /* JellyFish.scnassets */; };
-		C7C8C697201D556800959FA2 /* Each.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C695201D556800959FA2 /* Each.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7F3C523202757420028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E89201D427400BD26CB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C753D94B202137170027B094 /* PBXContainerItemProxy */ = {
+		C73EBB662124B64F00AF01E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7A46E75201D427400BD26CB /* Project object */;
 			proxyType = 1;
@@ -34,15 +32,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C7C8C689201D47CC00959FA2 /* Embed Frameworks */ = {
+		C73EBB682124B64F00AF01E3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C753D94E202137170027B094 /* WackAJellyFishDemo.framework in Embed Frameworks */,
-				C7C8C688201D47CC00959FA2 /* AppCore.framework in Embed Frameworks */,
-				C7C8C697201D556800959FA2 /* Each.framework in Embed Frameworks */,
+				C73EBB652124B64F00AF01E3 /* WackAJellyFishDemo.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C753D94D202137170027B094 /* WackAJellyFishDemo.framework in Frameworks */,
+				C73EBB642124B64F00AF01E3 /* WackAJellyFishDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,12 +173,12 @@
 				C7A46E79201D427400BD26CB /* Sources */,
 				C7A46E7A201D427400BD26CB /* Frameworks */,
 				C7A46E7B201D427400BD26CB /* Resources */,
-				C7C8C689201D47CC00959FA2 /* Embed Frameworks */,
+				C73EBB682124B64F00AF01E3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C753D94C202137170027B094 /* PBXTargetDependency */,
+				C73EBB672124B64F00AF01E3 /* PBXTargetDependency */,
 			);
 			name = WackAJellyFish;
 			productName = WackAJellyFish;
@@ -270,10 +266,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C753D94C202137170027B094 /* PBXTargetDependency */ = {
+		C73EBB672124B64F00AF01E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C753D945202137170027B094 /* WackAJellyFishDemo */;
-			targetProxy = C753D94B202137170027B094 /* PBXContainerItemProxy */;
+			targetProxy = C73EBB662124B64F00AF01E3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

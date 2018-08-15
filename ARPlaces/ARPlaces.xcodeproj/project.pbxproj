@@ -11,11 +11,8 @@
 		C7A4E55D2027476A00C1783A /* ARPlacesDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7A4E55B2027476A00C1783A /* ARPlacesDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7A4E5602027476A00C1783A /* ARPlacesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A4E5592027476A00C1783A /* ARPlacesDemo.framework */; };
 		C7A4E5612027476A00C1783A /* ARPlacesDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A4E5592027476A00C1783A /* ARPlacesDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7A4E5682027477C00C1783A /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A4E5662027477C00C1783A /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7A4E56A2027478300C1783A /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A4E5662027477C00C1783A /* AppCore.framework */; };
-		C7A7C2AA20276C3F0094C295 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A7C2A820276C3F0094C295 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7A7C2AB20276C490094C295 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A7C2A820276C3F0094C295 /* SwiftyJSON.framework */; };
-		C7A7C2B42027784C0094C295 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A7C2B22027784C0094C295 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7A7C2B52027785B0094C295 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A7C2B22027784C0094C295 /* SDWebImage.framework */; };
 		C7A7C2B7202782D90094C295 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A7C2B6202782D80094C295 /* PlaceAnnotationView.swift */; };
 		C7F3C5112027564D0028C2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A4E5492027462E00C1783A /* Assets.xcassets */; };
@@ -44,10 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C7A7C2AA20276C3F0094C295 /* SwiftyJSON.framework in Embed Frameworks */,
 				C7A4E5612027476A00C1783A /* ARPlacesDemo.framework in Embed Frameworks */,
-				C7A7C2B42027784C0094C295 /* SDWebImage.framework in Embed Frameworks */,
-				C7A4E5682027477C00C1783A /* AppCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

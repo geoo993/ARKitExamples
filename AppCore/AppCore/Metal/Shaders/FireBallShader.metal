@@ -250,8 +250,8 @@ vertex VertexOut vertex_fireball_shader(const VertexIn vertexIn [[ stage_in ]],
 
 fragment float4 fragment_fireball_shader(VertexOut vertexIn [[ stage_in ]],
                                           constant CameraInfo &camera [[ buffer(BufferIndexCameraInfo) ]],
-                                          texture2d<float, access::sample> texture [[ texture(TextureIndexColor) ]],
-                                          sampler sampler2d [[sampler(0)]])
+                                          texture2d<float, access::sample> texture [[ texture(TextureIndexBaseMap) ]],
+                                          sampler sampler2d [[sampler(SamplerIndexMain)]])
 {
 
     // get a random offset

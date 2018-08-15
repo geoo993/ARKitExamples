@@ -24,7 +24,6 @@
 		C7E02218202258190091D145 /* ARTelevisionDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7E02216202258190091D145 /* ARTelevisionDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7E0221B202258190091D145 /* ARTelevisionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E02214202258190091D145 /* ARTelevisionDemo.framework */; };
 		C7E0221C202258190091D145 /* ARTelevisionDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7E02214202258190091D145 /* ARTelevisionDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7E02223202258250091D145 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7E02221202258250091D145 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7E022252022582C0091D145 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E02221202258250091D145 /* AppCore.framework */; };
 		C7E02226202258390091D145 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E021FD202256110091D145 /* art.scnassets */; };
 		C7E0222720226DD50091D145 /* ARTelevisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E021FF202256110091D145 /* ARTelevisionViewController.swift */; };
@@ -51,7 +50,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C7E0221C202258190091D145 /* ARTelevisionDemo.framework in Embed Frameworks */,
-				C7E02223202258250091D145 /* AppCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

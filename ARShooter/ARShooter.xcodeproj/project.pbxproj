@@ -13,7 +13,7 @@
 		C7143D532021E049000923B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7193D6520209AEE00B28CC3 /* Assets.xcassets */; };
 		C7193D5D20209AEE00B28CC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7193D5C20209AEE00B28CC3 /* AppDelegate.swift */; };
 		C7193D5F20209AEE00B28CC3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7193D5E20209AEE00B28CC3 /* art.scnassets */; };
-		C7193D7220209D4C00B28CC3 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7193D7020209D4C00B28CC3 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C73EBB632124B5AC00AF01E3 /* ARShooterDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B792021628800CE199E /* ARShooterDemo.framework */; };
 		C7857B7D2021628800CE199E /* ARShooterDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7857B7B2021628800CE199E /* ARShooterDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7857B812021628800CE199E /* ARShooterDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B792021628800CE199E /* ARShooterDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7857B89202162BC00CE199E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7193D5E20209AEE00B28CC3 /* art.scnassets */; };
@@ -37,7 +37,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C7193D7220209D4C00B28CC3 /* AppCore.framework in Embed Frameworks */,
 				C7857B812021628800CE199E /* ARShooterDemo.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -65,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C73EBB632124B5AC00AF01E3 /* ARShooterDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

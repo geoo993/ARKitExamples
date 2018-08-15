@@ -12,14 +12,12 @@
 		C737535F20421F2000C7D8C7 /* ARLocationTargetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C737535D2042190100C7D8C7 /* ARLocationTargetsViewController.swift */; };
 		C7830AD62027A4A500FD2FE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7830AD42027A4A500FD2FE6 /* LaunchScreen.storyboard */; };
 		C7830AE62027A4D400FD2FE6 /* ARWorldNavigationDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7830AE42027A4D400FD2FE6 /* ARWorldNavigationDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7830AF12027A4ED00FD2FE6 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7830AF32027A4F600FD2FE6 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */; };
 		C7830B282027D23100FD2FE6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7830B272027D23100FD2FE6 /* art.scnassets */; };
 		C784AF4020438437000376F0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C784AF3F20438437000376F0 /* Default-568h@2x.png */; };
 		C7AF0A60203DD1CA0092A634 /* LocationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A5C203DD1C70092A634 /* LocationTarget.swift */; };
 		C7AF0A61203DD1CC0092A634 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A5D203DD1C70092A634 /* Item.swift */; };
 		C7AF0A65203E05290092A634 /* GrabData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AF0A64203E05290092A634 /* GrabData.swift */; };
-		C7C5FB9D2030B92C00C08CCF /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AEF2027A4ED00FD2FE6 /* AppCore.framework */; };
 		C7DAAB472042F8A300325DB9 /* LocationTargetNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DAAB452042F88500325DB9 /* LocationTargetNode.swift */; };
 		C7DAAB492042F8DE00325DB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7830ACB2027A4A500FD2FE6 /* AppDelegate.swift */; };
 		C7E029CE21236E9A00DD0B5F /* ARWorldNavigationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7830AE22027A4D400FD2FE6 /* ARWorldNavigationDemo.framework */; };
@@ -48,7 +46,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C7830AF12027A4ED00FD2FE6 /* AppCore.framework in Embed Frameworks */,
 				C7E029CF21236E9A00DD0B5F /* ARWorldNavigationDemo.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -90,7 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7C5FB9D2030B92C00C08CCF /* AppCore.framework in Frameworks */,
 				C7E029CE21236E9A00DD0B5F /* ARWorldNavigationDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

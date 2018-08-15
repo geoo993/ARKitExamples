@@ -10,7 +10,6 @@
 		C7143D382021D80A000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C731074E201CF34400523CB5 /* AppCore.framework */; };
 		C731073B201CF25100523CB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731073A201CF25100523CB5 /* AppDelegate.swift */; };
 		C7310747201CF25100523CB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7310745201CF25100523CB5 /* LaunchScreen.storyboard */; };
-		C7310750201CF34400523CB5 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C731074E201CF34400523CB5 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C753D93E2021355A0027B094 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7310743201CF25100523CB5 /* Assets.xcassets */; };
 		C753D93F202135980027B094 /* ARPlanets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7310740201CF25100523CB5 /* ARPlanets.storyboard */; };
 		C753D9402021359C0027B094 /* ARPlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731073E201CF25100523CB5 /* ARPlanetsViewController.swift */; };
@@ -37,7 +36,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C75EBB882020E2AB00E484CE /* ARPlanetsDemo.framework in Embed Frameworks */,
-				C7310750201CF34400523CB5 /* AppCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

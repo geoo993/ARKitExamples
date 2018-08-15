@@ -22,9 +22,8 @@ public enum FragmentFunction: String {
     case fragment_anchor_shader
 }
 
-public struct Vertex {
-    var position: float3
-    var texture: float2
-    var color: float4
-    var normal: float3
+public enum ObjectType: String {
+    case model
+    case cube
+    case sphere
 }

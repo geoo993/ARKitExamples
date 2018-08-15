@@ -17,7 +17,6 @@
 		C707214D202154BA0071F6FE /* IKEACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7625424201DEAEA0059951B /* IKEACollectionViewCell.swift */; };
 		C7143D3A2021D82F000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A88CF3201DDBA500255242 /* AppCore.framework */; };
 		C7A88CE2201DDB4200255242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A88CE1201DDB4200255242 /* AppDelegate.swift */; };
-		C7A88CF5201DDBA500255242 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A88CF3201DDBA500255242 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7C7855E201E01620043604E /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C7855D201E01620043604E /* Models.scnassets */; };
 		C7F3C521202757180028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A88CEA201DDB4200255242 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -39,7 +38,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C7A88CF5201DDBA500255242 /* AppCore.framework in Embed Frameworks */,
 				C70721442021546D0071F6FE /* IKEADemo.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";

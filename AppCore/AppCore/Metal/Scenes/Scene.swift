@@ -62,7 +62,7 @@ open class Scene: Node {
                                         index: BufferIndex.directionalLightInfo.rawValue)
 
         // fire ball edge
-        var fireBallConstant = FireBallConstants(time: time * 0.2, frequency: 0.4, explosion: 0.1)
+        var fireBallConstant = FireBallConstants(time: time * 0.2, frequency: 0.4, explosion: 0.0)
         commandEncoder.setVertexBytes(&fireBallConstant, length: MemoryLayout<FireBallConstants>.stride,
                                       index: BufferIndex.fireBall.rawValue)
 

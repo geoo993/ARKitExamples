@@ -16,7 +16,6 @@
 		C7B350BB202382570018A1AA /* ARHomeDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7B350B9202382570018A1AA /* ARHomeDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7B350BE202382570018A1AA /* ARHomeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B350B7202382570018A1AA /* ARHomeDemo.framework */; };
 		C7B350BF202382570018A1AA /* ARHomeDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7B350B7202382570018A1AA /* ARHomeDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7B350C6202382B60018A1AA /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7B350C4202382B60018A1AA /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7B350C8202382BD0018A1AA /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B350C4202382B60018A1AA /* AppCore.framework */; };
 		C7F3C5182027567E0028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B350A9202382270018A1AA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -39,7 +38,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C7B350BF202382570018A1AA /* ARHomeDemo.framework in Embed Frameworks */,
-				C7B350C6202382B60018A1AA /* AppCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

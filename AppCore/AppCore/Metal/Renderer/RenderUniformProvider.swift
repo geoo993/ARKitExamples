@@ -13,8 +13,13 @@ import ARKit
 public protocol RenderUniformProvider {
     var frame: ARFrame! { get set }
     var sharedUniformBuffer: MTLBuffer! { get set }
+   // var sharedCameraBuffer: MTLBuffer! { get set }
+    //var sharedDirectionslLightBuffer: MTLBuffer! { get set }
+    //var sharedPointLightBuffer: MTLBuffer! { get set }
+    //var sharedSpotLightBuffer: MTLBuffer! { get set }
     var anchorUniformBuffer: MTLBuffer! { get set }
-    //var anchorMaterialBuffer: MTLBuffer! { get set }
+    var anchorMaterialBuffer: MTLBuffer! { get set }
+
     var uniformBufferIndex: Int  { get set }
 
     var sharedUniformBufferOffset: Int { get set }

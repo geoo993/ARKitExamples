@@ -13,7 +13,6 @@
 		C7116B0F204ACBF6006BD08F /* ARObjectDetectionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116B08204ACBF5006BD08F /* ARObjectDetectionDemo.framework */; };
 		C7116B10204ACBF6006BD08F /* ARObjectDetectionDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116B08204ACBF5006BD08F /* ARObjectDetectionDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7116B16204ACC0C006BD08F /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7116B17204ACC0C006BD08F /* AppCore.framework */; };
-		C7D6DC11204AE80F006666FF /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7116B17204ACC0C006BD08F /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7D6DC20204AF404006666FF /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7116AF1204ACB57006BD08F /* Scene.swift */; };
 		C7D6DC21204AF407006666FF /* ARObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7116AF3204ACB57006BD08F /* ARObjectDetectionViewController.swift */; };
 		C7D6DC22204AF411006666FF /* ARObjectDetection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7116AF5204ACB57006BD08F /* ARObjectDetection.storyboard */; };
@@ -40,7 +39,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C7116B10204ACBF6006BD08F /* ARObjectDetectionDemo.framework in Embed Frameworks */,
-				C7D6DC11204AE80F006666FF /* AppCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,9 +50,8 @@ public final class LightsScene: Scene {
         guard let mtkView = view as? MTKView  else { return }
 
         /*
-        let mushroom = Model(mtkView: mtkView, renderDestination: mtkView, modelName: "mushroom",
+        let mushroom = Model(mtkView: mtkView, renderDestination: mtkView, model: [ObjectType.model: "mushroom"],
                              imageName: "mushroom.png", fragmentShader: .fragment_anchor_shader)
-        mushroom.name = "Mushroom"
         mushroom.position = float3(0, 0, -0.2) // Create a transform with a translation of 0.2 meters in front of the camera
         mushroom.scale = float3(0.01, 0.01, 0.01)
         //mushroom.rotation = float3(20, 0, 0)
@@ -61,12 +60,11 @@ public final class LightsScene: Scene {
         mushroom.material.shininess = 32
         mushroom.material.useTexture = true
         add(childNode: mushroom)
- */
+        */
 
-        let fireball = Model(mtkView: mtkView, renderDestination: mtkView, modelName: "mushroom",
+        let fireball = Model(mtkView: mtkView, renderDestination: mtkView, model: [ObjectType.sphere: "Sphere"],
                            imageName: "explosion.png", vertexShader: .vertex_fireball_shader,
                            fragmentShader: .fragment_fireball_shader)
-        fireball.name = "Sphere"
         fireball.material.useTexture = true
         fireball.scale = float3(0.1, 0.1, 0.1)
         fireball.material.color = float4(0, 1, 0, 1)

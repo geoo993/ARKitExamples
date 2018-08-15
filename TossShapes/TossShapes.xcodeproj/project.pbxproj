@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C7CFCA9620220EC1005CD6F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFCA9520220EC1005CD6F5 /* AppDelegate.swift */; };
-		C7CFCAAB20220ED0005CD6F5 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCAA920220ED0005CD6F5 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7CFCAB620220F1D005CD6F5 /* TossShapesDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7CFCAB420220F1D005CD6F5 /* TossShapesDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7CFCAB920220F1D005CD6F5 /* TossShapesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCAB220220F1C005CD6F5 /* TossShapesDemo.framework */; };
 		C7CFCABA20220F1D005CD6F5 /* TossShapesDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7CFCAB220220F1C005CD6F5 /* TossShapesDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -37,7 +36,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C7CFCABA20220F1D005CD6F5 /* TossShapesDemo.framework in Embed Frameworks */,
-				C7CFCAAB20220ED0005CD6F5 /* AppCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

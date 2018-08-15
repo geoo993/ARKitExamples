@@ -11,6 +11,30 @@ import Metal
 import MetalKit
 import ARKit
 
+
+/*
+
+ // Rendering with OpenGL
+ RenderTargets      glBindFramebuffer(GL_FRAMEBUFFER, myFramebuffer);
+ Shaders            glUseProgram(myProgram);
+ Vertex Buffer      glBindBuffer(GL_ARRAY_BUFFER, myVertexBuffer);
+ Uniforms           glBindBuffer(GL_UNIFORM_BUFFER, myUniforms);
+ Textures           glBindTexture(GL_TEXTURE_2D, myColorTexture);
+ Draws              glDrawArrays(GL_TRIANGLES, 0, numVertices);
+ Draws              glDrawElements(GL_TRIANGLES, 0, 0, numVertices);
+
+
+ // Rendering with Metal
+ RenderTargets      encoder = [commandBuffer renderCommandEncoderWithDescriptor:descriptor];
+ Shaders            [encoder setPipelineState:myPipeline];
+ Vertex Buffer      [encoder setVertexBuffer:myVertexData offset:0 atIndex:0];
+ Uniforms           [encoder setVertexBuffer:myUniforms offset:0 atIndex:1];
+ Uniforms           [encoder setFragmentBuffer:myUniforms offset:0 atIndex:1];
+ Textures           [encoder setFragmentTexture:myColorTexture atIndex:0];
+ Draws              [encoder drawPrimitives:MTLPrimitiveTypeTriangle vertexStart:0 vertexCount:numVertices];
+ [encoder endEncoding];
+
+ */
 // The max number of command buffers in flight
 let kMaxBuffersInFlight: Int = 3
 
@@ -83,6 +107,8 @@ public class Renderer: NSObject {
 
     //MARK: - Render Uniform Provider
     public var frame: ARFrame!
+
+    // Point to the current frame buffer
     public var uniformBufferIndex: Int = 0
 
     public var sharedUniformBuffer: MTLBuffer!
@@ -242,12 +268,16 @@ extension Renderer: MTKViewDelegate {
         // we issue our drawing command to this drawable.
         // The MTKView also has a render pass descriptor, which describes how the buffers are to be rendered,
         // we use this descriptor to create the command encoder.
-        // Metla uses descriptor to setup Metal objects.
+        // Metal uses descriptor to setup Metal objects.
         // descriptors are like blueprints, a descriptor allows you to set requirement and spec about your object
         // when you setup a descriptor, you are setting up the list of properties you want your object to have.
         // then you create your object from that descriptor, if you subsequently change the desciptor properties,
         // you're only changing the list and not the original object.
 
+        // With Metal, to get your content displayed on the screenm you need contain this special texture content called
+        // drawable from the system. The MetalKit View will provide you with this drawable texture for each frame,
+        // and once you have obtained this drawable you can encode render passes and render to this drawables
+        // just like you would render to any other texture.
         guard let drawable = view.currentDrawable,
             let descriptor = view.currentRenderPassDescriptor
             else { return }
@@ -259,6 +289,7 @@ extension Renderer: MTKViewDelegate {
 
         // Wait to ensure only kMaxBuffersInFlight are getting proccessed by any stage in the Metal
         //   pipeline (App, Metal, Drivers, GPU, etc)
+        // we need to first ensure that its corresponding frame has completed its execution on the GPU before we go to the next frame
         let _ = inFlightSemaphore.wait(timeout: DispatchTime.distantFuture)
 
         // Add completion hander which signal _inFlightSemaphore when Metal and the GPU has fully
@@ -270,7 +301,11 @@ extension Renderer: MTKViewDelegate {
         //   are retained. Since we may release our CVMetalTexture ivars during the rendering
         //   cycle, we must retain them separately here.
         var textures = [imageTextureY, imageTextureCbCr]
+
+        // Schedule frame completion handler
         commandBuffer.addCompletedHandler{ [weak self] commandBuffer in
+            // GPU work is complete. Signal the Semaphore to start CPU work.
+            // This allows the CPU to reuse its buffer for new frame encoding.
             if let strongSelf = self {
                 strongSelf.inFlightSemaphore.signal()
             }
@@ -334,6 +369,7 @@ extension Renderer: MTKViewDelegate {
         // Ending encoding signifies that we won’t be doing any more drawing with this render command encoder. If we wanted to draw additional objects, we would need to do that before calling endEncoding.
         commandEncoder.endEncoding()
 
+        // Present your drawable onto the screen.
         // In order to get our rendered content on the screen, we have to expressly present the drawable
         // whose texture we’ve be drawing into. We do this with a call on the command buffer, rather than the command encoder:
         commandBuffer.present(drawable)

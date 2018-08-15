@@ -18,6 +18,19 @@
 #endif
 #import <simd/simd.h>
 
+// --------- Vertex Data --------
+// Structure defining the layout of each vertex.  Shared between C code filling in the vertex data
+//   and Metal vertex shader consuming the vertices
+// The Vertex struct defines the layout and memory of each vertex in a vertex array passes into a vertex_shader
+typedef struct
+{
+    vector_float3 position;
+    packed_float2 texture;
+    vector_float4 color;
+    vector_float3 normal;
+} Vertex;
+
+
 // --------- Buffers and Indexes --------
 // Buffer index values shared between shader and C code to ensure Metal shader buffer inputs match
 //   Metal API buffer set calls
@@ -25,15 +38,16 @@ typedef NS_ENUM(NSInteger, BufferIndex)
 {
     BufferIndexMeshPositions        = 0,
     BufferIndexMeshGenerics         = 1,
-    BufferIndexUniforms             = 2,
-    BufferIndexInstances            = 3,
-    BufferIndexCameraInfo           = 4,
-    BufferIndexMaterialInfo         = 5,
-    BufferIndexDirectionalLightInfo = 6,
-    BufferIndexPointLightInfo       = 7,
-    BufferIndexSpotLightInfo        = 8,
-    BufferIndexConstants            = 9,
-    BufferIndexFireBall             = 10,
+    BufferIndexVertices             = 2,
+    BufferIndexUniforms             = 3,
+    BufferIndexInstances            = 4,
+    BufferIndexCameraInfo           = 5,
+    BufferIndexMaterialInfo         = 6,
+    BufferIndexDirectionalLightInfo = 7,
+    BufferIndexPointLightInfo       = 8,
+    BufferIndexSpotLightInfo        = 9,
+    BufferIndexConstants            = 10,
+    BufferIndexFireBall             = 11,
 };
 
 typedef NS_ENUM(NSInteger, VertexAttribute)
@@ -48,15 +62,30 @@ typedef NS_ENUM(NSInteger, VertexAttribute)
 //   match indices of Metal API texture set calls
 typedef NS_ENUM(NSInteger, TextureIndex)
 {
-    TextureIndexColor           = 0,
-    TextureIndexMask            = 1,
-    TextureIndexNormalMap       = 2,
-    TextureIndexDiffuseMap      = 3,
-    TextureIndexSpecularMap     = 4,
-    TextureIndexY               = 5,
-    TextureIndexCbCr            = 6,
+    TextureIndexBaseMap         = 0,
+    TextureIndexNormalMap       = 1,
+    TextureIndexDiffuseMap      = 2,
+    TextureIndexSpecularMap     = 3,
+    TextureIndexY               = 4,
+    TextureIndexCbCr            = 5,
 };
 
+// Sampler index values shared between shader and C code to ensure Metal shader texture indices
+//   match indices of Metal API texture set calls
+// this tells what index the sampler state is in
+typedef NS_ENUM(NSInteger, SamplerIndex)
+{
+    SamplerIndexMain            = 0,
+};
+
+
+// --------- Materials --------
+typedef struct
+{
+    vector_float4 color;
+    float shininess; //Shininess values typically range from 1 to 128. Higher values result in more focussed specular highlights.
+    bool useTexture;
+} MaterialInfo;
 
 
 // --------- Matrix Uniform --------
@@ -65,6 +94,8 @@ typedef NS_ENUM(NSInteger, TextureIndex)
 // An identiy matrix is sort of a neutral marix, multiply an identity matrix and you get the
 // same matrix back
 // uniform matrices and materials 3D attributes
+//// Structure shared between shader and C code to ensure the layout of uniform data accessed in
+// Metal shaders matches the layout of uniform data set in C code
 typedef struct
 {
     // Matrices attributes
@@ -74,14 +105,7 @@ typedef struct
     matrix_float3x3 normalMatrix;
 } Uniform;
 
-// --------- Attributes --------
-typedef struct
-{
-    vector_float4 color;
-    float shininess; //Shininess values typically range from 1 to 128. Higher values result in more focussed specular highlights.
-    bool useTexture;
-} MaterialInfo;
-
+// --------- Instance Uniform --------
 typedef struct {
     Uniform uniform;
     MaterialInfo material;

@@ -14,6 +14,7 @@ using namespace metal;
 
 // input information to the shader
 // note that each item in the struct has been given an attribute number
+//
 struct VertexIn {
     float3 position [[ attribute(VertexAttributePosition) ]];
     float2 textureCoordinates [[ attribute(VertexAttributeTexcoord) ]];
@@ -26,7 +27,8 @@ struct ImageVertexIn {
     float2 textureCoordinates [[attribute(VertexAttributeTexcoord)]];
 };
 
-// this tells the rasterisor, which of these data items contains, contains the vertex position or color value
+// this tells the rasterisor, which of these data items contains, contains the vertex position or color value.
+// This specifies whats passed down to the rasterisation stage and eventually to the fragment program.
 struct VertexOut {
     float4 position [[ position ]];
     float2 textureCoordinates;

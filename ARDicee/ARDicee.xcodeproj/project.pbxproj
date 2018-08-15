@@ -12,7 +12,6 @@
 		C72F8220202216A600958877 /* ARDiceeDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C72F821E202216A600958877 /* ARDiceeDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C72F8223202216A600958877 /* ARDiceeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72F821C202216A600958877 /* ARDiceeDemo.framework */; };
 		C72F8224202216A600958877 /* ARDiceeDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72F821C202216A600958877 /* ARDiceeDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C72F822B202216B200958877 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72F8229202216B200958877 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72F822D202216B900958877 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72F8229202216B200958877 /* AppCore.framework */; };
 		C72F822E20221BE900958877 /* ARDiceeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F82072022169500958877 /* ARDiceeViewController.swift */; };
 		C72F822F20221BF200958877 /* ARDicee.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72F82092022169500958877 /* ARDicee.storyboard */; };
@@ -39,7 +38,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C72F8224202216A600958877 /* ARDiceeDemo.framework in Embed Frameworks */,
-				C72F822B202216B200958877 /* AppCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

@@ -48,8 +48,8 @@ vertex VertexOut vertex_anchor_shader(const VertexIn vertexIn [[stage_in]],
 // Anchor geometry fragment function
 fragment float4 fragment_anchor_shader(VertexOut vertexIn [[stage_in]],
                                        device DirectionalLight *dirLights [[buffer(BufferIndexDirectionalLightInfo)]],
-                                       texture2d<float> texture [[ texture(TextureIndexColor) ]],
-                                       sampler sampler2d [[ sampler(0) ]]) {
+                                       texture2d<float> texture [[ texture(TextureIndexBaseMap) ]],
+                                       sampler sampler2d [[ sampler(SamplerIndexMain) ]]) {
     float4 texColor = texture.sample(sampler2d, vertexIn.textureCoordinates);
     float4 materialColor = vertexIn.useTexture ? texColor : vertexIn.color;
     DirectionalLight light = dirLights[0];

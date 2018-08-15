@@ -17,7 +17,6 @@
 		C7857B5720215AFE00CE199E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A52AC8201F5A07003614C0 /* art.scnassets */; };
 		C7A52AC7201F5A07003614C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52AC6201F5A07003614C0 /* AppDelegate.swift */; };
 		C7A52AC9201F5A07003614C0 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A52AC8201F5A07003614C0 /* art.scnassets */; };
-		C7A52ADC201F5B7A003614C0 /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A52ADA201F5B7A003614C0 /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7F3C51F202756EE0028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A52AD1201F5A07003614C0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +38,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C7857B4F20215AAA00CE199E /* ARPortalDemo.framework in Embed Frameworks */,
-				C7A52ADC201F5B7A003614C0 /* AppCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

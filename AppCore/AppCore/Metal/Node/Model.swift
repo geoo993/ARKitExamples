@@ -86,9 +86,9 @@ open class Model: Node {
     var texture: MTLTexture?
 
     //MARK: - initialise the Renderer with a device
-    public init(mtkView: MTKView, renderDestination: RenderDestinationProvider, modelName: String,
+    public init(mtkView: MTKView, renderDestination: RenderDestinationProvider, model: [ObjectType: String],
                 imageName: String, vertexShader: VertexFunction = .vertex_anchor_shader, fragmentShader: FragmentFunction) {
-        super.init(name: modelName)
+        super.init(name: model.first!.value)
         self.vertexFunctionName = vertexShader
         self.fragmentFunctionName = fragmentShader
 
@@ -100,13 +100,11 @@ open class Model: Node {
                                             fragmentFunctionName: fragmentShader)
         samplerState = buildSamplerState(device: device)
         depthStencilState = buildDepthStencilState(device: device)
-        loadModel(device: device, renderDestination: renderDestination, modelName: modelName)
+        loadModel(device: device, renderDestination: renderDestination, model: model)
     }
 
-    private func loadModel(device: MTLDevice, renderDestination: RenderDestinationProvider, modelName: String) {
-        guard let assetURL = renderDestination.bundle.url(forResource: modelName, withExtension: "obj") else {
-            fatalError("Asset \(modelName) does not exist.")
-        }
+    private func loadModel(device: MTLDevice, renderDestination: RenderDestinationProvider, model: [ObjectType: String]) {
+        guard let modelObject = model.first else { fatalError("model is not set.") }
 
         // Model IO requires a special Model IO vertex descriptor, we can use the MTKModel vertex descriptor
         let descriptor = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
@@ -137,29 +135,37 @@ open class Model: Node {
         // this handles all the loading and managing on the GPU of the vertex and index data
         let bufferAllocator = MTKMeshBufferAllocator(device: device)
 
-        let mesh = MDLMesh(sphereWithExtent: float3(1, 1, 1),
-                                 segments: vector_uint2(40, 40), inwardNormals: false,
-                                 geometryType: MDLGeometryType.triangles, allocator: bufferAllocator)
-        // Use ModelIO to create a box mesh as our object
-        //let mesh = MDLMesh(boxWithExtent: vector3(1, 1, 1), segments: vector3(1, 1, 1),
-        //                   inwardNormals: false, geometryType: .triangles, allocator: bufferAllocator)
-        // Perform the format/relayout of mesh vertices by setting the new vertex descriptor in our
-        //   Model IO mesh
-        mesh.vertexDescriptor = descriptor
-
-        // load asset using the asset URL
-        let asset = MDLAsset(url: assetURL,
-                             vertexDescriptor: descriptor,
-                             bufferAllocator: bufferAllocator)
-
-        // asset bounding box
-        let boundingBox = asset.boundingBox
-        width = boundingBox.maxBounds.x - boundingBox.minBounds.x
-        height = boundingBox.maxBounds.y - boundingBox.minBounds.y
-
         do {
-            //meshes = try MTKMesh.newMeshes(asset: asset, device: device).metalKitMeshes
-            meshes = try [MTKMesh(mesh: mesh, device: device)]
+
+            switch modelObject.key {
+            case .model:
+                guard let assetURL = renderDestination.bundle.url(forResource: modelObject.value, withExtension: "obj")
+                    else { fatalError("Asset does not exist") }
+
+                // load asset using the asset URL
+                let asset = MDLAsset(url: assetURL,
+                                     vertexDescriptor: descriptor,
+                                     bufferAllocator: bufferAllocator)
+                // asset bounding box
+                let boundingBox = asset.boundingBox
+                width = boundingBox.maxBounds.x - boundingBox.minBounds.x
+                height = boundingBox.maxBounds.y - boundingBox.minBounds.y
+                meshes = try MTKMesh.newMeshes(asset: asset, device: device).metalKitMeshes
+            case .cube:
+                // Use ModelIO to create a box mesh as our object
+                let mesh = MDLMesh(boxWithExtent: vector3(1, 1, 1), segments: vector3(1, 1, 1),
+                               inwardNormals: false, geometryType: .triangles, allocator: bufferAllocator)
+                // Perform the format/relayout of mesh vertices by setting the new vertex descriptor in our
+                //   Model IO mesh
+                mesh.vertexDescriptor = descriptor
+                meshes = try [MTKMesh(mesh: mesh, device: device)]
+            case .sphere:
+                let mesh = MDLMesh(sphereWithExtent: float3(1, 1, 1),
+                                   segments: vector_uint2(40, 40), inwardNormals: false,
+                                   geometryType: MDLGeometryType.triangles, allocator: bufferAllocator)
+                mesh.vertexDescriptor = descriptor
+                meshes = try [MTKMesh(mesh: mesh, device: device)]
+            }
         } catch let error {
             fatalError("Error creating MetalKit mesh, error \(error)")
         }
@@ -181,7 +187,6 @@ extension Model: Renderable {
         commandEncoder.setFrontFacing(.counterClockwise)
         commandEncoder.setRenderPipelineState(pipelineState)
         commandEncoder.setDepthStencilState(depthStencilState)
-        commandEncoder.setFragmentSamplerState(samplerState, index: 0)
 
         if let (index, anchor) = renderUniform.frame.anchors.enumerated().first(where: { $0.element.identifier.uuidString == uuid }) {
 
@@ -202,10 +207,6 @@ extension Model: Renderable {
             // normal matrix
             anchorUniforms.pointee.uniform.normalMatrix = modelMatrix.upperLeft3x3().transpose.inverse
 
-            //let anchorMaterial = renderUniform.anchorMaterialBufferAddress
-            //    .assumingMemoryBound(to: MaterialInfo.self).advanced(by: index)
-            //commandEncoder.setFragmentBytes(&material, length: MemoryLayout<MaterialInfo>.stride,
-            //                                index: BufferIndex.materialInfo.rawValue)
             anchorUniforms.pointee.material.color = material.color
             anchorUniforms.pointee.material.useTexture = material.useTexture
             anchorUniforms.pointee.material.shininess = material.shininess
@@ -213,15 +214,14 @@ extension Model: Renderable {
         }
 
         if texture != nil {
-            commandEncoder.setFragmentTexture(texture, index: TextureIndex.color.rawValue)
+            commandEncoder.setFragmentSamplerState(samplerState, index: SamplerIndex.main.rawValue)
+            commandEncoder.setFragmentTexture(texture, index: TextureIndex.baseMap.rawValue)
         }
         
         commandEncoder.setVertexBuffer(renderUniform.anchorUniformBuffer,
                                        offset: renderUniform.anchorUniformBufferOffset, index: BufferIndex.instances.rawValue)
         commandEncoder.setVertexBuffer(renderUniform.sharedUniformBuffer,
                                        offset: renderUniform.sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
-        //commandEncoder.setFragmentBuffer(renderUniform.anchorMaterialBuffer,
-        //                                 offset: renderUniform.anchorMaterialBufferOffset, index: BufferIndex.instances.rawValue)
         commandEncoder.setFragmentBuffer(renderUniform.sharedUniformBuffer,
                                          offset: renderUniform.sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
 
