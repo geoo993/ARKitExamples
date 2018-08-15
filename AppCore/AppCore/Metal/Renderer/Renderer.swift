@@ -166,7 +166,7 @@ public class Renderer: NSObject {
 
         imagePipelineState = buildImagePipelineState(device: device, renderDestination: renderDestination,
                                                 descriptor: imageVertexDescriptor,
-                                                vertexFunctionName: .image_vertex_shader,
+                                                vertexFunctionName: .vertex_image_shader,
                                                 fragmentFunctionName: .fragment_image_shader)
         imageDepthStencilState = buildImageDepthStencilState(device: device)
         imageTextureCache = buildImageTextureCache(device: device)

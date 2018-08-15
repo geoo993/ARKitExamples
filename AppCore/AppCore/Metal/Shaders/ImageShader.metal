@@ -13,7 +13,7 @@
 
 
 // Captured image vertex function
-vertex VertexOut image_vertex_shader(const ImageVertexIn vertexIn [[stage_in]]) {
+vertex VertexOut vertex_image_shader(const ImageVertexIn vertexIn [[stage_in]]) {
     VertexOut vertexOut;
 
     // Pass through the image vertex's position

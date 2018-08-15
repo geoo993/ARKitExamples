@@ -12,6 +12,7 @@
 		C7778DA02120FBA900F98572 /* ARFireballViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7778D9E2120FB7C00F98572 /* ARFireballViewController.swift */; };
 		C7778DA12120FBB300F98572 /* LightsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7778D9C2120F8A800F98572 /* LightsScene.swift */; };
 		C7778DA42120FFD000F98572 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7778DA32120FFD000F98572 /* AppCore.framework */; };
+		C7CD66FF2124782000F8D25C /* explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = C7CD66FE2124782000F8D25C /* explosion.png */; };
 		C7DCD85A211F685A002E9FA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCD859211F685A002E9FA3 /* AppDelegate.swift */; };
 		C7DCD869211F685B002E9FA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DCD867211F685B002E9FA3 /* LaunchScreen.storyboard */; };
 		C7DCD87A211F6872002E9FA3 /* ARFireballDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7DCD878211F6872002E9FA3 /* ARFireballDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,6 +53,7 @@
 		C7778D9C2120F8A800F98572 /* LightsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsScene.swift; sourceTree = "<group>"; };
 		C7778D9E2120FB7C00F98572 /* ARFireballViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARFireballViewController.swift; sourceTree = "<group>"; };
 		C7778DA32120FFD000F98572 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7CD66FE2124782000F8D25C /* explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion.png; sourceTree = "<group>"; };
 		C7DCD856211F685A002E9FA3 /* ARFireball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFireball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DCD859211F685A002E9FA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DCD863211F685A002E9FA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARFireball.storyboard; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		C718190D212205FD00E207DB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C7CD66FD2124781100F8D25C /* Images */,
 				C7181928212205FD00E207DB /* Models */,
 			);
 			path = Resources;
@@ -115,6 +118,14 @@
 				C7778DA32120FFD000F98572 /* AppCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7CD66FD2124781100F8D25C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C7CD66FE2124782000F8D25C /* explosion.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		C7DCD84D211F685A002E9FA3 = {
@@ -267,6 +278,7 @@
 				C718198E212205FD00E207DB /* mushroom.png in Resources */,
 				C7DCD886211F68E2002E9FA3 /* ARFireball.storyboard in Resources */,
 				C718198F212205FD00E207DB /* mushroom.obj in Resources */,
+				C7CD66FF2124782000F8D25C /* explosion.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

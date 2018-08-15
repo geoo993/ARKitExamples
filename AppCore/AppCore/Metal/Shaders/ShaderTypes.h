@@ -140,16 +140,6 @@ typedef struct
 typedef struct
 {
     float time;
-} Constants;
-
-typedef struct
-{
-    float toonEdge;
-} ToonConstants;
-
-typedef struct
-{
-    float time;
     float frequency;
     float explosion;
 } FireBallConstants;

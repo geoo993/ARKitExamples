@@ -30,6 +30,8 @@ struct ImageVertexIn {
 struct VertexOut {
     float4 position [[ position ]];
     float2 textureCoordinates;
+    float shininess;
+    bool useTexture;
     float4 color;
     float3 normal;
     float3 fragPosition;

@@ -22,8 +22,6 @@
 		C73939E0211FAC9200E99139 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939DE211FAC9100E99139 /* Renderer.swift */; };
 		C73939EF211FACF700E99139 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E3211FACF700E99139 /* Model.swift */; };
 		C73939F2211FACF700E99139 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E6211FACF700E99139 /* Node.swift */; };
-		C73939F3211FACF700E99139 /* VertexShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C73939E8211FACF700E99139 /* VertexShader.metal */; };
-		C73939F4211FACF700E99139 /* FragmentShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C73939E9211FACF700E99139 /* FragmentShader.metal */; };
 		C73939F5211FACF700E99139 /* Shader.h in Headers */ = {isa = PBXBuildFile; fileRef = C73939EA211FACF700E99139 /* Shader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C73939F6211FACF700E99139 /* ShaderTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = C73939EB211FACF700E99139 /* ShaderTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C73939F7211FACF700E99139 /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939ED211FACF700E99139 /* Texturable.swift */; };
@@ -95,6 +93,7 @@
 		C7BD1574202F92F400FF8D00 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD1573202F92F400FF8D00 /* CoreDataStack.swift */; };
 		C7C7855C201DF2B70043604E /* UICollectionViewCellX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */; };
 		C7C78560201E4BD20043604E /* SCNNode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */; };
+		C7CD66FC2124736900F8D25C /* FireBallShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C7CD66FB2124736900F8D25C /* FireBallShader.metal */; };
 		C7D02085204AD9E700EA15B3 /* SKScene+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D02084204AD9E700EA15B3 /* SKScene+Ext.swift */; };
 		C7D6DC2C204AFCB1006666FF /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7D6DC2B204AFCB1006666FF /* Inceptionv3.mlmodel */; };
 		C7DAAB4B2043623500325DB9 /* LocationServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DAAB4A2043623500325DB9 /* LocationServiceDelegate.swift */; };
@@ -127,8 +126,6 @@
 		C73939DE211FAC9100E99139 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		C73939E3211FACF700E99139 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C73939E6211FACF700E99139 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		C73939E8211FACF700E99139 /* VertexShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = VertexShader.metal; sourceTree = "<group>"; };
-		C73939E9211FACF700E99139 /* FragmentShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = FragmentShader.metal; sourceTree = "<group>"; };
 		C73939EA211FACF700E99139 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		C73939EB211FACF700E99139 /* ShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		C73939ED211FACF700E99139 /* Texturable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
@@ -202,6 +199,7 @@
 		C7BD1573202F92F400FF8D00 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C7C7855B201DF2B70043604E /* UICollectionViewCellX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellX.swift; sourceTree = "<group>"; };
 		C7C7855F201E4BD20043604E /* SCNNode+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Ext.swift"; sourceTree = "<group>"; };
+		C7CD66FB2124736900F8D25C /* FireBallShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = FireBallShader.metal; sourceTree = "<group>"; };
 		C7D02084204AD9E700EA15B3 /* SKScene+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKScene+Ext.swift"; sourceTree = "<group>"; };
 		C7D6DC2B204AFCB1006666FF /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		C7DAAB4A2043623500325DB9 /* LocationServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceDelegate.swift; sourceTree = "<group>"; };
@@ -278,10 +276,9 @@
 		C73939E7211FACF700E99139 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				C7CD66FB2124736900F8D25C /* FireBallShader.metal */,
 				C718199B21220E0800E207DB /* AnchorShader.metal */,
 				C718199921220C4F00E207DB /* ImageShader.metal */,
-				C73939E9211FACF700E99139 /* FragmentShader.metal */,
-				C73939E8211FACF700E99139 /* VertexShader.metal */,
 				C73939EA211FACF700E99139 /* Shader.h */,
 				C73939EB211FACF700E99139 /* ShaderTypes.h */,
 			);
@@ -609,7 +606,6 @@
 				C739E433201CA85A0081259D /* CGPoint+Ext.swift in Sources */,
 				C73939DF211FAC9200E99139 /* Renderable.swift in Sources */,
 				C739E444201CA85A0081259D /* SCNVector3+Ext.swift in Sources */,
-				C73939F4211FACF700E99139 /* FragmentShader.metal in Sources */,
 				C761C1DB206E323C002997B1 /* ARViewController.swift in Sources */,
 				C7D02085204AD9E700EA15B3 /* SKScene+Ext.swift in Sources */,
 				C7830B1F2027AA0900FD2FE6 /* UINavigationBar+Ext.swift in Sources */,
@@ -637,6 +633,7 @@
 				C775DEC3201F2E80003457AD /* ShapeGenerator.swift in Sources */,
 				C74712E62028983F00795032 /* MatrixHelper.swift in Sources */,
 				C73939FA211FAD7800E99139 /* Scene.swift in Sources */,
+				C7CD66FC2124736900F8D25C /* FireBallShader.metal in Sources */,
 				C7BD1562202F5DBC00FF8D00 /* LocationData.swift in Sources */,
 				C761C1D7206E323C002997B1 /* ARAnnotationView.swift in Sources */,
 				C77768AB20252F4A00CE16BB /* ARTextManager.swift in Sources */,
@@ -686,7 +683,6 @@
 				C700B18D20238499000FC421 /* FocusSquare.swift in Sources */,
 				C7830B262027CD0700FD2FE6 /* LocationService.swift in Sources */,
 				C761C1DC206E323C002997B1 /* DebugMapViewController.swift in Sources */,
-				C73939F3211FACF700E99139 /* VertexShader.metal in Sources */,
 				C700B18C20238499000FC421 /* FocusSquareSegment.swift in Sources */,
 				C739E3EA201C91100081259D /* UILabelX.swift in Sources */,
 				C7778D942120C47D00F98572 /* RenderDestinationProvider.swift in Sources */,

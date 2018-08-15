@@ -137,9 +137,12 @@ open class Model: Node {
         // this handles all the loading and managing on the GPU of the vertex and index data
         let bufferAllocator = MTKMeshBufferAllocator(device: device)
 
+        let mesh = MDLMesh(sphereWithExtent: float3(1, 1, 1),
+                                 segments: vector_uint2(40, 40), inwardNormals: false,
+                                 geometryType: MDLGeometryType.triangles, allocator: bufferAllocator)
         // Use ModelIO to create a box mesh as our object
-        let mesh = MDLMesh(boxWithExtent: vector3(0.075, 0.075, 0.075), segments: vector3(1, 1, 1),
-                           inwardNormals: false, geometryType: .triangles, allocator: bufferAllocator)
+        //let mesh = MDLMesh(boxWithExtent: vector3(1, 1, 1), segments: vector3(1, 1, 1),
+        //                   inwardNormals: false, geometryType: .triangles, allocator: bufferAllocator)
         // Perform the format/relayout of mesh vertices by setting the new vertex descriptor in our
         //   Model IO mesh
         mesh.vertexDescriptor = descriptor
@@ -155,8 +158,8 @@ open class Model: Node {
         height = boundingBox.maxBounds.y - boundingBox.minBounds.y
 
         do {
-            meshes = try MTKMesh.newMeshes(asset: asset, device: device).metalKitMeshes
-            //meshes = try [MTKMesh(mesh: mesh, device: device)]
+            //meshes = try MTKMesh.newMeshes(asset: asset, device: device).metalKitMeshes
+            meshes = try [MTKMesh(mesh: mesh, device: device)]
         } catch let error {
             fatalError("Error creating MetalKit mesh, error \(error)")
         }
@@ -207,11 +210,12 @@ extension Model: Renderable {
             anchorUniforms.pointee.material.useTexture = material.useTexture
             anchorUniforms.pointee.material.shininess = material.shininess
 
-            if texture != nil {
-                commandEncoder.setFragmentTexture(texture, index: TextureIndex.color.rawValue)
-            }
         }
 
+        if texture != nil {
+            commandEncoder.setFragmentTexture(texture, index: TextureIndex.color.rawValue)
+        }
+        
         commandEncoder.setVertexBuffer(renderUniform.anchorUniformBuffer,
                                        offset: renderUniform.anchorUniformBufferOffset, index: BufferIndex.instances.rawValue)
         commandEncoder.setVertexBuffer(renderUniform.sharedUniformBuffer,
