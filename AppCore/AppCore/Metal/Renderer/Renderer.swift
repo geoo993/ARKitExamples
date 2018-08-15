@@ -133,24 +133,6 @@ public class Renderer: NSObject {
 
         guard let device = mtkView.device else { fatalError("No Device Found") }
 
-        createBuffers(device: device)
-        
-        // Create a vertex buffer with our image plane vertex data.
-        let imagePlaneVertexDataCount = imagePlaneVertexData.count * MemoryLayout<Float>.size
-        imagePlaneVertexBuffer = device.makeBuffer(bytes: imagePlaneVertexData, length: imagePlaneVertexDataCount, options: [])
-        imagePlaneVertexBuffer.label = "ImagePlaneVertexBuffer"
-
-        imagePipelineState = buildImagePipelineState(device: device, renderDestination: renderDestination,
-                                                descriptor: imageVertexDescriptor,
-                                                vertexFunctionName: .image_vertex_shader,
-                                                fragmentFunctionName: .fragment_image_shader)
-        imageDepthStencilState = buildImageDepthStencilState(device: device)
-        imageTextureCache = buildImageTextureCache(device: device)
-
-    }
-
-    private func createBuffers(device: MTLDevice) {
-
         // Calculate our uniform buffer sizes. We allocate kMaxBuffersInFlight instances for uniform
         //   storage in a single buffer. This allows us to update uniforms in a ring (i.e. triple
         //   buffer the uniforms) so that the GPU reads from one slot in the ring wil the CPU writes
@@ -167,19 +149,19 @@ public class Renderer: NSObject {
 
         anchorUniformBuffer = device.makeBuffer(length: anchorUniformBufferSize, options: .storageModeShared)
         anchorUniformBuffer.label = "AnchorUniformBuffer"
-    }
+        
+        // Create a vertex buffer with our image plane vertex data.
+        let imagePlaneVertexDataCount = imagePlaneVertexData.count * MemoryLayout<Float>.size
+        imagePlaneVertexBuffer = device.makeBuffer(bytes: imagePlaneVertexData, length: imagePlaneVertexDataCount, options: [])
+        imagePlaneVertexBuffer.label = "ImagePlaneVertexBuffer"
 
-    private func updateBufferStates() {
-        // Update the location(s) to which we'll write to in our dynamically changing Metal buffers for
-        //   the current frame (i.e. update our slot in the ring buffer used for the current frame)
+        imagePipelineState = buildImagePipelineState(device: device, renderDestination: renderDestination,
+                                                descriptor: imageVertexDescriptor,
+                                                vertexFunctionName: .image_vertex_shader,
+                                                fragmentFunctionName: .fragment_image_shader)
+        imageDepthStencilState = buildImageDepthStencilState(device: device)
+        imageTextureCache = buildImageTextureCache(device: device)
 
-        uniformBufferIndex = (uniformBufferIndex + 1) % kMaxBuffersInFlight
-
-        sharedUniformBufferOffset = kAlignedSharedUniformsSize * uniformBufferIndex
-        anchorUniformBufferOffset = kAlignedInstanceUniformsSize * uniformBufferIndex
-
-        sharedUniformBufferAddress = sharedUniformBuffer.contents().advanced(by: sharedUniformBufferOffset)
-        anchorUniformBufferAddress = anchorUniformBuffer.contents().advanced(by: anchorUniformBufferOffset)
     }
 
     public func updateCapturedImageTextures(frame: ARFrame) {
@@ -294,7 +276,15 @@ extension Renderer: MTKViewDelegate {
         commandEncoder.label = "Primary Render Encoder"
 
 
-        updateBufferStates()
+        // Update the location(s) to which we'll write to in our dynamically changing Metal buffers for
+        //   the current frame (i.e. update our slot in the ring buffer used for the current frame)
+        uniformBufferIndex = (uniformBufferIndex + 1) % kMaxBuffersInFlight
+
+        sharedUniformBufferOffset = kAlignedSharedUniformsSize * uniformBufferIndex
+        anchorUniformBufferOffset = kAlignedInstanceUniformsSize * uniformBufferIndex
+
+        sharedUniformBufferAddress = sharedUniformBuffer.contents().advanced(by: sharedUniformBufferOffset)
+        anchorUniformBufferAddress = anchorUniformBuffer.contents().advanced(by: anchorUniformBufferOffset)
 
         if let currentFrame = session.currentFrame, let scene = scene {
 
@@ -307,19 +297,17 @@ extension Renderer: MTKViewDelegate {
             scene.camera.setPerspectiveProjectionMatrix(frame: currentFrame, orientation: .landscapeRight)
 
             let uniforms = sharedUniformBufferAddress.assumingMemoryBound(to: Uniform.self)
-
-            //        uniforms.pointee.projectionMatrix = camera.perspectiveProjectionMatrix
-            //        uniforms.pointee.viewMatrix = camera.viewMatrix
-            uniforms.pointee.viewMatrix = currentFrame.camera.viewMatrix(for: .landscapeRight)
+            uniforms.pointee.viewMatrix = currentFrame.camera.viewMatrix(for: .landscapeRight)//scene.camera.viewMatrix
             uniforms.pointee.projectionMatrix = currentFrame.camera
                 .projectionMatrix(for: .landscapeRight, viewportSize: scene.camera.screenSize,
                                   zNear: scene.camera.nearPlane.toCGFloat, zFar: scene.camera.farPlane.toCGFloat)
+
+            updateCapturedImageTextures(frame: currentFrame)
 
             if scene.camera.viewportSizeDidChange {
                 scene.camera.viewportSizeDidChange = false
                 updateImagePlane(frame: currentFrame, camera: scene.camera)
             }
-
 
             let deltaTime = 1 / Float(view.preferredFramesPerSecond)
             scene.time += 1 / Float(view.preferredFramesPerSecond)
@@ -331,9 +319,9 @@ extension Renderer: MTKViewDelegate {
                          frame: currentFrame,
                          deltaTime: deltaTime)
 
-
-            updateCapturedImageTextures(frame: currentFrame)
             drawCapturedImage(commandEncoder: commandEncoder)
+
+
         }
 
         // Once we’re done drawing, we need to call endEncoding() on our render command encoder to end the pass—and the frame:

@@ -25,7 +25,6 @@ public final class LightsScene: Scene {
     public override func touchesBegan(_ view: UIView, touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first, let mtkView = view as? MTKView  else { return }
 
-        /*
         let mushroom = Model(mtkView: mtkView, renderDestination: mtkView, modelName: "mushroom",
                              imageName: "mushroom.png", fragmentShader: .fragment_anchor_shader)
         mushroom.name = "Mushroom"
@@ -33,8 +32,7 @@ public final class LightsScene: Scene {
         mushroom.scale = float3(0.01, 0.01, 0.01)
         //mushroom.rotation = float3(20, 0, 0)
         add(childNode: mushroom)
- */
-        
+
     }
 
     public override func touchesMoved(_ view: UIView, touches: Set<UITouch>, with event: UIEvent?) {

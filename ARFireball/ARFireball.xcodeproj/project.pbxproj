@@ -140,8 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				C718190D212205FD00E207DB /* Resources */,
-				C7778D9E2120FB7C00F98572 /* ARFireballViewController.swift */,
 				C7DCD859211F685A002E9FA3 /* AppDelegate.swift */,
+				C7778D9E2120FB7C00F98572 /* ARFireballViewController.swift */,
 				C7778D9C2120F8A800F98572 /* LightsScene.swift */,
 				C7DCD862211F685A002E9FA3 /* ARFireball.storyboard */,
 				C7DCD865211F685B002E9FA3 /* Assets.xcassets */,
