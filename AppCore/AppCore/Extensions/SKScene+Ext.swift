@@ -18,7 +18,7 @@ public extension SKScene {
         do {
             // from https://stackoverflow.com/questions/28685733/how-do-i-link-a-sks-file-to-a-swift-file-in-spritekit
             let sceneData = try Data.init(contentsOf: sceneURL, options: Data.ReadingOptions.mappedIfSafe)
-            let archiver = NSKeyedUnarchiver(forReadingWith: sceneData)
+            let archiver = try NSKeyedUnarchiver(forReadingFrom: sceneData)
             print(sceneURL)
             print(sceneData)
             print(archiver)

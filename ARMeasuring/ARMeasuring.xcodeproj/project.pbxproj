@@ -10,14 +10,12 @@
 		C7143D192021D367000923B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C775DEAF201F2A4B003457AD /* Assets.xcassets */; };
 		C7143D1A2021D36B000923B9 /* ARMeasuring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C775DEAC201F2A4B003457AD /* ARMeasuring.storyboard */; };
 		C7143D1B2021D36D000923B9 /* ARMeasuringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEAA201F2A4B003457AD /* ARMeasuringViewController.swift */; };
-		C7143D332021D7AB000923B9 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A52AB7201F5711003614C0 /* Chameleon.framework */; };
 		C7143D342021D7AE000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C775DEBA201F2BD3003457AD /* AppCore.framework */; };
 		C775DEA7201F2A4B003457AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C775DEA6201F2A4B003457AD /* AppDelegate.swift */; };
-		C775DEBC201F2BD3003457AD /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C775DEBA201F2BD3003457AD /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7857B34202158DB00CE199E /* ARMeasuringDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7857B32202158DB00CE199E /* ARMeasuringDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7857B37202158DB00CE199E /* ARMeasuringDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */; };
 		C7857B38202158DB00CE199E /* ARMeasuringDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7A52AB9201F5711003614C0 /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7A52AB7201F5711003614C0 /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7CD66FA212451CE00F8D25C /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CD66F8212451CE00F8D25C /* Chameleon.framework */; };
 		C7F3C520202756F80028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C775DEB1201F2A4B003457AD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +37,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C7857B38202158DB00CE199E /* ARMeasuringDemo.framework in Embed Frameworks */,
-				C775DEBC201F2BD3003457AD /* AppCore.framework in Embed Frameworks */,
-				C7A52AB9201F5711003614C0 /* Chameleon.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,7 +55,7 @@
 		C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARMeasuringDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B32202158DB00CE199E /* ARMeasuringDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARMeasuringDemo.h; sourceTree = "<group>"; };
 		C7857B33202158DB00CE199E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C7A52AB7201F5711003614C0 /* Chameleon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Chameleon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7CD66F8212451CE00F8D25C /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = ../Cartfile/Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7143D332021D7AB000923B9 /* Chameleon.framework in Frameworks */,
 				C7143D342021D7AE000923B9 /* AppCore.framework in Frameworks */,
+				C7CD66FA212451CE00F8D25C /* Chameleon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +89,7 @@
 		C775DE9A201F2A4B003457AD = {
 			isa = PBXGroup;
 			children = (
-				C7A52AB7201F5711003614C0 /* Chameleon.framework */,
+				C7CD66F8212451CE00F8D25C /* Chameleon.framework */,
 				C775DEBA201F2BD3003457AD /* AppCore.framework */,
 				C775DEA5201F2A4B003457AD /* ARMeasuring */,
 				C7857B31202158DB00CE199E /* ARMeasuringDemo */,
@@ -191,7 +187,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Geo Games";
 				TargetAttributes = {
 					C775DEA2201F2A4B003457AD = {
@@ -304,6 +300,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -311,6 +308,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -361,6 +359,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -368,6 +367,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

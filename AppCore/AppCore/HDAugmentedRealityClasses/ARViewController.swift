@@ -539,7 +539,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     }
     
     /// Checks if back video device is available.
-    open static func isAllHardwareAvailable() -> NSError?
+    public static func isAllHardwareAvailable() -> NSError?
     {
         return CameraView.createCaptureSession(withMediaType: AVMediaType.video, position: AVCaptureDevice.Position.back).error
     }

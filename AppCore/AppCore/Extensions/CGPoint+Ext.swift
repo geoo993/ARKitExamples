@@ -4,11 +4,13 @@ import ARKit
 public extension CGPoint {
     
     public init(_ size: CGSize) {
+        self.init()
         self.x = size.width
         self.y = size.height
     }
     
     public init(_ vector: SCNVector3) {
+        self.init()
         self.x = CGFloat(vector.x)
         self.y = CGFloat(vector.y)
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension RangeReplaceableCollection where IndexDistance == Int {
+public extension RangeReplaceableCollection {
     public mutating func keepLast(_ elementsToKeep: Int) {
         if count > elementsToKeep {
             self.removeFirst(count - elementsToKeep)

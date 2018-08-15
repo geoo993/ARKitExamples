@@ -82,15 +82,21 @@ public class Renderer: NSObject {
     }
 
     //MARK: - Render Uniform Provider
-    public var anchors: [ARAnchor] = []
-    public var sharedUniformBuffer: MTLBuffer!
-    public var anchorUniformBuffer: MTLBuffer!
+    public var frame: ARFrame!
     public var uniformBufferIndex: Int = 0
+
+    public var sharedUniformBuffer: MTLBuffer!
     public var sharedUniformBufferOffset: Int = 0
-    public var anchorUniformBufferOffset: Int = 0
     public var sharedUniformBufferAddress: UnsafeMutableRawPointer!
+
+    public var anchorUniformBuffer: MTLBuffer!
+    public var anchorUniformBufferOffset: Int = 0
     public var anchorUniformBufferAddress: UnsafeMutableRawPointer!
+
+    public var anchorMaterialBuffer: MTLBuffer!
+    public var anchorMaterialBufferOffset: Int = 0
     public var anchorMaterialBufferAddress: UnsafeMutableRawPointer!
+
     public var anchorInstanceCount: Int = 0
 
     var meshes: [AnyObject]?
@@ -149,6 +155,9 @@ public class Renderer: NSObject {
 
         anchorUniformBuffer = device.makeBuffer(length: anchorUniformBufferSize, options: .storageModeShared)
         anchorUniformBuffer.label = "AnchorUniformBuffer"
+
+        //anchorMaterialBuffer = device.makeBuffer(length: anchorUniformBufferSize, options: .storageModeShared)
+        //anchorMaterialBuffer.label = "AnchorMaterialBuffer"
         
         // Create a vertex buffer with our image plane vertex data.
         let imagePlaneVertexDataCount = imagePlaneVertexData.count * MemoryLayout<Float>.size
@@ -282,22 +291,20 @@ extension Renderer: MTKViewDelegate {
 
         sharedUniformBufferOffset = kAlignedSharedUniformsSize * uniformBufferIndex
         anchorUniformBufferOffset = kAlignedInstanceUniformsSize * uniformBufferIndex
+        //anchorMaterialBufferOffset = kAlignedInstanceUniformsSize * uniformBufferIndex
 
         sharedUniformBufferAddress = sharedUniformBuffer.contents().advanced(by: sharedUniformBufferOffset)
         anchorUniformBufferAddress = anchorUniformBuffer.contents().advanced(by: anchorUniformBufferOffset)
+        //anchorMaterialBufferAddress = anchorMaterialBuffer.contents().advanced(by: anchorMaterialBufferOffset)
 
         if let currentFrame = session.currentFrame, let scene = scene {
-
-            anchors = currentFrame.anchors
-            anchorInstanceCount = min(currentFrame.anchors.count, kMaxAnchorInstanceCount)
+            // Update the anchor uniform buffer with transforms of the current frame's anchors
+            frame = currentFrame
+            anchorInstanceCount = min(frame.anchors.count, kMaxAnchorInstanceCount)
 
             // Update the shared uniforms of the frame
-            let viewMatrix = currentFrame.camera.viewMatrix(for: .landscapeRight)
-            scene.camera.setViewMatrix(matrix: viewMatrix)
-            scene.camera.setPerspectiveProjectionMatrix(frame: currentFrame, orientation: .landscapeRight)
-
             let uniforms = sharedUniformBufferAddress.assumingMemoryBound(to: Uniform.self)
-            uniforms.pointee.viewMatrix = currentFrame.camera.viewMatrix(for: .landscapeRight)//scene.camera.viewMatrix
+            uniforms.pointee.viewMatrix = currentFrame.camera.viewMatrix(for: .landscapeRight)
             uniforms.pointee.projectionMatrix = currentFrame.camera
                 .projectionMatrix(for: .landscapeRight, viewportSize: scene.camera.screenSize,
                                   zNear: scene.camera.nearPlane.toCGFloat, zFar: scene.camera.farPlane.toCGFloat)
@@ -309,6 +316,8 @@ extension Renderer: MTKViewDelegate {
                 updateImagePlane(frame: currentFrame, camera: scene.camera)
             }
 
+            drawCapturedImage(commandEncoder: commandEncoder)
+
             let deltaTime = 1 / Float(view.preferredFramesPerSecond)
             scene.time += 1 / Float(view.preferredFramesPerSecond)
 
@@ -318,9 +327,6 @@ extension Renderer: MTKViewDelegate {
                          renderUniform: self,
                          frame: currentFrame,
                          deltaTime: deltaTime)
-
-            drawCapturedImage(commandEncoder: commandEncoder)
-
 
         }
 
@@ -345,5 +351,6 @@ extension Renderer: RenderableImage {
 }
 
 extension Renderer: RenderUniformProvider {
+
 
 }

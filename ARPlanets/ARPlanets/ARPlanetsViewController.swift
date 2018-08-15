@@ -110,16 +110,16 @@ public class ARPlanetsViewController: UIViewController {
         let neptuneParent = addEmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 75)
         let plutoParent = addEmptyNode(toParent: sceneView.scene.rootNode, position: sun.position, rotation: 70)
         
-        _ = addMercury(toParent: mercuryParent,at: getPositionAway(from: .zero, with: mercuryDistanceFromSun.float),rotation: 40)
-        _ = addVenus(toParent: venusParent, at: getPositionAway(from: .zero, with: venusDistanceFromSun.float), rotation: 80)
-        let earth = addEarth(toParent:earthParent,at:getPositionAway(from: .zero, with: earthDistanceFromSun.float),rotation: 25)
+        _ = addMercury(toParent: mercuryParent,at: getPositionAway(from: .zero, with: mercuryDistanceFromSun.toFloat),rotation: 40)
+        _ = addVenus(toParent: venusParent, at: getPositionAway(from: .zero, with: venusDistanceFromSun.toFloat), rotation: 80)
+        let earth = addEarth(toParent:earthParent,at:getPositionAway(from: .zero, with: earthDistanceFromSun.toFloat),rotation: 25)
         _ = addMoon(toParent: earth, at: SCNVector3(0.0, 0, -0.4), rotation: 100)
-        _ = addMars(toParent: marsParent, at: getPositionAway(from: .zero, with: marsDistanceFromSun.float), rotation: 60)
-        _ = addJupiter(toParent: jupiterParent,at: getPositionAway(from: .zero, with:jupiterDistanceFromSun.float),rotation: 20)
-        _ = addSaturn(toParent: saturnParent, at: getPositionAway(from: .zero, with: saturnDistanceFromSun.float), rotation: 40)
-        _ = addUranus(toParent: uranusParent,at: getPositionAway(from: .zero, with: uranusDistanceFromSun.float), rotation: 91)
-        _ = addNeptune(toParent: neptuneParent,at:getPositionAway(from: .zero,with:neptuneDistanceFromSun.float), rotation: 112)
-        _ = addPluto(toParent: plutoParent, at: getPositionAway(from: .zero, with:plutoDistanceFromSun.float), rotation: 40)
+        _ = addMars(toParent: marsParent, at: getPositionAway(from: .zero, with: marsDistanceFromSun.toFloat), rotation: 60)
+        _ = addJupiter(toParent: jupiterParent,at: getPositionAway(from: .zero, with:jupiterDistanceFromSun.toFloat),rotation: 20)
+        _ = addSaturn(toParent: saturnParent, at: getPositionAway(from: .zero, with: saturnDistanceFromSun.toFloat), rotation: 40)
+        _ = addUranus(toParent: uranusParent,at: getPositionAway(from: .zero, with: uranusDistanceFromSun.toFloat), rotation: 91)
+        _ = addNeptune(toParent: neptuneParent,at:getPositionAway(from: .zero,with:neptuneDistanceFromSun.toFloat), rotation: 112)
+        _ = addPluto(toParent: plutoParent, at: getPositionAway(from: .zero, with:plutoDistanceFromSun.toFloat), rotation: 40)
 //        
         isSolarSystemAdded = true
     }

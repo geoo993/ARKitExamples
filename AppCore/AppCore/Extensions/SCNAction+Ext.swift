@@ -31,7 +31,8 @@ public extension SCNAction {
     return SCNAction.sequence([wait,remove])
   }
   
-  public class func waitForDurationThenRunBlock(_ duration:TimeInterval, block: @escaping ((SCNNode!) -> Void) ) -> SCNAction {
+    public class func waitForDurationThenRunBlock(_ duration:TimeInterval,
+                                                  block: @escaping ((SCNNode?) -> Void) ) -> SCNAction {
     let wait = SCNAction.wait(duration: duration)
     let runBlock = SCNAction.run { (node) -> Void in
       block(node)

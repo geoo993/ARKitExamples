@@ -71,35 +71,32 @@
          location = "container:"
          name = "Dependencies">
          <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/Firebase/Firebase.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/realm-cocoa/Realm.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/Alamofire/Alamofire.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/SVProgressHUD/SVProgressHUD.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj">
+            location = "group:Cartfile/Carthage/Checkouts/Each/Each.xcodeproj">
          </FileRef>
          <FileRef
             location = "group:Cartfile/Carthage/Checkouts/SDWebImage/SDWebImage.xcodeproj">
          </FileRef>
          <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/Each/Each.xcodeproj">
+            location = "group:Cartfile/Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Cartfile/Carthage/Checkouts/SVProgressHUD/SVProgressHUD.xcodeproj">
          </FileRef>
          <FileRef
             location = "group:Cartfile/Carthage/Checkouts/Chameleon/Chameleon.xcodeproj">
          </FileRef>
+         <FileRef
+            location = "group:Cartfile/Carthage/Checkouts/Alamofire/Alamofire.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Cartfile/Carthage/Checkouts/Firebase/Firebase.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Cartfile/Carthage/Checkouts/realm-cocoa/Realm.xcodeproj">
+         </FileRef>
       </Group>
       <FileRef
          location = "group:Cartfile">
-      </FileRef>
-      <FileRef
-         location = "group:carthage-update.sh">
       </FileRef>
    </Group>
    <FileRef

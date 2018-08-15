@@ -74,12 +74,6 @@ typedef struct
     matrix_float3x3 normalMatrix;
 } Uniform;
 
-typedef struct {
-    matrix_float4x4 modelMatrix;
-    matrix_float3x3 normalMatrix;
-} InstanceUniform;
-
-
 // --------- Attributes --------
 typedef struct
 {
@@ -91,8 +85,7 @@ typedef struct
 typedef struct {
     Uniform uniform;
     MaterialInfo material;
-} InstanceInfo;
-
+} InstanceUniform;
 
 // --------- Camera --------
 typedef struct {

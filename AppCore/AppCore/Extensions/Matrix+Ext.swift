@@ -712,6 +712,42 @@ extension matrix_float4x4 {
         return float4x4(simd_quaternion(angleInRadians, axis))
     }
 
+    /*
+     https://www.opengl.org/discussion_boards/showthread.php/175515-Get-Direction-from-Transformation-
+     [0] [4] [8 ] [12]
+     [1] [5] [9 ] [13]
+     [2] [6] [10] [14]
+     [3] [7] [11] [15]
+
+     [RT.x] [UP.x] [BK.x] [POS.x]
+     [RT.y] [UP.y] [BK.y] [POS.y]
+     [RT.z] [UP.z] [BK.z] [POS.Z]
+     [    ] [    ] [    ] [US   ]
+     */
+    public var back: float3 {
+        return float3(columns.2.x, columns.2.y, columns.2.z)
+    }
+
+    public var front: float3 {
+        return normalize(back) * -1.0
+    }
+
+    public var up: float3 {
+        return float3(columns.1.x, columns.1.y, columns.1.z)
+    }
+    
+    public var down: float3 {
+        return normalize(up) * -1.0
+    }
+
+    public var right: float3 {
+        return float3(columns.0.x, columns.0.y, columns.0.z)
+    }
+
+    public var left: float3 {
+        return normalize(right) * -1.0
+    }
+
     /// get position vector from the matrix
     public var position: float3 {
 

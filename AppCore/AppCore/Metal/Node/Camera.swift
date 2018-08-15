@@ -234,13 +234,11 @@ public class Camera {
 
 
     func updateRotation(angle: Float, displacement: Float, enabled: Bool = true) {
-
         setRotation(angle: angle, displacement: displacement, enabled: enabled)
     }
 
     // Update the camera to respond to mouse motion for rotations and keyboard for translation
-    func updateMovement(deltaTime: Float, angle: Float, displacement: Float)
-    {
+    func updateMovement(deltaTime: Float, angle: Float, displacement: Float) {
         setTranslation(deltaTime: deltaTime, angle: angle, displacement: displacement)
     }
 
@@ -315,16 +313,16 @@ public class Camera {
         w [ m41 m42 m43 m44 ]
         */
 
-        back = float3(matrix.columns.2.x, matrix.columns.2.y, matrix.columns.2.z)
-        front = normalize(back) * -1.0
+        back = matrix.back
+        front = matrix.front
 
-        up = float3(matrix.columns.1.x, matrix.columns.1.y, matrix.columns.1.z)
-        down = normalize(up) * -1.0
+        up = matrix.up
+        down = matrix.down
 
-        right = float3(matrix.columns.0.x, matrix.columns.0.y, matrix.columns.0.z)
-        left = normalize(right) * -1.0
+        right = matrix.right
+        left = matrix.left
 
-        position = float3(matrix.columns.3.x, matrix.columns.3.y, matrix.columns.3.z)
+        position = matrix.position
 
         view = position + front
         viewMatrix = lookAt(
@@ -332,13 +330,14 @@ public class Camera {
             center: view, // // what position you want the camera to be  looking at in World Space, meaning look at what(using vec3) ?  // meaning the camera view point
             up: up  //which direction is up, you can set to (0,-1,0) to look upside-down
         )
+
     }
 
     func createViewmatrix() -> matrix_float4x4 {
         var m = matrix_float4x4()
         m.columns.0 = float4(right.x, right.y, right.z, 0.0)
         m.columns.1 = float4(up.x, up.y, up.z, 0.0)
-        m.columns.2 = float4(front.x, front.y, front.z, 0.0)
+        m.columns.2 = float4(back.x, back.y, back.z, 0.0)
         m.columns.3 = float4(position.x, position.y, position.z, 1.0)
         return m.inverse
     }

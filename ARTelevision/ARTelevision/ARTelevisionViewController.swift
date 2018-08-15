@@ -72,7 +72,7 @@ public class ARTelevisionViewController: UIViewController {
             let distance : CGFloat = 6
             let cameraPosition = SCNScene.currentPositionOf(camera: camera)
             var direction = SCNVector3.cameraDirection(cameraNode: camera)
-            let zPosition = direction.normalize() * distance.float
+            let zPosition = direction.normalize() * distance.toFloat
             
             //television.orientation = camera.orientation
             television.position = cameraPosition + zPosition

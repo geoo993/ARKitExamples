@@ -11,7 +11,7 @@ public extension UIDevice {
     /// pares the deveice name as the standard name
     var modelName: DeviceType {
         
-        #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
             let identifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"]!
         #else
             var systemInfo = utsname()

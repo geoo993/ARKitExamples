@@ -180,22 +180,32 @@ extension Model: Renderable {
         commandEncoder.setDepthStencilState(depthStencilState)
         commandEncoder.setFragmentSamplerState(samplerState, index: 0)
 
-        if let (index, anchor) = renderUniform.anchors.enumerated().first(where: { $0.element.identifier.uuidString == uuid }) {
+        if let (index, anchor) = renderUniform.frame.anchors.enumerated().first(where: { $0.element.identifier.uuidString == uuid }) {
 
             // Flip Z axis to convert geometry from right handed to left handed
             var sessionCoordinateSpaceTransform = matrix_identity_float4x4
             sessionCoordinateSpaceTransform.columns.2.z = -1.0
 
             let modelMatrix = simd_mul(anchor.transform, sessionCoordinateSpaceTransform)
-            // model matrix
-            let anchorUniforms = renderUniform
-                .anchorUniformBufferAddress.assumingMemoryBound(to: InstanceUniform.self).advanced(by: index)
-            anchorUniforms.pointee.modelMatrix = modelMatrix
-            // normal matrix
-            anchorUniforms.pointee.normalMatrix = modelMatrix.upperLeft3x3().transpose.inverse
 
+            // model matrix
+            let anchorUniforms = renderUniform.anchorUniformBufferAddress
+                .assumingMemoryBound(to: InstanceUniform.self).advanced(by: index)
+            anchorUniforms.pointee.uniform.projectionMatrix = renderUniform.frame.camera
+                .projectionMatrix(for: .landscapeRight, viewportSize: camera.screenSize,
+                                  zNear: camera.nearPlane.toCGFloat, zFar: camera.farPlane.toCGFloat)
+            anchorUniforms.pointee.uniform.viewMatrix = renderUniform.frame.camera.viewMatrix(for: .landscapeRight)
+            anchorUniforms.pointee.uniform.modelMatrix = modelMatrix
+            // normal matrix
+            anchorUniforms.pointee.uniform.normalMatrix = modelMatrix.upperLeft3x3().transpose.inverse
+
+            //let anchorMaterial = renderUniform.anchorMaterialBufferAddress
+            //    .assumingMemoryBound(to: MaterialInfo.self).advanced(by: index)
             //commandEncoder.setFragmentBytes(&material, length: MemoryLayout<MaterialInfo>.stride,
             //                                index: BufferIndex.materialInfo.rawValue)
+            anchorUniforms.pointee.material.color = material.color
+            anchorUniforms.pointee.material.useTexture = material.useTexture
+            anchorUniforms.pointee.material.shininess = material.shininess
 
             if texture != nil {
                 commandEncoder.setFragmentTexture(texture, index: TextureIndex.color.rawValue)
@@ -206,6 +216,8 @@ extension Model: Renderable {
                                        offset: renderUniform.anchorUniformBufferOffset, index: BufferIndex.instances.rawValue)
         commandEncoder.setVertexBuffer(renderUniform.sharedUniformBuffer,
                                        offset: renderUniform.sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
+        //commandEncoder.setFragmentBuffer(renderUniform.anchorMaterialBuffer,
+        //                                 offset: renderUniform.anchorMaterialBufferOffset, index: BufferIndex.instances.rawValue)
         commandEncoder.setFragmentBuffer(renderUniform.sharedUniformBuffer,
                                          offset: renderUniform.sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
 

@@ -97,7 +97,7 @@ public class SwiftRegex: NSObject { //, ExpressibleByBooleanLiteral {
         if match != nil {
             var groups = [String]()
             for groupno in 0...regex.numberOfCaptureGroups {
-                if let group = substring( range: match.range(at: groupno) ) as String! {
+                if let group = substring( range: match.range(at: groupno) )  {
                     groups.append( group )
                 } else {
                     groups.append( regexNoGroup ) // avoids bridging problems

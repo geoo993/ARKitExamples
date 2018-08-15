@@ -79,8 +79,8 @@ public extension CGFloat {
     public var toDegrees : CGFloat { return self * 180.0 / CGFloat.pi }
     public var metersToLatitude : CGFloat { return self / (6360500.0) }
     public var metersToLongitude : CGFloat { return self / (5602900.0) }
-    public var double: Double { return Double(self) }
-    public var float: Float { return Float(self) }
+    public var toDouble: Double { return Double(self) }
+    public var toFloat: Float { return Float(self) }
     
     public static func width( ofDevice device: DeviceType) -> (width:CGFloat, exponent: CGFloat) {
         switch device {

@@ -62,7 +62,7 @@ public extension String {
     }
     
     private func tokenizeIndexRanges(option: CFOptionFlags) -> [Range<String.Index>] {
-        return tokenizeRanges(option: option).flatMap { self.range(fromCountableRange: $0) }
+        return tokenizeRanges(option: option).compactMap { self.range(fromCountableRange: $0) }
     }
    
     public func toWordsFromRegex() -> [String] {
@@ -153,7 +153,7 @@ public extension String {
                        whereSeparator: { 
                         return $0.element == "SentenceTerminator"
                 })
-                .map { $0.flatMap { $0 } }
+                .map { $0.compactMap { $0 } }
         
         let sentenceRanges = 
             sentenceSplit

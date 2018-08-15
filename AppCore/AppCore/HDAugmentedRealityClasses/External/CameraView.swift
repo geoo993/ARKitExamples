@@ -123,10 +123,12 @@ open class CameraView: UIView
         var captureDevice: AVCaptureDevice?
         
         // Get all capture devices with given media type(video/photo)
-        let captureDevices = AVCaptureDevice.devices(for: mediaType)
-        
+        let captureDeviceSession = AVCaptureDevice
+            .DiscoverySession(deviceTypes:[AVCaptureDevice.DeviceType.builtInTelephotoCamera],
+                              mediaType: mediaType, position: position)
+
         // Get capture device for specified position
-        for captureDeviceLoop in captureDevices
+        for captureDeviceLoop in captureDeviceSession.devices
         {
             if captureDeviceLoop.position == position
             {
