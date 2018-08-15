@@ -194,40 +194,13 @@ extension Model: Renderable {
             // normal matrix
             anchorUniforms.pointee.normalMatrix = modelMatrix.upperLeft3x3().transpose.inverse
 
-            print("my id:", uuid)
-            print("identifier:", anchor.identifier, ", index: ", index)
+            //commandEncoder.setFragmentBytes(&material, length: MemoryLayout<MaterialInfo>.stride,
+            //                                index: BufferIndex.materialInfo.rawValue)
+
+            if texture != nil {
+                commandEncoder.setFragmentTexture(texture, index: TextureIndex.color.rawValue)
+            }
         }
-
-        /*
-        // setup the matrices attributes
-        // projection matrix
-        // the projecttion matrix will project all the vertices back into clipping space
-        uniform.projectionMatrix = camera.perspectiveProjectionMatrix
-
-        // view matrix
-        uniform.viewMatrix = camera.viewMatrix
-
-        // model matrix
-        uniform.modelMatrix = modelMatrix
-
-        // normal matrix
-        uniform.normalMatrix = camera.computeNormalMatrix(modelMatrix: modelMatrix)
-
-
-        // Set any buffers fed into our render pipeline
-        // to set up the buffer that contains the uniform data. Because this data is so small, we would like to avoid creating a dedicated buffer for it. Fortunately, the render command encoder has a method called setVertexBytes(_:length:index:) that enables exactly this. This method takes a pointer to some data that will be written into a buffer that is managed internally by Metal. In this case, the buffer index specified by the last parameter matches the index of the [[buffer()]] attribute in the parameter list of the vertex function. In this sample app, we dedicate buffer index 1 to our uniform buffer.
-        commandEncoder.setVertexBytes(&uniform,
-                                      length: MemoryLayout<Uniform>.stride,
-                                      index: BufferIndex.uniforms.rawValue)
-
-        //commandEncoder.setFragmentBytes(&material, length: MemoryLayout<MaterialInfo>.stride,
-        //                                index: BufferIndex.materialInfo.rawValue)
-
-         */
-        if texture != nil {
-            commandEncoder.setFragmentTexture(texture, index: TextureIndex.color.rawValue)
-        }
-
 
         commandEncoder.setVertexBuffer(renderUniform.anchorUniformBuffer,
                                        offset: renderUniform.anchorUniformBufferOffset, index: BufferIndex.instances.rawValue)
