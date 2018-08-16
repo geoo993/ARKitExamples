@@ -63,14 +63,13 @@ public final class LightsScene: Scene {
         */
 
         let fireball = Model(mtkView: mtkView, renderDestination: mtkView, model: [ObjectType.sphere: "Sphere"],
-                           imageName: "explosion.png", vertexShader: .vertex_porcupine_shader,
-                           fragmentShader: .fragment_porcupine_shader)
+                           imageName: "explosion.png", vertexShader: .vertex_fireball_shader,
+                           fragmentShader: .fragment_fireball_shader)
         fireball.material.useTexture = true
         fireball.scale = float3(0.1, 0.1, 0.1)
         fireball.material.color = float4(0, 1, 0, 1)
         fireball.material.shininess = 32
         add(childNode: fireball)
-
 
     }
 

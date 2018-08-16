@@ -158,10 +158,11 @@ public class Renderer: NSObject {
         // This texture is a lot like the color texture we’re already presenting to the screen when we’re done drawing,
         // but instead of storing color, it stores depth, which is basically the distance from the camera to the surface.
         self.renderDestination.depthStencilPixelFormat = .depth32Float_stencil8
-
+        
         // we need to tell the view the format of the color texture we will be drawing to. We will choose bgra8Unorm, which is a format that uses one byte per color channel (red, green, blue, and alpha (transparency)), laid out in blue, green, red, alpha order. The Unorm portion of the name signifies that the components are stored as unsigned 8-bit values, so that the values 0-255 map to 0-100% intensity (or 0-100% opacity, in the case of the alpha channel).
         self.renderDestination.colorPixelFormat = .bgra8Unorm
-        self.renderDestination.sampleCount = 1
+        self.renderDestination.sampleCount = 4
+        self.renderDestination.clearColor = MTLClearColorMake(1, 1, 1, 1)
 
 
         guard let device = mtkView.device else { fatalError("No Device Found") }
@@ -183,9 +184,6 @@ public class Renderer: NSObject {
         anchorUniformBuffer = device.makeBuffer(length: anchorUniformBufferSize, options: .storageModeShared)
         anchorUniformBuffer.label = "AnchorUniformBuffer"
 
-        //anchorMaterialBuffer = device.makeBuffer(length: anchorUniformBufferSize, options: .storageModeShared)
-        //anchorMaterialBuffer.label = "AnchorMaterialBuffer"
-        
         // Create a vertex buffer with our image plane vertex data.
         let imagePlaneVertexDataCount = imagePlaneVertexData.count * MemoryLayout<Float>.size
         imagePlaneVertexBuffer = device.makeBuffer(bytes: imagePlaneVertexData, length: imagePlaneVertexDataCount, options: [])
@@ -232,6 +230,8 @@ public class Renderer: NSObject {
             return
         }
 
+        // Push a debug group allowing us to identify render commands in the GPU Frame Capture tool
+        commandEncoder.pushDebugGroup("Draw Captured Image")
         // Set render command encoder state
         commandEncoder.setCullMode(.none)
         commandEncoder.setFrontFacing(.counterClockwise)
@@ -247,6 +247,7 @@ public class Renderer: NSObject {
 
         // Draw each submesh of our mesh
         commandEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
+        commandEncoder.popDebugGroup()
     }
 
 }
@@ -327,13 +328,15 @@ extension Renderer: MTKViewDelegate {
 
         sharedUniformBufferOffset = kAlignedSharedUniformsSize * uniformBufferIndex
         anchorUniformBufferOffset = kAlignedInstanceUniformsSize * uniformBufferIndex
-        //anchorMaterialBufferOffset = kAlignedInstanceUniformsSize * uniformBufferIndex
 
         sharedUniformBufferAddress = sharedUniformBuffer.contents().advanced(by: sharedUniformBufferOffset)
         anchorUniformBufferAddress = anchorUniformBuffer.contents().advanced(by: anchorUniformBufferOffset)
-        //anchorMaterialBufferAddress = anchorMaterialBuffer.contents().advanced(by: anchorMaterialBufferOffset)
 
         if let currentFrame = session.currentFrame, let scene = scene {
+
+            let deltaTime = 1 / Float(view.preferredFramesPerSecond)
+            scene.time += 1 / Float(view.preferredFramesPerSecond)
+
             // Update the anchor uniform buffer with transforms of the current frame's anchors
             frame = currentFrame
             anchorInstanceCount = min(frame.anchors.count, kMaxAnchorInstanceCount)
@@ -353,9 +356,6 @@ extension Renderer: MTKViewDelegate {
             }
 
             drawCapturedImage(commandEncoder: commandEncoder)
-
-            let deltaTime = 1 / Float(view.preferredFramesPerSecond)
-            scene.time += 1 / Float(view.preferredFramesPerSecond)
 
             // set the scene
             scene.render(commandBuffer: commandBuffer,

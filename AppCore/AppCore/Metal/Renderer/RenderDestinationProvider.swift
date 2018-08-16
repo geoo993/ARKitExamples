@@ -11,6 +11,7 @@ import MetalKit
 import ARKit
 
 public protocol RenderDestinationProvider {
+    var clearColor: MTLClearColor { get set }
     var colorPixelFormat: MTLPixelFormat { get set }
     var depthStencilPixelFormat: MTLPixelFormat { get set }
     var sampleCount: Int { get set }

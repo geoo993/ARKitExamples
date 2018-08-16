@@ -49,15 +49,15 @@ open class Model: Node {
 
         guard let device = mtkView.device else { fatalError("No Device Found") }
         vertexDescriptor = buildVertexDescriptor()
-        meshes = loadModel(device: device, renderDestination: renderDestination, vertexDescriptor: vertexDescriptor, model: model)
-        texture = setTexture(device: device, imageName: imageName, bundle: renderDestination.bundle)
-        samplerState = buildSamplerState(device: device)
         pipelineState = buildPipelineState(device: device,
                                            renderDestination: renderDestination,
                                            vertexDescriptor: vertexDescriptor,
                                             vertexFunctionName: vertexShader,
                                             fragmentFunctionName: fragmentShader)
+        meshes = loadModel(device: device, renderDestination: renderDestination, vertexDescriptor: vertexDescriptor, model: model)
+        texture = loadTexture(device: device, imageName: imageName, bundle: renderDestination.bundle)
         depthStencilState = buildDepthStencilState(device: device)
+        samplerState = buildSamplerState(device: device)
     }
 
 }
@@ -74,8 +74,9 @@ extension Model: Renderable {
         // Set render command encoder state
         commandEncoder.setCullMode(.back)
         commandEncoder.setFrontFacing(.counterClockwise)
-        commandEncoder.setRenderPipelineState(pipelineState)
         commandEncoder.setDepthStencilState(depthStencilState)
+        commandEncoder.setRenderPipelineState(pipelineState)
+        commandEncoder.setFragmentSamplerState(samplerState, index: SamplerIndex.main.rawValue)
 
         if let (index, anchor) = renderUniform.frame.anchors.enumerated().first(where: { $0.element.identifier.uuidString == uuid }) {
 
@@ -99,11 +100,9 @@ extension Model: Renderable {
             anchorUniforms.pointee.material.color = material.color
             anchorUniforms.pointee.material.useTexture = material.useTexture
             anchorUniforms.pointee.material.shininess = material.shininess
-
         }
 
         if texture != nil {
-            commandEncoder.setFragmentSamplerState(samplerState, index: SamplerIndex.main.rawValue)
             commandEncoder.setFragmentTexture(texture, index: TextureIndex.baseMap.rawValue)
         }
         
@@ -111,16 +110,14 @@ extension Model: Renderable {
                                        offset: renderUniform.anchorUniformBufferOffset, index: BufferIndex.instances.rawValue)
         commandEncoder.setVertexBuffer(renderUniform.sharedUniformBuffer,
                                        offset: renderUniform.sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
-        commandEncoder.setFragmentBuffer(renderUniform.sharedUniformBuffer,
-                                         offset: renderUniform.sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
 
         guard let meshes = meshes as? [MTKMesh], meshes.count > 0 else { return }
 
         // Each MLKMesh will have one or more sub meshes with the index information.
         // To render the object we loop through MetalKit meshes, we get the VertexBuffer from the mesh
         // and set that as the GPU vertex buffer.
-        print()
         for mesh in meshes {
+
             for (index, element) in mesh.vertexDescriptor.layouts.enumerated() {
                 guard let layout = element as? MDLVertexBufferLayout else {
                     return
@@ -130,15 +127,12 @@ extension Model: Renderable {
                     //First, we will set up the buffer that contains our vertex data with the setVertexBuffer(_:offset:index:) method. The offset parameter indicates where in the buffer the data starts, while the at parameter specifies the buffer index. The buffer index corresponds to the bufferIndex property of the attributes specified in our vertex descriptor; this is what creates the linkage between how the data is laid out in the buffer and how it is laid out in the struct taken as a parameter by our vertex function.
                     let vertexBuffer = mesh.vertexBuffers[index]
                     commandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: vertexBuffer.offset, index: index)
-                    print("vertexbuffer: offset", vertexBuffer.offset, ", index", index)
                 }
             }
 
             // then we loop through the MTLMesh sub meshes, and draw the group of meshes that belongs to the MTLMesh
             // using the submesh indicies.
             for submesh in mesh.submeshes {
-                //commandEncoder.setVertexBuffer(submesh.indexBuffer.buffer, offset: submesh.indexBuffer.offset, index: BufferIndex.meshIndices.rawValue)
-                //print("indexbuffer: offset", submesh.indexBuffer.offset, ", index", BufferIndex.meshIndices.rawValue)
                 commandEncoder.drawIndexedPrimitives(type: submesh.primitiveType,
                                                      indexCount: submesh.indexCount,
                                                      indexType: submesh.indexType,

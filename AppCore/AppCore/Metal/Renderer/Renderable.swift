@@ -181,6 +181,8 @@ extension Renderable {
     func buildSamplerState(device: MTLDevice) -> MTLSamplerState {
         let descriptor = MTLSamplerDescriptor()
         descriptor.normalizedCoordinates = true
+        descriptor.sAddressMode = .repeat
+        descriptor.tAddressMode = .repeat
         descriptor.minFilter = .linear
         descriptor.magFilter = .linear
         descriptor.mipFilter = .linear
@@ -215,8 +217,6 @@ extension Renderable {
         depthStencilDescriptor.isDepthWriteEnabled = true
         
         return device.makeDepthStencilState(descriptor: depthStencilDescriptor)!
-
-
     }
 
 }

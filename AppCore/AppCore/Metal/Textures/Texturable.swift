@@ -28,7 +28,7 @@ protocol Texturable {
 extension Texturable {
 
     // MARK: - Setup texture with bundle resource
-    func setTexture(device: MTLDevice, imageName: String, bundle: Bundle) -> MTLTexture? {
+    func loadTexture(device: MTLDevice, imageName: String, bundle: Bundle) -> MTLTexture? {
         let textureLoader = MTKTextureLoader(device: device)
 
         // Loading texure
@@ -59,6 +59,29 @@ extension Texturable {
         return texture
     }
 
+    func loadTexture(device: MTLDevice, assetName: String, bundle: Bundle) -> MTLTexture? {
+        /// Load texture data with optimal parameters for sampling
+
+        let textureLoader = MTKTextureLoader(device: device)
+        let asset = NSDataAsset(name: assetName, bundle: bundle)
+        let textureLoaderOptions = [
+            MTKTextureLoader.Option.textureUsage: NSNumber(value: MTLTextureUsage.shaderRead.rawValue),
+            MTKTextureLoader.Option.textureStorageMode: NSNumber(value: MTLStorageMode.`private`.rawValue)
+        ]
+
+        // load texture using the passed in image name
+        do {
+            if let data = asset?.data {
+                return try textureLoader.newTexture(data: data, options: textureLoaderOptions)
+            } else {
+                fatalError("Could not load image \(assetName) from an asset catalog in the main bundle")
+            }
+        } catch let error {
+            fatalError("texture not created with error: \(error.localizedDescription)")
+        }
+
+    }
+
     func loadTexture(device: MTLDevice, textureName: String) -> MTLTexture? {
         /// Load texture data with optimal parameters for sampling
 
@@ -82,7 +105,7 @@ extension Texturable {
     }
 
     // MARK: - Setup texture with uiimage
-    func setTexture(device: MTLDevice, image: UIImage) -> MTLTexture? {
+    func loadTexture(device: MTLDevice, image: UIImage) -> MTLTexture? {
         // https://stackoverflow.com/questions/29835537/metal-mtltexture-replaces-semi-transparent-areas-with-black-when-alpha-values-th
         let bytesPerPixel = 4
         let bitsPerComponent = 8

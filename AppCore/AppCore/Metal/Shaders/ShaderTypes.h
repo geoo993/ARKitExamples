@@ -25,9 +25,8 @@
 typedef struct
 {
     vector_float3 position;
-    packed_float2 texture;
-    vector_float4 color;
     vector_float3 normal;
+    vector_float2 texture;
 } Vertex;
 
 
@@ -53,9 +52,8 @@ typedef NS_ENUM(NSInteger, BufferIndex)
 typedef NS_ENUM(NSInteger, VertexAttribute)
 {
     VertexAttributePosition = 0,
-    VertexAttributeTexcoord = 1,
-    VertexAttributeColor    = 2,
-    VertexAttributeNormal   = 3,
+    VertexAttributeNormal   = 1,
+    VertexAttributeTexcoord = 2,
 };
 
 // Texture index values shared between shader and C code to ensure Metal shader texture indices

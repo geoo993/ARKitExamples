@@ -17,9 +17,8 @@ using namespace metal;
 //
 struct VertexIn {
     float3 position [[ attribute(VertexAttributePosition) ]];
-    float2 textureCoordinates [[ attribute(VertexAttributeTexcoord) ]];
-    float4 color [[ attribute(VertexAttributeColor) ]];
     float3 normal [[ attribute(VertexAttributeNormal) ]];
+    float2 textureCoordinates [[ attribute(VertexAttributeTexcoord) ]];
 };
 
 struct ImageVertexIn {
