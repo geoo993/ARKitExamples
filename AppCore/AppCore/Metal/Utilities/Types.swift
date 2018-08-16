@@ -13,6 +13,7 @@ public enum VertexFunction: String {
     case vertex_image_shader
     case vertex_anchor_shader
     case vertex_fireball_shader
+    case vertex_porcupine_shader
 }
 
 public enum FragmentFunction: String {
@@ -20,6 +21,7 @@ public enum FragmentFunction: String {
     case fragment_fireball_shader
     case fragment_image_shader
     case fragment_anchor_shader
+    case fragment_porcupine_shader
 }
 
 public enum ObjectType: String {

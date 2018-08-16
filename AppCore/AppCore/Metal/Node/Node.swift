@@ -10,8 +10,6 @@ open class Node {
     public var position = float3(0)
     public var rotation = float3(0)
     public var scale = float3(1)
-    public var width: Float = 1
-    public var height: Float = 1
     public var material = MaterialInfo()
     public var overrideModelMatrix = false
 

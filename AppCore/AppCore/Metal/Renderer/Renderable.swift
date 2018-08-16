@@ -11,9 +11,9 @@ protocol Renderable {
     var depthStencilState: MTLDepthStencilState! { get set }
     var vertexFunctionName: VertexFunction { get }
     var fragmentFunctionName: FragmentFunction { get }
-    var vertexDescriptor: MTLVertexDescriptor { get }
+    var vertexDescriptor: MTLVertexDescriptor! { get set }
     var uniform: Uniform { get set }
-    var drawType: MTLPrimitiveType { get set }
+    var meshes: [AnyObject]? { get set}
     func doRender(commandBuffer: MTLCommandBuffer,
                   commandEncoder: MTLRenderCommandEncoder,
                   camera: Camera,
@@ -22,8 +22,114 @@ protocol Renderable {
 
 extension Renderable {
 
+    func buildVertexDescriptor() -> MTLVertexDescriptor {
+        // Creete a Metal vertex descriptor specifying how vertices will by laid out for input into our render
+        //   pipeline and how we'll layout our Model IO vertices
+        let descriptor = MTLVertexDescriptor()
+
+        // describe the position data
+        descriptor.attributes[VertexAttribute.position.rawValue].format = .float3
+        descriptor.attributes[VertexAttribute.position.rawValue].offset = 0
+        descriptor.attributes[VertexAttribute.position.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
+
+        // describe the texture data
+        descriptor.attributes[VertexAttribute.texcoord.rawValue].format = .float2
+        descriptor.attributes[VertexAttribute.texcoord.rawValue].offset = 0
+        descriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
+
+        // describe the color data
+        descriptor.attributes[VertexAttribute.color.rawValue].format = .float4
+        descriptor.attributes[VertexAttribute.color.rawValue].offset = MemoryLayout<Float>.stride * 2 // float2  = 8 in buffer size
+        descriptor.attributes[VertexAttribute.color.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
+
+        // describe the normal data
+        descriptor.attributes[VertexAttribute.normal.rawValue].format = .float3
+        descriptor.attributes[VertexAttribute.normal.rawValue].offset = MemoryLayout<Float>.stride * 6 // float2 + float4 = 8 + 16 in buffer size
+        descriptor.attributes[VertexAttribute.normal.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
+
+        // tell the vertex descriptor the size of the information held for each vertex
+        // An object that configures how vertex data and attributes are fetched by a vertex function.
+        // Position Buffer Layout
+        descriptor.layouts[BufferIndex.meshVertices.rawValue].stride = MemoryLayout<Float>.stride * 3 // 12 in stride
+        descriptor.layouts[BufferIndex.meshVertices.rawValue].stepRate = 1
+        descriptor.layouts[BufferIndex.meshVertices.rawValue].stepFunction = MTLVertexStepFunction.perVertex
+
+        // Generic Attribute Buffer Layout
+        descriptor.layouts[BufferIndex.meshGenerics.rawValue].stride = MemoryLayout<Float>.stride * 9 // 36 in stride
+        descriptor.layouts[BufferIndex.meshGenerics.rawValue].stepRate = 1
+        descriptor.layouts[BufferIndex.meshGenerics.rawValue].stepFunction = MTLVertexStepFunction.perVertex
+
+        return descriptor
+    }
+
+    func loadModel(device: MTLDevice, renderDestination: RenderDestinationProvider,
+                   vertexDescriptor: MTLVertexDescriptor, model: [ObjectType: String]) -> [AnyObject]? {
+        guard let modelObject = model.first else { fatalError("model is not set.") }
+
+
+        // to load the asset we need to create a MeshBuffer allocator
+        // this handles all the loading and managing on the GPU of the vertex and index data
+        let bufferAllocator = MTKMeshBufferAllocator(device: device)
+
+        // Model IO requires a special Model IO vertex descriptor, we can use the MTKModel vertex descriptor
+        let descriptor = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
+
+        // Model IO needs some further details about the model
+        // these are description of the attributes
+        // this is the position attributes
+        let attributePosition = descriptor.attributes[VertexAttribute.position.rawValue] as! MDLVertexAttribute
+        attributePosition.name = MDLVertexAttributePosition
+        descriptor.attributes[VertexAttribute.position.rawValue] = attributePosition
+
+        // here is the texture attributes
+        let attributeTexture = descriptor.attributes[VertexAttribute.texcoord.rawValue] as! MDLVertexAttribute
+        attributeTexture.name = MDLVertexAttributeTextureCoordinate
+        descriptor.attributes[VertexAttribute.texcoord.rawValue] = attributeTexture
+
+        // here is the color attributes
+        let attributeColor = descriptor.attributes[VertexAttribute.color.rawValue] as! MDLVertexAttribute
+        attributeColor.name = MDLVertexAttributeColor
+        descriptor.attributes[VertexAttribute.color.rawValue] = attributeColor
+
+        // here is the normals attributes
+        let attributeNormal = descriptor.attributes[VertexAttribute.normal.rawValue] as! MDLVertexAttribute
+        attributeNormal.name = MDLVertexAttributeNormal
+        descriptor.attributes[VertexAttribute.normal.rawValue] = attributeNormal
+
+        do {
+            switch modelObject.key {
+            case .model:
+                guard let assetURL = renderDestination.bundle.url(forResource: modelObject.value, withExtension: "obj")
+                    else { fatalError("Asset does not exist") }
+
+                // load asset using the asset URL
+                let asset = MDLAsset(url: assetURL,
+                                     vertexDescriptor: descriptor,
+                                     bufferAllocator: bufferAllocator)
+                return try MTKMesh.newMeshes(asset: asset, device: device).metalKitMeshes
+            case .cube:
+                // Use ModelIO to create a box mesh as our object
+                let mesh = MDLMesh(boxWithExtent: vector3(1, 1, 1), segments: vector3(1, 1, 1),
+                                   inwardNormals: false, geometryType: .triangles, allocator: bufferAllocator)
+                // Perform the format/relayout of mesh vertices by setting the new vertex descriptor in our
+                //   Model IO mesh
+                mesh.vertexDescriptor = descriptor
+                return try [MTKMesh(mesh: mesh, device: device)]
+            case .sphere:
+                let mesh = MDLMesh(sphereWithExtent: float3(1, 1, 1),
+                                   segments: vector_uint2(40, 40), inwardNormals: false,
+                                   geometryType: MDLGeometryType.triangles, allocator: bufferAllocator)
+                mesh.vertexDescriptor = descriptor
+                return try [MTKMesh(mesh: mesh, device: device)]
+            }
+        } catch let error {
+            fatalError("Error creating MetalKit mesh, error \(error)")
+        }
+    }
+
     func buildPipelineState(device: MTLDevice,
                             renderDestination: RenderDestinationProvider,
+                            vertexDescriptor: MTLVertexDescriptor,
                             vertexFunctionName: VertexFunction,
                             fragmentFunctionName: FragmentFunction) -> MTLRenderPipelineState {
 

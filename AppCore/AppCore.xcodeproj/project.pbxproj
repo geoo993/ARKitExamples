@@ -541,10 +541,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7B5265C201C8A1D00134F00 /* Build configuration list for PBXNativeTarget "AppCore" */;
 			buildPhases = (
+				C7B52652201C8A1D00134F00 /* Resources */,
+				C7B52651201C8A1D00134F00 /* Headers */,
 				C7B5264F201C8A1D00134F00 /* Sources */,
 				C7B52650201C8A1D00134F00 /* Frameworks */,
-				C7B52651201C8A1D00134F00 /* Headers */,
-				C7B52652201C8A1D00134F00 /* Resources */,
 			);
 			buildRules = (
 			);

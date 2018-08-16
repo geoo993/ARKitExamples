@@ -10,7 +10,7 @@
 import Metal
 import MetalKit
 import ARKit
-
+import simd
 
 /*
 
@@ -91,17 +91,18 @@ public class Renderer: NSObject {
         // Positions.
         imagePlaneVertexDescriptor.attributes[VertexAttribute.position.rawValue].format = .float2
         imagePlaneVertexDescriptor.attributes[VertexAttribute.position.rawValue].offset = 0
-        imagePlaneVertexDescriptor.attributes[VertexAttribute.position.rawValue].bufferIndex = BufferIndex.meshPositions.rawValue
+        imagePlaneVertexDescriptor.attributes[VertexAttribute.position.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
 
         // Texture coordinates.
         imagePlaneVertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].format = .float2
-        imagePlaneVertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].offset = 8
-        imagePlaneVertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshPositions.rawValue
+        imagePlaneVertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].offset = MemoryLayout<Float>.stride * 2 // float2  = 8 in buffer size
+        imagePlaneVertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
 
         // Buffer Layout
-        imagePlaneVertexDescriptor.layouts[BufferIndex.meshPositions.rawValue].stride = 16
-        imagePlaneVertexDescriptor.layouts[BufferIndex.meshPositions.rawValue].stepRate = 1
-        imagePlaneVertexDescriptor.layouts[BufferIndex.meshPositions.rawValue].stepFunction = .perVertex
+        imagePlaneVertexDescriptor.layouts[BufferIndex.meshVertices.rawValue].stride = MemoryLayout<Float>.stride * 4 //float2*2  = 16 in buffer size
+        imagePlaneVertexDescriptor.layouts[BufferIndex.meshVertices.rawValue].stepRate = 1
+        imagePlaneVertexDescriptor.layouts[BufferIndex.meshVertices.rawValue].stepFunction = .perVertex
+
         return imagePlaneVertexDescriptor
     }
 
@@ -238,7 +239,7 @@ public class Renderer: NSObject {
         commandEncoder.setDepthStencilState(imageDepthStencilState)
 
         // Set mesh's vertex buffers
-        commandEncoder.setVertexBuffer(imagePlaneVertexBuffer, offset: 0, index: BufferIndex.meshPositions.rawValue)
+        commandEncoder.setVertexBuffer(imagePlaneVertexBuffer, offset: 0, index: BufferIndex.meshVertices.rawValue)
 
         // Set any textures read/sampled from our render pipeline
         commandEncoder.setFragmentTexture(CVMetalTextureGetTexture(textureY), index: TextureIndex.Y.rawValue)

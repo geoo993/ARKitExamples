@@ -26,7 +26,7 @@ vertex VertexOut vertex_image_shader(const ImageVertexIn vertexIn [[stage_in]]) 
 }
 
 // Captured image fragment function
-fragment float4 fragment_image_shader(VertexOut vertexIn [[stage_in]],
+fragment float4 fragment_image_shader(VertexOut fragmentIn [[stage_in]],
                                       texture2d<float, access::sample> capturedImageTextureY [[ texture(TextureIndexY) ]],
                                       texture2d<float, access::sample> capturedImageTextureCbCr [[ texture(TextureIndexCbCr) ]]) {
 
@@ -42,8 +42,8 @@ fragment float4 fragment_image_shader(VertexOut vertexIn [[stage_in]],
                                                   );
 
     // Sample Y and CbCr textures to get the YCbCr color at the given texture coordinate
-    float4 ycbcr = float4(capturedImageTextureY.sample(colorSampler, vertexIn.textureCoordinates).r,
-                          capturedImageTextureCbCr.sample(colorSampler, vertexIn.textureCoordinates).rg, 1.0);
+    float4 ycbcr = float4(capturedImageTextureY.sample(colorSampler, fragmentIn.textureCoordinates).r,
+                          capturedImageTextureCbCr.sample(colorSampler, fragmentIn.textureCoordinates).rg, 1.0);
 
     // Return converted RGB color
     return ycbcrToRGBTransform * ycbcr;

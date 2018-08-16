@@ -248,20 +248,20 @@ vertex VertexOut vertex_fireball_shader(const VertexIn vertexIn [[ stage_in ]],
     return vertexOut;
 }
 
-fragment float4 fragment_fireball_shader(VertexOut vertexIn [[ stage_in ]],
+fragment float4 fragment_fireball_shader(VertexOut fragmentIn [[ stage_in ]],
                                           constant CameraInfo &camera [[ buffer(BufferIndexCameraInfo) ]],
                                           texture2d<float, access::sample> texture [[ texture(TextureIndexBaseMap) ]],
                                           sampler sampler2d [[sampler(SamplerIndexMain)]])
 {
 
     // get a random offset
-    float3 fragCoord = float3(vertexIn.textureCoordinates.x, vertexIn.textureCoordinates.y, 1.0);
+    float3 fragCoord = float3(fragmentIn.textureCoordinates.x, fragmentIn.textureCoordinates.y, 1.0);
     float r = 0.01f * random(fragCoord, float3( 12.9898f, 78.233f, 151.7182f ), 0.2f );
     // lookup vertically in the texture, using noise and offset
     // to get the right RGB colour
-    float2 tPos = float2( 0.0f, 1.3f * vertexIn.noise + r );
+    float2 tPos = float2( 0.0f, 1.3f * fragmentIn.noise + r );
     float3 textcolor = texture.sample(sampler2d, tPos).rgb;
-    float3 baseColor = vertexIn.useTexture ? textcolor : vertexIn.color.xyz;
+    float3 baseColor = fragmentIn.useTexture ? textcolor : fragmentIn.color.xyz;
 
     return float4(baseColor.x, baseColor.y, baseColor.z, 1.0);
 }

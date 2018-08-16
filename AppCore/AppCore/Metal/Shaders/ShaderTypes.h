@@ -36,9 +36,9 @@ typedef struct
 //   Metal API buffer set calls
 typedef NS_ENUM(NSInteger, BufferIndex)
 {
-    BufferIndexMeshPositions        = 0,
+    BufferIndexMeshVertices         = 0,
     BufferIndexMeshGenerics         = 1,
-    BufferIndexVertices             = 2,
+    BufferIndexMeshIndices          = 2,
     BufferIndexUniforms             = 3,
     BufferIndexInstances            = 4,
     BufferIndexCameraInfo           = 5,
