@@ -23,8 +23,10 @@ protocol Renderable {
 extension Renderable {
 
     func buildVertexDescriptor() -> MTLVertexDescriptor {
+
         // Creete a Metal vertex descriptor specifying how vertices will by laid out for input into our render
         //   pipeline and how we'll layout our Model IO vertices
+
         let descriptor = MTLVertexDescriptor()
 
         // describe the position data
@@ -46,14 +48,15 @@ extension Renderable {
         // tell the vertex descriptor the size of the information held for each vertex
         // An object that configures how vertex data and attributes are fetched by a vertex function.
         // Position Buffer Layout
-        descriptor.layouts[BufferIndex.meshVertices.rawValue].stride = MemoryLayout<Float>.stride * 3 // 12 in stride
+        descriptor.layouts[BufferIndex.meshVertices.rawValue].stride = MemoryLayout<Float>.stride * 3
         descriptor.layouts[BufferIndex.meshVertices.rawValue].stepRate = 1
         descriptor.layouts[BufferIndex.meshVertices.rawValue].stepFunction = MTLVertexStepFunction.perVertex
 
         // Generic Attribute Buffer Layout
-        descriptor.layouts[BufferIndex.meshGenerics.rawValue].stride = MemoryLayout<Float>.stride * 5 // 36 in stride
+        descriptor.layouts[BufferIndex.meshGenerics.rawValue].stride = MemoryLayout<Float>.stride * 5
         descriptor.layouts[BufferIndex.meshGenerics.rawValue].stepRate = 1
         descriptor.layouts[BufferIndex.meshGenerics.rawValue].stepFunction = MTLVertexStepFunction.perVertex
+
 
         return descriptor
     }

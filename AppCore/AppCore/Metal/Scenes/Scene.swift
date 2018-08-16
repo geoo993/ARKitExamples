@@ -55,7 +55,7 @@ open class Scene: Node {
     func render(commandBuffer: MTLCommandBuffer, commandEncoder: MTLRenderCommandEncoder,
                 renderUniform: RenderUniformProvider, frame: ARFrame, deltaTime: Float) {
         update(deltaTime: deltaTime)
-/*
+
         // Lights
         // https://stackoverflow.com/questions/47009558/metal-compute-shader-with-1d-data-buffer-in-and-out
         commandEncoder.setFragmentBytes(&dirLights, length: MemoryLayout<DirectionalLight>.stride * dirLights.count,
@@ -70,7 +70,7 @@ open class Scene: Node {
         var cameraInfo = CameraInfo(position: frame.camera.transform.position, front: frame.camera.transform.front)
         commandEncoder.setFragmentBytes(&cameraInfo, length: MemoryLayout<CameraInfo>.stride,
                                         index: BufferIndex.cameraInfo.rawValue)
-*/
+        
         for child in children {
             child.render(commandBuffer: commandBuffer, commandEncoder: commandEncoder,
                          parentModelMatrix: sceneOrigin,

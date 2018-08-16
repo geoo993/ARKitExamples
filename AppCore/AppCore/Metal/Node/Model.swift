@@ -34,6 +34,7 @@ open class Model: Node {
     var vertexFunctionName: VertexFunction = .vertex_anchor_shader
     var fragmentFunctionName: FragmentFunction = .fragment_shader
     var vertexDescriptor: MTLVertexDescriptor!
+
     var uniform = Uniform()
 
     //MARK: - Properties
@@ -76,7 +77,6 @@ extension Model: Renderable {
         commandEncoder.setFrontFacing(.counterClockwise)
         commandEncoder.setDepthStencilState(depthStencilState)
         commandEncoder.setRenderPipelineState(pipelineState)
-        commandEncoder.setFragmentSamplerState(samplerState, index: SamplerIndex.main.rawValue)
 
         if let (index, anchor) = renderUniform.frame.anchors.enumerated().first(where: { $0.element.identifier.uuidString == uuid }) {
 
@@ -103,6 +103,7 @@ extension Model: Renderable {
         }
 
         if texture != nil {
+            commandEncoder.setFragmentSamplerState(samplerState, index: SamplerIndex.main.rawValue)
             commandEncoder.setFragmentTexture(texture, index: TextureIndex.baseMap.rawValue)
         }
         
