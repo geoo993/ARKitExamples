@@ -32,20 +32,16 @@ extension Renderable {
         descriptor.attributes[VertexAttribute.position.rawValue].offset = 0
         descriptor.attributes[VertexAttribute.position.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
 
-        // describe the texture data
-        descriptor.attributes[VertexAttribute.texcoord.rawValue].format = .float2
-        descriptor.attributes[VertexAttribute.texcoord.rawValue].offset = 0
-        descriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
-
-        // describe the color data
-        descriptor.attributes[VertexAttribute.color.rawValue].format = .float4
-        descriptor.attributes[VertexAttribute.color.rawValue].offset = MemoryLayout<Float>.stride * 2 // float2  = 8 in buffer size
-        descriptor.attributes[VertexAttribute.color.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
-
         // describe the normal data
         descriptor.attributes[VertexAttribute.normal.rawValue].format = .float3
-        descriptor.attributes[VertexAttribute.normal.rawValue].offset = MemoryLayout<Float>.stride * 6 // float2 + float4 = 8 + 16 in buffer size
+        descriptor.attributes[VertexAttribute.normal.rawValue].offset = 0
         descriptor.attributes[VertexAttribute.normal.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
+
+        // describe the texture data
+        descriptor.attributes[VertexAttribute.texcoord.rawValue].format = .float2
+        descriptor.attributes[VertexAttribute.texcoord.rawValue].offset = MemoryLayout<Float>.stride * 3
+        descriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
+
 
         // tell the vertex descriptor the size of the information held for each vertex
         // An object that configures how vertex data and attributes are fetched by a vertex function.
@@ -55,7 +51,7 @@ extension Renderable {
         descriptor.layouts[BufferIndex.meshVertices.rawValue].stepFunction = MTLVertexStepFunction.perVertex
 
         // Generic Attribute Buffer Layout
-        descriptor.layouts[BufferIndex.meshGenerics.rawValue].stride = MemoryLayout<Float>.stride * 9 // 36 in stride
+        descriptor.layouts[BufferIndex.meshGenerics.rawValue].stride = MemoryLayout<Float>.stride * 5 // 36 in stride
         descriptor.layouts[BufferIndex.meshGenerics.rawValue].stepRate = 1
         descriptor.layouts[BufferIndex.meshGenerics.rawValue].stepFunction = MTLVertexStepFunction.perVertex
 
@@ -81,20 +77,15 @@ extension Renderable {
         attributePosition.name = MDLVertexAttributePosition
         descriptor.attributes[VertexAttribute.position.rawValue] = attributePosition
 
-        // here is the texture attributes
-        let attributeTexture = descriptor.attributes[VertexAttribute.texcoord.rawValue] as! MDLVertexAttribute
-        attributeTexture.name = MDLVertexAttributeTextureCoordinate
-        descriptor.attributes[VertexAttribute.texcoord.rawValue] = attributeTexture
-
-        // here is the color attributes
-        let attributeColor = descriptor.attributes[VertexAttribute.color.rawValue] as! MDLVertexAttribute
-        attributeColor.name = MDLVertexAttributeColor
-        descriptor.attributes[VertexAttribute.color.rawValue] = attributeColor
-
         // here is the normals attributes
         let attributeNormal = descriptor.attributes[VertexAttribute.normal.rawValue] as! MDLVertexAttribute
         attributeNormal.name = MDLVertexAttributeNormal
         descriptor.attributes[VertexAttribute.normal.rawValue] = attributeNormal
+
+        // here is the texture attributes
+        let attributeTexture = descriptor.attributes[VertexAttribute.texcoord.rawValue] as! MDLVertexAttribute
+        attributeTexture.name = MDLVertexAttributeTextureCoordinate
+        descriptor.attributes[VertexAttribute.texcoord.rawValue] = attributeTexture
 
         do {
             switch modelObject.key {
