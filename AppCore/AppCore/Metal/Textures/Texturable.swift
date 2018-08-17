@@ -53,6 +53,8 @@ extension Texturable {
             } catch {
                 fatalError("texture not created with error: \(error.localizedDescription)")
             }
+        } else {
+            texture = loadTexture(device: device, assetName: imageName, bundle: bundle)
         }
 
         // when you notice that the image is pixelated, this is becuase the default sampler uses filter mode Nearest
@@ -64,10 +66,11 @@ extension Texturable {
 
         let textureLoader = MTKTextureLoader(device: device)
         let asset = NSDataAsset(name: assetName, bundle: bundle)
-        let textureLoaderOptions = [
-            MTKTextureLoader.Option.textureUsage: NSNumber(value: MTLTextureUsage.shaderRead.rawValue),
-            MTKTextureLoader.Option.textureStorageMode: NSNumber(value: MTLStorageMode.`private`.rawValue)
-        ]
+
+        let textureLoaderOptions: [MTKTextureLoader.Option: Any] =
+            [.textureUsage: NSNumber(value: MTLTextureUsage.shaderRead.rawValue),
+             .textureStorageMode: NSNumber(value: MTLStorageMode.`private`.rawValue)
+            ]
 
         // load texture using the passed in image name
         do {

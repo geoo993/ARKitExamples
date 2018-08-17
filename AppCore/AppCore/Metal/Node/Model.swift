@@ -33,7 +33,6 @@ open class Model: Node {
     var depthStencilState: MTLDepthStencilState!
     var vertexFunctionName: VertexFunction = .vertex_anchor_shader
     var fragmentFunctionName: FragmentFunction = .fragment_shader
-    var vertexDescriptor: MTLVertexDescriptor!
 
     var uniform = Uniform()
 
@@ -49,16 +48,16 @@ open class Model: Node {
         self.fragmentFunctionName = fragmentShader
 
         guard let device = mtkView.device else { fatalError("No Device Found") }
-        vertexDescriptor = buildVertexDescriptor()
         pipelineState = buildPipelineState(device: device,
                                            renderDestination: renderDestination,
-                                           vertexDescriptor: vertexDescriptor,
                                             vertexFunctionName: vertexShader,
                                             fragmentFunctionName: fragmentShader)
-        meshes = loadModel(device: device, renderDestination: renderDestination, vertexDescriptor: vertexDescriptor, model: model)
-        texture = loadTexture(device: device, imageName: imageName, bundle: renderDestination.bundle)
         depthStencilState = buildDepthStencilState(device: device)
         samplerState = buildSamplerState(device: device)
+        texture = loadTexture(device: device, imageName: imageName, bundle: renderDestination.bundle)
+        meshes = loadModel(device: device,
+                           renderDestination: renderDestination,
+                           model: model)
     }
 
 }
@@ -109,16 +108,17 @@ extension Model: Renderable {
         
         commandEncoder.setVertexBuffer(renderUniform.anchorUniformBuffer,
                                        offset: renderUniform.anchorUniformBufferOffset, index: BufferIndex.instances.rawValue)
-        commandEncoder.setVertexBuffer(renderUniform.sharedUniformBuffer,
-                                       offset: renderUniform.sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
+        //commandEncoder.setVertexBuffer(renderUniform.sharedUniformBuffer,
+        //                               offset: renderUniform.sharedUniformBufferOffset, index: BufferIndex.uniforms.rawValue)
 
         guard let meshes = meshes as? [MTKMesh], meshes.count > 0 else { return }
 
+        
         // Each MLKMesh will have one or more sub meshes with the index information.
         // To render the object we loop through MetalKit meshes, we get the VertexBuffer from the mesh
         // and set that as the GPU vertex buffer.
         for mesh in meshes {
-
+            
             for (index, element) in mesh.vertexDescriptor.layouts.enumerated() {
                 guard let layout = element as? MDLVertexBufferLayout else {
                     return

@@ -70,7 +70,6 @@ open class Scene: Node {
         var cameraInfo = CameraInfo(position: frame.camera.transform.position, front: frame.camera.transform.front)
         commandEncoder.setFragmentBytes(&cameraInfo, length: MemoryLayout<CameraInfo>.stride,
                                         index: BufferIndex.cameraInfo.rawValue)
-        
         for child in children {
             child.render(commandBuffer: commandBuffer, commandEncoder: commandEncoder,
                          parentModelMatrix: sceneOrigin,

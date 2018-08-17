@@ -210,9 +210,10 @@ vertex VertexOut vertex_fireball_shader(const VertexIn vertexIn [[ stage_in ]],
 
     Uniform uniform = instanceUniforms[instanceId].uniform;
     MaterialInfo material = instanceUniforms[instanceId].material;
+    float3 normal = float3(vertexIn.normal.x, vertexIn.normal.y, vertexIn.normal.z);
 
     // get a turbulent 3d noise using the normal, normal to high freq
-    float noise = 10.0f *  -0.10f * turbulence( 0.5f * vertexIn.normal + constants.time);
+    float noise = 10.0f *  -0.10f * turbulence( 0.5f * normal + constants.time);
 
     // get a 3d noise using the position, low frequency
     float b = 5.0f * pnoise( 0.05f * vertexIn.position + float3( constants.explosion * constants.time ), float3(100.0f) );
@@ -221,7 +222,7 @@ vertex VertexOut vertex_fireball_shader(const VertexIn vertexIn [[ stage_in ]],
     float displacement = - constants.frequency * noise + b;
 
      // move the position along the normal and transform it
-    float3 newPosition = vertexIn.position + vertexIn.normal * displacement;
+    float3 newPosition = vertexIn.position + normal * displacement;
 
     // Make position a float4 to perform 4x4 matrix math on it
     float4 position = float4(newPosition.x, newPosition.y, newPosition.z, 1.0f);
@@ -233,7 +234,7 @@ vertex VertexOut vertex_fireball_shader(const VertexIn vertexIn [[ stage_in ]],
 
     // Calculate the position of our vertex in clip space and output for clipping and rasterization
     vertexOut.position = projectionMatrix * modelViewMatrix * position;
-    vertexOut.textureCoordinates = vertexIn.textureCoordinates;
+    vertexOut.textureCoordinate = vertexIn.textureCoordinate;
 
     vertexOut.noise = noise;
     vertexOut.color = material.color;
@@ -241,7 +242,7 @@ vertex VertexOut vertex_fireball_shader(const VertexIn vertexIn [[ stage_in ]],
     vertexOut.shininess = material.shininess;
 
     vertexOut.fragPosition = (modelMatrix * position).xyz; // model world position in the scene
-    vertexOut.normal = normalMatrix * vertexIn.normal; // model world normal in the scene
+    vertexOut.normal = normalMatrix * normal; // model world normal in the scene
     vertexOut.eyePosition = (modelViewMatrix * position);
     vertexOut.eyeNormal  = modelViewMatrix * float4(vertexIn.normal.x, vertexIn.normal.y, vertexIn.normal.z, 0.0f);
 
@@ -255,7 +256,7 @@ fragment float4 fragment_fireball_shader(VertexOut fragmentIn [[ stage_in ]],
 {
 
     // get a random offset
-    float3 fragCoord = float3(fragmentIn.textureCoordinates.x, fragmentIn.textureCoordinates.y, 1.0);
+    float3 fragCoord = float3(fragmentIn.textureCoordinate.x, fragmentIn.textureCoordinate.y, 1.0);
     float r = 0.01f * random(fragCoord, float3( 12.9898f, 78.233f, 151.7182f ), 0.2f );
     // lookup vertically in the texture, using noise and offset
     // to get the right RGB colour

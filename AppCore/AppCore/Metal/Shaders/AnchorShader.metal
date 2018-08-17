@@ -13,10 +13,9 @@
 
 // Anchor geometry vertex function
 vertex VertexOut vertex_anchor_shader(const VertexIn vertexIn [[stage_in]],
-                                      device Vertex *vertexes  [[ buffer(BufferIndexMeshVertices) ]],
                                       constant InstanceUniform *instanceUniforms [[ buffer(BufferIndexInstances) ]],
-                                      ushort vertexId [[vertex_id]],
-                                      ushort instanceId [[instance_id]]) {
+                                      uint vertexId [[vertex_id]],
+                                      uint instanceId [[instance_id]]) {
     VertexOut vertexOut;
 
     Uniform uniform = instanceUniforms[instanceId].uniform;
@@ -25,8 +24,8 @@ vertex VertexOut vertex_anchor_shader(const VertexIn vertexIn [[stage_in]],
     // Make position a float4 to perform 4x4 matrix math on it
     float3 pos =  vertexIn.position; //vertexes[vertexId].position;
     float4 position = float4(pos.x, pos.y, pos.z, 1.0f);
-    float2 texture = vertexIn.textureCoordinates;
-    float3 normal = vertexIn.normal;
+    float2 texture = vertexIn.textureCoordinate;
+    half3 normal = vertexIn.normal;
 
     float4x4 projectionMatrix = uniform.projectionMatrix;
     float4x4 modelMatrix = uniform.modelMatrix;
@@ -35,14 +34,14 @@ vertex VertexOut vertex_anchor_shader(const VertexIn vertexIn [[stage_in]],
 
     // Calculate the position of our vertex in clip space and output for clipping and rasterization
     vertexOut.position = projectionMatrix * modelViewMatrix * position;
-    vertexOut.textureCoordinates = texture;
+    vertexOut.textureCoordinate = texture;
 
     vertexOut.color = material.color;
     vertexOut.useTexture = material.useTexture;
     vertexOut.shininess = material.shininess;
 
     vertexOut.fragPosition = (modelMatrix * position).xyz; // model world position in the scene
-    vertexOut.normal = normalMatrix * normal; // model world normal in the scene
+    vertexOut.normal = normalMatrix * float3(normal.x, normal.y, normal.z);
     vertexOut.eyePosition = (modelViewMatrix * position);
     vertexOut.eyeNormal  = modelViewMatrix * float4(normal.x, normal.y, normal.z, 0.0f);
 
@@ -54,7 +53,7 @@ fragment float4 fragment_anchor_shader(VertexOut fragmentIn [[stage_in]],
                                        device DirectionalLight *dirLights [[buffer(BufferIndexDirectionalLightInfo)]],
                                        texture2d<float> texture [[ texture(TextureIndexBaseMap) ]],
                                        sampler sampler2d [[ sampler(SamplerIndexMain) ]]) {
-    float4 texColor = texture.sample(sampler2d, fragmentIn.textureCoordinates);
+    float4 texColor = texture.sample(sampler2d, fragmentIn.textureCoordinate);
     float4 materialColor = fragmentIn.useTexture ? texColor : fragmentIn.color;
     DirectionalLight light = dirLights[0];
     float3 lightColor = light.base.color * light.base.intensity;

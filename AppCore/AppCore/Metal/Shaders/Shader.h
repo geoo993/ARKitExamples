@@ -17,20 +17,20 @@ using namespace metal;
 //
 struct VertexIn {
     float3 position [[ attribute(VertexAttributePosition) ]];
-    float3 normal [[ attribute(VertexAttributeNormal) ]];
-    float2 textureCoordinates [[ attribute(VertexAttributeTexcoord) ]];
+    half3 normal [[ attribute(VertexAttributeNormal) ]];
+    float2 textureCoordinate [[ attribute(VertexAttributeTexcoord) ]];
 };
 
 struct ImageVertexIn {
-    float2 position [[attribute(VertexAttributePosition)]];
-    float2 textureCoordinates [[attribute(VertexAttributeTexcoord)]];
+    float2 position [[attribute(ImageVertexAttributePosition)]];
+    float2 textureCoordinate [[attribute(ImageVertexAttributeTexcoord)]];
 };
 
 // this tells the rasterisor, which of these data items contains, contains the vertex position or color value.
 // This specifies whats passed down to the rasterisation stage and eventually to the fragment program.
 struct VertexOut {
     float4 position [[ position ]];
-    float2 textureCoordinates;
+    float2 textureCoordinate;
     float shininess;
     bool useTexture;
     float4 color;

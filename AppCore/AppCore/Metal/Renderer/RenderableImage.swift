@@ -16,10 +16,31 @@ protocol RenderableImage {
     var imageTextureY: CVMetalTexture? { get set }
     var imageTextureCbCr: CVMetalTexture? { get set }
     var imageTextureCache: CVMetalTextureCache! { get set }
-    var imageVertexDescriptor: MTLVertexDescriptor { get }
 }
 
 extension RenderableImage {
+
+    var imageVertexDescriptor: MTLVertexDescriptor {
+        // Create a vertex descriptor for our image plane vertex buffer
+        let imagePlaneVertexDescriptor = MTLVertexDescriptor()
+
+        // Positions.
+        imagePlaneVertexDescriptor.attributes[ImageVertexAttribute.position.rawValue].format = .float2
+        imagePlaneVertexDescriptor.attributes[ImageVertexAttribute.position.rawValue].offset = 0
+        imagePlaneVertexDescriptor.attributes[ImageVertexAttribute.position.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
+
+        // Texture coordinates.
+        imagePlaneVertexDescriptor.attributes[ImageVertexAttribute.texcoord.rawValue].format = .float2
+        imagePlaneVertexDescriptor.attributes[ImageVertexAttribute.texcoord.rawValue].offset = MemoryLayout<Float>.stride * 2 // float2  = 8 in buffer size
+        imagePlaneVertexDescriptor.attributes[ImageVertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
+
+        // Buffer Layout
+        imagePlaneVertexDescriptor.layouts[BufferIndex.meshVertices.rawValue].stride = MemoryLayout<Float>.stride * 4 //float2*2  = 16 in buffer size
+        imagePlaneVertexDescriptor.layouts[BufferIndex.meshVertices.rawValue].stepRate = 1
+        imagePlaneVertexDescriptor.layouts[BufferIndex.meshVertices.rawValue].stepFunction = .perVertex
+
+        return imagePlaneVertexDescriptor
+    }
 
     // MARK: - Setup Image Cache
     func buildImageTextureCache(device: MTLDevice) -> CVMetalTextureCache {
@@ -40,7 +61,6 @@ extension RenderableImage {
     // MARK: - Setup pipeline state
     func buildImagePipelineState(device: MTLDevice,
                                  renderDestination: RenderDestinationProvider,
-                                 descriptor: MTLVertexDescriptor,
                                  vertexFunctionName: VertexFunction,
                                  fragmentFunctionName: FragmentFunction) -> MTLRenderPipelineState {
         let appCoreBundle = Bundle(identifier: "com.geo-games.AppCore")!
@@ -59,7 +79,7 @@ extension RenderableImage {
         // we could create the pipeline state from the descriptor
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.label = "RenderPipeline"
-        pipelineDescriptor.vertexDescriptor = descriptor
+        pipelineDescriptor.vertexDescriptor = imageVertexDescriptor
         pipelineDescriptor.vertexFunction = vertexFunction
         pipelineDescriptor.fragmentFunction = fragmentFunction
 

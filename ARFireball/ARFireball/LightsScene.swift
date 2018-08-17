@@ -60,7 +60,7 @@ public final class LightsScene: Scene {
         mushroom.material.shininess = 32
         mushroom.material.useTexture = true
         add(childNode: mushroom)
-        */
+         */
 
         let fireball = Model(mtkView: mtkView, renderDestination: mtkView, model: [ObjectType.sphere: "Sphere"],
                            imageName: "explosion.png", vertexShader: .vertex_fireball_shader,
@@ -71,6 +71,18 @@ public final class LightsScene: Scene {
         fireball.material.shininess = 32
         add(childNode: fireball)
 
+        /*
+        let box = Model(mtkView: mtkView, renderDestination: mtkView,
+                        model: [ObjectType.cube: "Box"],
+                        imageName: "checkerboard",
+                        vertexShader: .vertex_porcupine_shader,
+                        fragmentShader: .fragment_porcupine_shader)
+        box.material.useTexture = true
+        box.scale = float3(0.1, 0.1, 0.1)
+        box.material.color = float4(1, 1, 0, 1)
+        box.material.shininess = 32
+        add(childNode: box)
+        */
     }
 
     public override func touchesMoved(_ view: UIView, touches: Set<UITouch>, with event: UIEvent?) {

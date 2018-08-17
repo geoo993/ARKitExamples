@@ -11,7 +11,6 @@ protocol Renderable {
     var depthStencilState: MTLDepthStencilState! { get set }
     var vertexFunctionName: VertexFunction { get }
     var fragmentFunctionName: FragmentFunction { get }
-    var vertexDescriptor: MTLVertexDescriptor! { get set }
     var uniform: Uniform { get set }
     var meshes: [AnyObject]? { get set}
     func doRender(commandBuffer: MTLCommandBuffer,
@@ -22,11 +21,10 @@ protocol Renderable {
 
 extension Renderable {
 
-    func buildVertexDescriptor() -> MTLVertexDescriptor {
+    var modelVertexDescriptorSize: MTLVertexDescriptor {
 
         // Creete a Metal vertex descriptor specifying how vertices will by laid out for input into our render
         //   pipeline and how we'll layout our Model IO vertices
-
         let descriptor = MTLVertexDescriptor()
 
         // describe the position data
@@ -35,34 +33,61 @@ extension Renderable {
         descriptor.attributes[VertexAttribute.position.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
 
         // describe the normal data
-        descriptor.attributes[VertexAttribute.normal.rawValue].format = .float3
-        descriptor.attributes[VertexAttribute.normal.rawValue].offset = 0
-        descriptor.attributes[VertexAttribute.normal.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
+        descriptor.attributes[VertexAttribute.normal.rawValue].format = .half3
+        descriptor.attributes[VertexAttribute.normal.rawValue].offset = 16
+        descriptor.attributes[VertexAttribute.normal.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
 
         // describe the texture data
         descriptor.attributes[VertexAttribute.texcoord.rawValue].format = .float2
-        descriptor.attributes[VertexAttribute.texcoord.rawValue].offset = MemoryLayout<Float>.stride * 3
-        descriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshGenerics.rawValue
+        descriptor.attributes[VertexAttribute.texcoord.rawValue].offset = 24
+        descriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
 
 
         // tell the vertex descriptor the size of the information held for each vertex
         // An object that configures how vertex data and attributes are fetched by a vertex function.
         // Position Buffer Layout
-        descriptor.layouts[BufferIndex.meshVertices.rawValue].stride = MemoryLayout<Float>.stride * 3
+        descriptor.layouts[BufferIndex.meshVertices.rawValue].stride = 32
         descriptor.layouts[BufferIndex.meshVertices.rawValue].stepRate = 1
         descriptor.layouts[BufferIndex.meshVertices.rawValue].stepFunction = MTLVertexStepFunction.perVertex
-
-        // Generic Attribute Buffer Layout
-        descriptor.layouts[BufferIndex.meshGenerics.rawValue].stride = MemoryLayout<Float>.stride * 5
-        descriptor.layouts[BufferIndex.meshGenerics.rawValue].stepRate = 1
-        descriptor.layouts[BufferIndex.meshGenerics.rawValue].stepFunction = MTLVertexStepFunction.perVertex
-
 
         return descriptor
     }
 
-    func loadModel(device: MTLDevice, renderDestination: RenderDestinationProvider,
-                   vertexDescriptor: MTLVertexDescriptor, model: [ObjectType: String]) -> [AnyObject]? {
+    var modelVertexDescriptorStride: MTLVertexDescriptor {
+
+        // Creete a Metal vertex descriptor specifying how vertices will by laid out for input into our render
+        //   pipeline and how we'll layout our Model IO vertices
+        let descriptor = MTLVertexDescriptor()
+
+        // describe the position data
+        descriptor.attributes[VertexAttribute.position.rawValue].format = .float3
+        descriptor.attributes[VertexAttribute.position.rawValue].offset = 0
+        descriptor.attributes[VertexAttribute.position.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
+
+        // describe the normal data
+        descriptor.attributes[VertexAttribute.normal.rawValue].format = .half3
+        descriptor.attributes[VertexAttribute.normal.rawValue].offset = MemoryLayout<Float>.stride * 3
+        descriptor.attributes[VertexAttribute.normal.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
+
+        // describe the texture data
+        descriptor.attributes[VertexAttribute.texcoord.rawValue].format = .float2
+        descriptor.attributes[VertexAttribute.texcoord.rawValue].offset = MemoryLayout<Float>.stride * 5
+        descriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
+
+
+        // tell the vertex descriptor the size of the information held for each vertex
+        // An object that configures how vertex data and attributes are fetched by a vertex function.
+        // Position Buffer Layout
+        descriptor.layouts[BufferIndex.meshVertices.rawValue].stride = MemoryLayout<Float>.stride * 7
+        descriptor.layouts[BufferIndex.meshVertices.rawValue].stepRate = 1
+        descriptor.layouts[BufferIndex.meshVertices.rawValue].stepFunction = MTLVertexStepFunction.perVertex
+
+        return descriptor
+    }
+
+    func loadModel(device: MTLDevice,
+                   renderDestination: RenderDestinationProvider,
+                   model: [ObjectType: String]) -> [AnyObject]? {
         guard let modelObject = model.first else { fatalError("model is not set.") }
 
 
@@ -71,7 +96,7 @@ extension Renderable {
         let bufferAllocator = MTKMeshBufferAllocator(device: device)
 
         // Model IO requires a special Model IO vertex descriptor, we can use the MTKModel vertex descriptor
-        let descriptor = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
+        let descriptor = MTKModelIOVertexDescriptorFromMetal(modelVertexDescriptorStride)
 
         // Model IO needs some further details about the model
         // these are description of the attributes
@@ -105,14 +130,12 @@ extension Renderable {
                 // Use ModelIO to create a box mesh as our object
                 let mesh = MDLMesh(boxWithExtent: vector3(1, 1, 1), segments: vector3(1, 1, 1),
                                    inwardNormals: false, geometryType: .triangles, allocator: bufferAllocator)
-                // Perform the format/relayout of mesh vertices by setting the new vertex descriptor in our
-                //   Model IO mesh
                 mesh.vertexDescriptor = descriptor
                 return try [MTKMesh(mesh: mesh, device: device)]
             case .sphere:
                 let mesh = MDLMesh(sphereWithExtent: float3(1, 1, 1),
                                    segments: vector_uint2(40, 40), inwardNormals: false,
-                                   geometryType: MDLGeometryType.triangles, allocator: bufferAllocator)
+                                   geometryType: .triangles, allocator: bufferAllocator)
                 mesh.vertexDescriptor = descriptor
                 return try [MTKMesh(mesh: mesh, device: device)]
             }
@@ -123,7 +146,6 @@ extension Renderable {
 
     func buildPipelineState(device: MTLDevice,
                             renderDestination: RenderDestinationProvider,
-                            vertexDescriptor: MTLVertexDescriptor,
                             vertexFunctionName: VertexFunction,
                             fragmentFunctionName: FragmentFunction) -> MTLRenderPipelineState {
 
@@ -143,16 +165,15 @@ extension Renderable {
         // the descriptor contains the reference to the shader functions and
         // we could create the pipeline state from the descriptor
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
-        pipelineDescriptor.label = "RenderPipeline"
-        pipelineDescriptor.vertexDescriptor = vertexDescriptor
+        pipelineDescriptor.label = "Render Pipeline"
+        pipelineDescriptor.sampleCount = renderDestination.sampleCount
         pipelineDescriptor.vertexFunction = vertexFunction
         pipelineDescriptor.fragmentFunction = fragmentFunction
+        pipelineDescriptor.vertexDescriptor = modelVertexDescriptorStride
 
-        pipelineDescriptor.sampleCount = renderDestination.sampleCount
         pipelineDescriptor.depthAttachmentPixelFormat = renderDestination.depthStencilPixelFormat // .depth32Float
         pipelineDescriptor.stencilAttachmentPixelFormat = renderDestination.depthStencilPixelFormat
         pipelineDescriptor.colorAttachments[0].pixelFormat = renderDestination.colorPixelFormat //.bgra8Unorm // unorm means that the value falls between 0 and 255
-        
         pipelineDescriptor.colorAttachments[0].isBlendingEnabled = true
         pipelineDescriptor.colorAttachments[0].rgbBlendOperation = .add
         pipelineDescriptor.colorAttachments[0].alphaBlendOperation = .add

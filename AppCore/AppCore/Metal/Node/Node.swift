@@ -53,7 +53,7 @@ open class Node {
                          parentModelMatrix: originAndModel,
                          camera: camera, renderUniform: renderUniform)
         }
-
+        
         if let renderable = self as? Renderable {
             commandEncoder.pushDebugGroup(name)
             renderable.doRender(commandBuffer: commandBuffer,

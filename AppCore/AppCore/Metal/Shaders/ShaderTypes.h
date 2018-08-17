@@ -18,18 +18,6 @@
 #endif
 #import <simd/simd.h>
 
-// --------- Vertex Data --------
-// Structure defining the layout of each vertex.  Shared between C code filling in the vertex data
-//   and Metal vertex shader consuming the vertices
-// The Vertex struct defines the layout and memory of each vertex in a vertex array passes into a vertex_shader
-typedef struct
-{
-    vector_float3 position;
-    vector_float3 normal;
-    vector_float2 texture;
-} Vertex;
-
-
 // --------- Buffers and Indexes --------
 // Buffer index values shared between shader and C code to ensure Metal shader buffer inputs match
 //   Metal API buffer set calls
@@ -54,6 +42,12 @@ typedef NS_ENUM(NSInteger, VertexAttribute)
     VertexAttributePosition = 0,
     VertexAttributeNormal   = 1,
     VertexAttributeTexcoord = 2,
+};
+
+typedef NS_ENUM(NSInteger, ImageVertexAttribute)
+{
+    ImageVertexAttributePosition = 0,
+    ImageVertexAttributeTexcoord = 1,
 };
 
 // Texture index values shared between shader and C code to ensure Metal shader texture indices

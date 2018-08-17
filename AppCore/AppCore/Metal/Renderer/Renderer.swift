@@ -84,28 +84,6 @@ public class Renderer: NSObject {
         ]
     }
 
-    var imageVertexDescriptor: MTLVertexDescriptor {
-        // Create a vertex descriptor for our image plane vertex buffer
-        let imagePlaneVertexDescriptor = MTLVertexDescriptor()
-
-        // Positions.
-        imagePlaneVertexDescriptor.attributes[VertexAttribute.position.rawValue].format = .float2
-        imagePlaneVertexDescriptor.attributes[VertexAttribute.position.rawValue].offset = 0
-        imagePlaneVertexDescriptor.attributes[VertexAttribute.position.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
-
-        // Texture coordinates.
-        imagePlaneVertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].format = .float2
-        imagePlaneVertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].offset = MemoryLayout<Float>.stride * 2 // float2  = 8 in buffer size
-        imagePlaneVertexDescriptor.attributes[VertexAttribute.texcoord.rawValue].bufferIndex = BufferIndex.meshVertices.rawValue
-
-        // Buffer Layout
-        imagePlaneVertexDescriptor.layouts[BufferIndex.meshVertices.rawValue].stride = MemoryLayout<Float>.stride * 4 //float2*2  = 16 in buffer size
-        imagePlaneVertexDescriptor.layouts[BufferIndex.meshVertices.rawValue].stepRate = 1
-        imagePlaneVertexDescriptor.layouts[BufferIndex.meshVertices.rawValue].stepFunction = .perVertex
-
-        return imagePlaneVertexDescriptor
-    }
-
     //MARK: - Render Uniform Provider
     public var frame: ARFrame!
 
@@ -190,9 +168,8 @@ public class Renderer: NSObject {
         imagePlaneVertexBuffer.label = "ImagePlaneVertexBuffer"
 
         imagePipelineState = buildImagePipelineState(device: device, renderDestination: renderDestination,
-                                                descriptor: imageVertexDescriptor,
-                                                vertexFunctionName: .vertex_image_shader,
-                                                fragmentFunctionName: .fragment_image_shader)
+                                                     vertexFunctionName: .vertex_image_shader,
+                                                     fragmentFunctionName: .fragment_image_shader)
         imageDepthStencilState = buildImageDepthStencilState(device: device)
         imageTextureCache = buildImageTextureCache(device: device)
 
@@ -340,13 +317,6 @@ extension Renderer: MTKViewDelegate {
             // Update the anchor uniform buffer with transforms of the current frame's anchors
             frame = currentFrame
             anchorInstanceCount = min(frame.anchors.count, kMaxAnchorInstanceCount)
-
-            // Update the shared uniforms of the frame
-            let uniforms = sharedUniformBufferAddress.assumingMemoryBound(to: Uniform.self)
-            uniforms.pointee.viewMatrix = currentFrame.camera.viewMatrix(for: .landscapeRight)
-            uniforms.pointee.projectionMatrix = currentFrame.camera
-                .projectionMatrix(for: .landscapeRight, viewportSize: scene.camera.screenSize,
-                                  zNear: scene.camera.nearPlane.toCGFloat, zFar: scene.camera.farPlane.toCGFloat)
 
             updateCapturedImageTextures(frame: currentFrame)
 

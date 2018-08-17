@@ -20,7 +20,7 @@ vertex VertexOut vertex_image_shader(const ImageVertexIn vertexIn [[stage_in]]) 
     vertexOut.position = float4(vertexIn.position.x, vertexIn.position.y, 0.0f, 1.0f);
 
     // Pass through the texture coordinate
-    vertexOut.textureCoordinates = vertexIn.textureCoordinates;
+    vertexOut.textureCoordinate = vertexIn.textureCoordinate;
 
     return vertexOut;
 }
@@ -42,8 +42,8 @@ fragment float4 fragment_image_shader(VertexOut fragmentIn [[stage_in]],
                                                   );
 
     // Sample Y and CbCr textures to get the YCbCr color at the given texture coordinate
-    float4 ycbcr = float4(capturedImageTextureY.sample(colorSampler, fragmentIn.textureCoordinates).r,
-                          capturedImageTextureCbCr.sample(colorSampler, fragmentIn.textureCoordinates).rg, 1.0);
+    float4 ycbcr = float4(capturedImageTextureY.sample(colorSampler, fragmentIn.textureCoordinate).r,
+                          capturedImageTextureCbCr.sample(colorSampler, fragmentIn.textureCoordinate).rg, 1.0);
 
     // Return converted RGB color
     return ycbcrToRGBTransform * ycbcr;
