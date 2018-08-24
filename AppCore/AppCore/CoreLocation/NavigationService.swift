@@ -13,10 +13,10 @@ public struct NavigationService {
 
     public static func getDirections(from sourceLocation: CLLocationCoordinate2D,
                                      to destinationLocation: CLLocationCoordinate2D,
-                                     request: MKDirectionsRequest,
+                                     request: MKDirections.Request,
                                      transportType: MKDirectionsTransportType,
-                                     completion: @escaping (MKRoute, [MKRouteStep]) -> Void) {
-        var steps: [MKRouteStep] = []
+                                     completion: @escaping (MKRoute, [MKRoute.Step]) -> Void) {
+        var steps: [MKRoute.Step] = []
 
         let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation)
         let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation)

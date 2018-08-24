@@ -5,7 +5,9 @@
 //  Created by GEORGE QUENTIN on 25/06/2018.
 //  Copyright © 2018 Geo Games. All rights reserved.
 // https://academy.realm.io/posts/3d-graphics-metal-swift/
-// 
+// https://developer.apple.com/videos/play/wwdc2016/602
+// https://developer.apple.com/videos/play/wwdc2016/603
+//
 
 import Metal
 import MetalKit
@@ -271,6 +273,9 @@ extension Renderer: MTKViewDelegate {
         // we need to first ensure that its corresponding frame has completed its execution on the GPU before we go to the next frame
         let _ = inFlightSemaphore.wait(timeout: DispatchTime.distantFuture)
 
+        commandBuffer.addScheduledHandler({ [weak self] commandBuffer in
+            // This code will exercute when the command buffer is sent to the GPU
+        })
         // Add completion hander which signal _inFlightSemaphore when Metal and the GPU has fully
         //   finished proccessing the commands we're encoding this frame.  This indicates when the
         //   dynamic buffers, that we're writing to this frame, will no longer be needed by Metal
@@ -297,17 +302,6 @@ extension Renderer: MTKViewDelegate {
         // in byte code in a compressed format,
         let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: descriptor)!
         commandEncoder.label = "Primary Render Encoder"
-
-
-        // Update the location(s) to which we'll write to in our dynamically changing Metal buffers for
-        //   the current frame (i.e. update our slot in the ring buffer used for the current frame)
-        uniformBufferIndex = (uniformBufferIndex + 1) % kMaxBuffersInFlight
-
-        sharedUniformBufferOffset = kAlignedSharedUniformsSize * uniformBufferIndex
-        anchorUniformBufferOffset = kAlignedInstanceUniformsSize * uniformBufferIndex
-
-        sharedUniformBufferAddress = sharedUniformBuffer.contents().advanced(by: sharedUniformBufferOffset)
-        anchorUniformBufferAddress = anchorUniformBuffer.contents().advanced(by: anchorUniformBufferOffset)
 
         if let currentFrame = session.currentFrame, let scene = scene {
 
@@ -349,6 +343,17 @@ extension Renderer: MTKViewDelegate {
         // Once we’re done encoding commands into the command buffer, we commit it,
         // so its queue knows that it should ship the commands over to the GPU.
         commandBuffer.commit()
+
+
+        // Update the location(s) to which we'll write to in our dynamically changing Metal buffers for
+        //   the current frame (i.e. update our slot in the ring buffer used for the current frame)
+        uniformBufferIndex = (uniformBufferIndex + 1) % kMaxBuffersInFlight
+
+        sharedUniformBufferOffset = kAlignedSharedUniformsSize * uniformBufferIndex
+        anchorUniformBufferOffset = kAlignedInstanceUniformsSize * uniformBufferIndex
+
+        sharedUniformBufferAddress = sharedUniformBuffer.contents().advanced(by: sharedUniformBufferOffset)
+        anchorUniformBufferAddress = anchorUniformBuffer.contents().advanced(by: anchorUniformBufferOffset)
 
     }
 }

@@ -30,6 +30,7 @@ import ARObjectRecognitionDemo
 import ARObjectDetectionDemo
 import ARVehicleDemo
 import ARFireballDemo
+import ARPhysicallyBasedRenderingDemo
 
 private let CellIdentifier = "tableCell"
 
@@ -56,8 +57,8 @@ public class ARDemosViewController: UITableViewController {
             
             // text color
             navController.navigationBar.largeTitleTextAttributes = [
-                NSAttributedStringKey.foregroundColor: constrastColor, 
-                NSAttributedStringKey.font: UIFont(name: FamilyName.alNileBold, size: 25)!]
+                NSAttributedString.Key.foregroundColor: constrastColor, 
+                NSAttributedString.Key.font: UIFont(name: FamilyName.alNileBold, size: 25)!]
         }
     }
     
@@ -150,7 +151,11 @@ public class ARDemosViewController: UITableViewController {
             Option(title: "AR Fireball",
                    name: "ARFireballViewController",
                    bundle: ARFireballViewController.bundle,
-                   storyBoard: "ARFireball")
+                   storyBoard: "ARFireball"),
+            Option(title: "AR Physically Based Rendering",
+                   name: "ARPhysicallyBasedRenderingViewController",
+                   bundle: ARPhysicallyBasedRenderingViewController.bundle,
+                   storyBoard: "ARPhysicallyBasedRendering")
         ]
         
         updateNavBar(with: selectedColor)

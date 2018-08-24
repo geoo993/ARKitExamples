@@ -414,7 +414,7 @@ extension UIFont {
     /// Makes a copy of the font modifying it with the trait parameter.
     /// - Parameter traits: pass option set of traits to modify the copied font.
     /// - Returns: the copied font with modified traits.
-    public func withTraits(traits:UIFontDescriptorSymbolicTraits) -> UIFont {
+    public func withTraits(traits:UIFontDescriptor.SymbolicTraits) -> UIFont {
         let descriptor = fontDescriptor.withSymbolicTraits(traits)
         return UIFont(descriptor: descriptor!, size: 0) //size 0 means keep size as it is
     }

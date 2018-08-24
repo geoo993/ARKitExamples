@@ -116,7 +116,7 @@ public class ARSavedLocationsTableViewController: UITableViewController {
 
 
     // Override to support editing the table view.
-    override public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let locationTarget = locationTargets[indexPath.row]
             locationTarget.delete(from: realm, completion: { (error) in

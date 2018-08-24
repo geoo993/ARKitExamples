@@ -31,7 +31,7 @@ public class TossShapesViewController: UIViewController {
         // Show statistics such as fps and timing information
         //sceneView.showsStatistics = true
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showFeaturePoints]
+        sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints, SCNDebugOptions.showFeaturePoints]
         
         sceneView.autoenablesDefaultLighting = true
         

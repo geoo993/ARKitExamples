@@ -8,7 +8,7 @@
 
 import MapKit
 
-extension MKRouteStep {
+extension MKRoute.Step {
     public var location : CLLocation {
         return CLLocation(latitude: polyline.coordinate.latitude, longitude: polyline.coordinate.longitude)
     }

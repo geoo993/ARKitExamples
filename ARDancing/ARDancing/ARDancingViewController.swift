@@ -39,7 +39,7 @@ public class ARDancingViewController: UIViewController {
         
         sceneView.autoenablesDefaultLighting = true
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints]
         
         if prepareAudioPlayer() {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: .plain, target: self, action: #selector(rightBarButtonDidClick))
@@ -102,7 +102,10 @@ public class ARDancingViewController: UIViewController {
             
             let audioSession = AVAudioSession.sharedInstance()
             do {
-                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+                try audioSession
+                    .setCategory(AVAudioSession.Category.playback,
+                                 mode: AVAudioSession.Mode.default,
+                                 options: AVAudioSession.CategoryOptions.defaultToSpeaker)
                 return true
             }catch let error {
                 print(error.localizedDescription)
@@ -204,4 +207,9 @@ extension ARDancingViewController {
             }
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
 }

@@ -11,18 +11,18 @@ import UIKit
 
 public extension NSAttributedString {
     
-    public var attributes : [NSAttributedStringKey: Any?] {
+    public var attributes : [NSAttributedString.Key: Any?] {
         return self.attributes(at: 0, 
                                longestEffectiveRange: nil, 
                                in: NSRange(location: 0, length: self.length))
     }
  
     public var font : UIFont? {
-        return self.attributes[NSAttributedStringKey.font] as? UIFont 
+        return self.attributes[NSAttributedString.Key.font] as? UIFont 
     }
     
     public var paragraphStyle: NSParagraphStyle? {
-        return self.attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle
+        return self.attributes[NSAttributedString.Key.paragraphStyle] as? NSParagraphStyle
     }
     
     public var lineHeight: CGFloat? {
@@ -42,16 +42,16 @@ public extension NSAttributedString {
     }
     
     public var backgroundColor: UIColor? {
-        return self.attributes[NSAttributedStringKey.backgroundColor] as? UIColor
+        return self.attributes[NSAttributedString.Key.backgroundColor] as? UIColor
     }
     
     public var textColor: UIColor? {
-        return self.attributes[NSAttributedStringKey.foregroundColor] as? UIColor
+        return self.attributes[NSAttributedString.Key.foregroundColor] as? UIColor
     }
 
     public func font(at location: Int) -> UIFont? {
         if let font = 
-            self.attributes(at: location, effectiveRange: nil)[NSAttributedStringKey.font] 
+            self.attributes(at: location, effectiveRange: nil)[NSAttributedString.Key.font] 
                 as? UIFont {
             return font
         }
@@ -60,7 +60,7 @@ public extension NSAttributedString {
     
     public func lineHeight(at location: Int) -> CGFloat? {
         guard let paragraphStyle = 
-            self.attributes(at: location, effectiveRange: nil)[NSAttributedStringKey.paragraphStyle] 
+            self.attributes(at: location, effectiveRange: nil)[NSAttributedString.Key.paragraphStyle] 
                 as? NSParagraphStyle, let font = self.font(at:location) else {
             return self.font?.lineHeight
         }
@@ -70,7 +70,7 @@ public extension NSAttributedString {
     
     public func textAlignment(at location: Int) -> NSTextAlignment? {
         guard let paragraphStyle = 
-            self.attributes(at: location, effectiveRange: nil)[NSAttributedStringKey.paragraphStyle] 
+            self.attributes(at: location, effectiveRange: nil)[NSAttributedString.Key.paragraphStyle] 
                 as? NSParagraphStyle else {
             return nil
         }

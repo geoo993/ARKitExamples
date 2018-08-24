@@ -35,7 +35,7 @@ public class ARPortalViewController: UIViewController {
         // Set the view's delegate
         sceneView.delegate = self
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints]
         
         // Show statistics such as fps and timing information
         //sceneView.showsStatistics = true

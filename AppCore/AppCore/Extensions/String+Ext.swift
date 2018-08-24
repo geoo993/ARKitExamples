@@ -462,7 +462,7 @@ public extension String {
         let boundingBox = self.boundingRect(
             with: constrainedSize,
             options: .usesLineFragmentOrigin,
-            attributes: [NSAttributedStringKey.font: font],
+            attributes: [NSAttributedString.Key.font: font],
             context: nil)
         return ceil(boundingBox.height)
     }
@@ -472,21 +472,21 @@ public extension String {
         let boundingBox = self.boundingRect(
             with: constrainedSize,
             options: .usesLineFragmentOrigin,
-            attributes: [NSAttributedStringKey.font: font],
+            attributes: [NSAttributedString.Key.font: font],
             context: nil)
         return ceil(boundingBox.width)
     }
     
     func widthOfString(usingFont font: UIFont) -> CGFloat {
         let text: String = self
-        let fontAttributes = [NSAttributedStringKey.font: font]
+        let fontAttributes = [NSAttributedString.Key.font: font]
         let size = (text as NSString).size(withAttributes: fontAttributes)
         return size.width
     }
     
     func heightOfString(usingFont font: UIFont) -> CGFloat {
         let text: String = self
-        let fontAttributes = [NSAttributedStringKey.font: font]
+        let fontAttributes = [NSAttributedString.Key.font: font]
         let size = (text as NSString).size(withAttributes: fontAttributes)
         return size.height
     }
@@ -501,7 +501,7 @@ public extension String {
         let rect = CGRect(origin: CGPoint.zero, size: size)
         UIRectFill(CGRect(origin: CGPoint.zero, size: size))
         
-        (self as NSString).draw(in: rect, withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: fontSize)]) 
+        (self as NSString).draw(in: rect, withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]) 
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

@@ -40,7 +40,7 @@ public class WackAJellyFishViewController: UIViewController {
         // Set the view's delegate
         sceneView.delegate = self
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints, SCNDebugOptions.showWorldOrigin]
         
         sceneView.autoenablesDefaultLighting = true
         

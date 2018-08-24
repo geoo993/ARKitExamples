@@ -175,7 +175,7 @@ public class FocusSquare: SCNNode {
 		
 		// Open animation
 		SCNTransaction.begin()
-		SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+		SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
 		SCNTransaction.animationDuration = animationDuration / 4
 		focusSquareNode.opacity = 1.0
         self.segments.forEach { segment in segment.open() }
@@ -184,7 +184,7 @@ public class FocusSquare: SCNNode {
 		
 		// Scale/bounce animation
 		SCNTransaction.begin()
-		SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+		SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
 		SCNTransaction.animationDuration = animationDuration / 4
 		focusSquareNode.setUniformScale(focusSquareSize)
 		SCNTransaction.commit()
@@ -203,12 +203,12 @@ public class FocusSquare: SCNNode {
 		
 		// Close animation
 		SCNTransaction.begin()
-		SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+		SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
 		SCNTransaction.animationDuration = self.animationDuration / 2
 		focusSquareNode.opacity = 0.99
 		SCNTransaction.completionBlock = {
 			SCNTransaction.begin()
-			SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+			SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
 			SCNTransaction.animationDuration = self.animationDuration / 4
             self.segments.forEach { segment in segment.close() }
 			SCNTransaction.completionBlock = { self.isAnimating = false }
@@ -252,9 +252,9 @@ public class FocusSquare: SCNNode {
 	private func scaleAnimation(for keyPath: String) -> CAKeyframeAnimation {
 		let scaleAnimation = CAKeyframeAnimation(keyPath: keyPath)
 		
-		let easeOut = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-		let easeInOut = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-		let linear = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+		let easeOut = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+		let easeInOut = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+		let linear = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
 		
 		let fs = focusSquareSize
 		let ts = focusSquareSize * scaleForClosedSquare

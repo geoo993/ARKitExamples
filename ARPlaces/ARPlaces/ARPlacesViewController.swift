@@ -119,8 +119,8 @@ public class ARPlacesViewController: UIViewController {
     
     func showInfoView(forPlace place: Place) {
         //1
-        let alert = UIAlertController(title: place.placeName , message: place.infoText, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: place.placeName , message: place.infoText, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         //2 
         arViewController.present(alert, animated: true, completion: nil)
     }

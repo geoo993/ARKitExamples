@@ -335,6 +335,7 @@ public class Camera {
 
     func createViewmatrix() -> matrix_float4x4 {
         var m = matrix_float4x4()
+        right = cross(up, front)
         m.columns.0 = float4(right.x, right.y, right.z, 0.0)
         m.columns.1 = float4(up.x, up.y, up.z, 0.0)
         m.columns.2 = float4(back.x, back.y, back.z, 0.0)

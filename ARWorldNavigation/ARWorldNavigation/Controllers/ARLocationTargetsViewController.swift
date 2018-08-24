@@ -37,7 +37,7 @@ public class ARLocationTargetsViewController: UIViewController {
         sceneView.delegate = self
         sceneView.session.delegate = self
 
-        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin, SCNDebugOptions.showFeaturePoints]
 
         sceneView.autoenablesDefaultLighting = true
 

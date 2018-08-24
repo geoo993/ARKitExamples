@@ -22,6 +22,8 @@
 		C72998EF20232010009B0F4C /* ARDancingDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72998ED20232010009B0F4C /* ARDancingDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72F823520221E2200958877 /* ARDiceeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72F823420221E2200958877 /* ARDiceeDemo.framework */; };
 		C72F823620221E2200958877 /* ARDiceeDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72F823420221E2200958877 /* ARDiceeDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7336F81212F710E00B03884 /* ARPhysicallyBasedRenderingDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7336F80212F710E00B03884 /* ARPhysicallyBasedRenderingDemo.framework */; };
+		C7336F82212F710E00B03884 /* ARPhysicallyBasedRenderingDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7336F80212F710E00B03884 /* ARPhysicallyBasedRenderingDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C753D956202137D50027B094 /* WackAJellyFishDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C753D955202137D50027B094 /* WackAJellyFishDemo.framework */; };
 		C753D957202137D50027B094 /* WackAJellyFishDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C753D955202137D50027B094 /* WackAJellyFishDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C75EBB732020DBEB00E484CE /* ARDrawingDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */; };
@@ -99,6 +101,7 @@
 				C7830AF92027A61100FD2FE6 /* ARWorldNavigationDemo.framework in Embed Frameworks */,
 				C7116AD7204AC9F8006BD08F /* SDWebImage.framework in Embed Frameworks */,
 				C784AFB920438C5F000376F0 /* ARObjectRecognitionDemo.framework in Embed Frameworks */,
+				C7336F82212F710E00B03884 /* ARPhysicallyBasedRenderingDemo.framework in Embed Frameworks */,
 				C753D957202137D50027B094 /* WackAJellyFishDemo.framework in Embed Frameworks */,
 				C72998EF20232010009B0F4C /* ARDancingDemo.framework in Embed Frameworks */,
 			);
@@ -120,6 +123,7 @@
 		C7143D582021EF0D000923B9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		C72998ED20232010009B0F4C /* ARDancingDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDancingDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72F823420221E2200958877 /* ARDiceeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDiceeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7336F80212F710E00B03884 /* ARPhysicallyBasedRenderingDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPhysicallyBasedRenderingDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C753D955202137D50027B094 /* WackAJellyFishDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WackAJellyFishDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75EBB722020DBEB00E484CE /* ARDrawingDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARDrawingDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75EBB912020E38200E484CE /* ARPlanetsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARPlanetsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +168,7 @@
 				C7857B5920215BCD00CE199E /* ARPortalDemo.framework in Frameworks */,
 				C7DD3D5C2020D825000B5543 /* AppCore.framework in Frameworks */,
 				C7F3C526202757B70028C2AE /* ARPlacesDemo.framework in Frameworks */,
+				C7336F81212F710E00B03884 /* ARPhysicallyBasedRenderingDemo.framework in Frameworks */,
 				C7E0222E20226E260091D145 /* ARTelevisionDemo.framework in Frameworks */,
 				C77768AD20253A8300CE16BB /* ARHomeDemo.framework in Frameworks */,
 				C75EBB922020E38200E484CE /* ARPlanetsDemo.framework in Frameworks */,
@@ -183,6 +188,7 @@
 		C7DD3D3B2020D79B000B5543 = {
 			isa = PBXGroup;
 			children = (
+				C7336F80212F710E00B03884 /* ARPhysicallyBasedRenderingDemo.framework */,
 				C7DCD88D211F6CE3002E9FA3 /* ARFireballDemo.framework */,
 				C7DCD846211F5DD4002E9FA3 /* ARVehicleDemo.framework */,
 				C7116B18204ACC3E006BD08F /* ARObjectDetectionDemo.framework */,
@@ -273,6 +279,7 @@
 				TargetAttributes = {
 					C7DD3D432020D79B000B5543 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -465,7 +472,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARDemos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -483,7 +491,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ARDemos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

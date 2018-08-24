@@ -117,7 +117,7 @@ public class ARWorldNavigationViewController: UIViewController {
     var originLocation: CLLocation?
     var currentLocation: CLLocation?
     let locationManager = CLLocationManager()
-    var steps: [MKRouteStep] = []
+    var steps: [MKRoute.Step] = []
     var annotations: [POIAnnotation] = []
     var annotationColor = UIColor.random
     var sourceAnnotation = MKPointAnnotation()
@@ -304,12 +304,12 @@ public class ARWorldNavigationViewController: UIViewController {
 
     func update(location: CLLocation) {
         let spanValue = CLLocationDegrees(spanView.value)
-        let span : MKCoordinateSpan = MKCoordinateSpanMake(spanValue,spanValue)
+        let span : MKCoordinateSpan = MKCoordinateSpan.init(latitudeDelta: spanValue,longitudeDelta: spanValue)
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         let altitude = location.altitude
         let locationPinCoordinate = CLLocationCoordinate2DMake(latitude, longitude)
-        let region = MKCoordinateRegionMake(locationPinCoordinate, span)
+        let region = MKCoordinateRegion.init(center: locationPinCoordinate, span: span)
 
         if currentLocation == nil {
             mapView.setRegion(region, animated: true)
@@ -370,7 +370,7 @@ public class ARWorldNavigationViewController: UIViewController {
                                                                   destination.coordinate.longitude)
         annotateMap(with: destinationAnnotation, name:"destination", location2D: destinationCoordinates2D)
 
-        let directionRequest = MKDirectionsRequest()
+        let directionRequest = MKDirections.Request()
 
         NavigationService
             .getDirections(from: sourceCoordinates2D,
@@ -399,9 +399,9 @@ public class ARWorldNavigationViewController: UIViewController {
         annotationColor = .random
 
         let rect = route.polyline.boundingMapRect
-        let region = MKCoordinateRegionForMapRect(rect)
+        let region = MKCoordinateRegion.init(rect)
         mapView.setRegion(region, animated: true)
-        mapView.add(route.polyline, level: .aboveRoads)
+        mapView.addOverlay(route.polyline, level: .aboveRoads)
     }
 
     func addCircleAnnotations(with annotations: [POIAnnotation]) {
@@ -414,7 +414,7 @@ public class ARWorldNavigationViewController: UIViewController {
                 guard let this = self else { return }
                 //self.mapView?.addAnnotation(annotation)
                 let circleOverlay = MKCircle(center: annotation.coordinate, radius: 0.2)
-                this.mapView.add(circleOverlay)
+                this.mapView.addOverlay(circleOverlay)
                 this.overlays.append(circleOverlay)
             }
         }

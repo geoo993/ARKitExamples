@@ -21,6 +21,18 @@ struct Vertex
     float2 textureCoordinate;
 };
 
+// --------- Materials Argument Buffer --------
+struct Material
+{
+    vector_float4 color;
+    texture2d<float> surfaceTexture;
+    texture2d<float> specularTexture;
+    sampler textureSampler;
+    float intensity; //Shininess values typically range from 1 to 128. Higher values result in more focussed specular highlights.
+    float roughness;
+    bool useTexture;
+};
+
 // https://stackoverflow.com/questions/50557224/metal-emulate-geometry-shaders-using-compute-shaders
 vertex VertexOut vertex_porcupine_shader(device Vertex *vertices  [[ buffer(BufferIndexMeshVertices) ]],
                                         // device const uint *indexes [[buffer(BufferIndexMeshIndices)]],
@@ -39,7 +51,7 @@ vertex VertexOut vertex_porcupine_shader(device Vertex *vertices  [[ buffer(Buff
 
     float4x4 projectionMatrix = uniform.projectionMatrix;
     float4x4 modelMatrix = uniform.modelMatrix;
-    float3x3 normalMatrix = uniform.normalMatrix;
+    //float3x3 normalMatrix = uniform.normalMatrix;
     float4x4 viewMatrix = uniform.viewMatrix;
 
     // Calculate the position of our vertex in clip space and output for clipping and rasterization

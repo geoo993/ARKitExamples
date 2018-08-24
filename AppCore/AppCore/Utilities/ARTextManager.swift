@@ -232,7 +232,7 @@ public class ARTextManager {
     // MARK: - Background Blur
 	
 	public func blurBackground() {
-		let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+		let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
 		let blurEffectView = UIVisualEffectView(effect: blurEffect)
 		blurEffectView.frame = viewController.view.bounds
 		blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

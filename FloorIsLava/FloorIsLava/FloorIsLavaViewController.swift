@@ -38,7 +38,7 @@ public class FloorIsLavaViewController: UIViewController {
         // Show statistics such as fps and timing information
         //sceneView.showsStatistics = true
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints, SCNDebugOptions.showWorldOrigin]
         
         sceneView.autoenablesDefaultLighting = true
         

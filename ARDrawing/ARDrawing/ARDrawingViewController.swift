@@ -31,7 +31,7 @@ public class ARDrawingViewController: UIViewController {
         // Set the view's delegate
         sceneView.delegate = self
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints, SCNDebugOptions.showWorldOrigin]
         
         self.sceneView.autoenablesDefaultLighting = true
 

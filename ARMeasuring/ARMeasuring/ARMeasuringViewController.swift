@@ -35,7 +35,7 @@ public class ARMeasuringViewController: UIViewController {
         // Set the view's delegate
         sceneView.delegate = self
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints]
         
         // Show statistics such as fps and timing information
         //sceneView.showsStatistics = true
@@ -121,8 +121,8 @@ extension ARMeasuringViewController {
         if let camerafront = sceneView.cameraFront(by: distanceFromCamera) {
 
             let color = UIColor.random
-            let startnode = SCNNode.createSphere(with: "", radius: 0.01, at: camerafront, color: color)
-            let endnode = SCNNode.createSphere(with: "", radius: 0.01, at: camerafront, color: color)
+            let startnode = SCNNode.createSphere(with: "", radius: 0.01, transform: camerafront, color: color)
+            let endnode = SCNNode.createSphere(with: "", radius: 0.01, transform: camerafront, color: color)
             sceneView.scene.rootNode.addChildNode(startnode)
             sceneView.scene.rootNode.addChildNode(endnode)
             

@@ -38,7 +38,7 @@ public extension SCNNode {
         )
     }
     
-    public static func createBox(with name: String, radius: CGFloat, at position : SCNVector3, color: UIColor) -> SCNNode {
+    public static func createBox(with name: String, radius: CGFloat, position : SCNVector3, color: UIColor) -> SCNNode {
         let box = SCNBox(width: radius, height: radius, length: radius, chamferRadius: 0)
         let node = SCNNode(geometry: box)
         node.position = position
@@ -47,7 +47,7 @@ public extension SCNNode {
         return node
     }
     
-    public static func createBox(with name: String, radius: CGFloat, at transform : simd_float4x4 , color: UIColor) -> SCNNode {
+    public static func createBox(with name: String, radius: CGFloat, transform : simd_float4x4 , color: UIColor) -> SCNNode {
         let box = SCNBox(width: radius, height: radius, length: radius, chamferRadius: 0)
         let node = SCNNode(geometry: box)
         node.simdTransform = transform
@@ -56,7 +56,7 @@ public extension SCNNode {
         return node
     }
     
-    public static func createSphere(with name: String, radius: CGFloat, at position : SCNVector3, color: UIColor) -> SCNNode {
+    public static func createSphere(with name: String, radius: CGFloat, position : SCNVector3, color: UIColor) -> SCNNode {
         let node = SCNNode(geometry: SCNSphere(radius: radius))
         node.position = position
         node.name = name
@@ -64,7 +64,7 @@ public extension SCNNode {
         return node
     }
     
-    public static func createSphere(with name: String, radius: CGFloat, at transform : simd_float4x4 , color: UIColor) -> SCNNode {
+    public static func createSphere(with name: String, radius: CGFloat, transform : simd_float4x4 , color: UIColor) -> SCNNode {
         let node = SCNNode(geometry: SCNSphere(radius: radius))
         node.simdTransform = transform
         node.name = name
@@ -101,7 +101,7 @@ public extension SCNNode {
           
             SCNTransaction.begin()
             SCNTransaction.animationDuration = CFTimeInterval(distanceToPlane * 500) // Move 2 mm per second.
-            SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             self.position.y = anchor.transform.columns.3.y
             SCNTransaction.commit()
         }

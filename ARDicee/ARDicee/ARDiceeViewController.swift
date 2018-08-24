@@ -41,7 +41,7 @@ public class ARDiceeViewController: UIViewController {
         // Set the view's delegate
         sceneView.delegate = self
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        sceneView.debugOptions = [SCNDebugOptions.showFeaturePoints, SCNDebugOptions.showWorldOrigin]
         
         // Show statistics such as fps and timing information
         //sceneView.showsStatistics = true
@@ -261,7 +261,7 @@ extension ARDiceeViewController {
 // MARK: - Shake Motion 
 extension ARDiceeViewController {  
     
-    public override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    public override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         rollAll()
     }
 }

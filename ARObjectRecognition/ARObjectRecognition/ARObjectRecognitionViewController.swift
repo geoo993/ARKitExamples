@@ -70,7 +70,7 @@ public class ARObjectRecognitionViewController: UIViewController {
         // Set the view's delegate
         sceneView.delegate = self
 
-        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+        sceneView.debugOptions = [SCNDebugOptions.showWorldOrigin, SCNDebugOptions.showFeaturePoints]
 
         // Enable Default Lighting - makes the 3D text a bit poppier.
         sceneView.autoenablesDefaultLighting = true
@@ -265,7 +265,7 @@ extension ARObjectRecognitionViewController {
         let bubble = SCNText(string: text, extrusionDepth: CGFloat(bubbleDepth))
         let font = UIFont(name: FamilyName.chalkboardSEBold, size: 0.15)
         bubble.font = font
-        bubble.alignmentMode = kCAAlignmentCenter
+        bubble.alignmentMode = convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.center)
         bubble.firstMaterial?.diffuse.contents = color
         bubble.firstMaterial?.specular.contents = UIColor.white
         bubble.firstMaterial?.isDoubleSided = true
@@ -297,3 +297,8 @@ extension ARObjectRecognitionViewController {
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromCATextLayerAlignmentMode(_ input: CATextLayerAlignmentMode) -> String {
+	return input.rawValue
+}

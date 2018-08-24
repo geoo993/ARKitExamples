@@ -33,11 +33,7 @@ public extension ARSCNView {
         let featureHit: float3
         let featureDistanceToHitResult: Float
     }
-    
-    public func unprojectPoint(_ point: float3) -> float3 {
-        return float3(self.unprojectPoint(SCNVector3(point)))
-    }
-    
+
     // MARK: - Hit Tests
     
     public func hitTestRayFromScreenPos(_ point: CGPoint) -> HitTestRay? {
@@ -50,7 +46,7 @@ public extension ARSCNView {
         
         // Note: z: 1.0 will unproject() the screen position to the far clipping plane.
         let positionVec = float3(x: Float(point.x), y: Float(point.y), z: 1.0)
-        let screenPosOnFarClippingPlane = self.unprojectPoint(positionVec)
+        let screenPosOnFarClippingPlane = self.unprojectPoint(positionVec.toVector3).toFloat3
         
         let rayDirection = simd_normalize(screenPosOnFarClippingPlane - cameraPos)
         return HitTestRay(origin: cameraPos, direction: rayDirection)
