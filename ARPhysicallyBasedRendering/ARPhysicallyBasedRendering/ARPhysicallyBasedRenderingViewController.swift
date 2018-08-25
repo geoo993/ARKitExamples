@@ -29,6 +29,7 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
     @IBOutlet weak var objectsCollectionView: UICollectionView!
     @IBOutlet weak var tesselationSlider1: UISlider!
     @IBOutlet weak var tesselationSlider2: UISlider!
+    @IBOutlet weak var trackingStateLabel: UILabel!
 
     @IBAction func onSlider(_ sender: UISlider) {
         switch sender.tag {
@@ -90,6 +91,7 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
     }
 
     var node: SCNNode!
+    var planes: [String : SCNNode] = [:]
     var tessalationType: TessalationType!
     var tessalationValue1: Float = 0 {
         didSet {
@@ -107,10 +109,9 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
         }
     }
 
-    var setCurrentObject: Bool = false
     var currentObjectIndex: Int = 0 {
         didSet {
-            setCurrentObject = true
+            
         }
     }
 
@@ -156,12 +157,8 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
 
         // Create a new scene
         if let sceneView = self.sceneView {
-            // get the scene
-            let scene = SCNScene.loadScene(from: ARPhysicallyBasedRenderingViewController.bundle,
-                                           scnassets: "Scene", name: "scene")!
-
             // set the scene to the view
-            sceneView.scene = scene
+            sceneView.scene = SCNScene()
 
             // Set the view's delegate
             sceneView.delegate = self
@@ -174,25 +171,43 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
             //sceneView.autoenablesDefaultLighting = true
             // 4
             sceneView.automaticallyUpdatesLighting = true
+
+            // Prevent the screen from being dimmed after a while as users will likely
+            // have long periods of interaction without touching the screen or buttons.
+            UIApplication.shared.isIdleTimerDisabled = true
+
+            //let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(setObjectOnAnchor))
+            //tapGestureRecogniser.numberOfTapsRequired = 1
+            //sceneView.addGestureRecognizer(tapGestureRecogniser)
+
         }
 
     }
-    
+
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         if #available(iOS 12.0, *) {
+
             // Create a session configuration
             let configuration = ARWorldTrackingConfiguration()
 
+            configuration.planeDetection = [.horizontal, .vertical]
+
+            // add environment texture
             configuration.environmentTexturing = .automatic
+
+            // add light estimation
+            configuration.isLightEstimationEnabled = true
+            // the result of light estimation is provided to you via ARFrame as:
+            // let intensity = frame.lightEstimate?.ambientIntensity
 
             // Run the view's session
             sceneView.session.run(configuration)
+
         } else {
             // Fallback on earlier versions
         }
-
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -207,6 +222,44 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
         sceneView.session.pause()
     }
 
+    private func updateSessionInfoLabel(for frame: ARFrame, trackingState: ARCamera.TrackingState) {
+        // Update the UI to provide feedback on the state of the AR experience.
+        let message: String
+
+        switch trackingState {
+        case .normal where frame.anchors.isEmpty:
+            // No planes detected; provide instructions for this app's AR interactions.
+            message = "Move the device around to detect horizontal and vertical surfaces."
+
+        case .notAvailable:
+            message = "Tracking unavailable."
+
+        case .limited(.excessiveMotion):
+            message = "Tracking limited - Move the device more slowly."
+
+        case .limited(.insufficientFeatures):
+            message = "Tracking limited - Point the device at an area with visible surface detail, or improve lighting conditions."
+
+        case .limited(.initializing):
+            message = "Initializing AR session."
+
+        default:
+            // No feedback needed when tracking is normal and planes are visible.
+            // (Nor when in unreachable limited-tracking states.)
+            message = ""
+
+        }
+        trackingStateLabel.text = message
+    }
+
+    private func resetTracking() {
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = [.horizontal, .vertical]
+        configuration.environmentTexturing = .automatic
+        configuration.isLightEstimationEnabled = true
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+    }
+
     private func showHelperAlertIfNeeded() {
         let key = "ARPhysicallyBasedRenderingViewController.helperAlert.didShow"
         if !UserDefaults.standard.bool(forKey: key) {
@@ -218,18 +271,12 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
         }
     }
 
-    func setObject(object: Object, zOffset : Float) {
+    func setObject(hitTestResult: ARHitTestResult, object: Object, zOffset : Float) {
+        
         // position is a combination of orientation and location
-        guard let pointOfView = sceneView.pointOfView else { return }
-        let transform = pointOfView.transform
-        var direction = SCNVector3(-transform.m31, -transform.m32, -transform.m33) // in the third column in the matrix
-        let location = SCNVector3(transform.m41, transform.m42, transform.m43) // the translation in fourth column in the matrix
-        let currentPositionOfCamera = direction + location
-        let zPosition = direction.normalize() * zOffset
-
-        if node != nil, sceneView.scene.rootNode.childNodes.contains(where: { $0.name == node.name }) {
-            node.removeFromParentNode()
-        }
+        let transform = hitTestResult.worldTransform
+        //var direction = SCNVector3(x: -transform.columns.2.x, y: -transform.columns.2.y, z: -transform.columns.2.z)
+        let position = SCNVector3(x: transform.columns.3.x, y: transform.columns.3.y, z: transform.columns.3.z)
 
         // select a node - As we know we only loaded one object
         let objectName = String(describing: object)
@@ -238,11 +285,11 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
                                scnassets: "Scene", name: objectName)!
         node = objectScene.rootNode.childNode(withName: objectName, recursively: false)!
         node.name = objectName
-        node.orientation = pointOfView.orientation
-        node.position = currentPositionOfCamera + zPosition
+        node.position = position
 
         setRotation(of: object)
 
+        sceneView.scene.rootNode.childNodes.forEach { $0.removeFromParentNode() }
         sceneView.scene.rootNode.addChildNode(node)
     }
 
@@ -263,24 +310,24 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
 
     func setMaterial(at index: Int) {
         guard node != nil else { return }
-        let material = node.geometry?.firstMaterial
 
         // Create the reflective material and apply it to the sphere
-        material?.lightingModel = .physicallyBased
-        material?.transparencyMode = .singleLayer
+        node.geometry?.firstMaterial?.lightingModel = .physicallyBased
+        node.geometry?.firstMaterial?.transparencyMode = .singleLayer
 
         // Setup the material maps for your object
         let materialFilePrefix = materialPrefixes[index];
-        material?.diffuse.contents =
+        node.geometry?.firstMaterial?.diffuse.contents =
             UIImage(named: "\(materialFilePrefix)-albedo.png", in: ARPhysicallyBasedRenderingViewController.bundle, compatibleWith: nil)
-        material?.roughness.contents =
+        node.geometry?.firstMaterial?.roughness.contents =
             UIImage(named: "\(materialFilePrefix)-roughness.png", in: ARPhysicallyBasedRenderingViewController.bundle, compatibleWith: nil)
-        material?.metalness.contents =
+        node.geometry?.firstMaterial?.metalness.contents =
             UIImage(named: "\(materialFilePrefix)-metal.png", in: ARPhysicallyBasedRenderingViewController.bundle, compatibleWith: nil)
-        material?.normal.contents =
+        node.geometry?.firstMaterial?.normal.contents =
             UIImage(named: "\(materialFilePrefix)-normal.png", in: ARPhysicallyBasedRenderingViewController.bundle, compatibleWith: nil)
-        material?.ambientOcclusion.contents =
+        node.geometry?.firstMaterial?.ambientOcclusion.contents =
             UIImage(named: "\(materialFilePrefix)-ao.png", in: ARPhysicallyBasedRenderingViewController.bundle, compatibleWith: nil)
+
     }
 
     func setTesselation(value1: Float, value2: Float) {
@@ -345,6 +392,59 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
         //self.sceneView.scene.lightingEnvironment.intensity = 2.0
     }
 
+    // intersect with feature points directly
+    // this means that we will find an intersect of long ray which is closest to an existing feature point
+    // and returns this as the result as ARAnchor
+    @objc func setObjectOnAnchor(_ sender: UITapGestureRecognizer) {
+        guard let sceneView = sender.view as? ARSCNView else { return }
+        // first we define our ray and it intersects on our device
+        // we provide this as a CGPoint, which is represented in a normalised image space coordinate.
+        // this means the top left of out image is (x: 0.0, y: 0.0) and bottom right is (x:1.0, y: 1.0)
+        // this is adding an ARAnchor based on hit-test, and it is to find an intersection from the center
+        // our screen
+
+        // perform hit-test on tap gesture location
+        let location = sender.location(in: sceneView)
+        //let halfScreenSize = CGPoint(UIScreen.main.bounds.size.half)
+        let hitTest = self.sceneView.hitTest(location, types: [.existingPlane, .existingPlaneUsingExtent])
+        setObject(with: hitTest)
+
+    }
+
+    func setObject(with hitTests: [ARHitTestResult]) {
+        // use the first result
+        if let closestResult = hitTests.first {
+
+            // Create an Anchor for it
+            //let anchor = ARAnchor(name: "myAnchor", transform: closestResult.worldTransform)
+            //session.add(anchor: anchor)
+            setObject(hitTestResult: closestResult, object: Object(rawValue: currentObjectIndex)!, zOffset: 20)
+            setMaterial(at: currentMaterialIndex)
+            setSubdivisions(value: subdivisionsValue)
+            setTesselation(value1: tessalationValue1, value2: tessalationValue2)
+            setFillMode(lines: currentFillModeIndex)
+        }
+    }
+
+    func getWorldMap() -> ARWorldMap? {
+        // Retrive world map from session object
+        sceneView.session.getCurrentWorldMap { (worldMap, error) in
+            guard let worldMap = worldMap else {
+                //showAlert()
+                return
+            }
+        }
+
+        return nil
+    }
+
+    func loadWorldMap(map: ARWorldMap) {
+        // Load world map and run the configuration
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.initialWorldMap = map
+        sceneView.session.run(configuration)
+    }
+
     deinit {
         print("AR Physically Based Rendering deinit")
     }
@@ -353,52 +453,98 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
 
 // MARK: - ARSCNViewDelegate
 extension ARPhysicallyBasedRenderingViewController: ARSCNViewDelegate {
-    
-/*
+
+
+    /*
     // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+    public func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         let node = SCNNode()
-     
         return node
     }
 */
-
     // called 60 times per second (60 fps)
     public func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
 
-        if setCurrentObject {
-            setObject(object: Object(rawValue: currentObjectIndex)!, zOffset: 20)
-            setMaterial(at: currentMaterialIndex)
-            setSubdivisions(value: subdivisionsValue)
-            setTesselation(value1: tessalationValue1, value2: tessalationValue2)
-            setFillMode(lines: currentFillModeIndex)
-            //setBackground(bg: sceneView.scene.background, env: sceneView.scene.background)
-            setCurrentObject = false
-        }
+    }
+
+    public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        // Place content only for anchors found by plane detection.
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+
+        // Create a custom object to visualize the plane geometry and extent.
+        let plane = Plane.init(anchor: planeAnchor,
+                               in: sceneView,
+                               bundle: ARPhysicallyBasedRenderingViewController.bundle)
+
+        // Add the visualization to the ARKit-managed node so that it tracks
+        // changes in the plane anchor as plane estimation continues.
+        node.addChildNode(plane)
+
     }
 
     public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        // Update only anchors and nodes set up by `renderer(_:didAdd:for:)`.
+        guard let planeAnchor = anchor as? ARPlaneAnchor,
+            let plane = node.childNodes.first as? Plane
+            else { return }
+
+        // Update ARSCNPlaneGeometry to the anchor's new estimated shape.
+        //if let planeGeometry = plane.meshNode.geometry as? ARSCNPlaneGeometry {
+        //    planeGeometry.update(from: planeAnchor.geometry)
+        //}
+
+        // Update extent visualization to the anchor's new bounding rectangle.
+        if let extentGeometry = plane.extentNode.geometry as? SCNPlane {
+            extentGeometry.width = CGFloat(planeAnchor.extent.x)
+            extentGeometry.height = CGFloat(planeAnchor.extent.z)
+            plane.extentNode.simdPosition = planeAnchor.center
+        }
+    }
+
+    public func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
 
     }
 
-    public func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-
+    public func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+        guard let frame = session.currentFrame else { return }
+        updateSessionInfoLabel(for: frame, trackingState: frame.camera.trackingState)
     }
 
     public func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        print(anchors)
+        guard let frame = session.currentFrame else { return }
+        updateSessionInfoLabel(for: frame, trackingState: frame.camera.trackingState)
     }
-    
+
+    public func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
+        guard let frame = session.currentFrame else { return }
+        updateSessionInfoLabel(for: frame, trackingState: frame.camera.trackingState)
+    }
+
+    public func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        updateSessionInfoLabel(for: session.currentFrame!, trackingState: camera.trackingState)
+    }
+
+
+    // MARK: - ARSessionObserver
     public func sessionWasInterrupted(_ session: ARSession) {
         // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
+            // showOverlay()
+        trackingStateLabel.text = "Session was interrupted"
     }
-    
+
     public func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
+        // hideOverlay()
+        trackingStateLabel.text = "Session interruption ended"
+        resetTracking()
     }
+
+    public func session(_ session: ARSession, didFailWithError error: Error) {
+        // Present an error message to the user.
+        trackingStateLabel.text = "Session failed: \(error.localizedDescription)"
+        resetTracking()
+    }
+
 }
 
 extension ARPhysicallyBasedRenderingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -437,11 +583,17 @@ extension ARPhysicallyBasedRenderingViewController: UICollectionViewDelegate, UI
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == objectsCollectionView {
             currentObjectIndex = indexPath.row
+
+            // perform hit-test on frame
+            let point = CGPoint(x: 0.5, y: 0.5) // Image center
+            let frame = sceneView.session.currentFrame!
+            let hitTest = frame.hitTest(point, types: [.existingPlane, .existingPlaneUsingExtent])
+            setObject(with: hitTest)
+
         } else if collectionView == materialsCollectionView {
             currentMaterialIndex = indexPath.row
         } else {
 
         }
     }
-
 }

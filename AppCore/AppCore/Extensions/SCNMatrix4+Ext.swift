@@ -103,4 +103,10 @@ public extension SCNMatrix4
         return SCNVector3(x, y, z)
     }
 
+    public var toFloat4x4: float4x4 {
+        return float4x4(float4(m11, m12, m13, m14),
+                        float4(m21, m22, m23, m24),
+                        float4(m31, m32, m33, m34),
+                        float4(m41, m42, m43, m44))
+    }
 }

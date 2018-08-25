@@ -132,26 +132,43 @@
                                     <action selector="onSlider:" destination="y4p-90-i2w" eventType="valueChanged" id="TV6-Ke-9lu"/>
                                 </connections>
                             </slider>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Pjm-VR-Oav">
-                                <rect key="frame" x="0.0" y="993" width="51" height="31"/>
-                                <connections>
-                                    <action selector="onSwitch:" destination="y4p-90-i2w" eventType="valueChanged" id="VSm-kf-JQ0"/>
-                                </connections>
-                            </switch>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Y0v-Ht-yAB">
-                                <rect key="frame" x="472" y="996" width="296" height="29"/>
-                                <segments>
-                                    <segment title="Uniform"/>
-                                    <segment title="Local Space"/>
-                                    <segment title="Screen Space"/>
-                                </segments>
-                                <connections>
-                                    <action selector="onSegmentedControl:" destination="y4p-90-i2w" eventType="valueChanged" id="6IP-U2-4J3"/>
-                                </connections>
-                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvc-ET-qlP">
+                                <rect key="frame" x="0.0" y="993" width="768" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Pjm-VR-Oav">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="31"/>
+                                        <connections>
+                                            <action selector="onSwitch:" destination="y4p-90-i2w" eventType="valueChanged" id="VSm-kf-JQ0"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="MOO-Ql-3ly" userLabel="Tracking State Label">
+                                        <rect key="frame" x="77" y="0.0" width="384" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Y0v-Ht-yAB">
+                                        <rect key="frame" x="461" y="0.0" width="307" height="32"/>
+                                        <segments>
+                                            <segment title="Uniform"/>
+                                            <segment title="Local Space"/>
+                                            <segment title="Screen Space"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="onSegmentedControl:" destination="y4p-90-i2w" eventType="valueChanged" id="6IP-U2-4J3"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Pjm-VR-Oav" firstAttribute="width" secondItem="uvc-ET-qlP" secondAttribute="width" multiplier="0.1" id="AGH-w9-LOT"/>
+                                    <constraint firstItem="Y0v-Ht-yAB" firstAttribute="width" secondItem="uvc-ET-qlP" secondAttribute="width" multiplier="0.4" id="TE2-dc-dJS"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="uvc-ET-qlP" firstAttribute="trailing" secondItem="gWX-0u-g0D" secondAttribute="trailing" id="0TN-6c-sXS"/>
                             <constraint firstItem="gWX-0u-g0D" firstAttribute="trailing" secondItem="BX1-CI-DNR" secondAttribute="trailing" id="1Iy-hB-awR"/>
                             <constraint firstItem="4po-rE-bIm" firstAttribute="centerY" secondItem="ynG-hK-qbT" secondAttribute="centerY" id="1qw-pe-Fv2"/>
                             <constraint firstItem="LtY-W1-Ric" firstAttribute="leading" secondItem="gWX-0u-g0D" secondAttribute="leading" id="41h-XS-z3l"/>
@@ -160,19 +177,16 @@
                             <constraint firstItem="Gzg-Fk-i5I" firstAttribute="leading" secondItem="gWX-0u-g0D" secondAttribute="leading" id="AUA-Ri-ou1"/>
                             <constraint firstItem="4po-rE-bIm" firstAttribute="height" secondItem="ynG-hK-qbT" secondAttribute="height" id="CZI-xM-Ukb"/>
                             <constraint firstItem="dv1-mS-ftH" firstAttribute="top" secondItem="Gzg-Fk-i5I" secondAttribute="bottom" id="Dcp-Ez-Azs"/>
-                            <constraint firstItem="gWX-0u-g0D" firstAttribute="bottom" secondItem="Y0v-Ht-yAB" secondAttribute="bottom" id="DqW-wg-6bU"/>
                             <constraint firstItem="gWX-0u-g0D" firstAttribute="trailing" secondItem="dv1-mS-ftH" secondAttribute="trailing" id="FRK-wo-Nhv"/>
-                            <constraint firstItem="Pjm-VR-Oav" firstAttribute="leading" secondItem="gWX-0u-g0D" secondAttribute="leading" id="Gdy-8y-YmL"/>
-                            <constraint firstItem="gWX-0u-g0D" firstAttribute="bottom" secondItem="Pjm-VR-Oav" secondAttribute="bottom" id="LcI-tD-Und"/>
+                            <constraint firstItem="uvc-ET-qlP" firstAttribute="bottom" secondItem="gWX-0u-g0D" secondAttribute="bottom" id="Fgz-Z3-oZl"/>
                             <constraint firstItem="BX1-CI-DNR" firstAttribute="leading" secondItem="gWX-0u-g0D" secondAttribute="leading" id="Rat-on-wCb"/>
-                            <constraint firstItem="Y0v-Ht-yAB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pjm-VR-Oav" secondAttribute="trailing" constant="8" symbolic="YES" id="VFO-Ff-Rdy"/>
                             <constraint firstItem="dv1-mS-ftH" firstAttribute="leading" secondItem="gWX-0u-g0D" secondAttribute="leading" id="VHD-5A-I7t"/>
                             <constraint firstItem="4po-rE-bIm" firstAttribute="centerX" secondItem="ynG-hK-qbT" secondAttribute="centerX" id="VN9-2X-eA7"/>
                             <constraint firstItem="4po-rE-bIm" firstAttribute="width" secondItem="ynG-hK-qbT" secondAttribute="width" id="bZH-z3-dyQ"/>
                             <constraint firstItem="NYn-yU-8ug" firstAttribute="leading" secondItem="gWX-0u-g0D" secondAttribute="leading" id="fpt-Yf-LXo"/>
                             <constraint firstItem="LtY-W1-Ric" firstAttribute="top" secondItem="BX1-CI-DNR" secondAttribute="bottom" id="gMg-kF-d6W"/>
                             <constraint firstItem="Gzg-Fk-i5I" firstAttribute="top" secondItem="gWX-0u-g0D" secondAttribute="top" id="gmq-9I-3aw"/>
-                            <constraint firstItem="gWX-0u-g0D" firstAttribute="trailing" secondItem="Y0v-Ht-yAB" secondAttribute="trailing" id="hb3-eW-xn0"/>
+                            <constraint firstItem="uvc-ET-qlP" firstAttribute="leading" secondItem="gWX-0u-g0D" secondAttribute="leading" id="gt5-lq-4l9"/>
                             <constraint firstItem="gWX-0u-g0D" firstAttribute="trailing" secondItem="Gzg-Fk-i5I" secondAttribute="trailing" id="jBD-b6-1PD"/>
                             <constraint firstItem="gWX-0u-g0D" firstAttribute="trailing" secondItem="LtY-W1-Ric" secondAttribute="trailing" id="uBG-LC-b8B"/>
                             <constraint firstItem="BX1-CI-DNR" firstAttribute="top" secondItem="dv1-mS-ftH" secondAttribute="bottom" id="vlZ-De-e1Y"/>
@@ -185,6 +199,7 @@
                         <outlet property="sceneView" destination="4po-rE-bIm" id="CRA-KP-DNt"/>
                         <outlet property="tesselationSlider1" destination="BX1-CI-DNR" id="i47-0K-R3s"/>
                         <outlet property="tesselationSlider2" destination="LtY-W1-Ric" id="09s-Td-Hvb"/>
+                        <outlet property="trackingStateLabel" destination="MOO-Ql-3ly" id="Ygr-NH-ybZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAs-7v-Fta" userLabel="First Responder" sceneMemberID="firstResponder"/>

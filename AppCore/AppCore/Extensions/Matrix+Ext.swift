@@ -368,6 +368,10 @@ public extension float3x3 {
 
 
 public extension float4x4 {
+    public var toSCNMatrix4: SCNMatrix4 {
+        return SCNMatrix4(self)
+    }
+    
     // https://gist.github.com/codelynx/908fd30c93e40ea6408b
     static func makeScale(_ x: Float, _ y: Float, _ z: Float) -> float4x4 {
         return unsafeBitCast(GLKMatrix4MakeScale(x, y, z), to: float4x4.self)

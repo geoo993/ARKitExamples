@@ -14,7 +14,6 @@
 		C7336F77212F63B800B03884 /* ARPhysicallyBasedRendering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C76E6B1D212F631E000B5F87 /* ARPhysicallyBasedRendering.storyboard */; };
 		C7336F78212F63BB00B03884 /* ARPhysicallyBasedRenderingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E6B1B212F631E000B5F87 /* ARPhysicallyBasedRenderingViewController.swift */; };
 		C7336F7C212F65DE00B03884 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7336F7B212F65DE00B03884 /* AppCore.framework */; };
-		C7337116212F80B000B03884 /* mushroom.png in Resources */ = {isa = PBXBuildFile; fileRef = C733708C212F80B000B03884 /* mushroom.png */; };
 		C7337117212F80B000B03884 /* titanium-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C733708F212F80B000B03884 /* titanium-normal.png */; };
 		C7337118212F80B000B03884 /* titanium-albedo.png in Resources */ = {isa = PBXBuildFile; fileRef = C7337090212F80B000B03884 /* titanium-albedo.png */; };
 		C7337119212F80B000B03884 /* titanium-roughness.png in Resources */ = {isa = PBXBuildFile; fileRef = C7337091212F80B000B03884 /* titanium-roughness.png */; };
@@ -117,19 +116,11 @@
 		C733717A212F80B000B03884 /* plastic-albedo.png in Resources */ = {isa = PBXBuildFile; fileRef = C7337108212F80B000B03884 /* plastic-albedo.png */; };
 		C733717B212F80B000B03884 /* plastic-metal.png in Resources */ = {isa = PBXBuildFile; fileRef = C7337109212F80B000B03884 /* plastic-metal.png */; };
 		C733717C212F80B000B03884 /* plastic-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C733710A212F80B000B03884 /* plastic-normal.png */; };
-		C733717D212F80B000B03884 /* room_2002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C733710C212F80B000B03884 /* room_2002.jpg */; };
-		C733717E212F80B000B03884 /* executiveroom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C733710D212F80B000B03884 /* executiveroom.jpg */; };
-		C733717F212F80B000B03884 /* narthex_equirect.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C733710E212F80B000B03884 /* narthex_equirect.jpg */; };
-		C7337180212F80B000B03884 /* catholic church.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C733710F212F80B000B03884 /* catholic church.jpg */; };
-		C7337181212F80B000B03884 /* spherical.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7337110212F80B000B03884 /* spherical.jpg */; };
-		C7337182212F80B000B03884 /* sphericalBlurred.png in Resources */ = {isa = PBXBuildFile; fileRef = C7337111212F80B000B03884 /* sphericalBlurred.png */; };
-		C7337183212F80B000B03884 /* comicSkyBox.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7337112212F80B000B03884 /* comicSkyBox.jpg */; };
-		C7337184212F80B000B03884 /* station.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7337113212F80B000B03884 /* station.jpg */; };
-		C7337185212F80B000B03884 /* Rua Augusta Arch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C7337114212F80B000B03884 /* Rua Augusta Arch.jpg */; };
 		C7337186212F80B000B03884 /* Scene.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7337115212F80B000B03884 /* Scene.scnassets */; };
 		C7337188212F870200B03884 /* ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7337187212F870200B03884 /* ViewCell.swift */; };
 		C76E6B18212F631E000B5F87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E6B17212F631E000B5F87 /* AppDelegate.swift */; };
 		C76E6B24212F631F000B5F87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C76E6B22212F631F000B5F87 /* LaunchScreen.storyboard */; };
+		C7F1DB5E2131D51500F623D2 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F1DB5D2131D51500F623D2 /* Plane.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,7 +152,6 @@
 		C7336F6B212F63AA00B03884 /* ARPhysicallyBasedRenderingDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARPhysicallyBasedRenderingDemo.h; sourceTree = "<group>"; };
 		C7336F6C212F63AA00B03884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7336F7B212F65DE00B03884 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C733708C212F80B000B03884 /* mushroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mushroom.png; sourceTree = "<group>"; };
 		C733708F212F80B000B03884 /* titanium-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titanium-normal.png"; sourceTree = "<group>"; };
 		C7337090212F80B000B03884 /* titanium-albedo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titanium-albedo.png"; sourceTree = "<group>"; };
 		C7337091212F80B000B03884 /* titanium-roughness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titanium-roughness.png"; sourceTree = "<group>"; };
@@ -264,15 +254,6 @@
 		C7337108212F80B000B03884 /* plastic-albedo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plastic-albedo.png"; sourceTree = "<group>"; };
 		C7337109212F80B000B03884 /* plastic-metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plastic-metal.png"; sourceTree = "<group>"; };
 		C733710A212F80B000B03884 /* plastic-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plastic-normal.png"; sourceTree = "<group>"; };
-		C733710C212F80B000B03884 /* room_2002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = room_2002.jpg; sourceTree = "<group>"; };
-		C733710D212F80B000B03884 /* executiveroom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = executiveroom.jpg; sourceTree = "<group>"; };
-		C733710E212F80B000B03884 /* narthex_equirect.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = narthex_equirect.jpg; sourceTree = "<group>"; };
-		C733710F212F80B000B03884 /* catholic church.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "catholic church.jpg"; sourceTree = "<group>"; };
-		C7337110212F80B000B03884 /* spherical.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spherical.jpg; sourceTree = "<group>"; };
-		C7337111212F80B000B03884 /* sphericalBlurred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sphericalBlurred.png; sourceTree = "<group>"; };
-		C7337112212F80B000B03884 /* comicSkyBox.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comicSkyBox.jpg; sourceTree = "<group>"; };
-		C7337113212F80B000B03884 /* station.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = station.jpg; sourceTree = "<group>"; };
-		C7337114212F80B000B03884 /* Rua Augusta Arch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Rua Augusta Arch.jpg"; sourceTree = "<group>"; };
 		C7337115212F80B000B03884 /* Scene.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Scene.scnassets; sourceTree = "<group>"; };
 		C7337187212F870200B03884 /* ViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCell.swift; sourceTree = "<group>"; };
 		C76E6B14212F631E000B5F87 /* ARPhysicallyBasedRendering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARPhysicallyBasedRendering.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +263,7 @@
 		C76E6B20212F631F000B5F87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C76E6B23212F631F000B5F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C76E6B25212F631F000B5F87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7F1DB5D2131D51500F623D2 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,20 +306,10 @@
 		C733708A212F80B000B03884 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				C733708B212F80B000B03884 /* Textures */,
 				C733708D212F80B000B03884 /* Materials */,
-				C733710B212F80B000B03884 /* Environment */,
 				C7337115212F80B000B03884 /* Scene.scnassets */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		C733708B212F80B000B03884 /* Textures */ = {
-			isa = PBXGroup;
-			children = (
-				C733708C212F80B000B03884 /* mushroom.png */,
-			);
-			path = Textures;
 			sourceTree = "<group>";
 		};
 		C733708D212F80B000B03884 /* Materials */ = {
@@ -633,22 +605,6 @@
 			path = plastic;
 			sourceTree = "<group>";
 		};
-		C733710B212F80B000B03884 /* Environment */ = {
-			isa = PBXGroup;
-			children = (
-				C733710C212F80B000B03884 /* room_2002.jpg */,
-				C733710D212F80B000B03884 /* executiveroom.jpg */,
-				C733710E212F80B000B03884 /* narthex_equirect.jpg */,
-				C733710F212F80B000B03884 /* catholic church.jpg */,
-				C7337110212F80B000B03884 /* spherical.jpg */,
-				C7337111212F80B000B03884 /* sphericalBlurred.png */,
-				C7337112212F80B000B03884 /* comicSkyBox.jpg */,
-				C7337113212F80B000B03884 /* station.jpg */,
-				C7337114212F80B000B03884 /* Rua Augusta Arch.jpg */,
-			);
-			path = Environment;
-			sourceTree = "<group>";
-		};
 		C76E6B0B212F631E000B5F87 = {
 			isa = PBXGroup;
 			children = (
@@ -672,15 +628,24 @@
 			isa = PBXGroup;
 			children = (
 				C733708A212F80B000B03884 /* Assets */,
+				C7F1DB5F2131D60900F623D2 /* Views */,
 				C76E6B17212F631E000B5F87 /* AppDelegate.swift */,
 				C76E6B1B212F631E000B5F87 /* ARPhysicallyBasedRenderingViewController.swift */,
-				C7337187212F870200B03884 /* ViewCell.swift */,
 				C76E6B1D212F631E000B5F87 /* ARPhysicallyBasedRendering.storyboard */,
 				C76E6B20212F631F000B5F87 /* Assets.xcassets */,
 				C76E6B22212F631F000B5F87 /* LaunchScreen.storyboard */,
 				C76E6B25212F631F000B5F87 /* Info.plist */,
 			);
 			path = ARPhysicallyBasedRendering;
+			sourceTree = "<group>";
+		};
+		C7F1DB5F2131D60900F623D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C7337187212F870200B03884 /* ViewCell.swift */,
+				C7F1DB5D2131D51500F623D2 /* Plane.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -799,7 +764,6 @@
 				C7337153212F80B000B03884 /* oakfloor2-normal.png in Resources */,
 				C733716E212F80B000B03884 /* cavefloor-ao.png in Resources */,
 				C7337156212F80B000B03884 /* slipperystonework-normal.png in Resources */,
-				C7337116212F80B000B03884 /* mushroom.png in Resources */,
 				C733713F212F80B000B03884 /* charcoal-metal.png in Resources */,
 				C7337128212F80B000B03884 /* octostone-normal.png in Resources */,
 				C7337126212F80B000B03884 /* octostone-albedo.png in Resources */,
@@ -817,10 +781,7 @@
 				C7337119212F80B000B03884 /* titanium-roughness.png in Resources */,
 				C7337121212F80B000B03884 /* harshbricks-height.png in Resources */,
 				C7337134212F80B000B03884 /* streaked-marble-albedo.png in Resources */,
-				C7337183212F80B000B03884 /* comicSkyBox.jpg in Resources */,
 				C7337147212F80B000B03884 /* granitesmooth-albedo2.png in Resources */,
-				C733717E212F80B000B03884 /* executiveroom.jpg in Resources */,
-				C7337181212F80B000B03884 /* spherical.jpg in Resources */,
 				C7337178212F80B000B03884 /* wornpaintedwoodsiding-albedo.png in Resources */,
 				C7337124212F80B000B03884 /* harshbricks-roughness.png in Resources */,
 				C733712E212F80B000B03884 /* paint-peeling-normal.png in Resources */,
@@ -835,8 +796,6 @@
 				C733715B212F80B000B03884 /* gold-normal.png in Resources */,
 				C7337144212F80B000B03884 /* rustediron-streaks-albedo.png in Resources */,
 				C7336F77212F63B800B03884 /* ARPhysicallyBasedRendering.storyboard in Resources */,
-				C733717D212F80B000B03884 /* room_2002.jpg in Resources */,
-				C733717F212F80B000B03884 /* narthex_equirect.jpg in Resources */,
 				C733717A212F80B000B03884 /* plastic-albedo.png in Resources */,
 				C7337117212F80B000B03884 /* titanium-normal.png in Resources */,
 				C7337172212F80B000B03884 /* iron-roughness.png in Resources */,
@@ -866,8 +825,6 @@
 				C733711F212F80B000B03884 /* woodframe-normal.png in Resources */,
 				C733716A212F80B000B03884 /* bamboo-wood-semigloss-albedo.png in Resources */,
 				C7337165212F80B000B03884 /* oldplywood-metal.png in Resources */,
-				C7337184212F80B000B03884 /* station.jpg in Resources */,
-				C7337182212F80B000B03884 /* sphericalBlurred.png in Resources */,
 				C733715F212F80B000B03884 /* haystack-normal.png in Resources */,
 				C7337150212F80B000B03884 /* metalgrid-normal.png in Resources */,
 				C7337179212F80B000B03884 /* plastic-roughness.png in Resources */,
@@ -883,14 +840,12 @@
 				C733712C212F80B000B03884 /* copper-albedo.png in Resources */,
 				C7337158212F80B000B03884 /* slipperystonework-metal.png in Resources */,
 				C733711C212F80B000B03884 /* woodframe-albedo.png in Resources */,
-				C7337180212F80B000B03884 /* catholic church.jpg in Resources */,
 				C7337175212F80B000B03884 /* wornpaintedwoodsiding-metal.png in Resources */,
 				C7337135212F80B000B03884 /* aluminium-roughness.png in Resources */,
 				C733713C212F80B000B03884 /* chipped-paint-normal.png in Resources */,
 				C7337148212F80B000B03884 /* granitesmooth-normal.png in Resources */,
 				C7337174212F80B000B03884 /* iron-albedo.png in Resources */,
 				C733712D212F80B000B03884 /* copper-normal.png in Resources */,
-				C7337185212F80B000B03884 /* Rua Augusta Arch.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,6 +865,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7337188212F870200B03884 /* ViewCell.swift in Sources */,
+				C7F1DB5E2131D51500F623D2 /* Plane.swift in Sources */,
 				C7336F78212F63BB00B03884 /* ARPhysicallyBasedRenderingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

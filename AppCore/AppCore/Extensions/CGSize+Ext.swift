@@ -21,6 +21,10 @@ public extension CGSize {
     public var half: CGSize {
         return CGSize(width: self.width / 2, height: self.height / 2)
     }
+
+    public var toCGPoint: CGPoint {
+        return CGPoint(x: width, y: height)
+    }
 }
 
 public func + (left: CGSize, right: CGSize) -> CGSize {
