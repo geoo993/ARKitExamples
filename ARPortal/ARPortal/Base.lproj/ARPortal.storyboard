@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lNv-jW-U1q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lNv-jW-U1q">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Portal View Controller-->
         <scene sceneID="Tyb-66-2oO">
             <objects>
-                <viewController storyboardIdentifier="ARPortalViewController" id="lNv-jW-U1q" customClass="ARPortalViewController" customModule="ARPortal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARPortalViewController" id="lNv-jW-U1q" customClass="ARPortalViewController" customModule="ARPortalDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FEF-R6-7YB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </arscnView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plane Detected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8f-78-ZUY">
-                                <rect key="frame" x="123" y="321.5" width="130" height="24"/>
+                                <rect key="frame" x="122.5" y="321.5" width="130" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -30,9 +30,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="R4T-fP-LW7" secondAttribute="leading" id="Azn-xa-h4T"/>
                             <constraint firstItem="I8f-78-ZUY" firstAttribute="centerY" secondItem="FEF-R6-7YB" secondAttribute="centerY" id="Iyb-kp-UmT"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="FEF-R6-7YB" secondAttribute="top" id="QvR-OL-XPh"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="R4T-fP-LW7" secondAttribute="bottom" id="dvq-Za-cQZ"/>
                             <constraint firstItem="I8f-78-ZUY" firstAttribute="centerX" secondItem="FEF-R6-7YB" secondAttribute="centerX" id="fcm-ea-kTY"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="R4T-fP-LW7" secondAttribute="trailing" id="m9G-N7-jlM"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="R4T-fP-LW7"/>
                     </view>
                     <connections>
                         <outlet property="planeDetectedLabel" destination="I8f-78-ZUY" id="L82-1q-YRz"/>

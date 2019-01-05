@@ -6,6 +6,7 @@
 //  Copyright © 2018 Geo Games. All rights reserved.
 //
 
+import CoreVideo
 import Metal
 import MetalKit
 import ARKit
