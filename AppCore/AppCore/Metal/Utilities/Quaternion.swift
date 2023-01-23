@@ -22,14 +22,14 @@ public struct quat: ExpressibleByArrayLiteral, CustomDebugStringConvertible {
         w = 1
     }
 
-    public init(w: Float, v: float3) {
+    public init(w: Float, v: SIMD3<Float>) {
         x = v.x
         y = v.y
         z = v.z
         self.w = w
     }
     
-    public init(angle: Float, axis: float3) {
+    public init(angle: Float, axis: SIMD3<Float>) {
         self = angleAxis(angle: angle, axis: axis)
     }
 
@@ -69,14 +69,14 @@ public struct quat: ExpressibleByArrayLiteral, CustomDebugStringConvertible {
 
     /// Create a quaternion from two normalized axis
     /// @see http://lolengine.net/blog/2013/09/18/beautiful-maths-quaternion-from-vectors
-    public init(_ u: float3, _ v: float3) {
+    public init(_ u: SIMD3<Float>, _ v: SIMD3<Float>) {
         let LocalW = cross(u, v)
         let Dot = dot(u, v)
         let q = quat(1 + Dot, LocalW.x, LocalW.y, LocalW.z)
         self.init(normalize(q))
     }
 
-    public init(_ eulerAngle: float3) {
+    public init(_ eulerAngle: SIMD3<Float>) {
         let c = cos(eulerAngle * Float(0.5))
         let s = sin(eulerAngle * Float(0.5))
 
@@ -122,23 +122,23 @@ public func *(p: quat, q: quat) -> quat {
     return quat(w, x, y, z)
 }
 
-public func *(q: quat, v: float3) -> float3 {
-    let QuatVector = float3(q.x, q.y, q.z)
+public func *(q: quat, v: SIMD3<Float>) -> SIMD3<Float> {
+    let QuatVector = SIMD3<Float>(q.x, q.y, q.z)
     let uv = cross(QuatVector, v)
     let uuv = cross(QuatVector, uv)
 
     return v + ((uv * q.w) + uuv) * Float(2)
 }
 
-public func *(v: float3, q: quat) -> float3 {
+public func *(v: SIMD3<Float>, q: quat) -> SIMD3<Float> {
     return inverse(q) * v
 }
 
-public func *(q: quat, v: float4) -> float4 {
-    return float4(q * float3(v), v.w)
+public func *(q: quat, v: SIMD4<Float>) -> SIMD4<Float> {
+    return SIMD4<Float>(q * SIMD3<Float>(v), v.w)
 }
 
-public func *(v: float4, q: quat) -> float4 {
+public func *(v: SIMD4<Float>, q: quat) -> SIMD4<Float> {
     return inverse(q) * v
 }
 
@@ -181,7 +181,7 @@ public func inverse(_ q: quat) -> quat {
 }
 
 public func dot(_ q1: quat, _ q2: quat) -> Float {
-    let tmp = float4(q1.x * q2.x, q1.y * q2.y, q1.z * q2.z, q1.w * q2.w)
+    let tmp = SIMD4<Float>(q1.x * q2.x, q1.y * q2.y, q1.z * q2.z, q1.w * q2.w)
     return (tmp.x + tmp.y) + (tmp.z + tmp.w)
 }
 
@@ -241,7 +241,7 @@ public func slerp(_ x: quat, _ y: quat, _ a: Float) -> quat {
 }
 
 /// Rotates a quaternion from a vector of 3 components axis and an angle.
-public func rotate(q: quat, angle: Float, axis: float3) -> quat {
+public func rotate(q: quat, angle: Float, axis: SIMD3<Float>) -> quat {
     var tmp = axis
 
     // Axis of rotation must be normalised
@@ -259,8 +259,8 @@ public func rotate(q: quat, angle: Float, axis: float3) -> quat {
 
 /// Returns euler angles, yitch as x, yaw as y, roll as z.
 /// The result is expressed in radians if GLM_FORCE_RADIANS is defined or degrees otherwise.
-public func eulerAngles(_ x: quat) -> float3 {
-    return float3(pitch(x), yaw(x), roll(x))
+public func eulerAngles(_ x: quat) -> SIMD3<Float> {
+    return SIMD3<Float>(pitch(x), yaw(x), roll(x))
 }
 
 /// Returns roll value of euler angles expressed in radians.
@@ -381,17 +381,17 @@ public func angle(_ q: quat) -> Float {
 }
 
 /// Returns the q rotation axis.
-public func axis(_ q: quat) -> float3 {
+public func axis(_ q: quat) -> SIMD3<Float> {
     let tmp1 = Float(1) - q.w * q.w
     if (tmp1 <= Float(0)) {
-        return float3(0, 0, 1)
+        return SIMD3<Float>(0, 0, 1)
     }
     let tmp2 = Float(1) / sqrt(tmp1)
-    return float3(q.x * tmp2, q.y * tmp2, q.z * tmp2)
+    return SIMD3<Float>(q.x * tmp2, q.y * tmp2, q.z * tmp2)
 }
 
 /// Build a quaternion from an angle and a normalized axis.
-public func angleAxis(angle: Float, axis: float3) -> quat {
+public func angleAxis(angle: Float, axis: SIMD3<Float>) -> quat {
     var Result = quat()
 
     let a = angle
@@ -417,14 +417,14 @@ public struct dquat: ExpressibleByArrayLiteral, CustomDebugStringConvertible {
         w = 1
     }
     
-    public init(w: Double, v: double3) {
+    public init(w: Double, v: SIMD3<Double>) {
         x = v.x
         y = v.y
         z = v.z
         self.w = w
     }
     
-    public init(angle: Double, axis: double3) {
+    public init(angle: Double, axis: SIMD3<Double>) {
         self = angleAxis(angle: angle, axis: axis)
     }
 
@@ -465,14 +465,14 @@ public struct dquat: ExpressibleByArrayLiteral, CustomDebugStringConvertible {
 
     /// Create a quaternion from two normalized axis
     /// @see http://lolengine.net/blog/2013/09/18/beautiful-maths-quaternion-from-vectors
-    public init(_ u: double3, _ v: double3) {
+    public init(_ u: SIMD3<Double>, _ v: SIMD3<Double>) {
         let LocalW = cross(u, v)
         let Dot = dot(u, v)
         let q = dquat(1 + Dot, LocalW.x, LocalW.y, LocalW.z)
         self.init(normalize(q))
     }
 
-    public init(_ eulerAngle: double3) {
+    public init(_ eulerAngle: SIMD3<Double>) {
         let c = cos(eulerAngle * Double(0.5))
         let s = sin(eulerAngle * Double(0.5))
 
@@ -518,23 +518,23 @@ public func *(p: dquat, q: dquat) -> dquat {
     return dquat(w, x, y, z)
 }
 
-public func *(q: dquat, v: double3) -> double3 {
-    let QuatVector = double3(q.x, q.y, q.z)
+public func *(q: dquat, v: SIMD3<Double>) -> SIMD3<Double> {
+    let QuatVector = SIMD3<Double>(q.x, q.y, q.z)
     let uv = cross(QuatVector, v)
     let uuv = cross(QuatVector, uv)
 
     return v + ((uv * q.w) + uuv) * Double(2)
 }
 
-public func *(v: double3, q: dquat) -> double3 {
+public func *(v: SIMD3<Double>, q: dquat) -> SIMD3<Double> {
     return inverse(q) * v
 }
 
-public func *(q: dquat, v: double4) -> double4 {
-    return double4(q * double3(v), v.w)
+public func *(q: dquat, v: SIMD4<Double>) -> SIMD4<Double> {
+    return SIMD4<Double>(q * SIMD3<Double>(v), v.w)
 }
 
-public func *(v: double4, q: dquat) -> double4 {
+public func *(v: SIMD4<Double>, q: dquat) -> SIMD4<Double> {
     return inverse(q) * v
 }
 
@@ -578,7 +578,7 @@ public func inverse(_ q: dquat) -> dquat {
 
 /// Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ...
 public func dot(_ q1: dquat, _ q2: dquat) -> Double {
-    let tmp = double4(q1.x * q2.x, q1.y * q2.y, q1.z * q2.z, q1.w * q2.w)
+    let tmp = SIMD4<Double>(q1.x * q2.x, q1.y * q2.y, q1.z * q2.z, q1.w * q2.w)
     return (tmp.x + tmp.y) + (tmp.z + tmp.w)
 }
 
@@ -638,7 +638,7 @@ public func slerp(_ x: dquat, _ y: dquat, _ a: Double) -> dquat {
 }
 
 /// Rotates a quaternion from a vector of 3 components axis and an angle.
-public func rotate(q: dquat, angle: Double, axis: double3) -> dquat {
+public func rotate(q: dquat, angle: Double, axis: SIMD3<Double>) -> dquat {
     var tmp = axis
 
     // Axis of rotation must be normalised
@@ -656,8 +656,8 @@ public func rotate(q: dquat, angle: Double, axis: double3) -> dquat {
 
 /// Returns euler angles, yitch as x, yaw as y, roll as z.
 /// The result is expressed in radians if GLM_FORCE_RADIANS is defined or degrees otherwise.
-public func eulerAngles(_ x: dquat) -> double3 {
-    return double3(pitch(x), yaw(x), roll(x))
+public func eulerAngles(_ x: dquat) -> SIMD3<Double> {
+    return SIMD3<Double>(pitch(x), yaw(x), roll(x))
 }
 
 /// Returns roll value of euler angles expressed in radians.
@@ -778,17 +778,17 @@ public func angle(_ q: dquat) -> Double {
 }
 
 /// Returns the q rotation axis.
-public func axis(_ q: dquat) -> double3 {
+public func axis(_ q: dquat) -> SIMD3<Double> {
     let tmp1 = Double(1) - q.w * q.w
     if (tmp1 <= Double(0)) {
-        return double3(0, 0, 1)
+        return SIMD3<Double>(0, 0, 1)
     }
     let tmp2 = Double(1) / sqrt(tmp1)
-    return double3(q.x * tmp2, q.y * tmp2, q.z * tmp2)
+    return SIMD3<Double>(q.x * tmp2, q.y * tmp2, q.z * tmp2)
 }
 
 /// Build a quaternion from an angle and a normalized axis.
-public func angleAxis(angle: Double, axis: double3) -> dquat {
+public func angleAxis(angle: Double, axis: SIMD3<Double>) -> dquat {
     var Result = dquat()
 
     let a = angle

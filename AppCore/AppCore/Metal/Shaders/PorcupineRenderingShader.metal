@@ -46,7 +46,7 @@ vertex VertexOut vertex_porcupine_shader(device Vertex *vertices  [[ buffer(Buff
 
     // Make position a float4 to perform 4x4 matrix math on it
     float4 position = float4(vertices[vertexId].position.x, vertices[vertexId].position.y, vertices[vertexId].position.z, 1.0f);
-    //float3 normal = float3(vertices[vertexId].normal.x, vertices[vertexId].normal.y, vertices[vertexId].normal.z);
+    //float3 normal = SIMD3<Float>(vertices[vertexId].normal.x, vertices[vertexId].normal.y, vertices[vertexId].normal.z);
     float2 texture =  vertices[vertexId].textureCoordinate;
 
     float4x4 projectionMatrix = uniform.projectionMatrix;

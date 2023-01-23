@@ -35,7 +35,7 @@ public class ViewCell: UICollectionViewCell {
             return UIColor(cgColor: layer.borderColor!)
         }
         set {
-            layer.borderColor = borderColor?.cgColor
+            layer.borderColor = newValue?.cgColor
         }
     }
 

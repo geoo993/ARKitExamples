@@ -12,26 +12,26 @@ import ARKit
 
 public class Camera {
 
-    var position: float3       // The position of the camera's centre of projection
-    private var rotation: float3
+    var position: SIMD3<Float>       // The position of the camera's centre of projection
+    private var rotation: SIMD3<Float>
 
     //view and projection matrix
     var perspectiveProjectionMatrix: matrix_float4x4 // Perspective projection matrix
     var orthographicProjectionMatrix: matrix_float4x4 // Orthographic projection matrix
     var viewMatrix: matrix_float4x4
 
-    var view: float3 // The camera's viewpoint (point where the camera is looking)
+    var view: SIMD3<Float> // The camera's viewpoint (point where the camera is looking)
 
-    var strafe: float3        // The camera's strafe vector
+    var strafe: SIMD3<Float>        // The camera's strafe vector
 
-    var front: float3               // The camera's forward vector
-    var back: float3                // The camera's backward vector
-    var left: float3               // The camera's left vector
-    var right: float3               // The camera's right vector
-    var up: float3                  // The camera's up vector
-    var down: float3                // The camera's down vector
+    var front: SIMD3<Float>               // The camera's forward vector
+    var back: SIMD3<Float>                // The camera's backward vector
+    var left: SIMD3<Float>               // The camera's left vector
+    var right: SIMD3<Float>               // The camera's right vector
+    var up: SIMD3<Float>                  // The camera's up vector
+    var down: SIMD3<Float>                // The camera's down vector
 
-    var worldUp: float3            // The worlds up vector, the original position of the world
+    var worldUp: SIMD3<Float>            // The worlds up vector, the original position of the world
 
     // Eular Angles
     var fieldOfView: Float           // The view from the camera
@@ -54,25 +54,25 @@ public class Camera {
         perspectiveProjectionMatrix = matrix_identity_float4x4
         orthographicProjectionMatrix = matrix_identity_float4x4
         viewMatrix = matrix_identity_float4x4
-        view = float3(0.0)
-        front = float3(0.0, 0.0, -1.0)
-        back = float3(0.0, 0.0, 1.0)
-        left = float3(-1.0, 0.0, 0.0)
-        right = float3(1.0, 0.0, 0.0)
-        up = float3(0.0, 1.0, 0.0)
-        down = float3(0.0, -1.0, 0.0)
-        worldUp = float3( 0.0, 1.0, 0.0)
+        view = SIMD3<Float>(repeating: 0.0)
+        front = SIMD3<Float>(0.0, 0.0, -1.0)
+        back = SIMD3<Float>(0.0, 0.0, 1.0)
+        left = SIMD3<Float>(-1.0, 0.0, 0.0)
+        right = SIMD3<Float>(1.0, 0.0, 0.0)
+        up = SIMD3<Float>(0.0, 1.0, 0.0)
+        down = SIMD3<Float>(0.0, -1.0, 0.0)
+        worldUp = SIMD3<Float>( 0.0, 1.0, 0.0)
         pitch = 0.1
         yaw = -90
         fieldOfView = fov
         nearPlane = zNear
         farPlane = zFar
-        strafe = float3( 0.0, 0.0, 0.0)
+        strafe = SIMD3<Float>( 0.0, 0.0, 0.0)
         speed = 5.0 // between 0 and 1
         sensitivity = 0.6 // between 0 and 1
         screenSize = size
-        position = float3(0)
-        rotation = float3(0)
+        position = SIMD3<Float>(repeating: 0)
+        rotation = SIMD3<Float>(repeating: 0)
 
         setPerspectiveProjectionMatrix(fieldOfView: fov, aspectRatio: Float(screenSize.width / screenSize.height),
                                        nearClippingPlane: zNear, farClippingPlane: zFar)
@@ -108,30 +108,30 @@ public class Camera {
     }
 
     // Set the camera at a specific position, looking at the view point, with a given up vector
-    func set(position: float3, viewpoint: float3, up: float3) {
+    func set(position: SIMD3<Float>, viewpoint: SIMD3<Float>, up: SIMD3<Float>) {
         self.position = position
         self.front = normalize(viewpoint - position) // finding front vector
         self.up = up
-        self.worldUp = float3( 0.0, 1.0, 0.0 )
+        self.worldUp = SIMD3<Float>( 0.0, 1.0, 0.0 )
 
         updateCameraVectors()
     }
 
 
     // Rotate the camera view point -- this effectively rotates the camera since it is looking at the view point
-    func rotateViewPoint(angle: Float, axis: float3) {
+    func rotateViewPoint(angle: Float, axis: SIMD3<Float>) {
 
         let vView = view - position;// direction vector
         
         let rotation = rotate(m: matrix_identity_float4x4, angle: radians(degrees: angle), axis: axis)
-        let newView = rotation * float4(vView, 1)
+        let newView = rotation * SIMD4<Float>(vView, 1)
 
-        self.front = normalize(float3(newView))
+        self.front = normalize(SIMD3<Float>(newView))
 
         updateCameraVectors()
     }
 
-    func rotateAroundPoint(distance: Float, viewpoint: float3, angle: Float, y: Float) {
+    func rotateAroundPoint(distance: Float, viewpoint: SIMD3<Float>, angle: Float, y: Float) {
 
         let radian = radians(degrees: angle)
 
@@ -140,15 +140,15 @@ public class Camera {
         let camZ = viewpoint.z + (distance * sinf(radian))
 
         // Set the camera position and lookat point
-        let position = float3(camX, camY, camZ)   // Camera position
+        let position = SIMD3<Float>(camX, camY, camZ)   // Camera position
         let look = viewpoint // Look at point
-        let upV = float3(0.0, 1.0, 0.0) // Up vector
+        let upV = SIMD3<Float>(0.0, 1.0, 0.0) // Up vector
 
         set(position: position, viewpoint: look, up: upV);
 
     }
 
-    func positionInFrontOfCamera(distance: Float) -> float3 {
+    func positionInFrontOfCamera(distance: Float) -> SIMD3<Float> {
         return position + front * distance
     }
 
@@ -188,8 +188,8 @@ public class Camera {
             let maxAngle: Float = 1.56 // Just a little bit below PI / 2
 
             if (horizontalAngle < maxAngle && horizontalAngle > -maxAngle) {
-                let vPoint: float3 = cross(view - position, up)
-                let axis: float3 = normalize(vPoint)
+                let vPoint: SIMD3<Float> = cross(view - position, up)
+                let axis: SIMD3<Float> = normalize(vPoint)
                 rotateViewPoint(angle: -verticalAngle, axis: axis)
             }
 
@@ -336,10 +336,10 @@ public class Camera {
     func createViewmatrix() -> matrix_float4x4 {
         var m = matrix_float4x4()
         right = cross(up, front)
-        m.columns.0 = float4(right.x, right.y, right.z, 0.0)
-        m.columns.1 = float4(up.x, up.y, up.z, 0.0)
-        m.columns.2 = float4(back.x, back.y, back.z, 0.0)
-        m.columns.3 = float4(position.x, position.y, position.z, 1.0)
+        m.columns.0 = SIMD4<Float>(right.x, right.y, right.z, 0.0)
+        m.columns.1 = SIMD4<Float>(up.x, up.y, up.z, 0.0)
+        m.columns.2 = SIMD4<Float>(back.x, back.y, back.z, 0.0)
+        m.columns.3 = SIMD4<Float>(position.x, position.y, position.z, 1.0)
         return m.inverse
     }
 

@@ -1,6 +1,6 @@
 import Foundation
 
-public extension Int {
+extension Int {
     
     public static func random(min: Int, max: Int) -> Int {
         guard min < max else {return min}

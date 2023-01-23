@@ -8,7 +8,6 @@
 // https://realm.io/docs/tutorials/realmtasks/
 
 import UIKit
-import RealmSwift
 import AppCore
 
 public class ARSavedLocationsTableViewController: UITableViewController {

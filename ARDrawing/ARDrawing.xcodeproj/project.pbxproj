@@ -188,7 +188,7 @@
 				TargetAttributes = {
 					C75EBB622020DB8A00E484CE = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 					};
 					C79DA293201CE2B300227EB5 = {

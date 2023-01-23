@@ -1,7 +1,7 @@
 
 import Foundation
 
-public extension CGRect {
+extension CGRect {
     
     public func increaseRect( _ widthPercentage: CGFloat, _ heightPercentage: CGFloat) -> CGRect {
         let startWidth = self.width

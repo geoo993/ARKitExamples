@@ -10,7 +10,6 @@ import UIKit
 import SceneKit
 import ARKit
 import AppCore
-import Chameleon
 
 public class ARMeasuringViewController: UIViewController {
 
@@ -74,7 +73,7 @@ public class ARMeasuringViewController: UIViewController {
     }
     
     func updateLabelsColors(with color : UIColor, alpha: CGFloat) {
-        let constrastColor = ContrastColorOf(color, returnFlat: true)
+        let constrastColor = color//ContrastColorOf(color, returnFlat: true)
         distanceLabel.backgroundColor = color.withAlphaComponent(alpha)
         xLabel.backgroundColor = color.withAlphaComponent(alpha)
         yLabel.backgroundColor = color.withAlphaComponent(alpha)

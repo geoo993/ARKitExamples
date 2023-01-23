@@ -23,7 +23,7 @@
 import SceneKit
 import Foundation
 
-public extension SCNAction {
+extension SCNAction {
   
   public class func waitForDurationThenRemoveFromParent(_ duration:TimeInterval) -> SCNAction {
     let wait = SCNAction.wait(duration: duration)

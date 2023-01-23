@@ -273,7 +273,7 @@ extension Renderer: MTKViewDelegate {
         // we need to first ensure that its corresponding frame has completed its execution on the GPU before we go to the next frame
         let _ = inFlightSemaphore.wait(timeout: DispatchTime.distantFuture)
 
-        commandBuffer.addScheduledHandler({ [weak self] commandBuffer in
+        commandBuffer.addScheduledHandler({ _ in
             // This code will exercute when the command buffer is sent to the GPU
         })
         // Add completion hander which signal _inFlightSemaphore when Metal and the GPU has fully

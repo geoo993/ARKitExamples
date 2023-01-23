@@ -15,7 +15,6 @@
 		C7857B34202158DB00CE199E /* ARMeasuringDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = C7857B32202158DB00CE199E /* ARMeasuringDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7857B37202158DB00CE199E /* ARMeasuringDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */; };
 		C7857B38202158DB00CE199E /* ARMeasuringDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7CD66FA212451CE00F8D25C /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CD66F8212451CE00F8D25C /* Chameleon.framework */; };
 		C7F3C520202756F80028C2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C775DEB1201F2A4B003457AD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +54,6 @@
 		C7857B30202158DB00CE199E /* ARMeasuringDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARMeasuringDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7857B32202158DB00CE199E /* ARMeasuringDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARMeasuringDemo.h; sourceTree = "<group>"; };
 		C7857B33202158DB00CE199E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C7CD66F8212451CE00F8D25C /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = ../Cartfile/Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +70,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7143D342021D7AE000923B9 /* AppCore.framework in Frameworks */,
-				C7CD66FA212451CE00F8D25C /* Chameleon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +86,6 @@
 		C775DE9A201F2A4B003457AD = {
 			isa = PBXGroup;
 			children = (
-				C7CD66F8212451CE00F8D25C /* Chameleon.framework */,
 				C775DEBA201F2BD3003457AD /* AppCore.framework */,
 				C775DEA5201F2A4B003457AD /* ARMeasuring */,
 				C7857B31202158DB00CE199E /* ARMeasuringDemo */,
@@ -196,7 +192,7 @@
 					};
 					C7857B2F202158DB00CE199E = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -210,6 +206,8 @@
 				Base,
 			);
 			mainGroup = C775DE9A201F2A4B003457AD;
+			packageReferences = (
+			);
 			productRefGroup = C775DEA4201F2A4B003457AD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

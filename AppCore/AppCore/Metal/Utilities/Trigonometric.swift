@@ -17,18 +17,18 @@ public func radians(degrees: Float) -> Float {
 }
 
 /// Converts degrees to radians and returns the result.
-public func radians(degrees: float2) -> float2 {
-    return degrees * float2(0.01745329251994329576923690768489)
+public func radians(degrees: SIMD2<Float>) -> SIMD2<Float> {
+    return degrees * SIMD2<Float>(repeating: 0.01745329251994329576923690768489)
 }
 
 /// Converts degrees to radians and returns the result.
-public func radians(degrees: float3) -> float3 {
-    return degrees * float3(0.01745329251994329576923690768489)
+public func radians(degrees: SIMD3<Float>) -> SIMD3<Float> {
+    return degrees * SIMD3<Float>(repeating: 0.01745329251994329576923690768489)
 }
 
 /// Converts degrees to radians and returns the result.
-public func radians(degrees: float4) -> float4 {
-    return degrees * float4(0.01745329251994329576923690768489)
+public func radians(degrees: SIMD4<Float>) -> SIMD4<Float> {
+    return degrees * SIMD4<Float>(repeating: 0.01745329251994329576923690768489)
 }
 
 /// Converts degrees to radians and returns the result.
@@ -37,18 +37,18 @@ public func radians(degrees: Double) -> Double {
 }
 
 /// Converts degrees to radians and returns the result.
-public func radians(degrees: double2) -> double2 {
-    return degrees * double2(0.01745329251994329576923690768489)
+public func radians(degrees: SIMD2<Double>) -> SIMD2<Double> {
+    return degrees * SIMD2<Double>(repeating: 0.01745329251994329576923690768489)
 }
 
 /// Converts degrees to radians and returns the result.
-public func radians(degrees: double3) -> double3 {
-    return degrees * double3(0.01745329251994329576923690768489)
+public func radians(degrees: SIMD3<Double>) -> SIMD3<Double> {
+    return degrees * SIMD3<Double>(repeating: 0.01745329251994329576923690768489)
 }
 
 /// Converts degrees to radians and returns the result.
-public func radians(degrees: double4) -> double4 {
-    return degrees * double4(0.01745329251994329576923690768489)
+public func radians(degrees: SIMD4<Double>) -> SIMD4<Double> {
+    return degrees * SIMD4<Double>(repeating: 0.01745329251994329576923690768489)
 }
 
 // MARK: degrees
@@ -58,18 +58,18 @@ public func degrees(radians: Float) -> Float {
 }
 
 /// Converts radians to degrees and returns the result.
-public func degrees(radians: float2) -> float2 {
-    return radians * float2(57.295779513082320876798154814105)
+public func degrees(radians: SIMD2<Float>) -> SIMD2<Float> {
+    return radians * SIMD2<Float>(repeating: 57.295779513082320876798154814105)
 }
 
 /// Converts radians to degrees and returns the result.
-public func degrees(radians: float3) -> float3 {
-    return radians * float3(57.295779513082320876798154814105)
+public func degrees(radians: SIMD3<Float>) -> SIMD3<Float> {
+    return radians * SIMD3<Float>(repeating: 57.295779513082320876798154814105)
 }
 
 /// Converts radians to degrees and returns the result.
-public func degrees(radians: float4) -> float4 {
-    return radians * float4(57.295779513082320876798154814105)
+public func degrees(radians: SIMD4<Float>) -> SIMD4<Float> {
+    return radians * SIMD4<Float>(repeating: 57.295779513082320876798154814105)
 }
 
 /// Converts radians to degrees and returns the result.
@@ -79,20 +79,20 @@ public func degrees(radians: Double) -> Double {
 
 /// Converts radians to degrees and returns the result.
 
-public func degrees(radians: double2) -> double2 {
-    return radians * double2(57.295779513082320876798154814105)
+public func degrees(radians: SIMD2<Double>) -> SIMD2<Double> {
+    return radians * SIMD2<Double>(repeating: 57.295779513082320876798154814105)
 }
 
 /// Converts radians to degrees and returns the result.
 
-public func degrees(radians: double3) -> double3 {
-    return radians * double3(57.295779513082320876798154814105)
+public func degrees(radians: SIMD3<Double>) -> SIMD3<Double> {
+    return radians * SIMD3<Double>(repeating: 57.295779513082320876798154814105)
 }
 
 /// Converts radians to degrees and returns the result.
 
-public func degrees(radians: double4) -> double4 {
-    return radians * double4(57.295779513082320876798154814105)
+public func degrees(radians: SIMD4<Double>) -> SIMD4<Double> {
+    return radians * SIMD4<Double>(repeating: 57.295779513082320876798154814105)
 }
 
 // MARK: sin
@@ -100,43 +100,43 @@ public func degrees(radians: double4) -> double4 {
 /// The standard trigonometric sine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func sin(_ v: float2) -> float2 {
-    return float2(sin(v.x), sin(v.y))
+public func sin(_ v: SIMD2<Float>) -> SIMD2<Float> {
+    return SIMD2<Float>(sin(v.x), sin(v.y))
 }
 
 /// The standard trigonometric sine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func sin(_ v: float3) -> float3 {
-    return float3(sin(v.x), sin(v.y), sin(v.z))
+public func sin(_ v: SIMD3<Float>) -> SIMD3<Float> {
+    return SIMD3<Float>(sin(v.x), sin(v.y), sin(v.z))
 }
 
 /// The standard trigonometric sine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func sin(_ v: float4) -> float4 {
-    return float4(sin(v.x), sin(v.y), sin(v.z), sin(v.w))
+public func sin(_ v: SIMD4<Float>) -> SIMD4<Float> {
+    return SIMD4<Float>(sin(v.x), sin(v.y), sin(v.z), sin(v.w))
 }
 
 /// The standard trigonometric sine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func sin(_ v: double2) -> double2 {
-    return double2(sin(v.x), sin(v.y))
+public func sin(_ v: SIMD2<Double>) -> SIMD2<Double> {
+    return SIMD2<Double>(sin(v.x), sin(v.y))
 }
 
 /// The standard trigonometric sine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func sin(_ v: double3) -> double3 {
-    return double3(sin(v.x), sin(v.y), sin(v.z))
+public func sin(_ v: SIMD3<Double>) -> SIMD3<Double> {
+    return SIMD3<Double>(sin(v.x), sin(v.y), sin(v.z))
 }
 
 /// The standard trigonometric sine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func sin(_ v: double4) -> double4 {
-    return double4(sin(v.x), sin(v.y), sin(v.z), sin(v.w))
+public func sin(_ v: SIMD4<Double>) -> SIMD4<Double> {
+    return SIMD4<Double>(sin(v.x), sin(v.y), sin(v.z), sin(v.w))
 }
 
 // MARK: cos
@@ -144,43 +144,43 @@ public func sin(_ v: double4) -> double4 {
 /// The standard trigonometric cosine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func cos(_ v: float2) -> float2 {
-    return float2(cos(v.x), cos(v.y))
+public func cos(_ v: SIMD2<Float>) -> SIMD2<Float> {
+    return SIMD2<Float>(cos(v.x), cos(v.y))
 }
 
 /// The standard trigonometric cosine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func cos(_ v: float3) -> float3 {
-    return float3(cos(v.x), cos(v.y), cos(v.z))
+public func cos(_ v: SIMD3<Float>) -> SIMD3<Float> {
+    return SIMD3<Float>(cos(v.x), cos(v.y), cos(v.z))
 }
 
 /// The standard trigonometric cosine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func cos(_ v: float4) -> float4 {
-    return float4(cos(v.x), cos(v.y), cos(v.z), cos(v.w))
+public func cos(_ v: SIMD4<Float>) -> SIMD4<Float> {
+    return SIMD4<Float>(cos(v.x), cos(v.y), cos(v.z), cos(v.w))
 }
 
 /// The standard trigonometric cosine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func cos(_ v: double2) -> double2 {
-    return double2(cos(v.x), cos(v.y))
+public func cos(_ v: SIMD2<Double>) -> SIMD2<Double> {
+    return SIMD2<Double>(cos(v.x), cos(v.y))
 }
 
 /// The standard trigonometric cosine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func cos(_ v: double3) -> double3 {
-    return double3(cos(v.x), cos(v.y), cos(v.z))
+public func cos(_ v: SIMD3<Double>) -> SIMD3<Double> {
+    return SIMD3<Double>(cos(v.x), cos(v.y), cos(v.z))
 }
 
 /// The standard trigonometric cosine function.
 /// The values returned by this function will range from [-1, 1].
 
-public func cos(_ v: double4) -> double4 {
-    return double4(cos(v.x), cos(v.y), cos(v.z), cos(v.w))
+public func cos(_ v: SIMD4<Double>) -> SIMD4<Double> {
+    return SIMD4<Double>(cos(v.x), cos(v.y), cos(v.z), cos(v.w))
 }
 
 // TODO: tan

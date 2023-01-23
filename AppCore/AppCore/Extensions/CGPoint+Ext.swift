@@ -1,7 +1,7 @@
 import Foundation
 import ARKit
 
-public extension CGPoint {
+extension CGPoint {
     
     public init(_ size: CGSize) {
         self.init()

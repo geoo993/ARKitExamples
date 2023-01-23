@@ -9,7 +9,7 @@
 #ifndef Shader_h
 #define Shader_h
 
-#include "AppCore/Metal/Shaders/ShaderTypes.h"
+#include "ShaderTypes.h"
 using namespace metal;
 
 // input information to the shader

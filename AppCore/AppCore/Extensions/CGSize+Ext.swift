@@ -10,7 +10,7 @@ import ARKit
 
 // MARK: - CGSize extensions
 
-public extension CGSize {
+extension CGSize {
     
 	public init(_ point: CGPoint) {
         self.init()

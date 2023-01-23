@@ -208,7 +208,7 @@
 					};
 					C72998DF20231F48009B0F4C = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 					};
 				};

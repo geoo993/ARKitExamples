@@ -9,10 +9,10 @@
 import SceneKit
 import ARKit
 
-public extension SCNNode {
+extension SCNNode {
     
     public func setUniformScale(_ scale: Float) {
-        self.simdScale = float3(scale, scale, scale)
+        self.simdScale = SIMD3<Float>(scale, scale, scale)
     }
     
     public func renderOnTop(_ enable: Bool) {
@@ -126,9 +126,9 @@ public extension SCNNode {
     
     public static func worldPositionFromScreenPosition(_ position: CGPoint,
                                                        in sceneView: ARSCNView,
-                                                       objectPos: float3?,
+                                                       objectPos: SIMD3<Float>?,
                                                        infinitePlane: Bool = false) 
-        -> (position: float3?, planeAnchor: ARPlaneAnchor?, hitAPlane: Bool) {
+        -> (position: SIMD3<Float>?, planeAnchor: ARPlaneAnchor?, hitAPlane: Bool) {
         
         let dragOnInfinitePlanesEnabled = UserDefaults.standard.bool(for: .dragOnInfinitePlanes)
         
@@ -150,7 +150,7 @@ public extension SCNNode {
         // 2. Collect more information about the environment by hit testing against
         //    the feature point cloud, but do not return the result yet.
         
-        var featureHitTestPosition: float3?
+        var featureHitTestPosition: SIMD3<Float>?
         var highQualityFeatureHitTestResult = false
         
         let highQualityfeatureHitTestResults = sceneView.hitTestWithFeatures(position, coneOpeningAngleInDegrees: 18, minDistance: 0.2, maxDistance: 2.0)

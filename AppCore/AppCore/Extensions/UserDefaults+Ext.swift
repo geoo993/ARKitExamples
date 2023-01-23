@@ -20,10 +20,10 @@ public enum Setting: String {
 }
 
 public extension UserDefaults {
-    public func bool(for setting: Setting) -> Bool {
+    func bool(for setting: Setting) -> Bool {
         return bool(forKey: setting.rawValue)
     }
-    public func set(_ bool: Bool, for setting: Setting) {
+    func set(_ bool: Bool, for setting: Setting) {
         set(bool, forKey: setting.rawValue)
     }
 }

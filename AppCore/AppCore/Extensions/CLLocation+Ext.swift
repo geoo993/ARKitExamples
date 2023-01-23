@@ -24,7 +24,7 @@ public func -(left: CLLocationCoordinate2D, right: CLLocationCoordinate2D) -> CL
 }
 
 
-public extension CLLocation {
+extension CLLocation {
     
     public typealias LMReverseGeocodeCompletionHandler = ((_ reverseGecodeInfo:NSDictionary?,_ placemark:CLPlacemark?, _ error:String?)->Void)?
     public typealias LMGeocodeCompletionHandler = ((_ placemarks:[CLPlacemark]?, _ error:Error?)->Void)

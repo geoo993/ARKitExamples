@@ -1,6 +1,6 @@
 import Foundation
 
-public extension Double {
+extension Double {
     // https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html
     // https://astronomy.stackexchange.com/questions/18838/is-it-same-distance-equator-prime-meridian/18841#18841
     // https://www.space.com/17638-how-big-is-earth.html

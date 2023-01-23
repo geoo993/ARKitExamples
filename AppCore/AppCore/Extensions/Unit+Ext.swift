@@ -30,15 +30,15 @@ public class UnitConverterPace: UnitConverter {
 }
 
 public extension UnitSpeed {
-    public class var secondsPerMeter: UnitSpeed {
+    class var secondsPerMeter: UnitSpeed {
         return UnitSpeed(symbol: "sec/m", converter: UnitConverterPace(coefficient: 1))
     }
     
-    public class var minutesPerKilometer: UnitSpeed {
+    class var minutesPerKilometer: UnitSpeed {
         return UnitSpeed(symbol: "min/km", converter: UnitConverterPace(coefficient: 60.0 / 1000.0))
     }
     
-    public class var minutesPerMile: UnitSpeed {
+    class var minutesPerMile: UnitSpeed {
         return UnitSpeed(symbol: "min/mi", converter: UnitConverterPace(coefficient: 60.0 / 1609.34))
     }
 }

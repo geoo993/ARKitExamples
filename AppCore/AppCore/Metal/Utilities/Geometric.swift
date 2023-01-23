@@ -12,31 +12,31 @@ import simd
 // MARK: faceforward
 
 /// If dot(Nref, I) < 0.0, return N, otherwise, return -N.
-public func faceforward(_ N: float2, _ I: float2, _ Nref: float2) -> float2 {
+public func faceforward(_ N: SIMD2<Float>, _ I: SIMD2<Float>, _ Nref: SIMD2<Float>) -> SIMD2<Float> {
     return dot(Nref, I) < 0 ? N : -N
 }
 
 /// If dot(Nref, I) < 0.0, return N, otherwise, return -N.
-public func faceforward(_ N: float3, _ I: float3, _ Nref: float3) -> float3 {
+public func faceforward(_ N: SIMD3<Float>, _ I: SIMD3<Float>, _ Nref: SIMD3<Float>) -> SIMD3<Float> {
     return dot(Nref, I) < 0 ? N : -N
 }
 
 /// If dot(Nref, I) < 0.0, return N, otherwise, return -N.
-public func faceforward(_ N: float4, _ I: float4, _ Nref: float4) -> float4 {
+public func faceforward(_ N: SIMD4<Float>, _ I: SIMD4<Float>, _ Nref: SIMD4<Float>) -> SIMD4<Float> {
     return dot(Nref, I) < 0 ? N : -N
 }
 
 /// If dot(Nref, I) < 0.0, return N, otherwise, return -N.
-public func faceforward(_ N: double2, _ I: double2, _ Nref: double2) -> double2 {
+public func faceforward(_ N: SIMD2<Double>, _ I: SIMD2<Double>, _ Nref: SIMD2<Double>) -> SIMD2<Double> {
     return dot(Nref, I) < 0 ? N : -N
 }
 
 /// If dot(Nref, I) < 0.0, return N, otherwise, return -N.
-public func faceforward(_ N: double3, _ I: double3, _ Nref: double3) -> double3 {
+public func faceforward(_ N: SIMD3<Double>, _ I: SIMD3<Double>, _ Nref: SIMD3<Double>) -> SIMD3<Double> {
     return dot(Nref, I) < 0 ? N : -N
 }
 
 /// If dot(Nref, I) < 0.0, return N, otherwise, return -N.
-public func faceforward(_ N: double4, _ I: double4, _ Nref: double4) -> double4 {
+public func faceforward(_ N: SIMD4<Double>, _ I: SIMD4<Double>, _ Nref: SIMD4<Double>) -> SIMD4<Double> {
     return dot(Nref, I) < 0 ? N : -N
 }

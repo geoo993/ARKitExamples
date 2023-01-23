@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension Sequence {
+extension Sequence {
     // https://stackoverflow.com/questions/39791084/swift-3-array-to-dictionary
     public func toDictionary<K: Hashable, V>(_ selector: (Iterator.Element) throws -> (K, V)?) rethrows -> [K: V] {
         var dict = [K: V]()

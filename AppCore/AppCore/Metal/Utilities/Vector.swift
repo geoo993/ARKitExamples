@@ -7,35 +7,35 @@ import Foundation
 import SceneKit
 import simd
 
-public extension float3 {
-    public var toVector3: SCNVector3 {
+public extension SIMD3<Float> {
+    var toVector3: SCNVector3 {
         return SCNVector3(x, y, z)
     }
 
-    public var toDegress: float3 {
-        return float3(x.toDegrees, y.toDegrees, z.toDegrees)
+    var toDegress: SIMD3<Float> {
+        return SIMD3<Float>(x.toDegrees, y.toDegrees, z.toDegrees)
     }
 
-    public var toRadians: float3 {
-        return float3(x.toRadians, y.toRadians, z.toRadians)
+    var toRadians: SIMD3<Float> {
+        return SIMD3<Float>(x.toRadians, y.toRadians, z.toRadians)
     }
 
-    public func length() -> Float {
+    func length() -> Float {
         return sqrtf(x * x + y * y + z * z)
     }
 
-    public func normalized() -> float3 {
+    func normalized() -> SIMD3<Float> {
         return self / length()
     }
 
-    public init(_ v: float4) {
+    init(_ v: SIMD4<Float>) {
         self.init(v.x, v.y, v.z)
     }
 }
 
-public extension float4 {
+public extension SIMD4<Float> {
     
-    public init(_ v: float3, _ vw: Float) {
+    init(_ v: SIMD3<Float>, _ vw: Float) {
         self.init()
         x = v.x
         y = v.y
@@ -43,7 +43,7 @@ public extension float4 {
         w = vw
     }
     
-    public init(_ v: float3) {
+    init(_ v: SIMD3<Float>) {
         self.init()
         x = v.x
         y = v.y
@@ -53,7 +53,7 @@ public extension float4 {
 
     }
     
-    public init(_ q: quat) {
+    init(_ q: quat) {
         self.init()
         x = q.x
         y = q.y
@@ -62,16 +62,16 @@ public extension float4 {
     }
 }
 
-public extension double3 {
+public extension SIMD3<Double> {
     
-    public init(_ v: double4) {
+    init(_ v: SIMD4<Double>) {
         self.init(v.x, v.y, v.z)
     }
 }
 
-public extension double4 {
+public extension SIMD4<Double> {
     
-    public init(_ v: double3, _ vw: Double) {
+    init(_ v: SIMD3<Double>, _ vw: Double) {
         self.init()
         x = v.x
         y = v.y
@@ -79,7 +79,7 @@ public extension double4 {
         w = vw
     }
     
-    public init(_ v: double3) {
+    init(_ v: SIMD3<Double>) {
         self.init()
         x = v.x
         y = v.y
@@ -87,7 +87,7 @@ public extension double4 {
         w = 0
     }
     
-    public init(_ q: dquat) {
+    init(_ q: dquat) {
         self.init()
         x = q.x
         y = q.y

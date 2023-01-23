@@ -18,7 +18,7 @@ extension CLLocationCoordinate2D: Equatable {
 // location of 51.5278° N, 0.1025° W => latitude N is positive (51.5278), longitude W is negative (0.1025)
 // location of 35.2777° S, 149.1185° E => latitude S is negative (35.2777), longitude E is positive (149.1185)
 
-public extension CLLocationCoordinate2D {
+extension CLLocationCoordinate2D {
     private func calculateBearing(to coordinate: CLLocationCoordinate2D) -> Double {
         let a = sin(coordinate.longitude.toRadians - longitude.toRadians) * cos(coordinate.latitude.toRadians)
         let dLat = cos(latitude.toRadians) * sin(coordinate.latitude.toRadians) - sin(latitude.toRadians)

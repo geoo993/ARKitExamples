@@ -1,7 +1,7 @@
 
 import Foundation
 
-public extension NSRange {
+extension NSRange {
     public var toRange : Range<Int> {
         return location ..< (location + length)
     }

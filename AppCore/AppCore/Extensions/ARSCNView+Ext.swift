@@ -1,7 +1,7 @@
 
 import ARKit
 
-public extension ARSCNView {
+extension ARSCNView {
     
     // MARK: - AR scene view extensions
     public func setup() {
@@ -23,14 +23,14 @@ public extension ARSCNView {
     // MARK: - Types
     
     public struct HitTestRay {
-        let origin: float3
-        let direction: float3
+        let origin: SIMD3<Float>
+        let direction: SIMD3<Float>
     }
     
     public struct FeatureHitTestResult {
-        let position: float3
+        let position: SIMD3<Float>
         let distanceToRayOrigin: Float
-        let featureHit: float3
+        let featureHit: SIMD3<Float>
         let featureDistanceToHitResult: Float
     }
 
@@ -45,14 +45,14 @@ public extension ARSCNView {
         let cameraPos = frame.camera.transform.translation
         
         // Note: z: 1.0 will unproject() the screen position to the far clipping plane.
-        let positionVec = float3(x: Float(point.x), y: Float(point.y), z: 1.0)
+        let positionVec = SIMD3<Float>(x: Float(point.x), y: Float(point.y), z: 1.0)
         let screenPosOnFarClippingPlane = self.unprojectPoint(positionVec.toVector3).toFloat3
         
         let rayDirection = simd_normalize(screenPosOnFarClippingPlane - cameraPos)
         return HitTestRay(origin: cameraPos, direction: rayDirection)
     }
     
-    public func hitTestWithInfiniteHorizontalPlane(_ point: CGPoint, _ pointOnPlane: float3) -> float3? {
+    public func hitTestWithInfiniteHorizontalPlane(_ point: CGPoint, _ pointOnPlane: SIMD3<Float>) -> SIMD3<Float>? {
         
         guard let ray = hitTestRayFromScreenPos(point) else {
             return nil
@@ -65,7 +65,7 @@ public extension ARSCNView {
         
         // Return the intersection of a ray from the camera through the screen position with a horizontal plane
         // at height (Y axis).
-        return float3.rayIntersectionWithHorizontalPlane(rayOrigin: ray.origin, direction: ray.direction, planeY: pointOnPlane.y)
+        return SIMD3<Float>.rayIntersectionWithHorizontalPlane(rayOrigin: ray.origin, direction: ray.direction, planeY: pointOnPlane.y)
     }
     
     public func hitTestWithFeatures(_ point: CGPoint, coneOpeningAngleInDegrees: Float,
@@ -152,7 +152,7 @@ public extension ARSCNView {
         return results
     }
     
-    public func hitTestFromOrigin(origin: float3, direction: float3) -> FeatureHitTestResult? {
+    public func hitTestFromOrigin(origin: SIMD3<Float>, direction: SIMD3<Float>) -> FeatureHitTestResult? {
         
         guard let features = self.session.currentFrame?.rawFeaturePoints else {
             return nil

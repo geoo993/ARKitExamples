@@ -11,23 +11,23 @@ import simd
 // MARK: Type Conversions
 
 extension SCNVector3 {
-	public func toSimd() -> float3 {
+	public func toSimd() -> SIMD3<Float> {
 		#if swift(>=4.0)
-			return float3(self)
+			return SIMD3<Float>(self)
 		#else
-			return SCNVector3ToFloat3(self)
+			return SCNVector3ToSIMD3<Float>(self)
 		#endif
 	}
 	public func toGLK() -> GLKVector3 {
 		return SCNVector3ToGLKVector3(self)
 	}
 }
-extension float3 {
+extension SIMD3<Float> {
 	public func toSCN() -> SCNVector3 {
 		#if swift(>=4.0)
 			return SCNVector3(self)
 		#else
-			return SCNVector3FromFloat3(self)
+			return SCNVector3FromSIMD3<Float>(self)
 		#endif
 	}
 }
@@ -204,7 +204,7 @@ extension SCNVector3
 	
 	public static prefix func - (v:SCNVector3) -> SCNVector3 { return v.inverted() }
 	public func inverted() -> SCNVector3 {
-		return (float3(0) - self.toSimd()).toSCN()
+		return (SIMD3<Float>(0) - self.toSimd()).toSCN()
 	}
 	public mutating func invert() {
 		self = self.inverted()

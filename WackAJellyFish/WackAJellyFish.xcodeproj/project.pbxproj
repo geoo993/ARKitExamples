@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C7072134202149670071F6FE /* JellyFish.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C8C693201D4B7A00959FA2 /* JellyFish.scnassets */; };
 		C7143D212021D591000923B9 /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C686201D47CC00959FA2 /* AppCore.framework */; };
-		C7143D222021D595000923B9 /* Each.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C8C695201D556800959FA2 /* Each.framework */; };
 		C7143D2F2021D757000923B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E87201D427400BD26CB /* Assets.xcassets */; };
 		C7143D302021D75B000923B9 /* WackAJellyFish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A46E84201D427400BD26CB /* WackAJellyFish.storyboard */; };
 		C7143D312021D75D000923B9 /* WackAJellyFishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A46E82201D427400BD26CB /* WackAJellyFishViewController.swift */; };
@@ -58,7 +57,6 @@
 		C7A46E8C201D427400BD26CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7C8C686201D47CC00959FA2 /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7C8C693201D4B7A00959FA2 /* JellyFish.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = JellyFish.scnassets; sourceTree = "<group>"; };
-		C7C8C695201D556800959FA2 /* Each.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Each.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +65,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7143D212021D591000923B9 /* AppCore.framework in Frameworks */,
-				C7143D222021D595000923B9 /* Each.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +98,6 @@
 		C7A46E74201D427400BD26CB = {
 			isa = PBXGroup;
 			children = (
-				C7C8C695201D556800959FA2 /* Each.framework */,
 				C7C8C686201D47CC00959FA2 /* AppCore.framework */,
 				C7A46E7F201D427400BD26CB /* WackAJellyFish */,
 				C753D947202137170027B094 /* WackAJellyFishDemo */,
@@ -197,7 +193,7 @@
 				TargetAttributes = {
 					C753D945202137170027B094 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 					};
 					C7A46E7C201D427400BD26CB = {
@@ -215,6 +211,8 @@
 				Base,
 			);
 			mainGroup = C7A46E74201D427400BD26CB;
+			packageReferences = (
+			);
 			productRefGroup = C7A46E7E201D427400BD26CB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

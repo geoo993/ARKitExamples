@@ -8,8 +8,8 @@ open class Scene: Node {
     public var time: Float = 0
 
     public var dirLights = [DirectionalLight]()
-    public var directionalLightsDirections: [float3] {
-        return [ float3(  -0.2, -0.1, -1.0) ]
+    public var directionalLightsDirections: [SIMD3<Float>] {
+        return [ SIMD3<Float>(  -0.2, -0.1, -1.0) ]
     }
 
     private let sceneOrigin = matrix_identity_float4x4

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public extension NSAttributedString {
+extension NSAttributedString {
     
     public var attributes : [NSAttributedString.Key: Any?] {
         return self.attributes(at: 0, 

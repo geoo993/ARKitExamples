@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AppCore/ShaderTypes.h>
+//#import <AppCore/ShaderTypes.h>
+#import "ShaderTypes.h"
 
 //! Project version number for AppCore.
 FOUNDATION_EXPORT double AppCoreVersionNumber;
@@ -16,5 +17,3 @@ FOUNDATION_EXPORT double AppCoreVersionNumber;
 FOUNDATION_EXPORT const unsigned char AppCoreVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <AppCore/PublicHeader.h>
-
-

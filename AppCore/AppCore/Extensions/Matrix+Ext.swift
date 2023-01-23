@@ -20,23 +20,23 @@ import GLKit.GLKMatrix4
 import SceneKit
 
 /// Builds a translation 4 * 4 matrix created from a vector of 3 components.
-public func translate(m: float4x4, v: float3) -> float4x4 {
+public func translate(m: float4x4, v: SIMD3<Float>) -> float4x4 {
     var result = m
-    let vv = float4(v.x, v.y, v.z, 1)
+    let vv = SIMD4<Float>(v.x, v.y, v.z, 1)
     result[3] = m * vv
     return result
 }
 
 /// Builds a translation 4 * 4 matrix created from a vector of 3 components.
-public func translate(m: double4x4, v: double3) -> double4x4 {
+public func translate(m: double4x4, v: SIMD3<Double>) -> double4x4 {
     var result = m
-    let vv = double4(v.x, v.y, v.z, 1)
+    let vv = SIMD4<Double>(v.x, v.y, v.z, 1)
     result[3] = m * vv
     return result
 }
 
 /// Builds a rotation 4 * 4 matrix created from an axis vector and an angle.
-public func rotate(m: float4x4, angle: Float, axis: float3) -> float4x4 {
+public func rotate(m: float4x4, angle: Float, axis: SIMD3<Float>) -> float4x4 {
 
     let a = angle
     let c = cos(a)
@@ -67,7 +67,7 @@ public func rotate(m: float4x4, angle: Float, axis: float3) -> float4x4 {
 }
 
 /// Builds a rotation 4 * 4 matrix created from an axis vector and an angle.
-public func rotate(m: double4x4, angle: Double, axis: double3) -> double4x4 {
+public func rotate(m: double4x4, angle: Double, axis: SIMD3<Double>) -> double4x4 {
 
     let a = angle
     let c = cos(a)
@@ -98,7 +98,7 @@ public func rotate(m: double4x4, angle: Double, axis: double3) -> double4x4 {
 }
 
 /// Builds a scale 4 * 4 matrix created from 3 scalars.
-public func scale(m: float4x4, v: float3) -> float4x4 {
+public func scale(m: float4x4, v: SIMD3<Float>) -> float4x4 {
     var Result = float4x4(0)
     Result[0] = m[0] * v[0];
     Result[1] = m[1] * v[1];
@@ -109,7 +109,7 @@ public func scale(m: float4x4, v: float3) -> float4x4 {
 
 /// Builds a scale 4 * 4 matrix created from 3 scalars.
 
-public func scale(m: double4x4, v: double3) -> double4x4 {
+public func scale(m: double4x4, v: SIMD3<Double>) -> double4x4 {
     var Result = double4x4(0)
     Result[0] = m[0] * v[0];
     Result[1] = m[1] * v[1];
@@ -295,7 +295,7 @@ public func infinitePerspective(fovy : Double, aspect: Double, zNear : Double) -
 }
 
 /// Build a look at view matrix.
-public func lookAt(eye: float3, center: float3, up: float3) -> float4x4 {
+public func lookAt(eye: SIMD3<Float>, center: SIMD3<Float>, up: SIMD3<Float>) -> float4x4 {
 
     let f = normalize(center - eye);
     let s = normalize(cross(f, up));
@@ -318,7 +318,7 @@ public func lookAt(eye: float3, center: float3, up: float3) -> float4x4 {
 }
 
 /// Build a look at view matrix.
-public func lookAt(eye: double3, center: double3, up: double3) -> double4x4 {
+public func lookAt(eye: SIMD3<Double>, center: SIMD3<Double>, up: SIMD3<Double>) -> double4x4 {
 
     let f = normalize(center - eye);
     let s = normalize(cross(f, up));
@@ -341,7 +341,7 @@ public func lookAt(eye: double3, center: double3, up: double3) -> double4x4 {
 }
 
 
-public extension float2x2 {
+extension float2x2 {
     /// Return the determinant of a squared matrix.
     public var determinant : Float {
         get {
@@ -350,7 +350,7 @@ public extension float2x2 {
     }
 }
 
-public extension float3x3 {
+extension float3x3 {
     /// Return the determinant of a squared matrix.
     public var determinant : Float {
         get {
@@ -362,12 +362,12 @@ public extension float3x3 {
     }
 
     public init(_ m: float4x4) {
-        self.init([float3(m[0]), float3(m[1]), float3(m[2])])
+        self.init([SIMD3<Float>(m[0]), SIMD3<Float>(m[1]), SIMD3<Float>(m[2])])
     }
 }
 
 
-public extension float4x4 {
+extension float4x4 {
     public var toSCNMatrix4: SCNMatrix4 {
         return SCNMatrix4(self)
     }
@@ -415,29 +415,29 @@ public extension float4x4 {
     }
 
     init(scaleBy s: Float) {
-        self.init(float4(s, 0, 0, 0),
-                  float4(0, s, 0, 0),
-                  float4(0, 0, s, 0),
-                  float4(0, 0, 0, 1))
+        self.init(SIMD4<Float>(s, 0, 0, 0),
+                  SIMD4<Float>(0, s, 0, 0),
+                  SIMD4<Float>(0, 0, s, 0),
+                  SIMD4<Float>(0, 0, 0, 1))
     }
 
-    init(rotationAbout axis: float3, by angleRadians: Float) {
+    init(rotationAbout axis: SIMD3<Float>, by angleRadians: Float) {
         let a = normalize(axis)
         let x = a.x, y = a.y, z = a.z
         let c = cosf(angleRadians)
         let s = sinf(angleRadians)
         let t = 1 - c
-        self.init(float4( t * x * x + c,     t * x * y + z * s, t * x * z - y * s, 0),
-                  float4( t * x * y - z * s, t * y * y + c,     t * y * z + x * s, 0),
-                  float4( t * x * z + y * s, t * y * z - x * s,     t * z * z + c, 0),
-                  float4(                 0,                 0,                 0, 1))
+        self.init(SIMD4<Float>( t * x * x + c,     t * x * y + z * s, t * x * z - y * s, 0),
+                  SIMD4<Float>( t * x * y - z * s, t * y * y + c,     t * y * z + x * s, 0),
+                  SIMD4<Float>( t * x * z + y * s, t * y * z - x * s,     t * z * z + c, 0),
+                  SIMD4<Float>(                 0,                 0,                 0, 1))
     }
 
-    init(translationBy t: float3) {
-        self.init(float4(   1,    0,    0, 0),
-                  float4(   0,    1,    0, 0),
-                  float4(   0,    0,    1, 0),
-                  float4(t[0], t[1], t[2], 1))
+    init(translationBy t: SIMD3<Float>) {
+        self.init(SIMD4<Float>(   1,    0,    0, 0),
+                  SIMD4<Float>(   0,    1,    0, 0),
+                  SIMD4<Float>(   0,    0,    1, 0),
+                  SIMD4<Float>(t[0], t[1], t[2], 1))
     }
 
     init() {
@@ -445,7 +445,7 @@ public extension float4x4 {
     }
 
     public init(_ m: float3x3) {
-        self.init([float4(m[0]), float4(m[1]), float4(m[2]), float4(0, 0, 0, 1)])
+        self.init([SIMD4<Float>(m[0]), SIMD4<Float>(m[1]), SIMD4<Float>(m[2]), SIMD4<Float>(0, 0, 0, 1)])
     }
 
     /// Return the determinant of a squared matrix.
@@ -458,7 +458,7 @@ public extension float4x4 {
             let SubFactor04 = self[2,0] * self[3,2] - self[3,0] * self[2,2];
             let SubFactor05 = self[2,0] * self[3,1] - self[3,0] * self[2,1];
 
-            let DetCof = float4(
+            let DetCof = SIMD4<Float>(
                 +(self[1,1] * SubFactor00 - self[1,2] * SubFactor01 + self[1,3] * SubFactor02),
                 -(self[1,0] * SubFactor00 - self[1,2] * SubFactor03 + self[1,3] * SubFactor04),
                 +(self[1,0] * SubFactor01 - self[1,1] * SubFactor03 + self[1,3] * SubFactor05),
@@ -472,9 +472,9 @@ public extension float4x4 {
 
     /// Treats matrix as a (right-hand column-major convention) transform matrix
     /// and factors out the translation component of the transform.
-    public var translation: float3 {
+    public var translation: SIMD3<Float> {
         let translation = self.columns.3
-        return float3(translation.x, translation.y, translation.z)
+        return SIMD3<Float>(translation.x, translation.y, translation.z)
     }
 
 
@@ -491,10 +491,10 @@ public extension float4x4 {
         let zw = Float(-1)
         let wz = wzScale
 
-        self.init(float4(xx,  0,  0,  0),
-                  float4( 0, yy,  0,  0),
-                  float4( 0,  0, zz, zw),
-                  float4( 0,  0, wz,  1))
+        self.init(SIMD4<Float>(xx,  0,  0,  0),
+                  SIMD4<Float>( 0, yy,  0,  0),
+                  SIMD4<Float>( 0,  0, zz, zw),
+                  SIMD4<Float>( 0,  0, wz,  1))
     }
 
     public mutating func rotateAroundX(_ x: Float, y: Float, z: Float) {
@@ -520,7 +520,7 @@ public extension float4x4 {
 
 
 
-extension float4: CustomReflectable {
+extension SIMD4<Float>: CustomReflectable {
 
     public var customMirror: Mirror {
         let sx = String(format: "%  .4f", x)
@@ -528,17 +528,17 @@ extension float4: CustomReflectable {
         let sz = String(format: "%  .4f", z)
         let sw = String(format: "%  .4f", w)
 
-        let children = DictionaryLiteral<String, Any>(dictionaryLiteral:
+        let children = KeyValuePairs<String, Any>(dictionaryLiteral:
             (" ", "\(sx) \(sy) \(sz) \(sw)")
         )
-        return Mirror(float4.self, children: children)
+        return Mirror(SIMD4<Float>.self, children: children)
     }
 }
 
 
 
 
-public extension double2x2 {
+extension double2x2 {
     /// Return the determinant of a squared matrix.
     public var determinant : Double {
         get {
@@ -547,7 +547,7 @@ public extension double2x2 {
     }
 }
 
-public extension double3x3 {
+extension double3x3 {
     /// Return the determinant of a squared matrix.
     public var determinant : Double {
         get {
@@ -559,11 +559,11 @@ public extension double3x3 {
     }
     
     public init(_ m: double4x4) {
-        self.init([double3(m[0]), double3(m[1]), double3(m[2])])
+        self.init([SIMD3<Double>(m[0]), SIMD3<Double>(m[1]), SIMD3<Double>(m[2])])
     }
 }
 
-public extension double4x4 {
+extension double4x4 {
     /// Return the determinant of a squared matrix.
     public var determinant : Double {
         get {
@@ -574,7 +574,7 @@ public extension double4x4 {
             let SubFactor04 = self[2,0] * self[3,2] - self[3,0] * self[2,2];
             let SubFactor05 = self[2,0] * self[3,1] - self[3,0] * self[2,1];
             
-            let DetCof = double4(
+            let DetCof = SIMD4<Double>(
                 +(self[1,1] * SubFactor00 - self[1,2] * SubFactor01 + self[1,3] * SubFactor02),
                 -(self[1,0] * SubFactor00 - self[1,2] * SubFactor03 + self[1,3] * SubFactor04),
                 +(self[1,0] * SubFactor01 - self[1,1] * SubFactor03 + self[1,3] * SubFactor05),
@@ -587,7 +587,7 @@ public extension double4x4 {
     }
     
     public init(_ m: double3x3) {
-        self.init([double4(m[0]), double4(m[1]), double4(m[2]), double4(0, 0, 0, 1)])
+        self.init([SIMD4<Double>(m[0]), SIMD4<Double>(m[1]), SIMD4<Double>(m[2]), SIMD4<Double>(0, 0, 0, 1)])
     }
 }
 
@@ -595,10 +595,10 @@ extension matrix_float4x4 {
     init(translationX x: Float, y: Float, z: Float) {
         self.init()
         columns = (
-            float4( 1,  0,  0,  0),
-            float4( 0,  1,  0,  0),
-            float4( 0,  0,  1,  0),
-            float4( x,  y,  z,  1)
+            SIMD4<Float>( 1,  0,  0,  0),
+            SIMD4<Float>( 0,  1,  0,  0),
+            SIMD4<Float>( 0,  0,  1,  0),
+            SIMD4<Float>( x,  y,  z,  1)
         )
     }
 
@@ -610,10 +610,10 @@ extension matrix_float4x4 {
     init(scaleX x: Float, y: Float, z: Float) {
         self.init()
         columns = (
-            float4( x,  0,  0,  0),
-            float4( 0,  y,  0,  0),
-            float4( 0,  0,  z,  0),
-            float4( 0,  0,  0,  1)
+            SIMD4<Float>( x,  0,  0,  0),
+            SIMD4<Float>( 0,  y,  0,  0),
+            SIMD4<Float>( 0,  0,  z,  0),
+            SIMD4<Float>( 0,  0,  0,  1)
         )
     }
 
@@ -637,25 +637,25 @@ extension matrix_float4x4 {
         let c = cos(radians)
         let s = sin(radians)
 
-        var column0 = float4(0)
+        var column0 = SIMD4<Float>(repeating: 0)
         column0.x = x * x * (1 - c) + c //x * x + (1 - x * x) * c
         column0.y = x * y * (1 - c) - z * s
         column0.z = x * z * (1 - c) + y * s
         column0.w = 0.0
 
-        var column1 = float4(0)
+        var column1 = SIMD4<Float>(repeating: 0)
         column1.x = x * y * (1 - c) + z * s
         column1.y = y * y * (1 - c) + c //y * y + (1 - y * y) * c
         column1.z = y * z * (1 - c) - x * s
         column1.w = 0.0
 
-        var column2 = float4(0)
+        var column2 = SIMD4<Float>(repeating: 0)
         column2.x = x * z * (1 - c) - y * s
         column2.y = y * z * (1 - c) + x * s
         column2.z = z * z * (1 - c) + c //z * z + (1 - z * z) * c
         column2.w = 0.0
 
-        let column3 = float4(0, 0, 0, 1)
+        let column3 = SIMD4<Float>(0, 0, 0, 1)
 
         self.init()
         columns = (
@@ -676,27 +676,27 @@ extension matrix_float4x4 {
         let z = farZ / (nearZ - farZ)
         self.init()
         columns = (
-            float4( x,  0,  0,  0),
-            float4( 0,  y,  0,  0),
-            float4( 0,  0,  z, -1),
-            float4( 0,  0,  z * nearZ,  0)
+            SIMD4<Float>( x,  0,  0,  0),
+            SIMD4<Float>( 0,  y,  0,  0),
+            SIMD4<Float>( 0,  0,  z, -1),
+            SIMD4<Float>( 0,  0,  z * nearZ,  0)
         )
     }
 
     func upperLeft3x3() -> matrix_float3x3 {
         return (matrix_float3x3(columns: (
-            float3(columns.0.x, columns.0.y, columns.0.z),
-            float3(columns.1.x, columns.1.y, columns.1.z),
-            float3(columns.2.x, columns.2.y, columns.2.z)
+            SIMD3<Float>(columns.0.x, columns.0.y, columns.0.z),
+            SIMD3<Float>(columns.1.x, columns.1.y, columns.1.z),
+            SIMD3<Float>(columns.2.x, columns.2.y, columns.2.z)
         )))
     }
 
     public func transpose() -> matrix_float4x4 {
         return (matrix_float4x4(columns: (
-            float4(columns.0.x, columns.1.x, columns.2.x, columns.3.x),
-            float4(columns.0.y, columns.1.y, columns.2.y, columns.3.y),
-            float4(columns.0.z, columns.1.z, columns.2.z, columns.3.z),
-            float4(columns.0.w, columns.1.w, columns.3.w, columns.3.w)
+            SIMD4<Float>(columns.0.x, columns.1.x, columns.2.x, columns.3.x),
+            SIMD4<Float>(columns.0.y, columns.1.y, columns.2.y, columns.3.y),
+            SIMD4<Float>(columns.0.z, columns.1.z, columns.2.z, columns.3.z),
+            SIMD4<Float>(columns.0.w, columns.1.w, columns.3.w, columns.3.w)
         )))
     }
 
@@ -728,43 +728,43 @@ extension matrix_float4x4 {
      [RT.z] [UP.z] [BK.z] [POS.Z]
      [    ] [    ] [    ] [US   ]
      */
-    public var back: float3 {
-        return float3(columns.2.x, columns.2.y, columns.2.z)
+    public var back: SIMD3<Float> {
+        return SIMD3<Float>(columns.2.x, columns.2.y, columns.2.z)
     }
 
-    public var front: float3 {
+    public var front: SIMD3<Float> {
         return normalize(back) * -1.0
     }
 
-    public var up: float3 {
-        return float3(columns.1.x, columns.1.y, columns.1.z)
+    public var up: SIMD3<Float> {
+        return SIMD3<Float>(columns.1.x, columns.1.y, columns.1.z)
     }
     
-    public var down: float3 {
+    public var down: SIMD3<Float> {
         return normalize(up) * -1.0
     }
 
-    public var right: float3 {
-        return float3(columns.0.x, columns.0.y, columns.0.z)
+    public var right: SIMD3<Float> {
+        return SIMD3<Float>(columns.0.x, columns.0.y, columns.0.z)
     }
 
-    public var left: float3 {
+    public var left: SIMD3<Float> {
         return normalize(right) * -1.0
     }
 
     /// get position vector from the matrix
-    public var position: float3 {
+    public var position: SIMD3<Float> {
 
         //    column 0  column 1  column 2  column 3
         //         1        0         0       X    
         //         0        1         0       Y    
         //         0        0         1       Z    
         //         0        0         0       1    
-        return float3(columns.3.x, columns.3.y, columns.3.z)  // in the forth column in the matrix
+        return SIMD3<Float>(columns.3.x, columns.3.y, columns.3.z)  // in the forth column in the matrix
     }
 
-    public var orientation: float3 {
-        return float3(-columns.2.x, -columns.2.y, -columns.2.z) // in the third column in the matrix
+    public var orientation: SIMD3<Float> {
+        return SIMD3<Float>(-columns.2.x, -columns.2.y, -columns.2.z) // in the third column in the matrix
     }
 
     /*
@@ -776,13 +776,13 @@ extension matrix_float4x4 {
      */
     //https://math.stackexchange.com/questions/237369/given-this-transformation-matrix-how-do-i-decompose-it-into-translation-rotati
     /// get scale vector from the matrix
-    public var scale: float3 {
-        //return float3(columns.0.x, columns.1.y, columns.2.z)
+    public var scale: SIMD3<Float> {
+        //return SIMD3<Float>(columns.0.x, columns.1.y, columns.2.z)
 
-        let x = float3(columns.0.x, columns.1.x, columns.2.x).length()
-        let y = float3(columns.0.y, columns.1.y, columns.2.y).length()
-        let z = float3(columns.0.z, columns.1.z, columns.2.z).length()
-        return float3(x, y, z)
+        let x = SIMD3<Float>(columns.0.x, columns.1.x, columns.2.x).length()
+        let y = SIMD3<Float>(columns.0.y, columns.1.y, columns.2.y).length()
+        let z = SIMD3<Float>(columns.0.z, columns.1.z, columns.2.z).length()
+        return SIMD3<Float>(x, y, z)
     }
 
 
@@ -791,10 +791,10 @@ extension matrix_float4x4 {
     public var rotationMatrix: matrix_float4x4 {
         let scale = self.scale
         return (matrix_float4x4(columns: (
-            float4(columns.0.x / scale.x, columns.0.y / scale.y, columns.0.z / scale.z, 0),
-            float4(columns.1.x / scale.x, columns.1.y / scale.y, columns.1.z / scale.z, 0),
-            float4(columns.2.x / scale.x, columns.2.y / scale.y, columns.2.z / scale.z, 0),
-            float4(     0,          0,           0,        1)
+            SIMD4<Float>(columns.0.x / scale.x, columns.0.y / scale.y, columns.0.z / scale.z, 0),
+            SIMD4<Float>(columns.1.x / scale.x, columns.1.y / scale.y, columns.1.z / scale.z, 0),
+            SIMD4<Float>(columns.2.x / scale.x, columns.2.y / scale.y, columns.2.z / scale.z, 0),
+            SIMD4<Float>(     0,          0,           0,        1)
         )))
     }
 
@@ -813,12 +813,12 @@ extension matrix_float4x4 {
         𝜽z = atan2(r21, r11);
      */
     /// rotation from rotation matrix in radians
-    public var rotation: float3 {
+    public var rotation: SIMD3<Float> {
         //let columns = rotationMatrix.columns
         let x = atan2(columns.2.y, columns.2.z)
         let y = atan2(-columns.2.x, sqrt((columns.2.y * columns.2.y) + (columns.2.z * columns.2.z)))
         let z = atan2(columns.1.x, columns.0.x)
-        return float3(x, y, z)
+        return SIMD3<Float>(x, y, z)
     }
     
 
@@ -950,7 +950,7 @@ extension matrix_float4x4: CustomReflectable {
         let c33 = String(format: "%  .4f", columns.3.w)
 
 
-        let children = DictionaryLiteral<String, Any>(dictionaryLiteral:
+        let children = KeyValuePairs<String, Any>(dictionaryLiteral:
             (" ", "\(c00) \(c01) \(c02) \(c03)"),
                                                       (" ", "\(c10) \(c11) \(c12) \(c13)"),
                                                       (" ", "\(c20) \(c21) \(c22) \(c23)"),

@@ -43,7 +43,7 @@ public extension FocusSquare {
         }
     }
 
-    public class Segment: SCNNode {
+    class Segment: SCNNode {
 
         // MARK: - Configuration & Initialization
 

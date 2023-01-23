@@ -35,8 +35,8 @@ public class FocusSquare: SCNNode {
     
     // MARK: - Position Properties
     
-	var lastPositionOnPlane: float3?
-	var lastPosition: float3?
+	var lastPositionOnPlane: SIMD3<Float>?
+	var lastPosition: SIMD3<Float>?
     
     // MARK: - Other Properties
     
@@ -44,7 +44,7 @@ public class FocusSquare: SCNNode {
     private var isAnimating = false
     
     // use average of recent positions to avoid jitter
-    private var recentFocusSquarePositions: [float3] = []
+    private var recentFocusSquarePositions: [SIMD3<Float>] = []
     private var anchorsOfVisitedPlanes: Set<ARAnchor> = []
     
     // MARK: - Initialization
@@ -62,7 +62,7 @@ public class FocusSquare: SCNNode {
     
     // MARK: - Appearence
     
-	public func update(for position: float3, planeAnchor: ARPlaneAnchor?, camera: ARCamera?) {
+	public func update(for position: SIMD3<Float>, planeAnchor: ARPlaneAnchor?, camera: ARCamera?) {
 		lastPosition = position
 		if let anchor = planeAnchor {
 			close(flash: !anchorsOfVisitedPlanes.contains(anchor))
@@ -90,7 +90,7 @@ public class FocusSquare: SCNNode {
 	
 	// MARK: - Private
     
-	private func updateTransform(for position: float3, camera: ARCamera?) {
+	private func updateTransform(for position: SIMD3<Float>, camera: ARCamera?) {
 		// add to list of recent positions
 		recentFocusSquarePositions.append(position)
 		
@@ -313,14 +313,14 @@ public class FocusSquare: SCNNode {
 
         let sl: Float = 0.5  // segment length
         let c: Float = focusSquareThickness / 2 // correction to align lines perfectly
-        s1.simdPosition += float3(-(sl / 2 - c), -(sl - c), 0)
-		s2.simdPosition += float3(sl / 2 - c, -(sl - c), 0)
-		s3.simdPosition += float3(-sl, -sl / 2, 0)
-		s4.simdPosition += float3(sl, -sl / 2, 0)
-		s5.simdPosition += float3(-sl, sl / 2, 0)
-		s6.simdPosition += float3(sl, sl / 2, 0)
-		s7.simdPosition += float3(-(sl / 2 - c), sl - c, 0)
-		s8.simdPosition += float3(sl / 2 - c, sl - c, 0)
+        s1.simdPosition += SIMD3<Float>(-(sl / 2 - c), -(sl - c), 0)
+		s2.simdPosition += SIMD3<Float>(sl / 2 - c, -(sl - c), 0)
+		s3.simdPosition += SIMD3<Float>(-sl, -sl / 2, 0)
+		s4.simdPosition += SIMD3<Float>(sl, -sl / 2, 0)
+		s5.simdPosition += SIMD3<Float>(-sl, sl / 2, 0)
+		s6.simdPosition += SIMD3<Float>(sl, sl / 2, 0)
+		s7.simdPosition += SIMD3<Float>(-(sl / 2 - c), sl - c, 0)
+		s8.simdPosition += SIMD3<Float>(sl / 2 - c, sl - c, 0)
 
 		let planeNode = SCNNode()
 		planeNode.eulerAngles.x = .pi / 2 // Horizontal

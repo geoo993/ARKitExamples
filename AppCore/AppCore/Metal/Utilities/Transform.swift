@@ -135,7 +135,7 @@ class Transform {
     }
     
     ///Applies a rotation matrix about the given axis, with the given angle in degrees.
-    func rotate(axis: float3, angDegCCW: Float)
+    func rotate(axis: SIMD3<Float>, angDegCCW: Float)
     {
         //let resul = matrix_
         //m_model = glm::rotate(m_model, angDegCCW, axis);

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		C7072136202151750071F6FE /* SCNScene+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7072135202151750071F6FE /* SCNScene+Ext.swift */; };
 		C718199A21220C4F00E207DB /* ImageShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C718199921220C4F00E207DB /* ImageShader.metal */; };
 		C718199C21220E0900E207DB /* AnchorShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C718199B21220E0800E207DB /* AnchorShader.metal */; };
+		C72143E2297F31E100BA6D38 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C72143E1297F31E100BA6D38 /* SwiftyJSON */; };
+		C72143E5297F31FB00BA6D38 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C72143E4297F31FB00BA6D38 /* SDWebImage */; };
+		C7265E91297F03E60011180C /* ShaderTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = C7265E90297F03E60011180C /* ShaderTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7375361204227EC00C7D8C7 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7375360204227EC00C7D8C7 /* NavigationService.swift */; };
 		C73939DB211F85BF00E99139 /* SCNMatrix4+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939DA211F85BF00E99139 /* SCNMatrix4+Ext.swift */; };
 		C73939DF211FAC9200E99139 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939DD211FAC9100E99139 /* Renderable.swift */; };
@@ -23,7 +26,6 @@
 		C73939EF211FACF700E99139 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E3211FACF700E99139 /* Model.swift */; };
 		C73939F2211FACF700E99139 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939E6211FACF700E99139 /* Node.swift */; };
 		C73939F5211FACF700E99139 /* Shader.h in Headers */ = {isa = PBXBuildFile; fileRef = C73939EA211FACF700E99139 /* Shader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C73939F6211FACF700E99139 /* ShaderTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = C73939EB211FACF700E99139 /* ShaderTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C73939F7211FACF700E99139 /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939ED211FACF700E99139 /* Texturable.swift */; };
 		C73939FA211FAD7800E99139 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73939F9211FAD7800E99139 /* Scene.swift */; };
 		C739E3E7201C91100081259D /* UIViewXRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E3DD201C91100081259D /* UIViewXRadialGradient.swift */; };
@@ -121,6 +123,7 @@
 		C718199921220C4F00E207DB /* ImageShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ImageShader.metal; sourceTree = "<group>"; };
 		C718199B21220E0800E207DB /* AnchorShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = AnchorShader.metal; sourceTree = "<group>"; };
 		C724C2F92028AA03005799C0 /* SCNMathExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNMathExtensions.swift; sourceTree = "<group>"; };
+		C7265E90297F03E60011180C /* ShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		C72C2F422042DEAD00518B9C /* Measurement.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Measurement.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C7375360204227EC00C7D8C7 /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		C73939DA211F85BF00E99139 /* SCNMatrix4+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNMatrix4+Ext.swift"; sourceTree = "<group>"; };
@@ -129,7 +132,6 @@
 		C73939E3211FACF700E99139 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C73939E6211FACF700E99139 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		C73939EA211FACF700E99139 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
-		C73939EB211FACF700E99139 /* ShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		C73939ED211FACF700E99139 /* Texturable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
 		C73939F9211FAD7800E99139 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		C739E3DD201C91100081259D /* UIViewXRadialGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewXRadialGradient.swift; sourceTree = "<group>"; };
@@ -223,6 +225,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72143E5297F31FB00BA6D38 /* SDWebImage in Frameworks */,
+				C72143E2297F31E100BA6D38 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +290,7 @@
 				C718199B21220E0800E207DB /* AnchorShader.metal */,
 				C718199921220C4F00E207DB /* ImageShader.metal */,
 				C73939EA211FACF700E99139 /* Shader.h */,
-				C73939EB211FACF700E99139 /* ShaderTypes.h */,
+				C7265E90297F03E60011180C /* ShaderTypes.h */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -531,7 +535,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C73939F6211FACF700E99139 /* ShaderTypes.h in Headers */,
+				C7265E91297F03E60011180C /* ShaderTypes.h in Headers */,
 				C7B52659201C8A1D00134F00 /* AppCore.h in Headers */,
 				C73939F5211FACF700E99139 /* Shader.h in Headers */,
 			);
@@ -554,6 +558,10 @@
 			dependencies = (
 			);
 			name = AppCore;
+			packageProductDependencies = (
+				C72143E1297F31E100BA6D38 /* SwiftyJSON */,
+				C72143E4297F31FB00BA6D38 /* SDWebImage */,
+			);
 			productName = AppCore;
 			productReference = C7B52654201C8A1D00134F00 /* AppCore.framework */;
 			productType = "com.apple.product-type.framework";
@@ -564,12 +572,12 @@
 		C7B5264B201C8A1D00134F00 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Geo Games";
 				TargetAttributes = {
 					C7B52653201C8A1D00134F00 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -580,8 +588,13 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = C7B5264A201C8A1D00134F00;
+			packageReferences = (
+				C72143E0297F31E100BA6D38 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				C72143E3297F31FB00BA6D38 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = C7B52655201C8A1D00134F00 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -735,6 +748,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -761,7 +775,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -797,6 +811,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -817,10 +832,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -830,6 +846,7 @@
 		C7B5265D201C8A1D00134F00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -839,12 +856,16 @@
 				INFOPLIST_FILE = AppCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.AppCore";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -852,6 +873,7 @@
 		C7B5265E201C8A1D00134F00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -861,12 +883,16 @@
 				INFOPLIST_FILE = AppCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.AppCore";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -893,6 +919,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C72143E0297F31E100BA6D38 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		C72143E3297F31FB00BA6D38 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C72143E1297F31E100BA6D38 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C72143E0297F31E100BA6D38 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		C72143E4297F31FB00BA6D38 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C72143E3297F31FB00BA6D38 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C7B5264B201C8A1D00134F00 /* Project object */;
 }

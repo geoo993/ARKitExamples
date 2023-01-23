@@ -192,7 +192,7 @@
 					};
 					C75EBB7F2020E2AB00E484CE = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 					};
 				};

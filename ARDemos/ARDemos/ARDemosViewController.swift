@@ -8,7 +8,6 @@
 
 import UIKit
 import ARKit
-import Chameleon
 import AppCore
 import ARDrawingDemo
 import ARPlanetsDemo
@@ -25,7 +24,6 @@ import ARTelevisionDemo
 import ARDancingDemo
 import ARHomeDemo
 import ARPlacesDemo
-import ARWorldNavigationDemo
 import ARObjectRecognitionDemo
 import ARObjectDetectionDemo
 import ARVehicleDemo
@@ -48,7 +46,7 @@ public class ARDemosViewController: UITableViewController {
     
     func updateNavBar (with color : UIColor) {
         if let navController = navigationController {
-            let constrastColor = ContrastColorOf(color, returnFlat: true)
+            let constrastColor = color//ContrastColorOf(color, returnFlat: true)
             // items color
             navController.navigationBar.tintColor = constrastColor
             
@@ -57,7 +55,7 @@ public class ARDemosViewController: UITableViewController {
             
             // text color
             navController.navigationBar.largeTitleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: constrastColor, 
+                NSAttributedString.Key.foregroundColor: constrastColor,
                 NSAttributedString.Key.font: UIFont(name: FamilyName.alNileBold, size: 25)!]
         }
     }
@@ -67,7 +65,6 @@ public class ARDemosViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = "ARKit Demos"
-        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifier)
         self.tableView.separatorStyle = .none
         
@@ -132,10 +129,6 @@ public class ARDemosViewController: UITableViewController {
                    name: "ARPlacesViewController", 
                    bundle: ARPlacesViewController.bundle, 
                    storyBoard: "ARPlaces"),
-            Option(title: "AR World Navigation", 
-                   name: "ARWorldNavigationViewController",
-                   bundle: ARWorldNavigationViewController.bundle,
-                   storyBoard: "ARWorldNavigation"),
             Option(title: "AR Object Recognition",
                    name: "ARObjectRecognitionViewController",
                    bundle: ARObjectRecognitionViewController.bundle,
@@ -165,8 +158,8 @@ public class ARDemosViewController: UITableViewController {
         super.viewDidAppear(animated)
         
         if ARConfiguration.isSupported == false {
-            let alert = UIAlertController(title: "Device Requirement", 
-                                          message: "Sorry, this app only runs on devices that support augmented reality through ARKit.", 
+            let alert = UIAlertController(title: "Device Requirement",
+                                          message: "Sorry, this app only runs on devices that support augmented reality through ARKit.",
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -175,7 +168,6 @@ public class ARDemosViewController: UITableViewController {
 
     
 }
-
 
 
 // MARK: - UITableViewDataSource
@@ -193,11 +185,11 @@ extension ARDemosViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath)
         
         
-        let numberOfTodoItems = self.options.count
+//        let numberOfTodoItems = self.options.count
         
-        cell.backgroundColor =  selectedColor.darken(byPercentage: 
-            (CGFloat(indexPath.row) / CGFloat(numberOfTodoItems)) )
-        cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor ?? .white, returnFlat: true)
+//        cell.backgroundColor =  selectedColor.darken(byPercentage:
+//            (CGFloat(indexPath.row) / CGFloat(numberOfTodoItems)) )
+//        cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor ?? .white, returnFlat: true)
         
         cell.textLabel?.text = self.options[indexPath.row].title
         cell.accessoryType = .disclosureIndicator
@@ -217,9 +209,6 @@ extension ARDemosViewController {
         
         let vc = storyboard.instantiateViewController(withIdentifier: option.name)
         vc.title = option.title
-        navigationController?.pushViewController(vc, animated: true, completion: { () in
-            print("\n\(option.title) init")
-        })
-        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

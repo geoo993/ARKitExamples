@@ -32,6 +32,8 @@ public extension ARCamera.TrackingState {
                 return "Initializing AR Session"
             case .relocalizing:
                 return "Relocalizing AR Session"
+            @unknown default:
+                fatalError()
             }
         }
     }
@@ -39,7 +41,7 @@ public extension ARCamera.TrackingState {
 
 // MARK: - Delegate
 
-public protocol ARTextManagerDelegate: class {
+public protocol ARTextManagerDelegate: AnyObject {
     func textManager(didChangeText changedText : String)
     func textManager(shouldHideText hide : Bool)
     func textManager(shouldHidePanel hide : Bool)
@@ -192,6 +194,8 @@ public class ARTextManager {
                     message += "Initializing AR Session"
                 case .relocalizing:
                     message += "Relocalizing AR Session"
+                @unknown default:
+                    fatalError()
                 }
 			case .normal: break
 			}

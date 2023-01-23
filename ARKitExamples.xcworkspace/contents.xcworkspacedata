@@ -17,9 +17,6 @@
       location = "group:ARObjectRecognition/ARObjectRecognition.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:ARWorldNavigation/ARWorldNavigation.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:ARPlaces/ARPlaces.xcodeproj">
    </FileRef>
    <FileRef
@@ -67,41 +64,6 @@
    <FileRef
       location = "group:ARDrawing/ARDrawing.xcodeproj">
    </FileRef>
-   <Group
-      location = "group:Cartfile"
-      name = "Cartfile">
-      <Group
-         location = "container:"
-         name = "Dependencies">
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/Each/Each.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/SDWebImage/SDWebImage.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/SVProgressHUD/SVProgressHUD.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/Chameleon/Chameleon.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/Alamofire/Alamofire.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/Firebase/Firebase.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Cartfile/Carthage/Checkouts/realm-cocoa/Realm.xcodeproj">
-         </FileRef>
-      </Group>
-      <FileRef
-         location = "group:Cartfile">
-      </FileRef>
-   </Group>
    <FileRef
       location = "group:AppCore/AppCore.xcodeproj">
    </FileRef>

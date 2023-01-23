@@ -1,4 +1,0 @@
-binary "https://www.mapbox.com/ios-sdk/Mapbox-iOS-SDK.json" "3.7.5"
-github "mapbox/MapboxDirections.swift" "v0.17.0"
-github "mapbox/Turf-swift" "cffdfa32ec9b9eea4aae69b3af15d557f768b1f8"
-github "raphaelmor/Polyline" "v4.2.0"

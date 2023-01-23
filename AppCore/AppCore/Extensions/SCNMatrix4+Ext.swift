@@ -9,8 +9,8 @@
 import Foundation
 import SceneKit
 
-public extension SCNMatrix4
-{
+
+extension SCNMatrix4 {
     // https://stackoverflow.com/questions/42029347/position-a-scenekit-object-in-front-of-scncameras-current-orientation
     // https://gamedev.stackexchange.com/questions/50963/how-to-extract-euler-angles-from-transformation-matrix
     // https://www.opengl.org/discussion_boards/showthread.php/159215-Is-it-possible-to-extract-rotation-translation-scale-given-a-matrix
@@ -104,9 +104,9 @@ public extension SCNMatrix4
     }
 
     public var toFloat4x4: float4x4 {
-        return float4x4(float4(m11, m12, m13, m14),
-                        float4(m21, m22, m23, m24),
-                        float4(m31, m32, m33, m34),
-                        float4(m41, m42, m43, m44))
+        return float4x4(SIMD4<Float>(m11, m12, m13, m14),
+                        SIMD4<Float>(m21, m22, m23, m24),
+                        SIMD4<Float>(m31, m32, m33, m34),
+                        SIMD4<Float>(m41, m42, m43, m44))
     }
 }

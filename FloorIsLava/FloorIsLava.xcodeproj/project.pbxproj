@@ -195,7 +195,7 @@
 					};
 					C7CFCA7220220AE6005CD6F5 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 					};
 				};

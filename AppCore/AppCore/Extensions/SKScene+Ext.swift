@@ -9,7 +9,7 @@
 import SpriteKit
 
 // MARK: - Scene extensions
-public extension SKScene {
+extension SKScene {
 
     public static func loadSpriteKitScene(from bundle: Bundle, name: String, exten: String = "sks") -> SKScene? {
         guard let path = bundle.path(forResource: name, ofType: exten) else { return nil }

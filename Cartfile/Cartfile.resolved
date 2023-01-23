@@ -1,8 +1,0 @@
-github "Alamofire/Alamofire" "4.7.3"
-github "SVProgressHUD/SVProgressHUD" "2.2.5"
-github "SwiftyJSON/SwiftyJSON" "4.1.0"
-github "ViccAlexander/Chameleon" "2.2.0"
-github "dalu93/Each" "1.2.0"
-github "realm/realm-cocoa" "v3.7.6"
-github "rs/SDWebImage" "4.4.2"
-github "soheilbm/Firebase" "4.10.0"

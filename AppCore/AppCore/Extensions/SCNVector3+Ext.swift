@@ -23,10 +23,10 @@
 import Foundation
 import SceneKit
 
-public extension SCNVector3
-{
-    public var toFloat3: float3 {
-        return float3(x, y, z)
+
+extension SCNVector3 {
+    public var toFloat3: SIMD3<Float> {
+        return SIMD3<Float>(x, y, z)
     }
 
     public var toDegress: SCNVector3 {

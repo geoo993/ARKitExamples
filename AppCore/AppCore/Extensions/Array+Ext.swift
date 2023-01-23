@@ -4,7 +4,7 @@ import ARKit
 
 // MARK: - Collection extensions
 public extension Array where Iterator.Element == Float {
-    public var average: Float? {
+    var average: Float? {
         guard !self.isEmpty else {
             return nil
         }
@@ -17,13 +17,13 @@ public extension Array where Iterator.Element == Float {
 }
 
 
-public extension Array where Iterator.Element == float3 {
-    public var average: float3? {
+public extension Array where Iterator.Element == SIMD3<Float> {
+    var average: SIMD3<Float>? {
         guard !self.isEmpty else {
             return nil
         }
         
-        let sum = self.reduce(float3(0)) { current, next in
+        let sum = self.reduce(SIMD3<Float>(repeating: 0)) { current, next in
             return current + next
         }
         return sum / Float(self.count)
@@ -38,7 +38,7 @@ public extension Array {
     }
     
     func shuffle() -> [Element] {
-        var list = self 
+        let list = self
         if list.isEmpty { return [] }
         
         guard list.count > 0 else { return [] }
@@ -54,7 +54,7 @@ public extension Array {
         return results
     }
   
-    public func takeRandom(amount: Int) -> [Element] {
+    func takeRandom(amount: Int) -> [Element] {
         var list = self 
         if list.isEmpty { return [] }
         
@@ -78,15 +78,15 @@ public extension Array {
 
 
 public extension Array where Element: Comparable {
-    public func containsSameElements(as other: [Element]) -> Bool {
+    func containsSameElements(as other: [Element]) -> Bool {
         return self.count == other.count && self.sorted() == other.sorted()
     }
 }
 
 public extension Array where Array.Iterator.Element: Hashable {
-    public typealias Element = Array.Iterator.Element
+    typealias Element = Array.Iterator.Element
     
-    public func uniqueElements() -> [Element] {
+    func uniqueElements() -> [Element] {
         let list = self
         if list.isEmpty { return [] }
         
@@ -97,7 +97,7 @@ public extension Array where Array.Iterator.Element: Hashable {
         return result
     }
     
-    public func skipDuplicates() -> [Element] {
+    func skipDuplicates() -> [Element] {
         
         var list = self 
         
@@ -110,7 +110,7 @@ public extension Array where Array.Iterator.Element: Hashable {
         for element in list {
             if (tempList.contains(element)) {
                 //found the next of the duplicated word
-                if let index = tempList.index(of: element){
+                if let index = tempList.firstIndex(of: element){
                     tempList.remove(at: index)
                     list.remove(at: index)
                 }
@@ -127,7 +127,7 @@ public extension Array where Array.Iterator.Element: Hashable {
         return tempList
     }
 
-    public func elementFrequencyCounter() -> [Element: Int] {
+    func elementFrequencyCounter() -> [Element: Int] {
         return reduce([:]) { (accu: [Element: Int], element) in
             var accu = accu
             accu[element] = accu[element]?.advanced(by: 1) ?? 1
@@ -135,7 +135,7 @@ public extension Array where Array.Iterator.Element: Hashable {
         }
     }
     
-    public func chooseOne () -> Element {
+    func chooseOne () -> Element {
         
         let list: [Element] = self 
         let len = UInt32(list.count)
@@ -143,7 +143,7 @@ public extension Array where Array.Iterator.Element: Hashable {
         return list[random]
     }
     
-    public func randomise() -> [Element] {
+    func randomise() -> [Element] {
         var list = self 
         if list.isEmpty { return [] }
         
@@ -160,7 +160,7 @@ public extension Array where Array.Iterator.Element: Hashable {
         return temp
     }
 
-    public func removeAllAfter(index: Int) -> [Element]{
+    func removeAllAfter(index: Int) -> [Element]{
         let list = self 
         if list.isEmpty { return [] }
         guard list.count > index else { return [] }

@@ -1,7 +1,7 @@
 import Foundation
 import ARKit
 
-public extension ClosedRange where Bound : FloatingPoint {
+extension ClosedRange where Bound : FloatingPoint {
     public func random() -> Bound {
         let range = self.upperBound - self.lowerBound
         let randomValue = (Bound(arc4random_uniform(UINT32_MAX)) / Bound(UINT32_MAX)) * range + self.lowerBound
@@ -9,16 +9,16 @@ public extension ClosedRange where Bound : FloatingPoint {
     }
 }
 
-public extension FloatingPoint {
+extension FloatingPoint {
     public var toRadians: Self { return self * .pi / 180 }
     public var toDegrees: Self { return self * 180 / .pi }
 }
 
-public extension float3 { 
+extension SIMD3<Float> {
     
-    public static func rayIntersectionWithHorizontalPlane(rayOrigin: float3, 
-                                                          direction: float3, 
-                                                          planeY: Float) -> float3? {
+    public static func rayIntersectionWithHorizontalPlane(rayOrigin: SIMD3<Float>, 
+                                                          direction: SIMD3<Float>, 
+                                                          planeY: Float) -> SIMD3<Float>? {
         
         let direction = simd_normalize(direction)
         
@@ -54,7 +54,7 @@ public extension float3 {
 
 
 
-public extension Float {
+extension Float {
     public var toRadians : Float { return self * Float.pi / 180.0 }
     public var toDegrees : Float { return self * 180.0 / Float.pi }
     public var toInt: Int { return Int(self) }
@@ -73,7 +73,7 @@ public extension Float {
     }
 }
 
-public extension CGFloat {
+extension CGFloat {
     
     public var toRadians : CGFloat { return self * CGFloat.pi / 180.0 }
     public var toDegrees : CGFloat { return self * 180.0 / CGFloat.pi }

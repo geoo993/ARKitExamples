@@ -44,10 +44,10 @@ public enum GeoCodingType{
 public class LocationManager: NSObject,CLLocationManagerDelegate {
     
     /* Private variables */
-    fileprivate var completionHandler:LMLocationCompletionHandler
+    fileprivate var completionHandler: LMLocationCompletionHandler = nil
     
-    fileprivate var reverseGeocodingCompletionHandler:LMReverseGeocodeCompletionHandler
-    fileprivate var geocodingCompletionHandler:LMGeocodeCompletionHandler
+    fileprivate var reverseGeocodingCompletionHandler: LMReverseGeocodeCompletionHandler = nil
+    fileprivate var geocodingCompletionHandler: LMGeocodeCompletionHandler = nil
     
     fileprivate var locationStatus : NSString = "Calibrating"// to pass in handler
     fileprivate var locationManager: CLLocationManager!
@@ -377,31 +377,20 @@ public class LocationManager: NSObject,CLLocationManagerDelegate {
     fileprivate func geoCodeAddress(_ address:NSString){
         
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(address as String, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-            
+        
+        geocoder.geocodeAddressString(address as String, completionHandler: { placemarks, error in
             if (error != nil) {
-                
                 self.geocodingCompletionHandler!(nil,nil,error!.localizedDescription)
-                
-            }
-            else{
-                
+            } else {
                 if let placemark = placemarks?.first {
-                    
                     let address = AddressParser(applePlacemark: placemark)
                     let addressDict = address.getAddressDictionary()
                     self.geocodingCompletionHandler!(addressDict,placemark,nil)
-                }
-                else {
-                    
+                } else {
                     self.geocodingCompletionHandler!(nil,nil,"invalid address: \(address)")
-                    
                 }
             }
-            
-        } as! CLGeocodeCompletionHandler)
-        
-        
+        })
     }
     
     

@@ -1,7 +1,7 @@
 
 import Foundation
 
-public extension UINavigationController {
+extension UINavigationController {
   
     func pushViewController(_ viewController: UIViewController, animated: Bool, completion: @escaping () -> Void) {
         pushViewController(viewController, animated: animated)

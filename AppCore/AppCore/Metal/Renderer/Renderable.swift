@@ -133,7 +133,7 @@ extension Renderable {
                 mesh.vertexDescriptor = descriptor
                 return try [MTKMesh(mesh: mesh, device: device)]
             case .sphere:
-                let mesh = MDLMesh(sphereWithExtent: float3(1, 1, 1),
+                let mesh = MDLMesh(sphereWithExtent: SIMD3<Float>(1, 1, 1),
                                    segments: vector_uint2(40, 40), inwardNormals: false,
                                    geometryType: .triangles, allocator: bufferAllocator)
                 mesh.vertexDescriptor = descriptor

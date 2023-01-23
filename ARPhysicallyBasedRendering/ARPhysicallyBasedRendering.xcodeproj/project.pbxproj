@@ -711,6 +711,7 @@
 				TargetAttributes = {
 					C7336F68212F63AA00B03884 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = "";
 					};
 					C76E6B13212F631E000B5F87 = {
 						CreatedOnToolsVersion = 10.0;

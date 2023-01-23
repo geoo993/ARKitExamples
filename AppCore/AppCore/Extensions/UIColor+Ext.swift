@@ -8,7 +8,7 @@ public struct ColorComponents {
     var r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat
 }
 
-public extension UIColor {
+extension UIColor {
  
     public convenience init(colorArray array: NSArray) {
         let r = array[0] as! CGFloat
@@ -22,7 +22,7 @@ public extension UIColor {
         
         if hexString.hasPrefix("#") {
             let start = hexString.index(hexString.startIndex, offsetBy: 1)
-            let hexColor = hexString.substring(from: start.encodedOffset)
+            let hexColor = hexString.substring(from: start.utf16Offset(in: hexString))
             
             if hexColor.count == 8 {
                 let scanner = Scanner(string: hexColor)
@@ -60,7 +60,7 @@ public extension UIColor {
         
         if rgba.hasPrefix("#") {
             let start = rgba.index(rgba.startIndex, offsetBy: 1)
-            let hex = rgba.substring(from: start.encodedOffset)
+            let hex = rgba.substring(from: start.utf16Offset(in: rgba))
             let scanner = Scanner(string: hex)
             var hexValue: CUnsignedLongLong = 0
             if scanner.scanHexInt64(&hexValue) {

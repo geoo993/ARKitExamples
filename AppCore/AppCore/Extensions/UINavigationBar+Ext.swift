@@ -1,6 +1,6 @@
 import Foundation
 
-public extension UINavigationBar {
+extension UINavigationBar {
     
     public func clearNavigationBarBackground(with color: UIColor){
         self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)

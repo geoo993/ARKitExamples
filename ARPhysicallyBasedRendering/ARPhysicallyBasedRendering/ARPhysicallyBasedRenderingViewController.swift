@@ -429,10 +429,10 @@ public class ARPhysicallyBasedRenderingViewController: UIViewController {
     func getWorldMap() -> ARWorldMap? {
         // Retrive world map from session object
         sceneView.session.getCurrentWorldMap { (worldMap, error) in
-            guard let worldMap = worldMap else {
-                //showAlert()
-                return
-            }
+//            guard let worldMap = worldMap else {
+//                //showAlert()
+//                return
+//            }
         }
 
         return nil

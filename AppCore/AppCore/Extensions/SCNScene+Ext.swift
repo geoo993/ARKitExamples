@@ -9,7 +9,7 @@
 import SceneKit
 
 // MARK: - Scene extensions
-public extension SCNScene {
+extension SCNScene {
     
     public func enableEnvironmentMapWithIntensity(_ intensity: CGFloat, queue: DispatchQueue) {
         queue.async {

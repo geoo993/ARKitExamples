@@ -9,15 +9,13 @@
 import UIKit
 import ARKit
 import AppCore
-import Each
-
 public class WackAJellyFishViewController: UIViewController {
 
     public static var bundle : Bundle {
         return Bundle(identifier: "com.geo-games.WackAJellyFishDemo")!
     }
     
-    var timer = Each(1).seconds // is going to keep counting up by 1 seconds
+    var timer = Timer() // is going to keep counting up by 1 seconds
     var countDown = 10
     var jellyFishs = [SCNNode]()
     
@@ -71,7 +69,7 @@ public class WackAJellyFishViewController: UIViewController {
         // Pause the view's session
         sceneView.session.pause()
         
-        timer.stop()
+//        timer.stop()
         
     }
 
@@ -128,17 +126,17 @@ public class WackAJellyFishViewController: UIViewController {
     }
     
     func setTimer() {
-        timer.perform { [unowned self] () -> NextStep in
-            self.countDown -= 1
-            self.timerLabel.text = "\(self.countDown)"
-            
-            if self.countDown <= 0 {
-                self.timerLabel.text = "Out of Time, Game Over!"
-                return .stop
-            } else {
-                return .continue
-            }
-        }
+//        timer.perform { [unowned self] () -> NextStep in
+//            self.countDown -= 1
+//            self.timerLabel.text = "\(self.countDown)"
+//
+//            if self.countDown <= 0 {
+//                self.timerLabel.text = "Out of Time, Game Over!"
+//                return .stop
+//            } else {
+//                return .continue
+//            }
+//        }
     }
     
     func restoreTimer () {
@@ -147,7 +145,7 @@ public class WackAJellyFishViewController: UIViewController {
     }
     
     func reset () {
-        timer.stop()
+//        timer.stop()
         countDown = 10
         timerLabel.text = "Let's Play"
         play.isEnabled = true

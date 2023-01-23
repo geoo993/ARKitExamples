@@ -10,7 +10,6 @@ import UIKit
 import SceneKit
 import ARKit
 import AppCore
-import Each
 
 public class ARHoopsViewController: UIViewController {
 
@@ -24,7 +23,7 @@ public class ARHoopsViewController: UIViewController {
     var lift : Float = 0
     var restitution : CGFloat = 0.3
     
-    var timer = Each(0.05).seconds
+    var timer = Timer()
     var basketAdded : Bool {
         return self.sceneView.scene.rootNode.childNode(withName: "basket", recursively: false) != nil
     }
@@ -77,7 +76,7 @@ public class ARHoopsViewController: UIViewController {
         // Pause the view's session
         sceneView.session.pause()
         
-        timer.stop()
+//        timer.stop()
     }
     
     
@@ -273,16 +272,17 @@ extension ARHoopsViewController {
         if basketAdded {
             switch sender.state {
             case .began:
-                timer.perform(closure: { [unowned self] () -> NextStep in
-                    self.power += 1
-                    self.lift += 0.15
-                    return .continue
-                })
+//                timer.perform(closure: { [unowned self] () -> NextStep in
+//                    self.power += 1
+//                    self.lift += 0.15
+//                    return .continue
+//                })
+                break
             //case .changed:
 //                power += 1
 //                lift += 0.2
             case .ended:
-                timer.stop()
+//                timer.stop()
                 shootBall()
             default:
                 break

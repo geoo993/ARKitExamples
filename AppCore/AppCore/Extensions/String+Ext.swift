@@ -6,7 +6,7 @@ func * (lhs: Character, rhs: Int) -> String {
     return String(repeating: String(lhs), count: rhs)
 }
 
-public extension String {
+extension String {
     
     public func tokenizeToWord() -> [String] {
         return self.tokenize(option: kCFStringTokenizerUnitWord)
@@ -338,8 +338,8 @@ public extension String {
     }
     
     public func range(fromStringIndex stringIndex: Range<String.Index>?) -> Range<Int> {
-        guard let start = stringIndex?.lowerBound.encodedOffset,
-            let end = stringIndex?.upperBound.encodedOffset else { return 0..<0 }
+        guard let start = stringIndex?.lowerBound.utf16Offset(in: self),
+            let end = stringIndex?.upperBound.utf16Offset(in: self) else { return 0..<0 }
         return start..<end
     }
 
