@@ -39,7 +39,8 @@ class Scene: SKScene {
 
             DispatchQueue.global(qos: .background).async {
                 do {
-                    let model = try VNCoreMLModel(for: Inceptionv3().model)
+                    let inception = try Inceptionv3(configuration: .init())
+                    let model = try VNCoreMLModel(for: inception.model)
                     let request = VNCoreMLRequest(model: model, completionHandler: { (request, error) in
                         
                         // Jump onto the main thread

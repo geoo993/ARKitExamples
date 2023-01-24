@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <AppCore/ShaderTypes.h>
 #import "ShaderTypes.h"
 
 //! Project version number for AppCore.

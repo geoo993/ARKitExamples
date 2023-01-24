@@ -53,6 +53,8 @@ public final class LocationService: NSObject, CLLocationManagerDelegate {
             startUpdatingLocation(locationManager: locationManager)
         case .denied, .notDetermined, .restricted:
             stopUpdatingLocation(locationManager: locationManager)
+        @unknown default:
+            fatalError()
         }
     }
     

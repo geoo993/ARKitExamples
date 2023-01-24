@@ -17,7 +17,7 @@ public final class LightsScene: Scene {
 
         for direction in directionalLightsDirections {
             var base = BaseLight()
-            base.color = float3(1, 1, 1)
+            base.color = SIMD3<Float>(1, 1, 1)
             base.intensity = 0
             base.ambient = 0.5
             base.diffuse = 0.4
@@ -40,7 +40,7 @@ public final class LightsScene: Scene {
 
             for i in 0..<dirLights.count {
                 dirLights[i].direction = frame.camera.transform.back
-                dirLights[i].base.color = float3(0.6, 0.6, 0.6)
+                dirLights[i].base.color = SIMD3<Float>(0.6, 0.6, 0.6)
                 dirLights[i].base.intensity = ambientIntensity
             }
         }
@@ -66,8 +66,8 @@ public final class LightsScene: Scene {
                            imageName: "explosion.png", vertexShader: .vertex_fireball_shader,
                            fragmentShader: .fragment_fireball_shader)
         fireball.material.useTexture = true
-        fireball.scale = float3(0.1, 0.1, 0.1)
-        fireball.material.color = float4(0, 1, 0, 1)
+        fireball.scale = SIMD3<Float>(0.1, 0.1, 0.1)
+        fireball.material.color = SIMD4<Float>(0, 1, 0, 1)
         fireball.material.shininess = 32
         add(childNode: fireball)
 
